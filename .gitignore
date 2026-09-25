@@ -1,0 +1,16 @@
+# Downloaded source data. Rebuild it with scripts/00_get_data.sh.
+data-raw/
+
+# R session files
+.Rhistory
+.RData
+.Rproj.user/
+
+# renv keeps its package library locally. Only renv.lock goes into git.
+renv/library/
+renv/staging/
+
+# macOS
+.DS_Store
+.positai
+*.numbers

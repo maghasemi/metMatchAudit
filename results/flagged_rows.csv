@@ -1,0 +1,114 @@
+row_id,file,row_in_file,original_name,inchikey,metlinkr_name,ik_valid,block1,block2,prot,pattern
+LEOCC_Metabolon:1235,LEOCC_Metabolon,1235,2-methoxyhydroquinone sulfate (1),LEJCLCZOTCOTQE-UHFFFAOYSA-N,2-Methoxyhydroquinone sulfate,TRUE,LEJCLCZOTCOTQE,UHFFFAOYSA,N,different_connectivity
+LEOCC_Metabolon:1236,LEOCC_Metabolon,1236,2-methoxyhydroquinone sulfate (2),DQJWAJBJWZYKLK-UHFFFAOYSA-N,2-Methoxyhydroquinone sulfate,TRUE,DQJWAJBJWZYKLK,UHFFFAOYSA,N,different_connectivity
+LEOCC_Metabolon:694,LEOCC_Metabolon,694,3-methyl catechol sulfate (2),TZVUCGJSHGKWCJ-UHFFFAOYSA-N,3-Methylcatechol sulfate,TRUE,TZVUCGJSHGKWCJ,UHFFFAOYSA,N,different_connectivity
+LEOCC_Metabolon:696,LEOCC_Metabolon,696,3-methyl catechol sulfate (1),HFDKYCXWNHNKAF-UHFFFAOYSA-N,3-Methylcatechol sulfate,TRUE,HFDKYCXWNHNKAF,UHFFFAOYSA,N,different_connectivity
+LEOCC_Metabolon:322,LEOCC_Metabolon,322,androsterone sulfate,ZMITXKRGXGRMKS-HLUDHZFRSA-N,5alpha-Androstane-3alpha-ol-17-one sulfate,TRUE,ZMITXKRGXGRMKS,HLUDHZFRSA,N,different_connectivity
+LEOCC_Metabolon:557,LEOCC_Metabolon,557,andro steroid monosulfate C19H28O6S (1)*,UNURIUSTYBXRLV-UHFFFAOYSA-N,5alpha-Androstane-3alpha-ol-17-one sulfate,TRUE,UNURIUSTYBXRLV,UHFFFAOYSA,N,different_connectivity
+LEOCC_Metabolon:666,LEOCC_Metabolon,666,(15:2)-anacardic acid,KAOMOVYHGLSFHQ-UTOQUPLUSA-N,Anacardic acid C15:2,TRUE,KAOMOVYHGLSFHQ,UTOQUPLUSA,N,different_connectivity
+LEOCC_Metabolon:668,LEOCC_Metabolon,668,(15:0)-anacardic acid,ADFWQBGTDJIESE-UHFFFAOYSA-N,Anacardic acid C15:2,TRUE,ADFWQBGTDJIESE,UHFFFAOYSA,N,different_connectivity
+LEOCC_Metabolon:132,LEOCC_Metabolon,132,asparagine,DCXYFEDJOCDNAF-REOHCLBHSA-N,Asparagine,TRUE,DCXYFEDJOCDNAF,REOHCLBHSA,N,different_connectivity
+LEOCC_Metabolon:1028,LEOCC_Metabolon,1028,(N(1) + N(8))-acetylspermidine,MQTAVJHICJWXBR-UHFFFAOYSA-N,Asparagine,TRUE,MQTAVJHICJWXBR,UHFFFAOYSA,N,different_connectivity
+LEOCC_Metabolon:570,LEOCC_Metabolon,570,cis-4-decenoylcarnitine (C10:1),OQWOHRPOYAVIOK-KTKRTIGZSA-N,CAR 10:1,TRUE,OQWOHRPOYAVIOK,KTKRTIGZSA,N,different_connectivity
+LEOCC_Metabolon:1191,LEOCC_Metabolon,1191,3-decenoylcarnitine,YMJNFVUJNDWLND-ZHACJKMWSA-N,CAR 10:1,TRUE,YMJNFVUJNDWLND,ZHACJKMWSA,N,different_connectivity
+LEOCC_Metabolon:639,LEOCC_Metabolon,639,oleoyl-linoleoyl-glycerol (18:1/18:2) [1],BLZVZPYMHLXLHG-RQOIEFAZSA-N,DG 18:1_18:2,TRUE,BLZVZPYMHLXLHG,RQOIEFAZSA,N,different_connectivity
+LEOCC_Metabolon:640,LEOCC_Metabolon,640,oleoyl-linoleoyl-glycerol (18:1/18:2) [2],GREDRAMJRDQWEJ-LTEAFHAISA-N,DG 18:1_18:2,TRUE,GREDRAMJRDQWEJ,LTEAFHAISA,N,different_connectivity
+Broad_2022Aug:501,Broad_2022Aug,501,3-Decenoic acid,CPVUNKGURQKKKX-BQYQJAHWSA-N,Decenoic acid,TRUE,CPVUNKGURQKKKX,BQYQJAHWSA,N,different_connectivity
+LEOCC_Metabolon:1214,LEOCC_Metabolon,1214,(2 or 3)-decenoate (10:1n7 or n8),WXBXVVIUZANZAU-CMDGGOBGSA-N,Decenoic acid,TRUE,WXBXVVIUZANZAU,CMDGGOBGSA,N,different_connectivity
+LEOCC_Metabolon:343,LEOCC_Metabolon,343,docosapentaenoate (n3 DPA; 22:5n3),YUFFSWGQGVEMMI-JLNKQSITSA-N,Docosapentaenoic acid (22n-6),TRUE,YUFFSWGQGVEMMI,JLNKQSITSA,N,different_connectivity
+LEOCC_Metabolon:454,LEOCC_Metabolon,454,docosapentaenoate (n6 DPA; 22:5n6),AVKOENOBFIYBSA-WMPRHZDHSA-N,Docosapentaenoic acid (22n-6),TRUE,AVKOENOBFIYBSA,WMPRHZDHSA,N,different_connectivity
+LEOCC_Metabolon:306,LEOCC_Metabolon,306,2-linoleoylglycerol (18:2),IEPGNWMPIFDNSD-HZJYTTRNSA-N,MG 18:2,TRUE,IEPGNWMPIFDNSD,HZJYTTRNSA,N,different_connectivity
+LEOCC_Metabolon:317,LEOCC_Metabolon,317,1-linoleoylglycerol (18:2),WECGLUPZRHILCT-HZJYTTRNSA-N,MG 18:2,TRUE,WECGLUPZRHILCT,HZJYTTRNSA,N,different_connectivity
+LEOCC_Metabolon:256,LEOCC_Metabolon,256,2-arachidonoylglycerol (20:4),RCRCTBLIHCHWDZ-DOFZRALJSA-N,MG 20:4,TRUE,RCRCTBLIHCHWDZ,DOFZRALJSA,N,different_connectivity
+LEOCC_Metabolon:421,LEOCC_Metabolon,421,1-arachidonylglycerol (20:4),DCPCOKIYJYGMDN-DOFZRALJSA-N,MG 20:4,TRUE,DCPCOKIYJYGMDN,DOFZRALJSA,N,different_connectivity
+LEOCC_Metabolon:564,LEOCC_Metabolon,564,N-acetyl-3-methylhistidine*,FKTXRTPBUWLETL-UHFFFAOYSA-N,N-Acetyl-3-methylhistidine,TRUE,FKTXRTPBUWLETL,UHFFFAOYSA,N,different_connectivity
+LEOCC_Metabolon:713,LEOCC_Metabolon,713,N-acetyl-1-methylhistidine*,GVRCKHXHWSYDEF-UHFFFAOYSA-N,N-Acetyl-3-methylhistidine,TRUE,GVRCKHXHWSYDEF,UHFFFAOYSA,N,different_connectivity
+LEOCC_Metabolon:468,LEOCC_Metabolon,468,octadecanedioate (C18-DC),BNJOQKFENDDGSC-UHFFFAOYSA-N,Octadecanedioic acid,TRUE,BNJOQKFENDDGSC,UHFFFAOYSA,N,different_connectivity
+LEOCC_Metabolon:1047,LEOCC_Metabolon,1047,octadecadienedioate (C18:2-DC)*,ZKQNWTGXRAIVGG-PXELCPQFSA-N,Octadecanedioic acid,TRUE,ZKQNWTGXRAIVGG,PXELCPQFSA,N,different_connectivity
+Broad_2022Aug:480,Broad_2022Aug,480,Pregnenolone sulfate,DIJBBUIOWGGQOP-QGVNFLHTSA-N,Pregnenolone sulfate,TRUE,DIJBBUIOWGGQOP,QGVNFLHTSA,N,different_connectivity
+LEOCC_Metabolon:546,LEOCC_Metabolon,546,pregnenediol sulfate (C21H34O5S)*,MENQCIVHHONJLU-UHFFFAOYSA-N,Pregnenolone sulfate,TRUE,MENQCIVHHONJLU,UHFFFAOYSA,N,different_connectivity
+LEOCC_Metabolon:556,LEOCC_Metabolon,556,pregnenolone sulfate,DIJBBUIOWGGQOP-QGVNFLHTSA-N,Pregnenolone sulfate,TRUE,DIJBBUIOWGGQOP,QGVNFLHTSA,N,different_connectivity
+Broad_2022Aug:229,Broad_2022Aug,229,SM 36:1;O2,LKQLRGMMMAHREN-YJFXYUILSA-N,SM 18:1;O2/18:0,TRUE,LKQLRGMMMAHREN,YJFXYUILSA,N,different_connectivity
+LEOCC_Metabolon:204,LEOCC_Metabolon,204,stearoyl sphingomyelin (d18:1/18:0),LKQLRGMMMAHREN-YJFXYUILSA-N,SM 18:1;O2/18:0,TRUE,LKQLRGMMMAHREN,YJFXYUILSA,N,different_connectivity
+LEOCC_Metabolon:801,LEOCC_Metabolon,801,"sphingomyelin (d18:1/20:2, d18:2/20:1, d16:1/22:2)*",YVTVVJRJLRHYSJ-COUPUTHFSA-N,SM 18:1;O2/18:0,TRUE,YVTVVJRJLRHYSJ,COUPUTHFSA,N,different_connectivity
+Broad_2022Aug:384,Broad_2022Aug,384,Xylose,SRBFZHDQGSBBOR-IOVATXLUSA-N,Xylose,TRUE,SRBFZHDQGSBBOR,IOVATXLUSA,N,different_connectivity
+LEOCC_Metabolon:118,LEOCC_Metabolon,118,xylose,PYMYPHUHKUWMLA-VPENINKCSA-N,Xylose,TRUE,PYMYPHUHKUWMLA,VPENINKCSA,N,different_connectivity
+Broad_2022Aug:317,Broad_2022Aug,317,2-Hydroxycaproic and or 2-Hydroxyisocaproic acid,RILPIWOPNGRASR-RFZPGFLSSA-N,2-Hydroxy-3-methyl-pentanoic acid,TRUE,RILPIWOPNGRASR,RFZPGFLSSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:444,LEOCC_Metabolon,444,2-hydroxy-3-methylvalerate,RILPIWOPNGRASR-UHFFFAOYSA-N,2-Hydroxy-3-methyl-pentanoic acid,TRUE,RILPIWOPNGRASR,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:316,Broad_2022Aug,316,2-Hydroxyvaleric and or 2-Hydroxyisovaleric acid,NGEWQZIDQIYUNV-BYPYZUCNSA-N,2-Hydroxy-3-methylbutyric acid,TRUE,NGEWQZIDQIYUNV,BYPYZUCNSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:381,LEOCC_Metabolon,381,alpha-hydroxyisovalerate,NGEWQZIDQIYUNV-UHFFFAOYSA-N,2-Hydroxy-3-methylbutyric acid,TRUE,NGEWQZIDQIYUNV,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:318,Broad_2022Aug,318,2-Hydroxyglutaric acid,HWXBTNAVRSUOJR-VKHMYHEASA-N,2-Hydroxyglutaric acid,TRUE,HWXBTNAVRSUOJR,VKHMYHEASA,N,same_connectivity_different_block2
+LEOCC_Metabolon:547,LEOCC_Metabolon,547,2-hydroxyglutarate,HWXBTNAVRSUOJR-UHFFFAOYSA-N,2-Hydroxyglutaric acid,TRUE,HWXBTNAVRSUOJR,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:411,Broad_2022Aug,411,2-Hydroxystearic acid,KIHBGTRZFAVZRV-KRWDZBQOSA-N,2-Hydroxystearic acid,TRUE,KIHBGTRZFAVZRV,KRWDZBQOSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:183,LEOCC_Metabolon,183,2-hydroxystearate,KIHBGTRZFAVZRV-QGZVFWFLSA-N,2-Hydroxystearic acid,TRUE,KIHBGTRZFAVZRV,QGZVFWFLSA,N,same_connectivity_different_block2
+Broad_2022Aug:319,Broad_2022Aug,319,3-Methyladipic and or Pimelic acid,SYEOWUNSTUDKGM-YFKPBYRVSA-N,3-Methyladipic acid,TRUE,SYEOWUNSTUDKGM,YFKPBYRVSA,N,same_connectivity_different_block2
+Broad_2022Aug:502,Broad_2022Aug,502,3-Methyladipic acid,SYEOWUNSTUDKGM-YFKPBYRVSA-N,3-Methyladipic acid,TRUE,SYEOWUNSTUDKGM,YFKPBYRVSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:492,LEOCC_Metabolon,492,3-methyladipate,SYEOWUNSTUDKGM-UHFFFAOYSA-N,3-Methyladipic acid,TRUE,SYEOWUNSTUDKGM,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:402,Broad_2022Aug,402,3S-Hydroxyhexanoic acid,HPMGFDVTYHWBAG-YFKPBYRVSA-N,3S-Hydroxyhexanoic acid,TRUE,HPMGFDVTYHWBAG,YFKPBYRVSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:810,LEOCC_Metabolon,810,3-hydroxyhexanoate,HPMGFDVTYHWBAG-UHFFFAOYSA-N,3S-Hydroxyhexanoic acid,TRUE,HPMGFDVTYHWBAG,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:331,Broad_2022Aug,331,AMP,UDMBCSSLTHHNCD-KQYNXXCUSA-N,AMP,TRUE,UDMBCSSLTHHNCD,KQYNXXCUSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:27,LEOCC_Metabolon,27,adenosine 5'-monophosphate (AMP),UDMBCSSLTHHNCD-UHFFFAOYSA-N,AMP,TRUE,UDMBCSSLTHHNCD,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:409,Broad_2022Aug,409,Adrenic acid,TWSWSIQAPQLDBP-DOFZRALJSA-N,Adrenic acid,TRUE,TWSWSIQAPQLDBP,DOFZRALJSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:345,LEOCC_Metabolon,345,adrenate (22:4n6),TWSWSIQAPQLDBP-CGRWFSSPSA-N,Adrenic acid,TRUE,TWSWSIQAPQLDBP,CGRWFSSPSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:611,LEOCC_Metabolon,611,androsterone glucuronide,VFUIRAVTUVCQTF-BSOWLZGZSA-N,Androsterone 3-glucuronide,TRUE,VFUIRAVTUVCQTF,BSOWLZGZSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:743,LEOCC_Metabolon,743,etiocholanolone glucuronide,VFUIRAVTUVCQTF-ILTUOXSPSA-N,Androsterone 3-glucuronide,TRUE,VFUIRAVTUVCQTF,ILTUOXSPSA,N,same_connectivity_different_block2
+Broad_2022Aug:333,Broad_2022Aug,333,Aspartic acid,CKLJMWTZIZZHCS-REOHCLBHSA-N,Aspartic acid,TRUE,CKLJMWTZIZZHCS,REOHCLBHSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:32,LEOCC_Metabolon,32,aspartate,CKLJMWTZIZZHCS-UHFFFAOYSA-N,Aspartic acid,TRUE,CKLJMWTZIZZHCS,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:334,Broad_2022Aug,334,Bilirubin,BPYKTIZUTYGOLE-IFADSCNNSA-N,Bilirubin,TRUE,BPYKTIZUTYGOLE,IFADSCNNSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:155,LEOCC_Metabolon,155,"bilirubin (Z,Z)",BPYKTIZUTYGOLE-KDUUSRDASA-N,Bilirubin,TRUE,BPYKTIZUTYGOLE,KDUUSRDASA,N,same_connectivity_different_block2
+LEOCC_Metabolon:519,LEOCC_Metabolon,519,"bilirubin (E,E)*",BPYKTIZUTYGOLE-VVCLLGATSA-N,Bilirubin,TRUE,BPYKTIZUTYGOLE,VVCLLGATSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:520,LEOCC_Metabolon,520,"bilirubin (E,Z or Z,E)*",BPYKTIZUTYGOLE-BMNRKXRESA-N,Bilirubin,TRUE,BPYKTIZUTYGOLE,BMNRKXRESA,N,same_connectivity_different_block2
+Broad_2022Aug:421,Broad_2022Aug,421,Chenodeoxycholic acid,RUDATBOHQWOJDD-BSWAIDMHSA-N,Chenodeoxycholic acid,TRUE,RUDATBOHQWOJDD,BSWAIDMHSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:165,LEOCC_Metabolon,165,chenodeoxycholate,RUDATBOHQWOJDD-LXEZOOAESA-N,Chenodeoxycholic acid,TRUE,RUDATBOHQWOJDD,LXEZOOAESA,N,same_connectivity_different_block2
+Broad_2022Aug:141,Broad_2022Aug,141,Cholesterol,HVYWMOMLDIMFJA-DPAQBDIFSA-N,Cholesterol,TRUE,HVYWMOMLDIMFJA,DPAQBDIFSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:43,LEOCC_Metabolon,43,cholesterol,HVYWMOMLDIMFJA-LBHVWCRMSA-N,Cholesterol,TRUE,HVYWMOMLDIMFJA,LBHVWCRMSA,N,same_connectivity_different_block2
+Broad_2022Aug:422,Broad_2022Aug,422,Cholic acid,BHQCQFFYRZLCQQ-OELDTZBJSA-N,Cholic acid,TRUE,BHQCQFFYRZLCQQ,OELDTZBJSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:12,LEOCC_Metabolon,12,cholate,BHQCQFFYRZLCQQ-OLRQUHAPSA-N,Cholic acid,TRUE,BHQCQFFYRZLCQQ,OLRQUHAPSA,N,same_connectivity_different_block2
+Broad_2022Aug:424,Broad_2022Aug,424,Dehydroepiandrosterone sulfate,CZWCKYRVOZZJNM-USOAJAOKSA-N,Dehydroepiandrosterone sulfate,TRUE,CZWCKYRVOZZJNM,USOAJAOKSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:286,LEOCC_Metabolon,286,dehydroepiandrosterone sulfate (DHEA-S),CZWCKYRVOZZJNM-DYIPZHMLSA-N,Dehydroepiandrosterone sulfate,TRUE,CZWCKYRVOZZJNM,DYIPZHMLSA,N,same_connectivity_different_block2
+Broad_2022Aug:335,Broad_2022Aug,335,Deoxycholic acid,KXGVEGMKQFWNSR-LLQZFEROSA-N,Deoxycholic acid,TRUE,KXGVEGMKQFWNSR,LLQZFEROSA,N,same_connectivity_different_block2
+Broad_2022Aug:425,Broad_2022Aug,425,Deoxycholic acid,KXGVEGMKQFWNSR-LLQZFEROSA-N,Deoxycholic acid,TRUE,KXGVEGMKQFWNSR,LLQZFEROSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:51,LEOCC_Metabolon,51,deoxycholate,KXGVEGMKQFWNSR-OHAQSFBXSA-N,Deoxycholic acid,TRUE,KXGVEGMKQFWNSR,OHAQSFBXSA,N,same_connectivity_different_block2
+Broad_2022Aug:375,Broad_2022Aug,375,Erythritol,UNXHWFMMPAWVPI-ZXZARUISSA-N,Erythritol,TRUE,UNXHWFMMPAWVPI,ZXZARUISSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:292,LEOCC_Metabolon,292,erythritol,UNXHWFMMPAWVPI-UHFFFAOYSA-N,Erythritol,TRUE,UNXHWFMMPAWVPI,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:342,Broad_2022Aug,342,Glyceric acid,RBNPOMFGQQGHHO-UWTATZPHSA-N,Glyceric acid,TRUE,RBNPOMFGQQGHHO,UWTATZPHSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:149,LEOCC_Metabolon,149,glycerate,RBNPOMFGQQGHHO-UHFFFAOYSA-N,Glyceric acid,TRUE,RBNPOMFGQQGHHO,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:441,Broad_2022Aug,441,Glycochenodeoxycholic acid,GHCZAUBVMUEKKP-GYPHWSFCSA-N,Glycochenodeoxycholic acid,TRUE,GHCZAUBVMUEKKP,GYPHWSFCSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:207,LEOCC_Metabolon,207,glycochenodeoxycholate,GHCZAUBVMUEKKP-AZDOMVTHSA-N,Glycochenodeoxycholic acid,TRUE,GHCZAUBVMUEKKP,AZDOMVTHSA,N,same_connectivity_different_block2
+Broad_2022Aug:444,Broad_2022Aug,444,Glycolithocholic acid,XBSQTYHEGZTYJE-OETIFKLTSA-N,Glycolithocholic acid,TRUE,XBSQTYHEGZTYJE,OETIFKLTSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:321,LEOCC_Metabolon,321,glycolithocholate,XBSQTYHEGZTYJE-PGVYWSLXSA-N,Glycolithocholic acid,TRUE,XBSQTYHEGZTYJE,PGVYWSLXSA,N,same_connectivity_different_block2
+Broad_2022Aug:452,Broad_2022Aug,452,Ibuprofen,HEFNNWSXXWATRW-SNVBAGLBSA-N,Ibuprofen,TRUE,HEFNNWSXXWATRW,SNVBAGLBSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:196,LEOCC_Metabolon,196,ibuprofen,HEFNNWSXXWATRW-UHFFFAOYSA-N,Ibuprofen,TRUE,HEFNNWSXXWATRW,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:351,Broad_2022Aug,351,Indolelactic acid,XGILAAMKEQUXLS-SNVBAGLBSA-N,Indolelactic acid,TRUE,XGILAAMKEQUXLS,SNVBAGLBSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:250,LEOCC_Metabolon,250,indolelactate,XGILAAMKEQUXLS-UHFFFAOYSA-N,Indolelactic acid,TRUE,XGILAAMKEQUXLS,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:357,Broad_2022Aug,357,Lactic acid,JVTAAEKCZFNVCJ-REOHCLBHSA-N,Lactic acid,TRUE,JVTAAEKCZFNVCJ,REOHCLBHSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:88,LEOCC_Metabolon,88,lactate,JVTAAEKCZFNVCJ-UHFFFAOYSA-N,Lactic acid,TRUE,JVTAAEKCZFNVCJ,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:358,Broad_2022Aug,358,Malic acid,BJEPYKJPYRNKOW-REOHCLBHSA-N,Malic acid,TRUE,BJEPYKJPYRNKOW,REOHCLBHSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:73,LEOCC_Metabolon,73,malate,BJEPYKJPYRNKOW-UHFFFAOYSA-N,Malic acid,TRUE,BJEPYKJPYRNKOW,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:504,Broad_2022Aug,504,N-Formylmethionine,PYUSHNKNPOHWEZ-RXMQYKEDSA-N,N-Formylmethionine,TRUE,PYUSHNKNPOHWEZ,RXMQYKEDSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:24,LEOCC_Metabolon,24,N-formylmethionine,PYUSHNKNPOHWEZ-UHFFFAOYSA-N,N-Formylmethionine,TRUE,PYUSHNKNPOHWEZ,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:468,Broad_2022Aug,468,Omeprazole,SUBDBMMJDZJVOS-XMMPIXPASA-N,Omeprazole,TRUE,SUBDBMMJDZJVOS,XMMPIXPASA,N,same_connectivity_different_block2
+LEOCC_Metabolon:604,LEOCC_Metabolon,604,omeprazole,SUBDBMMJDZJVOS-UHFFFAOYSA-N,Omeprazole,TRUE,SUBDBMMJDZJVOS,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:477,Broad_2022Aug,477,Phenyllactic acid,VOXXWSYKYCBWHO-QMMMGPOBSA-N,Phenyllactic acid,TRUE,VOXXWSYKYCBWHO,QMMMGPOBSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:279,LEOCC_Metabolon,279,phenyllactate (PLA),VOXXWSYKYCBWHO-UHFFFAOYSA-N,Phenyllactic acid,TRUE,VOXXWSYKYCBWHO,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:479,Broad_2022Aug,479,Phytanic acid,RLCKHJSFHOZMDR-GUDVDZBRSA-N,Phytanic acid,TRUE,RLCKHJSFHOZMDR,GUDVDZBRSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:85,LEOCC_Metabolon,85,phytanate,RLCKHJSFHOZMDR-UHFFFAOYSA-N,Phytanic acid,TRUE,RLCKHJSFHOZMDR,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:365,Broad_2022Aug,365,Quinic acid,AAWZDTNXLSGCEK-LNVDRNJUSA-N,Quinic acid,TRUE,AAWZDTNXLSGCEK,LNVDRNJUSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:246,LEOCC_Metabolon,246,quinate,AAWZDTNXLSGCEK-WYWMIBKRSA-N,Quinic acid,TRUE,AAWZDTNXLSGCEK,WYWMIBKRSA,N,same_connectivity_different_block2
+Broad_2022Aug:369,Broad_2022Aug,369,Sorbitol,FBPFZTCFMRRESA-JGWLITMVSA-N,Sorbitol,TRUE,FBPFZTCFMRRESA,JGWLITMVSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:487,LEOCC_Metabolon,487,mannitol/sorbitol,FBPFZTCFMRRESA-UHFFFAOYSA-N,Sorbitol,TRUE,FBPFZTCFMRRESA,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:488,Broad_2022Aug,488,Tauromuricholic acid,XSOLDPYUICCHJX-UZUDEGBHSA-N,Tauro-beta-muricholic acid,TRUE,XSOLDPYUICCHJX,UZUDEGBHSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:356,LEOCC_Metabolon,356,tauro-beta-muricholate,XSOLDPYUICCHJX-OEYGYFRSSA-N,Tauro-beta-muricholic acid,TRUE,XSOLDPYUICCHJX,OEYGYFRSSA,N,same_connectivity_different_block2
+Broad_2022Aug:510,Broad_2022Aug,510,Taurocholic acid,WBWWGRHZICKQGZ-HZAMXZRMSA-N,Taurocholic acid,TRUE,WBWWGRHZICKQGZ,HZAMXZRMSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:209,LEOCC_Metabolon,209,taurocholate,WBWWGRHZICKQGZ-HGVCTONRSA-N,Taurocholic acid,TRUE,WBWWGRHZICKQGZ,HGVCTONRSA,N,same_connectivity_different_block2
+Broad_2022Aug:374,Broad_2022Aug,374,Taurdeoxycholic and or Taurochenodeoxycholic acid,AWDRATDZQPNJFN-VAYUFCLWSA-N,Taurodeoxycholic acid,TRUE,AWDRATDZQPNJFN,VAYUFCLWSA,N,same_connectivity_different_block2
+Broad_2022Aug:490,Broad_2022Aug,490,Taurodeoxycholic acid,AWDRATDZQPNJFN-VAYUFCLWSA-N,Taurodeoxycholic acid,TRUE,AWDRATDZQPNJFN,VAYUFCLWSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:210,LEOCC_Metabolon,210,taurodeoxycholate,AWDRATDZQPNJFN-RZGBOAIJSA-N,Taurodeoxycholic acid,TRUE,AWDRATDZQPNJFN,RZGBOAIJSA,N,same_connectivity_different_block2
+Broad_2022Aug:511,Broad_2022Aug,511,Taurodeoxycholic acid,BHTRKEVKTKCXOH-LBSADWJPSA-N,Tauroursodeoxycholic acid,TRUE,BHTRKEVKTKCXOH,LBSADWJPSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:630,LEOCC_Metabolon,630,tauroursodeoxycholate,BHTRKEVKTKCXOH-BWIGJTJCSA-N,Tauroursodeoxycholic acid,TRUE,BHTRKEVKTKCXOH,BWIGJTJCSA,N,same_connectivity_different_block2
+Broad_2022Aug:381,Broad_2022Aug,381,Uridine,DRTQHJPVMGBUCF-XVFCMESISA-N,Uridine,TRUE,DRTQHJPVMGBUCF,XVFCMESISA,N,same_connectivity_different_block2
+LEOCC_Metabolon:97,LEOCC_Metabolon,97,uridine,DRTQHJPVMGBUCF-UHFFFAOYSA-N,Uridine,TRUE,DRTQHJPVMGBUCF,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:497,Broad_2022Aug,497,Valsartan,ACWBQPMHZXGDFX-QFIPXVFZSA-N,Valsartan,TRUE,ACWBQPMHZXGDFX,QFIPXVFZSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:789,LEOCC_Metabolon,789,valsartan,ACWBQPMHZXGDFX-UHFFFAOYSA-N,Valsartan,TRUE,ACWBQPMHZXGDFX,UHFFFAOYSA,N,same_connectivity_different_block2
+Broad_2022Aug:326,Broad_2022Aug,326,sn-Glycero-3-phosphate,AWUCVROLDVIAJX-GSVOUGTGSA-N,sn-Glycero-3-phosphate,TRUE,AWUCVROLDVIAJX,GSVOUGTGSA,N,same_connectivity_different_block2
+LEOCC_Metabolon:236,LEOCC_Metabolon,236,glycerol 3-phosphate,AWUCVROLDVIAJX-UHFFFAOYSA-N,sn-Glycero-3-phosphate,TRUE,AWUCVROLDVIAJX,UHFFFAOYSA,N,same_connectivity_different_block2

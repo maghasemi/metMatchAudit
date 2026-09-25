@@ -1,0 +1,178 @@
+metlinkr_name,n_rows,n_files,n_ik,n_block1,n_b1b2,files,pattern
+2-Methoxyhydroquinone sulfate,2,1,2,2,2,LEOCC_Metabolon,different_connectivity
+3-Methylcatechol sulfate,2,1,2,2,2,LEOCC_Metabolon,different_connectivity
+5alpha-Androstane-3alpha-ol-17-one sulfate,2,1,2,2,2,LEOCC_Metabolon,different_connectivity
+Anacardic acid C15:2,2,1,2,2,2,LEOCC_Metabolon,different_connectivity
+Asparagine,2,1,2,2,2,LEOCC_Metabolon,different_connectivity
+CAR 10:1,2,1,2,2,2,LEOCC_Metabolon,different_connectivity
+DG 18:1_18:2,2,1,2,2,2,LEOCC_Metabolon,different_connectivity
+Decenoic acid,2,2,2,2,2,"Broad_2022Aug,LEOCC_Metabolon",different_connectivity
+Docosapentaenoic acid (22n-6),2,1,2,2,2,LEOCC_Metabolon,different_connectivity
+MG 18:2,2,1,2,2,2,LEOCC_Metabolon,different_connectivity
+MG 20:4,2,1,2,2,2,LEOCC_Metabolon,different_connectivity
+N-Acetyl-3-methylhistidine,2,1,2,2,2,LEOCC_Metabolon,different_connectivity
+Octadecanedioic acid,2,1,2,2,2,LEOCC_Metabolon,different_connectivity
+Pregnenolone sulfate,3,2,2,2,2,"Broad_2022Aug,LEOCC_Metabolon",different_connectivity
+SM 18:1;O2/18:0,3,2,2,2,2,"Broad_2022Aug,LEOCC_Metabolon",different_connectivity
+Xylose,2,2,2,2,2,"Broad_2022Aug,LEOCC_Metabolon",different_connectivity
+"1,7-Dimethyluric acid",2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+1-Methylhistidine,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+1-Methyluric acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+1-Methylxanthine,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+10-Hendecenoic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+10Z-Heptadecenoic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+"12,13-DiHOME",2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+2-Aminocaprylic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+2-Aminoheptanoic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+2-Hydroxyibuprofen,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+2-Hydroxymyristic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+2-Hydroxyoctanoic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+2-Hydroxypalmitic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+2-Oxoglutaric acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+3-Carboxy-4-methyl-5-propyl-2-furanpropanoic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+3-Ethylcatechol sulfate,2,1,1,1,1,LEOCC_Metabolon,identical_inchikey
+3-Hydroxydecanoic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+3-Hydroxyoctanoic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+3-Indolepropionic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+3-Methoxycatechol sulfate,2,1,1,1,1,LEOCC_Metabolon,identical_inchikey
+3-Methylxanthine,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+4-Pyridoxic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+5-Dodecenoic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+7-Methylxanthine,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+"9,10-DiHOME",2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Acesulfame,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Androstenediol disulfate,4,1,1,1,1,LEOCC_Metabolon,identical_inchikey
+Arachidic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Arachidonic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Azelaic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+CAR 4:0;3OH,2,1,1,1,1,LEOCC_Metabolon,identical_inchikey
+CAR 8:0;3OH,2,1,1,1,1,LEOCC_Metabolon,identical_inchikey
+Capric acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Carboxyibuprofen,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Carotene diol,3,1,1,1,1,LEOCC_Metabolon,identical_inchikey
+Cetirizine,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Cinnamoylglycine,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Citric acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+DG 16:0_18:1,2,1,1,1,1,LEOCC_Metabolon,identical_inchikey
+DG 18:0_20:4,2,1,1,1,1,LEOCC_Metabolon,identical_inchikey
+DG 18:1_20:4,2,1,1,1,1,LEOCC_Metabolon,identical_inchikey
+Dodecanedioic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Eicosanedioic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Erythronic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Fumaric acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Furosemide,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Gemfibrozil,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Glutamic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Glycocholic acid,3,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Glycodeoxycholic acid,3,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Glycoursodeoxycholic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Guanosine,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Hexadecanedioic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Hexose,2,1,1,1,1,Broad_2022Aug,identical_inchikey
+Hippuric acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Hydrochlorothiazide,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Hydrocinnamic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Hypoxanthine,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Indoleacetic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Indoxyl sulfate,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Inosine,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Isovaleric acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Juniperic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Ketoisovaleric acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+L-Urobilin,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Lauric acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Levulinic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Linoleic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Lithocholic acid 3-sulfate,2,1,1,1,1,LEOCC_Metabolon,identical_inchikey
+Margaric acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Mycophenolic acid glucuronide,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Myo-inositol,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Myristic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+N-Acetylalanine,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+N-Acetylcarnosine,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+N-Acetylglutamic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Naproxen,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Nonadeca-10Z-enoic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Oleic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Oxalic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Oxypurinol,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+P-Cresol glucuronide,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Palmitic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Palmitoleic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Palmitoyl-EA,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Pantoprazole,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Pantothenic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Pentadecylic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Piperine,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Pseudouridine,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Pyrogallol sulfate,2,1,1,1,1,LEOCC_Metabolon,identical_inchikey
+Pyruvic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Quinolinic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Resveratrol disulfate,2,1,1,1,1,LEOCC_Metabolon,identical_inchikey
+Resveratrol glucuronide,2,1,1,1,1,LEOCC_Metabolon,identical_inchikey
+Resveratrol sulfate,2,1,1,1,1,LEOCC_Metabolon,identical_inchikey
+Ribitol,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Ribothymidine,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+SM 18:1;O2/16:0,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+SM 18:1;O2/22:0,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+SM 18:1;O2/24:0,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Saccharin,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Salicylic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Salicyluric acid,3,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Sebacic acid,3,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Sphingosine 1-phosphate,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Stearic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Suberic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Succinic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Sucrose,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Sulfamethoxazole,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Tartaric acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Taurochenodeoxycholic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Tetradecanedioic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Theophylline,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Undecanedioic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Uracil,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Uric acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Warfarin,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Xanthine,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+Xanthurenic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+alpha-N-Phenylacetylglutamine,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+cis-Erucic acid,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+gamma-CEHC,2,2,1,1,1,"Broad_2022Aug,LEOCC_Metabolon",identical_inchikey
+2-Hydroxy-3-methyl-pentanoic acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+2-Hydroxy-3-methylbutyric acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+2-Hydroxyglutaric acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+2-Hydroxystearic acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+3-Methyladipic acid,3,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+3S-Hydroxyhexanoic acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+AMP,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Adrenic acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Androsterone 3-glucuronide,2,1,2,1,2,LEOCC_Metabolon,same_connectivity_different_block2
+Aspartic acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Bilirubin,4,2,4,1,4,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Chenodeoxycholic acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Cholesterol,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Cholic acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Dehydroepiandrosterone sulfate,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Deoxycholic acid,3,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Erythritol,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Glyceric acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Glycochenodeoxycholic acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Glycolithocholic acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Ibuprofen,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Indolelactic acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Lactic acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Malic acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+N-Formylmethionine,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Omeprazole,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Phenyllactic acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Phytanic acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Quinic acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Sorbitol,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Tauro-beta-muricholic acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Taurocholic acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Taurodeoxycholic acid,3,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Tauroursodeoxycholic acid,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Uridine,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+Valsartan,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
+sn-Glycero-3-phosphate,2,2,2,1,2,"Broad_2022Aug,LEOCC_Metabolon",same_connectivity_different_block2
