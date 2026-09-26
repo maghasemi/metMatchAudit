@@ -35,4 +35,26 @@ Manual review is used for evaluation only. Nothing typed by hand goes into the m
 
 ## 2026-09-25
 
-Clarification during review: some groups hold three or more rows with different relationships between pairs. The review sheet takes one category per group, so the group gets the most severe category present, in this order: E > C > D > B > A. The per-pair relationships go into evidence_note. This does not change any category already assigned.
+## 2026-09-25: Lipid feasibility test, criteria set before running
+
+Question: can each lipid row get a level-aware annotation from evidence alone (SwissLipids by InChIKey, rgoslin by name), with nothing typed in by hand?
+
+SwissLipids file: lipids.tsv, md5 b6ddd5bc3003967dce95e905e5748953, 687497215 bytes, downloaded 2026-09-25.
+
+Scope comes from the source files' own labels. LEOCC: SUPER_PATHWAY "Lipid". Broad: superClass is one of the eight LIPID MAPS categories. Results are reported per sub-pathway or class.
+
+Complex lipids, LEOCC SUB_PATHWAY: Phosphatidylcholine (PC), Phosphatidylethanolamine (PE), Phosphatidylinositol (PI), Phosphatidylserine (PS), Lysophospholipid, Plasmalogen, Lysoplasmalogen, Diacylglycerol, Monoacylglycerol, Sphingomyelins, Dihydrosphingomyelins, Ceramides, Dihydroceramides, Hexosylceramides (HCER), Lactosylceramides (LCER), Ceramide PEs.
+
+Complex lipids, Broad mainClass: Glycerophosphocholines, Glycerophosphoethanolamines, Monoradylglycerols, Diradylglycerols, Triradylglycerols, Sphingomyelins, Ceramides.
+
+Criteria:
+- LEOCC complex, non-group rows: at least 80% have exactly one Species ancestor in SwissLipids.
+- Broad complex rows: at least 80% parsed by rgoslin to Species level or finer.
+
+Other lipid rows are reported without a threshold. Group-name rows are measured separately and do not count toward the criteria.
+
+Qualitative check: for lipid rows in groups already labeled in review.csv, compare SwissLipids and rgoslin output with the manual label. One unexplained disagreement stops the plan.
+
+InChIKey matching runs in three tiers: full key, first 25 characters (ignores protonation, since SwissLipids stores pH 7.3 forms), first 14 characters. The tier is recorded per row.
+
+If the criteria are met, SwissLipids and rgoslin go into design.md as lipid evidence sources. If not, lipid rules stay limited to InChIKey comparison, and design.md says so.
