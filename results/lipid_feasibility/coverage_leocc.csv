@@ -1,0 +1,57 @@
+complex,source_class,rows,group_names,invalid_key,found_tier1,found_tier2,found_tier3,not_found,one_species,many_species,species_parsed,group_one_species
+TRUE,Sphingomyelins,29,20,0,5,0,0,4,5,0,5,14
+TRUE,Lysophospholipid,25,0,0,11,2,12,0,25,0,25,0
+TRUE,Phosphatidylcholine (PC),19,1,0,15,0,3,0,18,0,18,1
+TRUE,Phosphatidylethanolamine (PE),13,0,0,12,0,1,0,13,0,13,0
+TRUE,Diacylglycerol,11,1,0,2,0,8,0,10,0,10,1
+TRUE,Plasmalogen,11,0,0,11,0,0,0,11,0,11,0
+TRUE,Monoacylglycerol,10,0,0,6,0,4,0,7,0,7,0
+TRUE,Ceramides,8,3,0,3,0,1,1,2,0,2,2
+TRUE,Phosphatidylinositol (PI),6,0,0,0,4,2,0,6,0,6,0
+TRUE,Dihydrosphingomyelins,5,2,0,3,0,0,0,3,0,3,2
+TRUE,Hexosylceramides (HCER),4,2,0,1,0,1,0,2,0,2,0
+TRUE,Lysoplasmalogen,4,0,0,1,0,3,0,4,0,4,0
+TRUE,Lactosylceramides (LCER),3,0,0,3,0,0,0,3,0,3,0
+TRUE,Dihydroceramides,2,0,0,2,0,0,0,2,0,2,0
+TRUE,Phosphatidylserine (PS),2,0,0,0,2,0,0,2,0,2,0
+TRUE,Ceramide PEs,1,0,0,1,0,0,0,1,0,1,0
+FALSE,"Fatty Acid, Dicarboxylate",33,0,0,0,8,1,24,0,0,0,0
+FALSE,Androgenic Steroids,24,0,0,0,0,3,21,0,0,0,0
+FALSE,Secondary Bile Acid Metabolism,23,0,0,0,6,6,11,0,0,0,0
+FALSE,Long Chain Polyunsaturated Fatty Acid (n3 and n6),19,2,0,0,10,4,3,0,0,0,0
+FALSE,"Fatty Acid, Monohydroxy",18,1,0,0,7,1,9,0,0,0,0
+FALSE,Primary Bile Acid Metabolism,12,0,0,0,2,4,6,0,0,0,0
+FALSE,"Fatty Acid Metabolism (Acyl Carnitine, Monounsaturated)",10,0,0,2,0,0,8,0,0,0,0
+FALSE,Endocannabinoid,10,0,0,5,1,1,3,0,0,0,0
+FALSE,Fatty Acid Metabolism (Acyl Glycine),9,0,0,0,0,0,9,0,0,0,0
+FALSE,Medium Chain Fatty Acid,9,1,0,0,5,0,3,0,0,0,0
+FALSE,Fatty Acid Metabolism (Acyl Choline),9,0,0,0,0,0,9,0,0,0,0
+FALSE,"Fatty Acid Metabolism (Acyl Carnitine, Polyunsaturated)",8,1,0,0,0,0,7,0,0,0,0
+FALSE,"Fatty Acid Metabolism (Acyl Carnitine, Long Chain Saturated)",8,0,0,1,0,3,4,0,0,0,0
+FALSE,Sterol,8,0,0,0,0,6,2,0,0,0,0
+FALSE,"Fatty Acid Metabolism (Acyl Carnitine, Hydroxy)",7,0,0,0,0,2,5,0,0,0,0
+FALSE,Pregnenolone Steroids,7,0,0,0,1,0,6,0,0,0,0
+FALSE,Long Chain Saturated Fatty Acid,7,0,0,0,7,0,0,0,0,0,0
+FALSE,Progestin Steroids,7,0,0,0,0,0,7,0,0,0,0
+FALSE,Corticosteroids,6,0,0,1,0,2,3,0,0,0,0
+FALSE,"Fatty Acid Metabolism (Acyl Carnitine, Medium Chain)",6,0,0,0,0,4,2,0,0,0,0
+FALSE,Phospholipid Metabolism,6,0,0,0,0,0,6,0,0,0,0
+FALSE,Long Chain Monounsaturated Fatty Acid,6,0,0,0,5,0,1,0,0,0,0
+FALSE,Fatty Acid Metabolism (also BCAA Metabolism),6,0,0,1,0,1,4,0,0,0,0
+FALSE,"Fatty Acid, Branched",5,3,0,0,1,0,1,0,0,0,0
+FALSE,"Fatty Acid, Dihydroxy",5,0,0,0,2,0,3,0,0,0,0
+FALSE,"Fatty Acid Metabolism (Acyl Carnitine, Dicarboxylate)",5,0,0,0,2,0,3,0,0,0,0
+FALSE,"Fatty Acid, Amino",3,0,0,0,0,0,3,0,0,0,0
+FALSE,Sphingosines,3,0,0,0,1,1,1,0,0,0,0
+FALSE,Sphingolipid Synthesis,3,0,0,0,0,3,0,0,0,0,0
+FALSE,Fatty Acid Metabolism (Acyl Glutamine),2,0,0,0,0,0,2,0,0,0,0
+FALSE,Ketone Bodies,2,0,0,0,1,0,1,0,0,0,0
+FALSE,Glycerolipid Metabolism,2,0,0,0,1,0,1,0,0,0,0
+FALSE,Carnitine Metabolism,2,0,0,0,0,0,2,0,0,0,0
+FALSE,Inositol Metabolism,2,0,0,0,0,0,2,0,0,0,0
+FALSE,Fatty Acid Synthesis,1,0,0,0,1,0,0,0,0,0,0
+FALSE,"Fatty Acid, Oxidized",1,0,0,0,0,0,1,0,0,0,0
+FALSE,Short Chain Fatty Acid,1,0,0,0,1,0,0,0,0,0,0
+FALSE,Estrogenic Steroids,1,0,0,0,0,1,0,0,0,0,0
+FALSE,"Fatty Acid Metabolism (Acyl Carnitine, Short Chain)",1,0,0,1,0,0,0,0,0,0,0
+FALSE,Mevalonate Metabolism,1,0,0,0,1,0,0,0,0,0,0

@@ -1,0 +1,21 @@
+Package: metMatchAudit
+Title: Audit Cross-Dataset Metabolite Matches with Structural Evidence
+Version: 0.0.0.9000
+Authors@R:
+    person("Amin", "Ghasemi", role = c("aut", "cre"),
+           email = "your.email@example.com")
+Description: Takes metabolite rows that a matching step (such as MetLinkR)
+    has grouped across datasets and reports how each pair of rows relates:
+    same compound, broader and narrower annotation, stereo variant,
+    different compounds, or unresolved. Every result is traced to the
+    rule and the evidence behind it. Lipid rows are placed in the
+    SwissLipids hierarchy and parsed with rgoslin so that names from
+    different vendors can be compared at the same level.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Depends: R (>= 4.1.0)
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Config/roxygen2/version: 8.1.0

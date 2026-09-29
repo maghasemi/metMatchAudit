@@ -1,0 +1,12 @@
+^renv$
+^renv\.lock$
+^\.Rprofile$
+^.*\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^scripts$
+^notes$
+^results$
+^data-raw$
+^\.positai$
+^\.claude$

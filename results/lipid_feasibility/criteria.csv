@@ -1,0 +1,3 @@
+criterion,passed_rows,total_rows,percent,meets_80
+"LEOCC complex, non-group rows with one Species ancestor",114,124,91.9,TRUE
+Broad complex rows parsed to Species level or finer,169,169,100,TRUE

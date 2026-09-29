@@ -1,0 +1,22 @@
+complex,source_class,rows,parsed_species_or_finer,found_in_swisslipids
+TRUE,Triradylglycerols,74,74,0
+TRUE,Glycerophosphocholines,46,46,4
+TRUE,Glycerophosphoethanolamines,24,24,0
+TRUE,Diradylglycerols,11,11,0
+TRUE,Sphingomyelins,10,10,6
+TRUE,Ceramides,3,3,2
+TRUE,Monoradylglycerols,1,1,0
+FALSE,Fatty acids,65,24,34
+FALSE,Bile acids,22,0,21
+FALSE,Sterol esters,13,13,3
+FALSE,Phenylpropanoids,4,0,0
+FALSE,Octadecanoids,3,3,2
+FALSE,Eicosanoids,3,2,3
+FALSE,Isoprenoids,3,0,2
+FALSE,Steroid conjugates,2,0,2
+FALSE,Sterols,1,1,1
+FALSE,Quinones and hydroquinones,1,0,1
+FALSE,Docosanoids,1,0,0
+FALSE,Fatty amides,1,0,1
+FALSE,Sphingoid bases,1,1,1
+FALSE,Flavonoids,1,0,0

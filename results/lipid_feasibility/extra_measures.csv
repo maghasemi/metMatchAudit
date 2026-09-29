@@ -1,0 +1,9 @@
+measure,rows
+LEOCC complex group-name rows (not in the criteria),29
+LEOCC complex group-name rows whose key maps to one Species,20
+LEOCC complex rows with more than one Species ancestor,0
+LEOCC complex rows whose Species abbreviation rgoslin parsed,114
+LEOCC complex rows where hierarchy and hit abbreviation agree on Species,97
+LEOCC complex rows where they disagree,4
+LEOCC complex rows with no Species that gain exactly one via the connectivity fallback,3
+LEOCC complex rows with one Species after the fallback (original plus fallback),117
