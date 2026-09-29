@@ -274,6 +274,43 @@ rows <- merge(rows, per_row, by = "row_id", all.x = TRUE)
 rows[is.na(n_hits), n_hits := 0L]
 rows[is.na(n_species), n_species := 0L]
 
+# ---- Connectivity fallback (added after the first run) ------------------
+# In the first run, some rows matched a SwissLipids entry that has no
+# Level and no parent (three 1-monoacylglycerols), or an entry whose
+# parent chain never reaches a Species (two d18:2 ceramides). For those
+# rows only, we look at every SwissLipids entry with the same first 14
+# InChIKey characters. Same connectivity means same constitution, so
+# those entries must share one Species. We accept the fallback only if
+# they all point to exactly one Species.
+#
+# The fallback fills new columns and leaves the original ones alone,
+# so the pre-registered criteria can still be read from the original
+# columns. See notes/decisions.md, 2026-09-29.
+
+need_fallback <- rows[n_hits > 0 & n_species == 0 & key_valid == TRUE,
+                      .(row_id, key14 = substr(inchikey, 1, 14))]
+
+rows[, `:=`(species_fallback = NA_character_, n_species_fallback = 0L)]
+
+if (nrow(need_fallback) > 0) {
+  fb_hits <- merge(need_fallback, sl_keys[, .(slm_id, key14)],
+                   by = "key14", allow.cartesian = TRUE)
+  if (nrow(fb_hits) > 0) {
+    fb_species <- fb_hits[, {
+      sp <- unlist(lapply(slm_id, function(id) {
+        anc <- c(id, ancestors(id))
+        get_env(anc[get_env(anc, level_env) == "Species"], abbrev_env)
+      }))
+      sp <- sort(unique(sp[!is.na(sp)]))
+      list(species_fallback   = if (length(sp) == 0) NA_character_ else paste(sp, collapse = "; "),
+        n_species_fallback = length(sp))
+    }, by = row_id]
+    rows[fb_species, on = "row_id",
+         `:=`(species_fallback = i.species_fallback,
+              n_species_fallback = i.n_species_fallback)]
+  }
+}
+
 
 # ---- rgoslin ---------------------------------------------------------------
 # Three things get parsed:
@@ -306,6 +343,16 @@ if (nrow(hit_parsed) > 0) {
                 by.x = "hit_abbrevs", by.y = "input", all.x = TRUE, sort = FALSE)
 } else {
   rows[, `:=`(species_from_hit = NA_character_, molecular_from_hit = NA_character_)]
+}
+
+fb_single <- rows[n_species_fallback == 1, species_fallback]
+fb_parsed <- parse_many(fb_single)
+if (nrow(fb_parsed) > 0) {
+  rows <- merge(rows,
+                fb_parsed[, .(input, species_from_fallback = Species.Name)],
+                by.x = "species_fallback", by.y = "input", all.x = TRUE, sort = FALSE)
+} else {
+  rows[, species_from_fallback := NA_character_]
 }
 
 setorder(rows, file, row_id)
@@ -360,7 +407,9 @@ extra <- data.table(
               "LEOCC complex rows with more than one Species ancestor",
               "LEOCC complex rows whose Species abbreviation rgoslin parsed",
               "LEOCC complex rows where hierarchy and hit abbreviation agree on Species",
-              "LEOCC complex rows where they disagree"),
+              "LEOCC complex rows where they disagree",
+              "LEOCC complex rows with no Species that gain exactly one via the connectivity fallback",
+              "LEOCC complex rows with one Species after the fallback (original plus fallback)"),
   rows = c(rows[file == "LEOCC_Metabolon" & is_complex & group_name, .N],
            rows[file == "LEOCC_Metabolon" & is_complex & group_name & n_species == 1, .N],
            lc[n_species > 1, .N],
@@ -368,7 +417,9 @@ extra <- data.table(
            lc[!is.na(species_from_hierarchy) & !is.na(species_from_hit) &
                 species_from_hierarchy == species_from_hit, .N],
            lc[!is.na(species_from_hierarchy) & !is.na(species_from_hit) &
-                species_from_hierarchy != species_from_hit, .N])
+                species_from_hierarchy != species_from_hit, .N],
+           lc[n_species == 0 & n_species_fallback == 1, .N],
+           lc[n_species == 1 | (n_species == 0 & n_species_fallback == 1), .N])
 )
 fwrite(extra, file.path(out_dir, "extra_measures.csv"))
 
@@ -384,7 +435,7 @@ if (file.exists(review_path)) {
                     by = .(metlinkr_name, category)]
     check <- merge(long, rows, by = "row_id")
     check <- check[, .(metlinkr_name, category, row_id, name, tier, n_hits,
-                       species_from_hierarchy, species_from_hit,
+                       species_from_hierarchy, species_from_fallback, species_from_hit,
                        molecular_from_hit, name_Species.Name,
                        name_Molecular.Species.Name)]
     setorder(check, metlinkr_name, row_id)
