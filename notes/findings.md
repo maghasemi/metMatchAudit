@@ -42,6 +42,29 @@ Source: `notes/review.csv`
 
 Examples (three per category where possible, with the PubChem record that settled it):
 
+## Lipid feasibility test
+
+Criteria and scope: `notes/decisions.md`, 2026-09-25. Scripts: `scripts/10_swisslipids_slim.R`, `scripts/11_lipid_feasibility.R`. Output: `results/lipid_feasibility/`.
+
+| measure | result |
+|---|---|
+| LEOCC complex non-group rows with one Species ancestor (criterion) | 114 of 124, 91.9% |
+| Same, with the connectivity fallback added after the first run | 117 of 124, 94.4% |
+| Broad complex rows parsed by rgoslin to Species or finer (criterion) | 169 of 169, 100% |
+| Disagreements with manual review labels (15 groups with lipid rows) | 0 |
+
+Both criteria are met. SwissLipids and rgoslin go into the design as lipid evidence sources.
+
+The Metabolon row "stearoyl sphingomyelin (d18:1/18:0)" and the Broad row "SM 36:1;O2" both resolve to the string "SM 36:1;O2", one through SwissLipids and one through rgoslin. Cross-vendor lipid names can be brought into one notation from database evidence alone.
+
+The 7 LEOCC rows still without a Species:
+- 5 have no SwissLipids entry at any tier: one hydroxylated SM, one d17:1 ceramide, three d18:2 SMs.
+- 2 d18:2 ceramides match an entry, but no entry with the same connectivity has a Species parent. SwissLipids places d18:2 sphingoid bases poorly in its hierarchy.
+
+Hierarchy vs hit abbreviation: 97 rows agree, 4 differ. All 4 are glycosylceramides where the hierarchy says HexCer or Hex2Cer and the hit says GlcCer or LacCer with the same chain sums. Comparisons should use the hierarchy's Species name, which is written at one level throughout.
+
+Group-name rows: 29 of the LEOCC complex lipid rows report several molecular species in one name, mostly sphingomyelins. 20 of them map to one Species through their representative InChIKey. Not part of the criteria. Whether group rows can be matched at Species level is an open design question, because it relies on all members of a group sharing one chain sum.
+
 ### Open questions
 
 - Resolved: the one invalid InChIKey in Broad_2022Aug is row 354, "Inosine-15N4 [iSTD]", where the InChIKey field holds the literal text "inchikey". MetLinkR gave this row the standardized name "Inosine", the same as natural inosine (UGQMRVRMYYASKQ-KQYNXXCUSA-N in both files). The early exploratory count read "inchikey" as a separate connectivity block and reported 17 different_connectivity groups. The format check in 01_build_rows.R excludes it, which gives 16.
