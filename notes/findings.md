@@ -104,6 +104,23 @@ Where the 14 unresolved results come from:
 
 Both gaps were listed in design.md before the evaluation. They are the two clearest targets for the next version.
 
+## v0.2 feasibility: lipid match proposals
+
+Source: `scripts/30_v02_feasibility.R`, reviewed by hand in `notes/v02_proposal_review.csv`. Criteria set in `notes/decisions.md` (2026-10-01) before the review.
+
+| | proposals | correct | wrong |
+|---|---|---|---|
+| not linked by MetLinkR | 43 | 43 | 0 |
+| also linked by MetLinkR | 10 | 10 | 0 |
+
+The criterion (at most 4 wrong among the 43 new proposals) is met with no wrong proposal. Each proposal was checked from the names alone, independently of the tool: same lipid class, and the Metabolon chains add up to the Broad Species.
+
+Harder cases handled correctly:
+- Plasmalogens: Metabolon "P-16:0/18:1" against Broad "PC O-34:2". The plasmalogen double bond counts as one extra in O notation, so P-34:1 equals O-34:2. The relationship stays broader_narrower, since O-34:2 also covers other ether lipids.
+- One-to-many: Broad "PC 34:4" matches both 14:0/20:4 and 16:1/18:3 from Metabolon, "PC 36:4" matches 18:2/18:2 and 16:0/20:4, and each DG Species matches both the 1,2- and the 1,3-isomer. These are reported as broader_narrower and one_to_many, never exact. For a meta-analysis, a Broad Species value should not be compared with each Metabolon row on its own.
+
+On this data, v0.2 would add 43 lipid links to the 10 that MetLinkR made.
+
 ### Open questions
 
 - Resolved: the one invalid InChIKey in Broad_2022Aug is row 354, "Inosine-15N4 [iSTD]", where the InChIKey field holds the literal text "inchikey". MetLinkR gave this row the standardized name "Inosine", the same as natural inosine (UGQMRVRMYYASKQ-KQYNXXCUSA-N in both files). The early exploratory count read "inchikey" as a separate connectivity block and reported 17 different_connectivity groups. The format check in 01_build_rows.R excludes it, which gives 16.
