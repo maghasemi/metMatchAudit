@@ -98,3 +98,13 @@ On the real data, 245 rows got a lipid profile from their name. Checked by gramm
 FattyAcids read small organic acids and amino acids as wax esters ("3-hydroxyisobutyrate" as WE 4:0;O, "2-aminobutyrate" as WE 4:0;N) and miscounted double bonds ("Pentadecenoic acid" as FA 15:0, "Eicosenoic acid" as FA 20:0). Some of its results were correct, but the good ones cannot be told apart from the bad ones, so the whole grammar is left out. parse_lipid_names() now accepts Shorthand2020, Goslin and LipidMaps only, and reports the grammar for every name.
 
 The two assumptions in the step 3 tests were checked with real rgoslin: "SM(d36:1)" gives SM 36:1;O2 and "DG(18:1_18:2)" gives molecular species DG 18:1_18:2, both through the LipidMaps grammar.
+
+## 2026-09-30: Pair rules adjusted while writing their tests
+
+Each rule was tested on a real pair from the review. Five changes came out of that:
+
+1. R02 now runs before R01. "Inosine-15N4 [iSTD]" has the text "inchikey" as its key, so R01 would have called the pair unresolved, while the name alone shows it is an internal standard.
+2. R08 now gives unresolved instead of group_overlap. The SM group summing to SM 38:3 would have been called overlapping with SM 36:1, which it is not (manual label C). v0.1 has no way to check what a group contains, so it makes no overlap claim. group_overlap is no longer used.
+3. New rule R06b: two rows that report the same Species (or the same molecular species) at the same level are exact. Without it, "SM 36:1;O2" from two vendors ended up unresolved.
+4. R10 and R11 now require block2 to differ. Otherwise two keys that differ only in the protonation letter would be called stereo variants. Such pairs now reach R99.
+5. The headgroup case is its own rule, R04h, instead of a silent skip inside R04, so it shows up in the output with an ID.

@@ -79,18 +79,20 @@ Rules run in this order for each pair in a group. The first rule that applies de
 
 | ID | condition | relationship |
 |---|---|---|
-| R01 | either row has an invalid InChIKey and no lipid profile | unresolved |
 | R02 | either row is an internal standard | distinct |
+| R01 | either row has neither a valid InChIKey nor a lipid profile | unresolved |
+| R04h | lipid Species differ only in hexose headgroup naming (HexCer vs GlcCer, Hex2Cer vs LacCer) | unresolved |
 | R04 | both rows have a lipid profile and `lipid_species` differs | distinct |
-| R05 | same `lipid_species`, rows reported at different levels | broader_narrower |
-| R06 | same `lipid_species`, both at molecular level or finer, `lipid_molecular` differs | distinct |
+| R05 | same `lipid_species`, reported at different levels | broader_narrower |
+| R06 | same `lipid_species`, both molecular or finer, `lipid_molecular` differs | distinct |
+| R06b | same `lipid_species` and same level, at species or molecular level, same name at that level | exact |
 | R03 | both InChIKeys identical | exact |
 | R07 | both formulas known and different (v0.3) | distinct |
-| R08 | either name is a group name | group_overlap |
+| R08 | either name reports a group of compounds | unresolved |
 | R08b | either name lists alternative names at its top level ("X or Y") | unresolved |
-| R09 | same block1, exactly one key has unspecified stereo | broader_narrower |
-| R10 | same block1, both keys give stereo, at least one name states stereo | stereo_variant |
-| R11 | same block1, both keys give stereo, neither name states stereo | unresolved |
+| R09 | same block1, different block2, exactly one key without stereo | broader_narrower |
+| R10 | same block1, different block2, both keys give stereo, at least one name states stereo | stereo_variant |
+| R11 | same block1, different block2, both keys give stereo, no name states stereo | unresolved |
 | R12 | different block1 | distinct |
 | R99 | nothing above applies | unresolved |
 
@@ -126,7 +128,7 @@ C04 catches xylose in the Broad file, where the SMILES is the ring form and the 
 3. `row_evidence`: row_id with its InChIKey parts, name checks and lipid profile
 4. `groups`: group_id, number of rows, most severe relationship
 
-Severity, most severe first: source_conflict, distinct, unresolved, group_overlap, broader_narrower, stereo_variant, exact.
+Severity, most severe first: source_conflict, distinct, unresolved, broader_narrower, stereo_variant, exact.
 
 `merge_level` sets which relationships count as "same" downstream. Default: `exact` only.
 
@@ -153,7 +155,7 @@ Only after the manual review is finished and committed. Review categories map to
 | A | exact |
 | B | stereo_variant |
 | C | distinct |
-| D | broader_narrower or group_overlap |
+| D | broader_narrower (group rows come out unresolved in v0.1) |
 | E | source_conflict or a C04/C05 flag (v0.3) |
 | F | unresolved, or read the note |
 
