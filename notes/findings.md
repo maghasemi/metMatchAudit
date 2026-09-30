@@ -83,6 +83,27 @@ Source: classify_pairs() on results/rows.csv, groups listed in notes/review.csv 
 - R99: four lysophospholipid pairs such as "1-palmitoyl-GPC (16:0)" against "LPC 16:0/0:0". Both have the same Species at structure level and the Broad row has no InChIKey. They probably match at sn-position level. Comparing sn-position names could resolve them, but when that is safe enough to call exact needs more thought. Left for after the evaluation.
 - R08: two SM group rows against a Species-level SM. Both groups probably contain that Species. Deciding it needs the group-row check listed under Open questions in design.md.
 
+## Evaluation of v0.1 against the manual review
+
+Labels committed before the audit output was opened (commit: 33ececf). Script: `scripts/21_evaluate_v0.1.R`. Output: `results/evaluation_v0.1/`.
+
+| outcome | groups |
+|---|---|
+| agree | 28 |
+| safe_miss (tool says unresolved, review has an answer) | 14 |
+| wrong (tool makes a different definite claim) | 1 |
+| E groups not called exact | 10 of 10 |
+
+Of the 42 groups where the review gives a definite relationship (B, C, D), the tool agrees on 28 (67%) and leaves 14 unresolved (33%). It makes no wrong definite claim on them. The one wrong result is xylose (F), where R12 calls the ring and open-chain forms distinct. This was listed under Known limits in design.md before the evaluation and has its own test.
+
+Of the 13 wrong merges by MetLinkR (C), the tool finds 11 as distinct through R12 and leaves 2 unresolved (group-name rows, R08). None of the 10 groups with source errors (E) is called exact.
+
+Where the 14 unresolved results come from:
+- R11, 8 groups (6 D, 2 B): both keys carry stereo, and the key alone cannot tell partly specified stereo from different stereo (cholesterol, cholic acid, androsterone vs etiocholanolone). Needs the InChI stereo layers or SMILES.
+- R08, 6 groups (2 C, 4 D): group-name rows. Needs a check of what a group contains.
+
+Both gaps were listed in design.md before the evaluation. They are the two clearest targets for the next version.
+
 ### Open questions
 
 - Resolved: the one invalid InChIKey in Broad_2022Aug is row 354, "Inosine-15N4 [iSTD]", where the InChIKey field holds the literal text "inchikey". MetLinkR gave this row the standardized name "Inosine", the same as natural inosine (UGQMRVRMYYASKQ-KQYNXXCUSA-N in both files). The early exploratory count read "inchikey" as a separate connectivity block and reported 17 different_connectivity groups. The format check in 01_build_rows.R excludes it, which gives 16.
