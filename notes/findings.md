@@ -33,12 +33,12 @@ Source: `notes/review.csv`
 
 | category | groups |
 |---|---|
-| A | |
-| B | |
-| C | |
-| D | |
-| E | |
-| F | |
+| A | 0 |
+| B | 2 |
+| C | 13 |
+| D | 27 |
+| E | 10 |
+| F | 1 |
 
 Examples (three per category where possible, with the PubChem record that settled it):
 
@@ -95,4 +95,11 @@ Source: classify_pairs() on results/rows.csv, groups listed in notes/review.csv 
 - Stereo specified against unspecified (R09) is labeled D, but for many natural metabolites (AMP, amino acids, sugars) only one stereo form occurs in biology, so the merge is right in practice. Consider whether the report should say so, for example by noting that R09 pairs are usually safe to merge for downstream analysis.
 - In the bilirubin group, the LEOCC keys for "bilirubin (E,E)*" and "bilirubin (E,Z or Z,E)*" are swapped. Found only by opening each key's PubChem record separately: the order of results on the PubChem page did not match the order of the keys, so lookups in review must always be done one key at a time.
 - Several pairs have one key with full stereo and one with only part of it (chenodeoxycholic acid, cholesterol). R09 catches only keys with no stereo at all (UHFFFAOYSA), so these reach R11 and come out unresolved. Telling "partly specified" from "differently specified" needs the InChI stereo layers, not just the key. Worth a look after the evaluation.
+- Dehydroepiandrosterone sulfate: the LEOCC SMILES and InChIKey describe a stereoisomer with three inverted ring-junction centres, not DHEA-S. Found by recomputing the key from the source SMILES with RDKit and comparing InChI stereo layers. The same recomputation is what check C04 (v0.3) would do automatically. An R route for it (for example rcdk) needs to be tested before v0.3.
+- Broad row "Deoxycholic acid" (the one with HMDB0000733, key DGABKXLVXPYZII-SIBKNCMHSA-N) is structurally hyodeoxycholic acid; its name is wrong in the source file. MetLinkR grouped it correctly with hyodeoxycholic acid. Broad also reports deoxycholic acid twice with the same key, which adds to the same-file duplicate question.
+- Three LEOCC steroid structures have wrong stereo in the ring system: dehydroepiandrosterone sulfate (three ring-junction centres), glycochenodeoxycholate (C14 inverted, C10 unspecified), glycolithocholate (C13 and C17 inverted). In each case the key was missing from PubChem, and the error was found by recomputing the key from the source SMILES with RDKit and comparing stereocentres with a reference structure. A key that PubChem does not know, for a common metabolite, is a warning sign worth a row check once PubChem lookups exist (v0.3).
+- Quinic acid: the Broad InChIKey differs from the key computed from the Broad SMILES in the same row. A second example, after xylose, of a source row whose SMILES and InChIKey disagree. Check C04 (v0.3) would flag both.
+- PubChem synonyms can be wrong: CID 168408 is listed as tauro-alpha-muricholate, but its structure has the beta configuration at C6/C7. Check C05 (name vs PubChem synonyms, v0.3) must treat synonyms as weak evidence and should not flag a row on synonyms alone when the structure agrees with the row name.
+
+
 
