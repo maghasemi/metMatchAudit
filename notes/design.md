@@ -53,7 +53,7 @@ Regular expressions, one function each, each with tests.
 
 Two sources, both tested in the feasibility run.
 
-**SwissLipids, by InChIKey.** For rows with a valid key and no group name.
+**SwissLipids, by InChIKey.** For rows with a valid key, no group name and no alternative names.
 
 1. Look the key up in three tiers: full key, first 25 characters (SwissLipids stores pH 7.3 forms, so the protonation letter often differs), first 14 characters. Stop at the first tier that finds anything. Record the tier.
 2. Walk up the parent links from each hit and collect the Species and Molecular subspecies ancestors.
@@ -101,6 +101,7 @@ Where the rules come from:
 - R06 and R12: DG 18:1_18:2 [1] and [2] share Species `DG 36:3` but differ in structure (1,2- against 1,3-DG). R06 does not separate them because their molecular species is the same, so R12 does, through the InChIKey.
 - R07 before R08: androsterone sulfate against "andro steroid monosulfate C19H28O6S". A vague name does not make a pair broader/narrower when the formulas differ.
 - R08: "(2 or 3)-decenoate", "2-hydroxyvaleric and or 2-hydroxyisovaleric acid". The key of a group row is one member, not a confirmed structure.
+| R08b | either name lists alternative names at its top level ("X or Y") | unresolved |
 - R11: 2-hydroxystearate as 2S in one file and 2R in the other, with no stereo in either name.
 
 A note on headgroups: SwissLipids writes glycosylceramides at Species level as HexCer or Hex2Cer, while a name may say GlcCer or LacCer. v0.1 does not treat HexCer as a parent of GlcCer. Such pairs differ in `lipid_species`, which would make R04 call them distinct. To avoid that false result, R04 skips a pair when the two Species strings differ only in the headgroup and the chain part is identical. The pair falls through, usually to `unresolved`.
