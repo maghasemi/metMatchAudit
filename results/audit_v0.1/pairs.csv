@@ -141,7 +141,7 @@
 "Acesulfame","LEOCC_Metabolon:786","Broad_2022Aug:408","exact","R03","identical InChIKey YGCFIWIQZPHFLU-UHFFFAOYSA-N"
 "SM 38:2;O2","LEOCC_Metabolon:800","Broad_2022Aug:83","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile"
 "SM 18:1;O2/22:0","LEOCC_Metabolon:802","Broad_2022Aug:232","broader_narrower","R05","SM 40:1;O2: level structure vs species"
-"SM 40:2;O2","LEOCC_Metabolon:803","Broad_2022Aug:233","unresolved","R08","a row reports a group of compounds; overlap not checked"
+"SM 40:2;O2","LEOCC_Metabolon:803","Broad_2022Aug:233","broader_narrower","R05","SM 40:2;O2: level group vs species"
 "SM 40:3;O2","LEOCC_Metabolon:804","Broad_2022Aug:86","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile"
 "SM 18:1;O2/24:0","LEOCC_Metabolon:805","Broad_2022Aug:234","broader_narrower","R05","SM 42:1;O2: level structure vs species"
 "SM 33:1;O2","LEOCC_Metabolon:806","Broad_2022Aug:77","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile"

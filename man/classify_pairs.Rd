@@ -27,6 +27,7 @@ is kept with the result.
    R01 \tab unresolved \tab either row has no valid InChIKey and no lipid profile \cr
    R04h \tab unresolved \tab lipid Species differ only in hexose headgroup naming (HexCer vs GlcCer) \cr
    R04 \tab distinct \tab lipid Species differ \cr
+   R05g \tab unresolved \tab same Species, one row is a group-name row and the other is reported at molecular level or finer; membership is not checked \cr
    R05 \tab broader_narrower \tab same lipid Species, reported at different levels \cr
    R06 \tab distinct \tab same Species, both molecular or finer, molecular species differ \cr
    R06b \tab exact \tab same Species and same level, at species or molecular level, same name at that level \cr

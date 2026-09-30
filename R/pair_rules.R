@@ -2,7 +2,7 @@
 # rule that applies to a pair decides it. Keep this list, the design
 # table and the tests in step with each other.
 
-.rule_order <- c("R02", "R01", "R04h", "R04", "R05", "R06", "R06b", "R03",
+.rule_order <- c("R02", "R01", "R04h", "R04", "R05g", "R05", "R06", "R06b", "R03",
                  "R08", "R08b", "R09", "R10", "R11", "R12", "R99")
 
 .relationships <- c("exact", "broader_narrower", "stereo_variant",
@@ -37,6 +37,7 @@
 #' | R01 | unresolved | either row has no valid InChIKey and no lipid profile |
 #' | R04h | unresolved | lipid Species differ only in hexose headgroup naming (HexCer vs GlcCer) |
 #' | R04 | distinct | lipid Species differ |
+#' | R05g | unresolved | same Species, one row is a group-name row and the other is reported at molecular level or finer; membership is not checked |
 #' | R05 | broader_narrower | same lipid Species, reported at different levels |
 #' | R06 | distinct | same Species, both molecular or finer, molecular species differ |
 #' | R06b | exact | same Species and same level, at species or molecular level, same name at that level |
@@ -106,6 +107,10 @@ classify_pairs <- function(evidence, pairs) {
   decide(headgroup_only, "unresolved", "R04h", paste0(sp_text, " (headgroup naming only)"))
 
   decide(lipid_both & !same_sp, "distinct", "R04", sp_text)
+
+  decide(same_sp & ((A$lipid_level == "group" & B$lipid_level %in% finer) |
+                      (B$lipid_level == "group" & A$lipid_level %in% finer)),
+         "unresolved", "R05g", paste0(lv_text, "; group members not compared"))
 
   decide(same_sp & A$lipid_level != B$lipid_level, "broader_narrower", "R05", lv_text)
 

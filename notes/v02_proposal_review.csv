@@ -52,3 +52,9 @@ SM 36:1;O2,LEOCC_Metabolon:204,Broad_2022Aug:229,broader_narrower,R05,SM 36:1;O2
 SM 40:1;O2,LEOCC_Metabolon:802,Broad_2022Aug:232,broader_narrower,R05,SM 40:1;O2: level structure vs species,TRUE,1,1,one_to_one,behenoyl sphingomyelin (d18:1/22:0)*,SM 40:1;O2,Correct,
 SM 42:1;O2,LEOCC_Metabolon:805,Broad_2022Aug:234,broader_narrower,R05,SM 42:1;O2: level structure vs species,TRUE,1,1,one_to_one,lignoceroyl sphingomyelin (d18:1/24:0),SM 42:1;O2,Correct,
 SPBP 18:1;O2,LEOCC_Metabolon:258,Broad_2022Aug:486,exact,R03,identical InChIKey DUYSYHSSBDVJSM-KRWOKUGFSA-N,TRUE,1,1,one_to_one,sphingosine 1-phosphate,Sphingosine 1-phosphate,Correct,
+DG 34:3,LEOCC_Metabolon:955,Broad_2022Aug:147,broader_narrower,R05,,FALSE,,,one_to_many,"diacylglycerol (16:1/18:2 [2], 16:0/18:3 [1])*",DG 34:3,correct,Group-name row added in v0.2; checked by chain sum of each member
+SM 32:1;O2,LEOCC_Metabolon:719,Broad_2022Aug:226,broader_narrower,R05,,FALSE,,,one_to_one,"sphingomyelin (d18:1/14:0, d16:1/16:0)*",SM 32:1;O2,correct,Group-name row added in v0.2; checked by chain sum of each member
+SM 36:2;O2,LEOCC_Metabolon:551,Broad_2022Aug:230,broader_narrower,R05,,FALSE,,,one_to_one,"sphingomyelin (d18:1/18:1, d18:2/18:0)",SM 36:2;O2,correct,Group-name row added in v0.2; checked by chain sum of each member
+SM 38:1;O2,LEOCC_Metabolon:799,Broad_2022Aug:231,broader_narrower,R05,,FALSE,,,one_to_one,"sphingomyelin (d18:1/20:0, d16:1/22:0)*",SM 38:1;O2,correct,Group-name row added in v0.2; checked by chain sum of each member
+SM 40:2;O2,LEOCC_Metabolon:803,Broad_2022Aug:233,broader_narrower,R05,,TRUE,,,one_to_one,"sphingomyelin (d18:1/22:1, d18:2/22:0, d16:1/24:1)*",SM 40:2;O2,correct,Group-name row added in v0.2; checked by chain sum of each member
+SM 42:2;O2,LEOCC_Metabolon:758,Broad_2022Aug:235,broader_narrower,R05,,FALSE,,,one_to_one,"sphingomyelin (d18:1/24:1, d18:2/24:0)*",SM 42:2;O2,correct,Group-name row added in v0.2; checked by chain sum of each member

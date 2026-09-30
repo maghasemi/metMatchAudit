@@ -84,6 +84,8 @@ read_metlinkr <- function(files, encoding = "UTF-8") {
 #'   * `pairs`: every pair with `relationship`, `rule_id`, `evidence`
 #'   * `groups`: one line per group, see [summarise_groups()]
 #'   * `row_flags`: see [row_flags()]
+#'   * `lipid_matches`: lipid pairs across files, see
+#'     [propose_lipid_matches()]
 #'   * `rows`: every row with its evidence
 #'   * `info`: package version, date, and the md5 of the SwissLipids file
 #'
@@ -102,6 +104,7 @@ audit_metlinkr <- function(files, swisslipids, encoding = "UTF-8",
 
   out <- list(
     pairs     = pairs,
+    lipid_matches = propose_lipid_matches(evidence, group_col = "group_id"),
     groups    = summarise_groups(pairs),
     row_flags = row_flags(evidence),
     rows      = evidence,
@@ -127,13 +130,18 @@ print.metmatch_audit <- function(x, ...) {
     for (r in names(tab)) cat("   ", format(r, width = 17), tab[[r]], "\n")
   }
   cat(" row flags:", nrow(x$row_flags), "\n")
+  if (!is.null(x$lipid_matches)) {
+    lm <- x$lipid_matches
+    cat(" lipid matches across files:", nrow(lm),
+        "(", sum(!lm$already_grouped), "not grouped by MetLinkR )\n")
+  }
   invisible(x)
 }
 
 #' Write an audit to CSV files
 #'
-#' Writes `pairs.csv`, `groups.csv`, `row_flags.csv`, `rows.csv` and a
-#' short `run_info.txt` into `dir`.
+#' Writes `pairs.csv`, `groups.csv`, `row_flags.csv`, `rows.csv`,
+#' `lipid_matches.csv` and a short `run_info.txt` into `dir`.
 #'
 #' @param audit An object from [audit_metlinkr()].
 #' @param dir Output folder. Created if it does not exist.
@@ -146,11 +154,13 @@ write_audit <- function(audit, dir) {
     stop("`audit` must come from audit_metlinkr().", call. = FALSE)
   }
   dir.create(dir, showWarnings = FALSE, recursive = TRUE)
-  paths <- file.path(dir, c("pairs.csv", "groups.csv", "row_flags.csv", "rows.csv", "run_info.txt"))
+  paths <- file.path(dir, c("pairs.csv", "groups.csv", "row_flags.csv", "rows.csv",
+                            "lipid_matches.csv", "run_info.txt"))
   utils::write.csv(audit$pairs,     paths[1], row.names = FALSE)
   utils::write.csv(audit$groups,    paths[2], row.names = FALSE)
   utils::write.csv(audit$row_flags, paths[3], row.names = FALSE)
   utils::write.csv(audit$rows,      paths[4], row.names = FALSE)
+  utils::write.csv(audit$lipid_matches, paths[5], row.names = FALSE)
   info <- audit$info
   writeLines(c(
     paste("metMatchAudit version:", info$package_version),
@@ -159,6 +169,6 @@ write_audit <- function(audit, dir) {
     "Input files:",
     paste0("  ", info$files$path, " (name: ", info$files$name_col,
            ", InChIKey: ", info$files$inchikey_col, ")")
-  ), paths[5])
+  ), paths[6])
   invisible(paths)
 }

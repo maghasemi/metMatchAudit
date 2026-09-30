@@ -15,6 +15,6 @@ write_audit(audit, dir)
 The paths of the written files, invisibly.
 }
 \description{
-Writes \code{pairs.csv}, \code{groups.csv}, \code{row_flags.csv}, \code{rows.csv} and a
-short \code{run_info.txt} into \code{dir}.
+Writes \code{pairs.csv}, \code{groups.csv}, \code{row_flags.csv}, \code{rows.csv},
+\code{lipid_matches.csv} and a short \code{run_info.txt} into \code{dir}.
 }

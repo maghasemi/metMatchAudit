@@ -1,0 +1,7 @@
+"row_a","row_b","name_a","name_b","lipid_species","relationship","rule_id","shape","already_grouped"
+"LEOCC_Metabolon:955","Broad_2022Aug:147","diacylglycerol (16:1/18:2 [2], 16:0/18:3 [1])*","DG 34:3","DG 34:3","broader_narrower","R05","one_to_many",FALSE
+"LEOCC_Metabolon:719","Broad_2022Aug:226","sphingomyelin (d18:1/14:0, d16:1/16:0)*","SM 32:1;O2","SM 32:1;O2","broader_narrower","R05","one_to_one",FALSE
+"LEOCC_Metabolon:551","Broad_2022Aug:230","sphingomyelin (d18:1/18:1, d18:2/18:0)","SM 36:2;O2","SM 36:2;O2","broader_narrower","R05","one_to_one",FALSE
+"LEOCC_Metabolon:799","Broad_2022Aug:231","sphingomyelin (d18:1/20:0, d16:1/22:0)*","SM 38:1;O2","SM 38:1;O2","broader_narrower","R05","one_to_one",FALSE
+"LEOCC_Metabolon:803","Broad_2022Aug:233","sphingomyelin (d18:1/22:1, d18:2/22:0, d16:1/24:1)*","SM 40:2;O2","SM 40:2;O2","broader_narrower","R05","one_to_one",TRUE
+"LEOCC_Metabolon:758","Broad_2022Aug:235","sphingomyelin (d18:1/24:1, d18:2/24:0)*","SM 42:2;O2","SM 42:2;O2","broader_narrower","R05","one_to_one",FALSE

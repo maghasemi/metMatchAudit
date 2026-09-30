@@ -52,10 +52,13 @@ test_that("the connectivity fallback is marked as such", {
   expect_identical(out$lipid_source[4], "swisslipids_fallback")
 })
 
-test_that("group and alternative names get no profile, even with a key", {
+test_that("a group row whose key disagrees with its chain sum, and alternative names, get no profile", {
+  # Row 5 is an SM group summing to 38:3 but carries a DG key. Since v0.2
+  # the key of a group row is looked up, so sl_tier is set, but the
+  # Species it gives (DG 36:3) does not match the name, so no profile.
   out <- evidence()
   expect_true(is.na(out$lipid_species[5]))
-  expect_true(is.na(out$sl_tier[5]))
+  expect_false(is.na(out$sl_tier[5]))
   expect_true(is.na(out$lipid_species[8]))
 })
 

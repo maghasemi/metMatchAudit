@@ -129,3 +129,15 @@ Criteria:
 - Every wrong proposal gets its cause written down, and each cause becomes a test.
 
 Recall on MetLinkR's own lipid links is not a real test here, since v0.2 finds them with the same profiles v0.1 used to confirm them. Instead, the report states how many lipid rows have no profile and so cannot be matched at all.
+
+## 2026-10-01: v0.2 code, group rows and R05g
+
+Group-name lipid rows now get a profile at a new level, "group", when the chain sum shared by all listed members matches the Species SwissLipids gives for the row's key. Members written with ether, plasmalogen or hydroxy notation are not summed, since those counts follow different rules.
+
+New rule R05g: a group row against a row at molecular level or finer with the same Species is unresolved, because v0.2 does not check whether that structure is one of the listed members. Against a Species-level row, R05 gives broader_narrower as before.
+
+Side effect on the v0.1 evaluation: the SM 36:1 review group, labeled C, now comes out distinct through R04 instead of unresolved through R08.
+
+propose_lipid_matches() pairs lipid rows from different files that share a Species and keeps exact and broader_narrower pairs. It does not depend on MetLinkR.
+
+Correction (2026-10-01): the first count of group rows with a SwissLipids Species was 18. A recount of results/v02_feasibility/group_rows.csv gives 19, which matches the package output.

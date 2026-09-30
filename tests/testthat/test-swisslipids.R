@@ -3,7 +3,7 @@ fixture <- function() test_path("fixtures", "swisslipids_mini.tsv")
 test_that("the table loads and records its md5", {
   db <- load_swisslipids(fixture())
   expect_s3_class(db, "swisslipids_db")
-  expect_equal(db$n_rows, 21)
+  expect_equal(db$n_rows, 25)
   expect_identical(db$md5, unname(tools::md5sum(fixture())))
 })
 

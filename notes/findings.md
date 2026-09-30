@@ -4,6 +4,14 @@ Numbers here come from the scripts, not from memory. When a number is copied in,
 
 ## Phase 1a: InChIKey check on MetLinkR example output
 
+## v0.2 results
+
+Package output checked against the hand review (`scripts/31_v02_check_proposals.R`): all 53 reviewed proposals are reproduced, and 6 new ones come from group-name rows that now have a lipid profile. The 6 were checked by adding up each listed member's chains; all are correct. Total: 59 proposals, 59 correct, 48 of them not linked by MetLinkR.
+
+Group-name rows with a profile: 19 of 28, all in the Metabolon file.
+
+Effect on the v0.1 evaluation (53 reviewed groups): agree 28 to 29, safe_miss 14 to 13, wrong unchanged at 1 (xylose). The SM 36:1 group (C) now comes out distinct through R04. Of the 13 wrong merges by MetLinkR, the tool now finds 12.
+
 ### Input rows
 
 Source: `results/rows_summary.csv`

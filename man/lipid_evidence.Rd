@@ -14,7 +14,10 @@ lipid_evidence(rows, db)
 \value{
 \code{rows} with these columns added: \code{sl_tier}, \code{sl_n_hits},
 \code{sl_fallback}, \code{sl_species_abbrev}, \code{lipid_species},
-\code{lipid_molecular}, \code{lipid_level}, \code{lipid_source}, \code{lipid_conflict}.
+\code{lipid_molecular}, \code{lipid_level} (\code{"species"}, \code{"group"},
+\code{"molecular"}, \code{"sn_position"} or \code{"structure"}), \code{lipid_source}
+(\code{"rgoslin_name"}, \code{"swisslipids"}, \code{"swisslipids_fallback"} or
+\code{"group_chain_sum"}), \code{lipid_conflict}.
 }
 \description{
 Combines two sources of lipid evidence, as described in
@@ -28,8 +31,10 @@ parsed with rgoslin so they use the same notation as other vendors.
 \item rgoslin, through the row's own name (\code{\link[=parse_lipid_names]{parse_lipid_names()}}).
 }
 
-Rows with a group name or alternative names get no profile, because
-their InChIKey is not a confirmed structure.
+Rows with alternative names get no profile. Rows with a group name
+get one only at \code{"group"} level, and only when the chain sum shared by
+all listed members (see \code{\link[=group_chain_sum]{group_chain_sum()}}) matches the Species that
+SwissLipids gives for the row's key. Their key alone is not trusted.
 
 When both sources give a Species and they differ, the row is flagged
 in \code{lipid_conflict} and gets no profile. When both agree, or only the

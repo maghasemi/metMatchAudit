@@ -52,6 +52,7 @@ Regular expressions, one function each, each with tests.
 ### Lipid evidence
 
 Two sources, both tested in the feasibility run.
+- `lipid_level` can also be `group`: a group-name row whose members share one chain sum that matches the Species SwissLipids gives for its key. Source: `group_chain_sum`.
 
 **SwissLipids, by InChIKey.** For rows with a valid key, no group name and no alternative names.
 
@@ -83,6 +84,7 @@ Rules run in this order for each pair in a group. The first rule that applies de
 | R01 | either row has neither a valid InChIKey nor a lipid profile | unresolved |
 | R04h | lipid Species differ only in hexose headgroup naming (HexCer vs GlcCer, Hex2Cer vs LacCer) | unresolved |
 | R04 | both rows have a lipid profile and `lipid_species` differs | distinct |
+| R05g | same `lipid_species`, one row is a group-name row and the other is at molecular level or finer | unresolved |
 | R05 | same `lipid_species`, reported at different levels | broader_narrower |
 | R06 | same `lipid_species`, both molecular or finer, `lipid_molecular` differs | distinct |
 | R06b | same `lipid_species` and same level, at species or molecular level, same name at that level | exact |

@@ -8,8 +8,10 @@
 #'   parsed with rgoslin so they use the same notation as other vendors.
 #' * rgoslin, through the row's own name ([parse_lipid_names()]).
 #'
-#' Rows with a group name or alternative names get no profile, because
-#' their InChIKey is not a confirmed structure.
+#' Rows with alternative names get no profile. Rows with a group name
+#' get one only at `"group"` level, and only when the chain sum shared by
+#' all listed members (see [group_chain_sum()]) matches the Species that
+#' SwissLipids gives for the row's key. Their key alone is not trusted.
 #'
 #' When both sources give a Species and they differ, the row is flagged
 #' in `lipid_conflict` and gets no profile. When both agree, or only the
@@ -23,7 +25,10 @@
 #'
 #' @return `rows` with these columns added: `sl_tier`, `sl_n_hits`,
 #'   `sl_fallback`, `sl_species_abbrev`, `lipid_species`,
-#'   `lipid_molecular`, `lipid_level`, `lipid_source`, `lipid_conflict`.
+#'   `lipid_molecular`, `lipid_level` (`"species"`, `"group"`,
+#'   `"molecular"`, `"sn_position"` or `"structure"`), `lipid_source`
+#'   (`"rgoslin_name"`, `"swisslipids"`, `"swisslipids_fallback"` or
+#'   `"group_chain_sum"`), `lipid_conflict`.
 #'
 #' @export
 lipid_evidence <- function(rows, db) {
@@ -81,6 +86,23 @@ lipid_evidence <- function(rows, db) {
   source <- ifelse(from_name, "rgoslin_name",
                    ifelse(from_sl & sl$sl_fallback, "swisslipids_fallback",
                           ifelse(from_sl, "swisslipids", NA_character_)))
+
+  # Group-name rows: profile at "group" level when the chain sum read
+  # from the name and the Species found through the key agree.
+  group_rows <- which(rows$name_group & !rows$name_alternatives & rows$ik_valid)
+  for (i in group_rows) {
+    gsum <- group_chain_sum(rows$original_name[i])
+    if (is.na(gsum)) next
+    look <- swisslipids_lookup(rows$inchikey[i], db)
+    sl[i, ] <- look
+    if (look$sl_n_species != 1) next
+    sp <- parse_lipid_names(look$sl_species)$species
+    if (is.na(sp) || !identical(.species_sum(sp), gsum)) next
+    species[i]   <- sp
+    level[i]     <- "group"
+    molecular[i] <- NA_character_
+    source[i]    <- "group_chain_sum"
+  }
 
   rows$sl_tier           <- sl$sl_tier
   rows$sl_n_hits         <- sl$sl_n_hits

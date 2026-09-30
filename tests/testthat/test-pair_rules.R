@@ -178,3 +178,33 @@ test_that("missing evidence columns stop with a clear message", {
   expect_error(classify_pairs(rows, data.frame(group_id = "g", row_a = "a", row_b = "a")),
                "lipid_evidence")
 })
+
+test_that("R04 separates a group row from a different Species (the SM 36:1 review group)", {
+  r <- pair_result(
+    list(name = "sphingomyelin (d18:1/20:2, d18:2/20:1, d16:1/22:2)*",
+         lipid_species = "SM 38:3;O2", lipid_level = "group"),
+    list(name = "stearoyl sphingomyelin (d18:1/18:0)",
+         lipid_species = "SM 36:1;O2", lipid_level = "structure"))
+  expect_identical(r$rule_id, "R04")
+  expect_identical(r$relationship, "distinct")
+})
+
+test_that("R05: a Species-level row is broader than a group row", {
+  r <- pair_result(
+    list(name = "sphingomyelin (d18:2/16:0, d18:1/16:1)*",
+         lipid_species = "SM 34:2;O2", lipid_level = "group"),
+    list(name = "SM 34:2;O2", lipid_species = "SM 34:2;O2", lipid_level = "species"))
+  expect_identical(r$rule_id, "R05")
+  expect_identical(r$relationship, "broader_narrower")
+})
+
+test_that("R05g: a group row against a structure stays unresolved", {
+  # The structure may or may not be one of the listed members.
+  r <- pair_result(
+    list(name = "sphingomyelin (d18:2/16:0, d18:1/16:1)*",
+         lipid_species = "SM 34:2;O2", lipid_level = "group"),
+    list(name = "some SM with the same sum", lipid_species = "SM 34:2;O2",
+         lipid_molecular = "SM 18:1;O2/16:1", lipid_level = "structure"))
+  expect_identical(r$rule_id, "R05g")
+  expect_identical(r$relationship, "unresolved")
+})

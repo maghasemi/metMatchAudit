@@ -1,7 +1,7 @@
 category,outcome,groups
 B,safe_miss,2
-C,agree,11
-C,safe_miss,2
+C,agree,12
+C,safe_miss,1
 D,agree,17
 D,safe_miss,10
 E,E_not_exact,10

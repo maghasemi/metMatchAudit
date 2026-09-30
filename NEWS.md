@@ -1,3 +1,11 @@
+# metMatchAudit 0.2.0
+
+* New `propose_lipid_matches()`: pairs lipid rows from different files that share a Species and reports exact and broader/narrower matches, marked one-to-one or one-to-many. Does not need MetLinkR. On the example data it proposes 59 matches, 48 of them not linked by MetLinkR; all 59 were checked by hand and found correct.
+* Group-name lipid rows such as "sphingomyelin (d18:1/20:2, d18:2/20:1)*" get a profile at the new level "group" when the chain sum of their members matches the Species SwissLipids gives for their key.
+* New rule R05g: a group row against a specific structure with the same Species stays unresolved.
+* `audit_metlinkr()` returns `lipid_matches`; `write_audit()` writes `lipid_matches.csv`.
+* Evaluation against the manual review: 29 agree, 13 unresolved, 1 known limit.
+
 # metMatchAudit 0.1.0
 
 First release.

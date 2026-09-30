@@ -20,3 +20,7 @@ SLM:000000951	Species	x	HexCer(d34:1)					C"C	InChI=none
 SLM:000000952	Isomeric subspecies	x	GlcCer(d18:1(4E)/16:0)			SLM:000000951		C"C	InChI=1S/x	InChIKey=VJLLLMIZEJJZTE-NNTBDIJYSA-N																		
 SLM:000000961	Isomeric subspecies	x				SLM:000000962		C"C	InChI=1S/x	InChIKey=LOOPLOOPLOOPLO-KTKRTIGZSA-N																		
 SLM:000000962	Structural subspecies	x				SLM:000000961		C"C	InChI=none																			
+SLM:000000943	Species	x	SM(d38:3)			SLM:000000903		C	InChI=none																			
+SLM:000000944	Isomeric subspecies	x				SLM:000000943		C	InChI=1S/x	InChIKey=YVTVVJRJLRHYSJ-COUPUTHFSA-N																		
+SLM:000000945	Species	x	SM(d34:2)			SLM:000000903		C	InChI=none																			
+SLM:000000946	Isomeric subspecies	x				SLM:000000945		C	InChI=1S/x	InChIKey=IWHLTJGDYLJQSH-FLPFCPAFSA-N																		

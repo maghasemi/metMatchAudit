@@ -123,7 +123,7 @@
 "Acesulfame",2,1,"exact","R03",0,0,0,0,1
 "SM 38:2;O2",2,1,"unresolved","R01",0,1,0,0,0
 "SM 18:1;O2/22:0",2,1,"broader_narrower","R05",0,0,1,0,0
-"SM 40:2;O2",2,1,"unresolved","R08",0,1,0,0,0
+"SM 40:2;O2",2,1,"broader_narrower","R05",0,0,1,0,0
 "SM 40:3;O2",2,1,"unresolved","R01",0,1,0,0,0
 "SM 18:1;O2/24:0",2,1,"broader_narrower","R05",0,0,1,0,0
 "SM 33:1;O2",2,1,"unresolved","R01",0,1,0,0,0

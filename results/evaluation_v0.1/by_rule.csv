@@ -1,6 +1,7 @@
 category,tool_rule,groups
 B,R11,2
-C,R08,2
+C,R04,1
+C,R08,1
 C,R12,11
 D,R08,4
 D,R09,17
