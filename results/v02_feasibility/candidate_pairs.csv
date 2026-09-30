@@ -1,0 +1,63 @@
+"group_id","row_a","row_b","relationship","rule_id","evidence","linked_by_metlinkr"
+"DG 34:1","LEOCC_Metabolon:950","Broad_2022Aug:145","broader_narrower","R05","DG 34:1: level structure vs species",FALSE
+"DG 34:1","LEOCC_Metabolon:949","Broad_2022Aug:145","broader_narrower","R05","DG 34:1: level structure vs species",FALSE
+"DG 34:3","LEOCC_Metabolon:952","Broad_2022Aug:147","broader_narrower","R05","DG 34:3: level structure vs species",FALSE
+"DG 36:3","LEOCC_Metabolon:639","Broad_2022Aug:151","broader_narrower","R05","DG 36:3: level structure vs species",FALSE
+"DG 36:3","LEOCC_Metabolon:640","Broad_2022Aug:151","broader_narrower","R05","DG 36:3: level structure vs species",FALSE
+"DG 36:4","LEOCC_Metabolon:951","Broad_2022Aug:152","broader_narrower","R05","DG 36:4: level structure vs species",FALSE
+"DG 38:5","LEOCC_Metabolon:954","Broad_2022Aug:153","broader_narrower","R05","DG 38:5: level structure vs species",FALSE
+"DG 38:5","LEOCC_Metabolon:953","Broad_2022Aug:153","broader_narrower","R05","DG 38:5: level structure vs species",FALSE
+"FA 18:1;O2","LEOCC_Metabolon:18","Broad_2022Aug:406","exact","R03","identical InChIKey XEBKSQSGNGRGDW-YFHOEESVSA-N",TRUE
+"FA 18:1;O2","LEOCC_Metabolon:18","Broad_2022Aug:390","distinct","R12","different connectivity: XEBKSQSGNGRGDW-YFHOEESVSA-N vs CQSLTKIXAJTQGA-FLIBITNWSA-N",FALSE
+"FA 18:1;O2","LEOCC_Metabolon:4","Broad_2022Aug:406","distinct","R12","different connectivity: CQSLTKIXAJTQGA-FLIBITNWSA-N vs XEBKSQSGNGRGDW-YFHOEESVSA-N",FALSE
+"FA 18:1;O2","LEOCC_Metabolon:4","Broad_2022Aug:390","exact","R03","identical InChIKey CQSLTKIXAJTQGA-FLIBITNWSA-N",TRUE
+"LPC 16:0","LEOCC_Metabolon:362","Broad_2022Aug:156","unresolved","R99","no rule applied",TRUE
+"LPC 16:0","LEOCC_Metabolon:447","Broad_2022Aug:156","unresolved","R99","no rule applied",FALSE
+"LPC 18:1","LEOCC_Metabolon:368","Broad_2022Aug:159","broader_narrower","R05","LPC 18:1: level structure vs molecular",FALSE
+"LPC 18:2","LEOCC_Metabolon:402","Broad_2022Aug:160","broader_narrower","R05","LPC 18:2: level structure vs molecular",FALSE
+"LPC 24:0","LEOCC_Metabolon:626","Broad_2022Aug:167","unresolved","R99","no rule applied",TRUE
+"LPE 16:0","LEOCC_Metabolon:448","Broad_2022Aug:170","unresolved","R99","no rule applied",TRUE
+"LPE 18:0","LEOCC_Metabolon:674","Broad_2022Aug:171","unresolved","R99","no rule applied",FALSE
+"LPE 18:0","LEOCC_Metabolon:429","Broad_2022Aug:171","unresolved","R99","no rule applied",TRUE
+"LPE 18:1","LEOCC_Metabolon:449","Broad_2022Aug:172","broader_narrower","R05","LPE 18:1: level structure vs molecular",FALSE
+"LPE 18:2","LEOCC_Metabolon:450","Broad_2022Aug:173","broader_narrower","R05","LPE 18:2: level structure vs molecular",TRUE
+"LPE 20:4","LEOCC_Metabolon:451","Broad_2022Aug:174","broader_narrower","R05","LPE 20:4: level structure vs molecular",FALSE
+"PC 30:0","LEOCC_Metabolon:264","Broad_2022Aug:179","broader_narrower","R05","PC 30:0: level structure vs species",TRUE
+"PC 32:0","LEOCC_Metabolon:262","Broad_2022Aug:181","broader_narrower","R05","PC 32:0: level structure vs species",FALSE
+"PC 32:1","LEOCC_Metabolon:871","Broad_2022Aug:182","broader_narrower","R05","PC 32:1: level structure vs species",FALSE
+"PC 34:0","LEOCC_Metabolon:848","Broad_2022Aug:184","broader_narrower","R05","PC 34:0: level structure vs species",TRUE
+"PC 34:1","LEOCC_Metabolon:205","Broad_2022Aug:185","broader_narrower","R05","PC 34:1: level structure vs species",FALSE
+"PC 34:2","LEOCC_Metabolon:203","Broad_2022Aug:186","broader_narrower","R05","PC 34:2: level structure vs species",FALSE
+"PC 34:4","LEOCC_Metabolon:899","Broad_2022Aug:188","broader_narrower","R05","PC 34:4: level structure vs species",FALSE
+"PC 34:4","LEOCC_Metabolon:933","Broad_2022Aug:188","broader_narrower","R05","PC 34:4: level structure vs species",FALSE
+"PC 36:1","LEOCC_Metabolon:842","Broad_2022Aug:189","broader_narrower","R05","PC 36:1: level structure vs species",FALSE
+"PC 36:2","LEOCC_Metabolon:870","Broad_2022Aug:190","broader_narrower","R05","PC 36:2: level structure vs species",FALSE
+"PC 36:4","LEOCC_Metabolon:841","Broad_2022Aug:192","broader_narrower","R05","PC 36:4: level structure vs species",FALSE
+"PC 36:4","LEOCC_Metabolon:843","Broad_2022Aug:192","broader_narrower","R05","PC 36:4: level structure vs species",FALSE
+"PC 38:4","LEOCC_Metabolon:510","Broad_2022Aug:195","broader_narrower","R05","PC 38:4: level structure vs species",FALSE
+"PC 38:6","LEOCC_Metabolon:898","Broad_2022Aug:196","broader_narrower","R05","PC 38:6: level structure vs species",FALSE
+"PC 38:6","LEOCC_Metabolon:844","Broad_2022Aug:196","broader_narrower","R05","PC 38:6: level structure vs species",FALSE
+"PC 40:6","LEOCC_Metabolon:845","Broad_2022Aug:198","broader_narrower","R05","PC 40:6: level structure vs species",FALSE
+"PC O-34:2","LEOCC_Metabolon:882","Broad_2022Aug:200","broader_narrower","R05","PC O-34:2: level structure vs species",FALSE
+"PC O-34:3","LEOCC_Metabolon:883","Broad_2022Aug:201","broader_narrower","R05","PC O-34:3: level structure vs species",FALSE
+"PC O-36:5","LEOCC_Metabolon:884","Broad_2022Aug:204","broader_narrower","R05","PC O-36:5: level structure vs species",FALSE
+"PE 34:1","LEOCC_Metabolon:201","Broad_2022Aug:207","broader_narrower","R05","PE 34:1: level structure vs species",FALSE
+"PE 34:2","LEOCC_Metabolon:511","Broad_2022Aug:208","broader_narrower","R05","PE 34:2: level structure vs species",FALSE
+"PE 36:1","LEOCC_Metabolon:507","Broad_2022Aug:210","broader_narrower","R05","PE 36:1: level structure vs species",FALSE
+"PE 36:2","LEOCC_Metabolon:868","Broad_2022Aug:211","broader_narrower","R05","PE 36:2: level structure vs species",FALSE
+"PE 36:3","LEOCC_Metabolon:896","Broad_2022Aug:212","broader_narrower","R05","PE 36:3: level structure vs species",FALSE
+"PE 36:4","LEOCC_Metabolon:873","Broad_2022Aug:213","broader_narrower","R05","PE 36:4: level structure vs species",FALSE
+"PE 36:4","LEOCC_Metabolon:905","Broad_2022Aug:213","broader_narrower","R05","PE 36:4: level structure vs species",FALSE
+"PE 38:4","LEOCC_Metabolon:869","Broad_2022Aug:214","broader_narrower","R05","PE 38:4: level structure vs species",FALSE
+"PE 38:5","LEOCC_Metabolon:906","Broad_2022Aug:215","broader_narrower","R05","PE 38:5: level structure vs species",FALSE
+"PE 38:6","LEOCC_Metabolon:874","Broad_2022Aug:216","broader_narrower","R05","PE 38:6: level structure vs species",FALSE
+"PE 40:6","LEOCC_Metabolon:875","Broad_2022Aug:217","broader_narrower","R05","PE 40:6: level structure vs species",FALSE
+"PE O-34:2","LEOCC_Metabolon:881","Broad_2022Aug:218","broader_narrower","R05","PE O-34:2: level structure vs species",FALSE
+"PE O-34:3","LEOCC_Metabolon:895","Broad_2022Aug:219","broader_narrower","R05","PE O-34:3: level structure vs species",FALSE
+"PE O-36:5","LEOCC_Metabolon:880","Broad_2022Aug:221","broader_narrower","R05","PE O-36:5: level structure vs species",FALSE
+"SM 34:1;O2","LEOCC_Metabolon:552","Broad_2022Aug:227","broader_narrower","R05","SM 34:1;O2: level structure vs species",TRUE
+"SM 36:1;O2","LEOCC_Metabolon:204","Broad_2022Aug:229","broader_narrower","R05","SM 36:1;O2: level structure vs species",TRUE
+"SM 40:1;O2","LEOCC_Metabolon:802","Broad_2022Aug:232","broader_narrower","R05","SM 40:1;O2: level structure vs species",TRUE
+"SM 42:1;O2","LEOCC_Metabolon:805","Broad_2022Aug:234","broader_narrower","R05","SM 42:1;O2: level structure vs species",TRUE
+"SPBP 18:1;O2","LEOCC_Metabolon:258","Broad_2022Aug:486","exact","R03","identical InChIKey DUYSYHSSBDVJSM-KRWOKUGFSA-N",TRUE
+"ST 27:1;O","LEOCC_Metabolon:43","Broad_2022Aug:141","unresolved","R11","same connectivity, stereo only in the keys: HVYWMOMLDIMFJA-LBHVWCRMSA-N vs HVYWMOMLDIMFJA-DPAQBDIFSA-N",TRUE

@@ -114,3 +114,18 @@ Each rule was tested on a real pair from the review. Five changes came out of th
 C02 would flag a row whose InChIKey has stereo while its name states none. Most amino acids, sugars and nucleosides fit that description ("inosine", "glucose"), so it would flag a large share of all rows and carry no signal. The case where it matters, two keys with different stereo and no stereo in either name, is already handled by pair rule R11.
 
 C01 flags only values that fail the format check. A missing key is not flagged, since many rows have none.
+
+## 2026-09-30: v0.2 feasibility and criteria, set before reviewing the proposals
+
+Feasibility run (scripts/30_v02_feasibility.R): 62 cross-file lipid pairs share a Species. MetLinkR linked 15 of them. Of the 47 it did not link, 43 are proposed as broader_narrower (R05), 2 are distinct (R12), 2 unresolved (R99). Proposed matches: 43 new (29 one-to-one, 14 one-to-many) against 10 already linked by MetLinkR.
+
+Group-name lipid rows: all 28 Metabolon rows with a chain list have members that share one chain sum. For 18 of them SwissLipids gives a Species through the representative InChIKey, and in all 18 it matches the sum computed from the name. v0.2 gives a group row a lipid profile only when both routes agree. The other 10 stay without one, since their class would have to be read from the name text.
+
+Precision check: all 43 new proposals, plus the 2 distinct and 2 unresolved unlinked pairs, are reviewed by hand before any v0.2 code is written. Each gets one label: correct (the relationship holds), wrong (it does not), or unclear.
+
+Criteria:
+- v0.2 goes ahead if at most 4 of the 43 proposals (about 10%) are wrong.
+- Any proposal of the form "exact" that is wrong stops the plan until the cause is found. None of the 43 are exact, so this applies to later runs.
+- Every wrong proposal gets its cause written down, and each cause becomes a test.
+
+Recall on MetLinkR's own lipid links is not a real test here, since v0.2 finds them with the same profiles v0.1 used to confirm them. Instead, the report states how many lipid rows have no profile and so cannot be matched at all.

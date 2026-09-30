@@ -1,0 +1,29 @@
+"row_id","name","n_members","member_sums","all_same_sum","representative_species"
+"LEOCC_Metabolon:551","sphingomyelin (d18:1/18:1, d18:2/18:0)",2,"36:2 | 36:2",TRUE,"SM(d36:2)"
+"LEOCC_Metabolon:719","sphingomyelin (d18:1/14:0, d16:1/16:0)*",2,"32:1 | 32:1",TRUE,"SM(d32:1)"
+"LEOCC_Metabolon:720","sphingomyelin (d18:2/16:0, d18:1/16:1)*",2,"34:2 | 34:2",TRUE,NA
+"LEOCC_Metabolon:757","sphingomyelin (d18:2/14:0, d18:1/14:1)*",2,"32:2 | 32:2",TRUE,"SM(d32:2)"
+"LEOCC_Metabolon:758","sphingomyelin (d18:1/24:1, d18:2/24:0)*",2,"42:2 | 42:2",TRUE,"SM(d42:2)"
+"LEOCC_Metabolon:799","sphingomyelin (d18:1/20:0, d16:1/22:0)*",2,"38:1 | 38:1",TRUE,"SM(d38:1)"
+"LEOCC_Metabolon:800","sphingomyelin (d18:1/20:1, d18:2/20:0)*",2,"38:2 | 38:2",TRUE,"SM(d38:2)"
+"LEOCC_Metabolon:801","sphingomyelin (d18:1/20:2, d18:2/20:1, d16:1/22:2)*",3,"38:3 | 38:3 | 38:3",TRUE,"SM(d38:3)"
+"LEOCC_Metabolon:803","sphingomyelin (d18:1/22:1, d18:2/22:0, d16:1/24:1)*",3,"40:2 | 40:2 | 40:2",TRUE,"SM(d40:2)"
+"LEOCC_Metabolon:804","sphingomyelin (d18:1/22:2, d18:2/22:1, d16:1/24:2)*",3,"40:3 | 40:3 | 40:3",TRUE,"SM(d40:3)"
+"LEOCC_Metabolon:806","sphingomyelin (d17:1/16:0, d18:1/15:0, d16:1/17:0)*",3,"33:1 | 33:1 | 33:1",TRUE,"SM(d33:1)"
+"LEOCC_Metabolon:847","sphingomyelin (d18:1/17:0, d17:1/18:0, d19:1/16:0)",3,"35:1 | 35:1 | 35:1",TRUE,"SM(d35:1)"
+"LEOCC_Metabolon:862","sphingomyelin (d18:2/23:0, d18:1/23:1, d17:1/24:1)*",3,"41:2 | 41:2 | 41:2",TRUE,NA
+"LEOCC_Metabolon:863","sphingomyelin (d18:2/24:1, d18:1/24:2)*",2,"42:3 | 42:3",TRUE,NA
+"LEOCC_Metabolon:885","sphingomyelin (d18:1/21:0, d17:1/22:0, d16:1/23:0)*",3,"39:1 | 39:1 | 39:1",TRUE,"SM(d39:1)"
+"LEOCC_Metabolon:887","sphingomyelin (d18:0/18:0, d19:0/17:0)*",2,"36:0 | 36:0",TRUE,"SM(d36:0)"
+"LEOCC_Metabolon:955","diacylglycerol (16:1/18:2 [2], 16:0/18:3 [1])*",2,"34:3 | 34:3",TRUE,"DG(34:3)"
+"LEOCC_Metabolon:969","ceramide (d18:1/14:0, d16:1/16:0)*",2,"32:1 | 32:1",TRUE,"Cer(d32:1)"
+"LEOCC_Metabolon:970","ceramide (d18:1/17:0, d17:1/18:0)*",2,"35:1 | 35:1",TRUE,"Cer(d35:1)"
+"LEOCC_Metabolon:971","ceramide (d18:2/24:1, d18:1/24:2)*",2,"42:3 | 42:3",TRUE,NA
+"LEOCC_Metabolon:972","glycosyl ceramide (d18:2/24:1, d18:1/24:2)*",2,"42:3 | 42:3",TRUE,NA
+"LEOCC_Metabolon:984","sphingomyelin (d18:0/20:0, d16:0/22:0)*",2,"38:0 | 38:0",TRUE,"SM(d38:0)"
+"LEOCC_Metabolon:985","sphingomyelin (d18:1/19:0, d19:1/18:0)*",2,"37:1 | 37:1",TRUE,"SM(d37:1)"
+"LEOCC_Metabolon:988","sphingomyelin (d18:2/21:0, d16:2/23:0)*",2,"39:2 | 39:2",TRUE,NA
+"LEOCC_Metabolon:990","sphingomyelin (d18:1/25:0, d19:0/24:1, d20:1/23:0, d19:1/24:0)*",4,"43:1 | 43:1 | 43:1 | 43:1",TRUE,NA
+"LEOCC_Metabolon:991","sphingomyelin (d17:2/16:0, d18:2/15:0)*",2,"33:2 | 33:2",TRUE,NA
+"LEOCC_Metabolon:1012","glycosyl ceramide (d18:1/20:0, d16:1/22:0)*",2,"38:1 | 38:1",TRUE,NA
+"LEOCC_Metabolon:1085","sphingomyelin (d17:1/14:0, d16:1/15:0)*",2,"31:1 | 31:1",TRUE,"SM(d31:1)"
