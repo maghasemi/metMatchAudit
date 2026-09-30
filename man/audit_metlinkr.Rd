@@ -4,7 +4,13 @@
 \alias{audit_metlinkr}
 \title{Audit MetLinkR groupings}
 \usage{
-audit_metlinkr(files, swisslipids, encoding = "UTF-8", expected_md5 = NULL)
+audit_metlinkr(
+  files,
+  swisslipids,
+  encoding = "UTF-8",
+  expected_md5 = NULL,
+  use_rdkit = TRUE
+)
 }
 \arguments{
 \item{files}{A data frame with one line per MetLinkR output file and
@@ -16,6 +22,8 @@ these columns:
 none
 \item \code{label} (optional): short name used in row IDs; defaults to the
 file name without \verb{_metLinkR.csv}
+\item \code{smiles_col}, \code{inchi_col} (optional): columns with a SMILES or an
+InChI, used by \code{\link[=structure_evidence]{structure_evidence()}}. \code{NA} where a file has none.
 }}
 
 \item{swisslipids}{Either a path to SwissLipids \code{lipids.tsv} or an
@@ -27,6 +35,9 @@ a minute, so pass a loaded object when you run several audits.}
 
 \item{expected_md5}{Optional md5 of the SwissLipids file, checked when
 \code{swisslipids} is a path.}
+
+\item{use_rdkit}{Use RDKit for the structure checks (R09b, C04) when
+it is available. See \code{\link[=structure_evidence]{structure_evidence()}}.}
 }
 \value{
 An object of class \code{metmatch_audit}, a list with:

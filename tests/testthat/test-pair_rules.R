@@ -208,3 +208,31 @@ test_that("R05g: a group row against a structure stays unresolved", {
   expect_identical(r$rule_id, "R05g")
   expect_identical(r$relationship, "unresolved")
 })
+
+test_that("R09b: partial stereo against full stereo is broader/narrower", {
+  # Cholesterol, review label D. Without structures this was R11.
+  r <- pair_result(
+    list(name = "cholesterol", inchikey = "HVYWMOMLDIMFJA-LBHVWCRMSA-N",
+         st_usable_inchi = inchi_cholesterol_leocc),
+    list(name = "Cholesterol", inchikey = "HVYWMOMLDIMFJA-DPAQBDIFSA-N",
+         st_usable_inchi = inchi_cholesterol_broad))
+  expect_identical(r$rule_id, "R09b")
+  expect_identical(r$relationship, "broader_narrower")
+})
+
+test_that("R09b does not fire on a stereo conflict; the pair goes on to R11", {
+  r <- pair_result(
+    list(name = "taurocholate", inchikey = "WBWWGRHZICKQGZ-HGVCTONRSA-N",
+         st_usable_inchi = inchi_taurocholate_leocc),
+    list(name = "Taurocholic acid", inchikey = "WBWWGRHZICKQGZ-HZAMXZRMSA-N",
+         st_usable_inchi = inchi_taurocholate_broad))
+  expect_identical(r$rule_id, "R11")
+})
+
+test_that("without trusted structures the pair stays at R11", {
+  r <- pair_result(
+    list(name = "cholesterol", inchikey = "HVYWMOMLDIMFJA-LBHVWCRMSA-N"),
+    list(name = "Cholesterol", inchikey = "HVYWMOMLDIMFJA-DPAQBDIFSA-N",
+         st_usable_inchi = inchi_cholesterol_broad))
+  expect_identical(r$rule_id, "R11")
+})

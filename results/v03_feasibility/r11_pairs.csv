@@ -1,0 +1,17 @@
+"group_id","row_a","row_b","relationship","rule_id","evidence","both_have_structure"
+"Cholic acid","LEOCC_Metabolon:12","Broad_2022Aug:422","unresolved","R11","same connectivity, stereo only in the keys: BHQCQFFYRZLCQQ-OLRQUHAPSA-N vs BHQCQFFYRZLCQQ-OELDTZBJSA-N",TRUE
+"Cholesterol","LEOCC_Metabolon:43","Broad_2022Aug:141","unresolved","R11","same connectivity, stereo only in the keys: HVYWMOMLDIMFJA-LBHVWCRMSA-N vs HVYWMOMLDIMFJA-DPAQBDIFSA-N",TRUE
+"Deoxycholic acid","LEOCC_Metabolon:51","Broad_2022Aug:335","unresolved","R11","same connectivity, stereo only in the keys: KXGVEGMKQFWNSR-OHAQSFBXSA-N vs KXGVEGMKQFWNSR-LLQZFEROSA-N",TRUE
+"Deoxycholic acid","LEOCC_Metabolon:51","Broad_2022Aug:425","unresolved","R11","same connectivity, stereo only in the keys: KXGVEGMKQFWNSR-OHAQSFBXSA-N vs KXGVEGMKQFWNSR-LLQZFEROSA-N",TRUE
+"Chenodeoxycholic acid","LEOCC_Metabolon:165","Broad_2022Aug:421","unresolved","R11","same connectivity, stereo only in the keys: RUDATBOHQWOJDD-LXEZOOAESA-N vs RUDATBOHQWOJDD-BSWAIDMHSA-N",TRUE
+"2-Hydroxystearic acid","LEOCC_Metabolon:183","Broad_2022Aug:411","unresolved","R11","same connectivity, stereo only in the keys: KIHBGTRZFAVZRV-QGZVFWFLSA-N vs KIHBGTRZFAVZRV-KRWDZBQOSA-N",TRUE
+"Glycochenodeoxycholic acid","LEOCC_Metabolon:207","Broad_2022Aug:441","unresolved","R11","same connectivity, stereo only in the keys: GHCZAUBVMUEKKP-AZDOMVTHSA-N vs GHCZAUBVMUEKKP-GYPHWSFCSA-N",TRUE
+"Taurocholic acid","LEOCC_Metabolon:209","Broad_2022Aug:510","unresolved","R11","same connectivity, stereo only in the keys: WBWWGRHZICKQGZ-HGVCTONRSA-N vs WBWWGRHZICKQGZ-HZAMXZRMSA-N",TRUE
+"Taurodeoxycholic acid","LEOCC_Metabolon:210","Broad_2022Aug:490","unresolved","R11","same connectivity, stereo only in the keys: AWDRATDZQPNJFN-RZGBOAIJSA-N vs AWDRATDZQPNJFN-VAYUFCLWSA-N",TRUE
+"Quinic acid","LEOCC_Metabolon:246","Broad_2022Aug:365","unresolved","R11","same connectivity, stereo only in the keys: AAWZDTNXLSGCEK-WYWMIBKRSA-N vs AAWZDTNXLSGCEK-LNVDRNJUSA-N",TRUE
+"Dehydroepiandrosterone sulfate","LEOCC_Metabolon:286","Broad_2022Aug:424","unresolved","R11","same connectivity, stereo only in the keys: CZWCKYRVOZZJNM-DYIPZHMLSA-N vs CZWCKYRVOZZJNM-USOAJAOKSA-N",TRUE
+"Glycolithocholic acid","LEOCC_Metabolon:321","Broad_2022Aug:444","unresolved","R11","same connectivity, stereo only in the keys: XBSQTYHEGZTYJE-PGVYWSLXSA-N vs XBSQTYHEGZTYJE-OETIFKLTSA-N",TRUE
+"Adrenic acid","LEOCC_Metabolon:345","Broad_2022Aug:409","unresolved","R11","same connectivity, stereo only in the keys: TWSWSIQAPQLDBP-CGRWFSSPSA-N vs TWSWSIQAPQLDBP-DOFZRALJSA-N",TRUE
+"Tauro-beta-muricholic acid","LEOCC_Metabolon:356","Broad_2022Aug:488","unresolved","R11","same connectivity, stereo only in the keys: XSOLDPYUICCHJX-OEYGYFRSSA-N vs XSOLDPYUICCHJX-UZUDEGBHSA-N",TRUE
+"Androsterone 3-glucuronide","LEOCC_Metabolon:611","LEOCC_Metabolon:743","unresolved","R11","same connectivity, stereo only in the keys: VFUIRAVTUVCQTF-BSOWLZGZSA-N vs VFUIRAVTUVCQTF-ILTUOXSPSA-N",TRUE
+"Tauroursodeoxycholic acid","LEOCC_Metabolon:630","Broad_2022Aug:511","unresolved","R11","same connectivity, stereo only in the keys: BHTRKEVKTKCXOH-BWIGJTJCSA-N vs BHTRKEVKTKCXOH-LBSADWJPSA-N",TRUE

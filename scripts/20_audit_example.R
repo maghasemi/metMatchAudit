@@ -8,7 +8,8 @@
 #                                  after the review is done. Do not open
 #                                  it before then.
 #
-# Needs: scripts/00_get_data.sh and the SwissLipids file.
+# Needs: scripts/00_get_data.sh and the SwissLipids file. Structure
+# checks (R09b, C04) run when RDKit is available through reticulate.
 # Run from the project root: Rscript scripts/20_audit_example.R
 
 pkgload::load_all(".", quiet = TRUE)
@@ -19,6 +20,8 @@ files <- data.frame(
                                    "Broad_2022Aug_annotations_metLinkR.csv")),
   name_col     = c("CHEMICAL_NAME", "Metabolite"),
   inchikey_col = c("INCHIKEY", "inChIKey"),
+  smiles_col   = c("SMILES", "smiles"),
+  inchi_col    = c(NA, "inChI"),
   label        = c("LEOCC_Metabolon", "Broad_2022Aug"),
   stringsAsFactors = FALSE
 )

@@ -35,6 +35,7 @@ is kept with the result.
    R08 \tab unresolved \tab either name reports a group of compounds \cr
    R08b \tab unresolved \tab either name lists alternative names \cr
    R09 \tab broader_narrower \tab same connectivity, exactly one key without stereo \cr
+   R09b \tab broader_narrower \tab same connectivity, and the stereo of one row's trusted structure is a subset of the other's (needs \code{\link[=structure_evidence]{structure_evidence()}}) \cr
    R10 \tab stereo_variant \tab same connectivity, different stereo, at least one name states stereo \cr
    R11 \tab unresolved \tab same connectivity, different stereo, no name states stereo \cr
    R12 \tab distinct \tab different connectivity \cr
@@ -43,5 +44,7 @@ is kept with the result.
 
 
 Rules R04 to R06b apply only when both rows have a lipid profile.
-Rules R09 to R12 need a valid InChIKey on both rows.
+Rules R09 to R12 need a valid InChIKey on both rows. R09b also needs
+trusted structures from \code{\link[=structure_evidence]{structure_evidence()}}; without them it is
+skipped.
 }

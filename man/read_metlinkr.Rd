@@ -16,6 +16,8 @@ these columns:
 none
 \item \code{label} (optional): short name used in row IDs; defaults to the
 file name without \verb{_metLinkR.csv}
+\item \code{smiles_col}, \code{inchi_col} (optional): columns with a SMILES or an
+InChI, used by \code{\link[=structure_evidence]{structure_evidence()}}. \code{NA} where a file has none.
 }}
 
 \item{encoding}{Passed to \code{\link[data.table:fread]{data.table::fread()}}: \code{"UTF-8"} or
@@ -24,8 +26,8 @@ file name without \verb{_metLinkR.csv}
 \value{
 A data frame with one line per input row: \code{row_id}
 (\verb{label:row number}), \code{file}, \code{row_in_file}, \code{original_name},
-\code{inchikey} and \code{group_id} (the standardized name; missing when
-MetLinkR assigned none).
+\code{inchikey}, \code{smiles}, \code{inchi} and \code{group_id} (the standardized name;
+missing when MetLinkR assigned none).
 }
 \description{
 MetLinkR writes each input file back out as \verb{<name>_metLinkR.csv}, with

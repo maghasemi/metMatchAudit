@@ -93,6 +93,7 @@ Rules run in this order for each pair in a group. The first rule that applies de
 | R08 | either name reports a group of compounds | unresolved |
 | R08b | either name lists alternative names at its top level ("X or Y") | unresolved |
 | R09 | same block1, different block2, exactly one key without stereo | broader_narrower |
+| R09b | same block1, different block2, both rows have a trusted structure, and the stereo of one is a subset of the other's | broader_narrower |
 | R10 | same block1, different block2, both keys give stereo, at least one name states stereo | stereo_variant |
 | R11 | same block1, different block2, both keys give stereo, no name states stereo | unresolved |
 | R12 | different block1 | distinct |
@@ -117,7 +118,8 @@ A note on headgroups: SwissLipids writes glycosylceramides at Species level as H
 |---|---|---|
 | C01 | the InChIKey column holds a value that is not a standard InChIKey (a missing key is not flagged) | invalid_key |
 | C03 | SwissLipids and rgoslin give different Species for the row | lipid_source_conflict |
-| C04 | the row's SMILES and InChIKey describe different structures (v0.3) | smiles_key_mismatch |
+| C04 | the row's own structure (InChI, or SMILES through RDKit) and its stored InChIKey differ in connectivity | structure_key_connectivity |
+| C04 | same connectivity, but the stereo or isotope block differs | structure_key_stereo |
 | C05 | the row's name is not among the PubChem synonyms of its key (v0.3) | name_key_mismatch |
 
 C04 catches xylose in the Broad file, where the SMILES is the ring form and the InChIKey the open-chain form. C05 catches pregnenediol sulfate and the 2-hydroxycaproic acid row. Both need a chemistry toolkit or PubChem, so they wait.

@@ -3,7 +3,7 @@
 # table and the tests in step with each other.
 
 .rule_order <- c("R02", "R01", "R04h", "R04", "R05g", "R05", "R06", "R06b", "R03",
-                 "R08", "R08b", "R09", "R10", "R11", "R12", "R99")
+                 "R08", "R08b", "R09", "R09b", "R10", "R11", "R12", "R99")
 
 .relationships <- c("exact", "broader_narrower", "stereo_variant",
                     "distinct", "unresolved")
@@ -45,13 +45,16 @@
 #' | R08 | unresolved | either name reports a group of compounds |
 #' | R08b | unresolved | either name lists alternative names |
 #' | R09 | broader_narrower | same connectivity, exactly one key without stereo |
+#' | R09b | broader_narrower | same connectivity, and the stereo of one row's trusted structure is a subset of the other's (needs [structure_evidence()]) |
 #' | R10 | stereo_variant | same connectivity, different stereo, at least one name states stereo |
 #' | R11 | unresolved | same connectivity, different stereo, no name states stereo |
 #' | R12 | distinct | different connectivity |
 #' | R99 | unresolved | none of the above |
 #'
 #' Rules R04 to R06b apply only when both rows have a lipid profile.
-#' Rules R09 to R12 need a valid InChIKey on both rows.
+#' Rules R09 to R12 need a valid InChIKey on both rows. R09b also needs
+#' trusted structures from [structure_evidence()]; without them it is
+#' skipped.
 #'
 #' @param evidence Rows after [row_evidence()] and [lipid_evidence()].
 #' @param pairs Output of [make_pairs()].
@@ -142,6 +145,18 @@ classify_pairs <- function(evidence, pairs) {
 
   decide(diff_b2 & one_unspec, "broader_narrower", "R09",
          paste0("same connectivity, one key without stereo: ", key_text))
+
+  # R09b uses the full InChI, when structure_evidence() has trusted one
+  # for both rows. Only a subset result makes a claim; a conflict falls
+  # through to R10 and R11 as before.
+  if ("st_usable_inchi" %in% names(A)) {
+    both_inchi <- !is.na(A$st_usable_inchi) & !is.na(B$st_usable_inchi)
+    stereo_rel <- rep(NA_character_, n)
+    todo <- which(diff_b2 & both_inchi & is.na(relationship))
+    for (k in todo) stereo_rel[k] <- compare_stereo(A$st_usable_inchi[k], B$st_usable_inchi[k])
+    decide(stereo_rel %in% c("a_subset_of_b", "b_subset_of_a"), "broader_narrower", "R09b",
+           paste0("same connectivity, stereo of one structure is a subset of the other: ", key_text))
+  }
 
   decide(diff_b2 & both_spec & (A$name_states_stereo | B$name_states_stereo),
          "stereo_variant", "R10", paste0("same connectivity, stereo stated in a name: ", key_text))

@@ -35,3 +35,23 @@ test_that("clean rows give an empty table with the right columns", {
   expect_equal(nrow(f), 0)
   expect_named(f, c("row_id", "check", "flag", "detail"))
 })
+
+test_that("C04 separates connectivity from stereo differences", {
+  rows <- data.frame(
+    row_id = c("Broad_2022Aug:384", "Broad_2022Aug:504", "ok"),
+    original_name = c("Xylose", "N-Formylmethionine", "inosine"),
+    inchikey = c("SRBFZHDQGSBBOR-IOVATXLUSA-N", "PYUSHNKNPOHWEZ-RXMQYKEDSA-N",
+                 "UGQMRVRMYYASKQ-KQYNXXCUSA-N"),
+    stringsAsFactors = FALSE)
+  ev <- row_evidence(rows)
+  ev$lipid_conflict <- FALSE
+  ev$sl_species_abbrev <- NA
+  ev$st_key <- c("PYMYPHUHKUWMLA-VPENINKCSA-N", "PYUSHNKNPOHWEZ-YFKPBYRVSA-N",
+                 "UGQMRVRMYYASKQ-KQYNXXCUSA-N")
+  ev$st_key_agrees <- c(FALSE, FALSE, TRUE)
+  ev$st_block1_differs <- c(TRUE, FALSE, FALSE)
+  f <- row_flags(ev)
+  expect_identical(f$flag[f$row_id == "Broad_2022Aug:384"], "structure_key_connectivity")
+  expect_identical(f$flag[f$row_id == "Broad_2022Aug:504"], "structure_key_stereo")
+  expect_false("ok" %in% f$row_id)
+})

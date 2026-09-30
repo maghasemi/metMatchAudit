@@ -1,3 +1,13 @@
+# metMatchAudit 0.3.0
+
+* New optional structure checks, using RDKit through reticulate. Without RDKit the audit runs as before.
+* `structure_evidence()` builds an InChI for each row from its InChI or SMILES column and trusts it only when its key matches the row's stored InChIKey.
+* `compare_stereo()` and `inchi_stereo()` compare the stereo layers of two InChIs.
+* New rule R09b: when one row's stereo is a subset of the other's, the pair is broader_narrower. Conflicts make no new claim.
+* New row check C04: a row's own structure and its stored key differ in connectivity or in stereo.
+* `read_metlinkr()` accepts optional `smiles_col` and `inchi_col`.
+* Evaluation against the manual review: 34 agree, 8 unresolved, 1 known limit (xylose). Lipid matches: 60 of 60 correct.
+
 # metMatchAudit 0.2.0
 
 * New `propose_lipid_matches()`: pairs lipid rows from different files that share a Species and reports exact and broader/narrower matches, marked one-to-one or one-to-many. Does not need MetLinkR. On the example data it proposes 59 matches, 48 of them not linked by MetLinkR; all 59 were checked by hand and found correct.

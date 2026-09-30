@@ -12,6 +12,31 @@ Group-name rows with a profile: 19 of 28, all in the Metabolon file.
 
 Effect on the v0.1 evaluation (53 reviewed groups): agree 28 to 29, safe_miss 14 to 13, wrong unchanged at 1 (xylose). The SM 36:1 group (C) now comes out distinct through R04. Of the 13 wrong merges by MetLinkR, the tool now finds 12.
 
+## v0.3 feasibility: RDKit and stereo comparison
+
+Source: `scripts/41_v03_rdkit_feasibility.R`, output in `results/v03_rdkit/`.
+
+All three criteria met on the development machine, with the same results as the earlier run elsewhere: 65 of 65 reference keys reproduced; no B pair classified as subset; Broad xylose flagged.
+
+R11 pairs by review label: D pairs 6 subset and 1 without a usable structure (quinic acid); B pairs 1 conflict (androsterone against etiocholanolone) and 1 without a usable structure (2-hydroxystearate); E pairs 6 conflict and 1 subset (tauroursodeoxycholate, where the structures are the same compound with partial stereo and the E label comes from the Broad row's name).
+
+Broad rows whose own InChI disagrees with their stored InChIKey: 21. Two differ in connectivity (xylose, L-urobilin); the other 19 in the stereo block, often one side with stereo and the other without. For N-formylmethionine the Broad InChI gives the L form and the stored key the D form, which confirms that the key, not the compound, is wrong.
+
+## v0.3 results
+
+Evaluation against the manual review (53 groups), with structure checks on:
+
+| outcome | v0.1 | v0.2 | v0.3 |
+|---|---|---|---|
+| agree | 28 | 29 | 34 |
+| safe_miss | 14 | 13 | 8 |
+| wrong | 1 | 1 | 1 |
+
+Five D groups (cholic acid, cholesterol, deoxycholic acid, chenodeoxycholic acid, tauro-beta-muricholic acid) moved from R11 to R09b and now agree. No B group was called broader/narrower. The one wrong answer is still xylose.
+
+Lipid matches: 60. The new one is cholesterol, whose two rows share Species ST 27:1;O at the same level; R09b now resolves it as broader_narrower, matching the review label D. Added to notes/v02_proposal_review.csv as correct: 60 of 60.
+
+Row check C04 flags 21 Broad rows whose own InChI disagrees with their stored key, 2 in connectivity (xylose, L-urobilin).
 ### Input rows
 
 Source: `results/rows_summary.csv`

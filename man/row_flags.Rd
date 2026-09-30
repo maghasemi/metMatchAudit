@@ -23,5 +23,10 @@ standard InChIKey. A missing key is not flagged; many rows simply
 have none.
 \item C03 \code{lipid_source_conflict}: SwissLipids and the name give different
 Species for the row, so it got no lipid profile.
+\item C04 \code{structure_key_connectivity}: the row's own structure (InChI or
+SMILES) and its stored InChIKey describe molecules with different
+connectivity. Needs \code{\link[=structure_evidence]{structure_evidence()}}.
+\item C04 \code{structure_key_stereo}: same connectivity, but the stereo or
+isotope block differs.
 }
 }
