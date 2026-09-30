@@ -12,3 +12,5 @@ For each line:
 If a key returns nothing in PubChem, write that in `evidence_note` and use F unless something else in the row settles it.
 
 Do not change any other column. Do not reorder lines. Save as CSV with UTF-8 encoding. If you edit in Excel, check afterwards that it did not turn InChIKeys or IDs into something else.
+
+Open each key's PubChem link on its own. When several keys are searched together, the order of results on the PubChem page does not always follow the order of the keys (found in the bilirubin group).
