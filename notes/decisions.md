@@ -155,3 +155,30 @@ Criteria, comparing PubChem with RDKit on the first 25 characters (the protonati
 If either criterion fails, the PubChem route is dropped and a local toolkit (rinchi or rcdk) is tested next.
 
 Request time and coverage (rows with a SMILES or InChI, R11 pairs with a structure on both sides) are recorded but are not criteria.
+
+## 2026-10-01: Local toolkit for v0.3
+
+ChemmineOB (Bioconductor) did not build: it needs the Open Babel system library, which every user would have to install separately. rinchi is no longer on CRAN.
+
+Proposed: RDKit through reticulate, as an optional dependency. Only the v0.3 structure checks need it; v0.1 and v0.2 work without it. RDKit builds InChI with the IUPAC InChI library.
+
+The reference keys were made with RDKit, so testing RDKit in R against them only checks the R-to-Python bridge. That RDKit itself gives correct keys rests on independent sources: on the 60 sample rows its keys agree with the keys stored by Metabolon and Broad in 59 cases (the exception is the Broad quinic acid row, whose stored key does not fit its own SMILES), and with PubChem on every structure PubChem had a record of, except one inositol stereo block (1-stearoyl-2-linoleoyl-GPI) that PubChem most likely changed during standardisation.
+
+## 2026-10-01: v0.3 stereo comparison, design and RDKit feasibility
+
+RDKit through reticulate works on the development machine (py_require("rdkit")). It reproduced the DHEA-S key that PubChem could not compute.
+
+Stereo comparison (scripts/41_inchi_stereo_functions.R) reads the /t, /m, /s and /b layers of two InChIs with the same main layer. /m1 flips every sign in /t. Undefined centres ("?") are ignored. Result: same, subset, conflict, or relative (any /s other than 1).
+
+Self-test on 317 LEOCC structures with stereo, run with RDKit: removing some stereo marks gave subset in 314 cases and conflict in 3 (symmetric molecules such as inositol, where fewer defined centres change InChI's canonical numbering). Inverting one centre gave conflict in all 317 and subset in none.
+
+Design consequence: only "subset" creates a new claim, through new rule R09b (same connectivity, one stereo set is a subset of the other, broader_narrower). "conflict" creates no new claim: those pairs continue to R10 and R11 as before. The known false conflicts on symmetric molecules can therefore only leave a pair unresolved.
+
+A row's InChI is used only when its key agrees with the row's stored key on the first 25 characters. Otherwise the row is a C04 case and its structure is not trusted.
+
+Transparency: this script was already run on the example data in a separate environment, without notes/review.csv, before these criteria were written. What it showed: 65 of 65 reference keys reproduced; among the 16 R11 pairs, every reviewed D pair with a usable structure came out subset, androsterone against etiocholanolone came out conflict; 21 Broad rows have an InChI that disagrees with their stored key, 2 of them in connectivity (xylose, L-urobilin). The run on the development machine is a confirmation, not a blind test.
+
+Criteria for the confirmation run:
+- 65 of 65 reference keys reproduced.
+- No R11 pair from a group labeled B is classified as subset.
+- Broad xylose is flagged with a connectivity difference between its InChI and its stored key.
