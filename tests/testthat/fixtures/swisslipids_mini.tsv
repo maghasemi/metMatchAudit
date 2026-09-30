@@ -1,0 +1,22 @@
+Lipid ID	Level	Name	Abbreviation*	Synonyms*	Lipid class*	Parent	Components*	SMILES (pH7.3)	InChI (pH7.3)	InChI key (pH7.3)	Formula (pH7.3)	Charge (pH7.3)	Mass (pH7.3)	Exact Mass (neutral form)	Exact m/z of [M.]+	Exact m/z of [M+H]+	Exact m/z of [M+K]+ 	Exact m/z of [M+Na]+	Exact m/z of [M+Li]+	Exact m/z of [M+NH4]+	Exact m/z of [M-H]-	Exact m/z of [M+Cl]-	Exact m/z of [M+OAc]- 	CHEBI	LIPID MAPS	HMDB	MetaNetX	PMID
+SLM:000000901	Class	x	DG					C"C	InChI=none																			
+SLM:000000911	Species	x	DG(36:3)			SLM:000000901		C"C	InChI=none																			
+SLM:000000912	Molecular subspecies	x	DG(18:1_18:2)			SLM:000000911		C"C	InChI=none																			
+SLM:000000913	Structural subspecies	x	DG(18:1/18:2/0:0)			SLM:000000912		C"C	InChI=none																			
+SLM:000000914	Isomeric subspecies	x	DG(18:1(9Z)/18:2(9Z,12Z)/0:0)			SLM:000000913		C"C	InChI=1S/x	InChIKey=BLZVZPYMHLXLHG-RQOIEFAZSA-N																		
+SLM:000000915	Structural subspecies	x	DG(18:1/0:0/18:2)			SLM:000000912		C"C	InChI=none																			
+SLM:000000916	Isomeric subspecies	x	DG(18:1(9Z)/0:0/18:2(9Z,12Z))			SLM:000000915		C"C	InChI=1S/x	InChIKey=GREDRAMJRDQWEJ-LTEAFHAISA-O																		
+SLM:000000902	Class	x	MG					C"C	InChI=none																			
+SLM:000000921	Species	x	MG(18:1)			SLM:000000902		C"C	InChI=none																			
+SLM:000000922	Isomeric subspecies	x	MG(18:1(9Z)/0:0/0:0)			SLM:000000921		C"C	InChI=1S/x	InChIKey=RZRNAYUHWVFMIP-BYWJWXGYSA-N																		
+SLM:000000923		x						C"C	InChI=1S/x	InChIKey=RZRNAYUHWVFMIP-KTKRTIGZSA-N																		
+SLM:000000931		x						C"C	InChI=1S/x	InChIKey=AAAAAAAAAAAAAA-KTKRTIGZSA-N																		
+SLM:000000932	Isomeric subspecies	x				SLM:000000921		C"C	InChI=1S/x	InChIKey=AAAAAAAAAAAAAA-BBBBBBBBBB-N																		
+SLM:000000933	Isomeric subspecies	x				SLM:000000911		C"C	InChI=1S/x	InChIKey=AAAAAAAAAAAAAA-CCCCCCCCCC-N																		
+SLM:000000903	Class	x	SM					C"C	InChI=none																			
+SLM:000000941	Species	x	SM(d36:1)			SLM:000000903		C"C	InChI=none																			
+SLM:000000942	Isomeric subspecies	x	SM(d18:1(4E)/18:0)			SLM:000000941		C"C	InChI=1S/x	InChIKey=LKQLRGMMMAHREN-YJFXYUILSA-N																		
+SLM:000000951	Species	x	HexCer(d34:1)					C"C	InChI=none																			
+SLM:000000952	Isomeric subspecies	x	GlcCer(d18:1(4E)/16:0)			SLM:000000951		C"C	InChI=1S/x	InChIKey=VJLLLMIZEJJZTE-NNTBDIJYSA-N																		
+SLM:000000961	Isomeric subspecies	x				SLM:000000962		C"C	InChI=1S/x	InChIKey=LOOPLOOPLOOPLO-KTKRTIGZSA-N																		
+SLM:000000962	Structural subspecies	x				SLM:000000961		C"C	InChI=none																			

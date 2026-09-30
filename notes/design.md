@@ -81,12 +81,13 @@ Rules run in this order for each pair in a group. The first rule that applies de
 |---|---|---|
 | R01 | either row has an invalid InChIKey and no lipid profile | unresolved |
 | R02 | either row is an internal standard | distinct |
-| R03 | both InChIKeys identical | exact |
 | R04 | both rows have a lipid profile and `lipid_species` differs | distinct |
 | R05 | same `lipid_species`, rows reported at different levels | broader_narrower |
 | R06 | same `lipid_species`, both at molecular level or finer, `lipid_molecular` differs | distinct |
+| R03 | both InChIKeys identical | exact |
 | R07 | both formulas known and different (v0.3) | distinct |
 | R08 | either name is a group name | group_overlap |
+| R08b | either name lists alternative names at its top level ("X or Y") | unresolved |
 | R09 | same block1, exactly one key has unspecified stereo | broader_narrower |
 | R10 | same block1, both keys give stereo, at least one name states stereo | stereo_variant |
 | R11 | same block1, both keys give stereo, neither name states stereo | unresolved |

@@ -15,6 +15,11 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 Depends: R (>= 4.1.0)
+Imports:
+    data.table,
+    rgoslin,
+    tools
+biocViews:
 Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
