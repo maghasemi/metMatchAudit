@@ -13,3 +13,7 @@ The InChIKeys attached to the isomeric entries are real keys from the MetLinkR e
 | VJLLLMIZEJJZTE-NNTBDIJYSA-N | glycosyl-N-palmitoyl-sphingosine (d18:1/16:0), LEOCC |
 
 The hierarchy copies situations seen in the feasibility run: an entry with no Level and no parent that needs the connectivity fallback (1-oleoylglycerol), a connectivity block whose entries point to two different Species (no fallback allowed), a glycosylceramide under a HexCer Species, and a loop in the parent links.
+
+## metlinkr/
+
+Two small files in the layout MetLinkR writes (`<name>_metLinkR.csv`, with a `Standardized name` column). Rows and InChIKeys are copied from the MetLinkR example output (LEOCC Metabolon and Broad 2022 files). The standardized names follow what MetLinkR assigned there. "Glycine" has "-" as its standardized name, which MetLinkR uses internally for unmapped rows.

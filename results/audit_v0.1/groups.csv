@@ -1,0 +1,154 @@
+"group_id","n_rows","n_pairs","worst_relationship","worst_rule","n_distinct","n_unresolved","n_broader_narrower","n_stereo_variant","n_exact"
+"12,13-DiHOME",2,1,"exact","R03",0,0,0,0,1
+"2-Oxoglutaric acid",2,1,"exact","R03",0,0,0,0,1
+"Hypoxanthine",2,1,"exact","R03",0,0,0,0,1
+"9,10-DiHOME",2,1,"exact","R03",0,0,0,0,1
+"Linoleic acid",2,1,"exact","R03",0,0,0,0,1
+"Lauric acid",2,1,"exact","R03",0,0,0,0,1
+"Quinolinic acid",2,1,"exact","R03",0,0,0,0,1
+"Arachidonic acid",2,1,"exact","R03",0,0,0,0,1
+"Succinic acid",2,1,"exact","R03",0,0,0,0,1
+"Fumaric acid",2,1,"exact","R03",0,0,0,0,1
+"Glycocholic acid",4,6,"distinct","R02",3,0,0,0,3
+"Inosine",3,3,"distinct","R02",2,0,0,0,1
+"Myo-inositol",2,1,"exact","R03",0,0,0,0,1
+"alpha-Aminoadipic acid",2,1,"unresolved","R01",0,1,0,0,0
+"Palmitic acid",2,1,"exact","R03",0,0,0,0,1
+"Stearic acid",2,1,"exact","R03",0,0,0,0,1
+"Palmitoleic acid",2,1,"exact","R03",0,0,0,0,1
+"Salicylic acid",2,1,"exact","R03",0,0,0,0,1
+"Myristic acid",2,1,"exact","R03",0,0,0,0,1
+"Glutamic acid",2,1,"exact","R03",0,0,0,0,1
+"Pseudouridine",2,1,"exact","R03",0,0,0,0,1
+"Pyruvic acid",2,1,"exact","R03",0,0,0,0,1
+"Uracil",2,1,"exact","R03",0,0,0,0,1
+"Capric acid",2,1,"exact","R03",0,0,0,0,1
+"Margaric acid",2,1,"exact","R03",0,0,0,0,1
+"Arachidic acid",2,1,"exact","R03",0,0,0,0,1
+"Sucrose",2,1,"exact","R03",0,0,0,0,1
+"Pentadecylic acid",2,1,"exact","R03",0,0,0,0,1
+"Xanthine",2,1,"exact","R03",0,0,0,0,1
+"Pantothenic acid",2,1,"exact","R03",0,0,0,0,1
+"cis-Erucic acid",2,1,"exact","R03",0,0,0,0,1
+"Guanosine",2,1,"exact","R03",0,0,0,0,1
+"N-Acetylalanine",2,1,"exact","R03",0,0,0,0,1
+"Citric acid",2,1,"exact","R03",0,0,0,0,1
+"Uric acid",2,1,"exact","R03",0,0,0,0,1
+"11Z,14Z-Eicosadienoic acid",2,1,"unresolved","R01",0,1,0,0,0
+"Naproxen",2,1,"exact","R03",0,0,0,0,1
+"Palmitoyl-EA",2,1,"exact","R03",0,0,0,0,1
+"Taurochenodeoxycholic acid",2,1,"exact","R03",0,0,0,0,1
+"Salicyluric acid",3,3,"exact","R03",0,0,0,0,3
+"Azelaic acid",2,1,"exact","R03",0,0,0,0,1
+"EPA",2,1,"unresolved","R01",0,1,0,0,0
+"Hydrocinnamic acid",2,1,"exact","R03",0,0,0,0,1
+"Hippuric acid",2,1,"exact","R03",0,0,0,0,1
+"Xanthurenic acid",2,1,"exact","R03",0,0,0,0,1
+"Suberic acid",2,1,"exact","R03",0,0,0,0,1
+"N-Acetylglutamic acid",2,1,"exact","R03",0,0,0,0,1
+"Tartaric acid",2,1,"exact","R03",0,0,0,0,1
+"Ribitol",2,1,"exact","R03",0,0,0,0,1
+"Glycodeoxycholic acid",3,3,"exact","R03",0,0,0,0,3
+"Theophylline",2,1,"exact","R03",0,0,0,0,1
+"Indoxyl sulfate",2,1,"exact","R03",0,0,0,0,1
+"Sphingosine 1-phosphate",2,1,"exact","R03",0,0,0,0,1
+"DHA",2,1,"unresolved","R01",0,1,0,0,0
+"PC 14:0/16:0",2,1,"broader_narrower","R05",0,0,1,0,0
+"Isovaleric acid",2,1,"exact","R03",0,0,0,0,1
+"2-Hydroxyoctanoic acid",2,1,"exact","R03",0,0,0,0,1
+"Levulinic acid",2,1,"exact","R03",0,0,0,0,1
+"3-Hydroxyoctanoic acid",2,1,"exact","R03",0,0,0,0,1
+"Oxalic acid",2,1,"exact","R03",0,0,0,0,1
+"Saccharin",2,1,"exact","R03",0,0,0,0,1
+"Ketoisovaleric acid",2,1,"exact","R03",0,0,0,0,1
+"3-Hydroxydecanoic acid",2,1,"exact","R03",0,0,0,0,1
+"Indoleacetic acid",2,1,"exact","R03",0,0,0,0,1
+"1-Methylhistidine",2,1,"exact","R03",0,0,0,0,1
+"3-Indolepropionic acid",2,1,"exact","R03",0,0,0,0,1
+"Dodecanedioic acid",2,1,"exact","R03",0,0,0,0,1
+"3-Methylxanthine",2,1,"exact","R03",0,0,0,0,1
+"4-Pyridoxic acid",2,1,"exact","R03",0,0,0,0,1
+"3-Carboxy-4-methyl-5-propyl-2-furanpropanoic acid",2,1,"exact","R03",0,0,0,0,1
+"2-Hydroxymyristic acid",2,1,"exact","R03",0,0,0,0,1
+"10-Hendecenoic acid",2,1,"exact","R03",0,0,0,0,1
+"Sebacic acid",3,3,"exact","R03",0,0,0,0,3
+"5-Dodecenoic acid",2,1,"exact","R03",0,0,0,0,1
+"LPC 16:0/0:0",2,1,"unresolved","R99",0,1,0,0,0
+"Piperine",2,1,"exact","R03",0,0,0,0,1
+"LPC 18:0/0:0",2,1,"unresolved","R01",0,1,0,0,0
+"Nonadeca-10Z-enoic acid",2,1,"exact","R03",0,0,0,0,1
+"10Z-Heptadecenoic acid",2,1,"exact","R03",0,0,0,0,1
+"Erythronic acid",2,1,"exact","R03",0,0,0,0,1
+"cis-Gondoic acid",2,1,"unresolved","R01",0,1,0,0,0
+"cis-Aconitic acid",2,1,"unresolved","R01",0,1,0,0,0
+"7-Methylxanthine",2,1,"exact","R03",0,0,0,0,1
+"1,7-Dimethyluric acid",2,1,"exact","R03",0,0,0,0,1
+"1-Methyluric acid",2,1,"exact","R03",0,0,0,0,1
+"1-Methylxanthine",2,1,"exact","R03",0,0,0,0,1
+"alpha-N-Phenylacetylglutamine",2,1,"exact","R03",0,0,0,0,1
+"Ribothymidine",2,1,"exact","R03",0,0,0,0,1
+"LPE 18:0/0:0",2,1,"unresolved","R99",0,1,0,0,0
+"LPC 16:1/0:0",2,1,"unresolved","R01",0,1,0,0,0
+"LPC 20:4/0:0",2,1,"unresolved","R01",0,1,0,0,0
+"LPE 16:0/0:0",2,1,"unresolved","R99",0,1,0,0,0
+"LPE 18:2/0:0",2,1,"broader_narrower","R05",0,0,1,0,0
+"2-Hydroxypalmitic acid",2,1,"exact","R03",0,0,0,0,1
+"Tetradecanedioic acid",2,1,"exact","R03",0,0,0,0,1
+"Hexadecanedioic acid",2,1,"exact","R03",0,0,0,0,1
+"Undecanedioic acid",2,1,"exact","R03",0,0,0,0,1
+"Androstenediol disulfate",4,6,"exact","R03",0,0,0,0,6
+"gamma-CEHC",2,1,"exact","R03",0,0,0,0,1
+"SM 18:1;O2/16:0",2,1,"broader_narrower","R05",0,0,1,0,0
+"Cinnamoylglycine",2,1,"exact","R03",0,0,0,0,1
+"Oxypurinol",2,1,"exact","R03",0,0,0,0,1
+"L-Urobilin",2,1,"exact","R03",0,0,0,0,1
+"Hydrochlorothiazide",2,1,"exact","R03",0,0,0,0,1
+"Pantoprazole",2,1,"exact","R03",0,0,0,0,1
+"LPC 24:0/0:0",2,1,"unresolved","R99",0,1,0,0,0
+"Glycoursodeoxycholic acid",2,1,"exact","R03",0,0,0,0,1
+"Eicosanedioic acid",2,1,"exact","R03",0,0,0,0,1
+"Juniperic acid",2,1,"exact","R03",0,0,0,0,1
+"CAR 4:0;3OH",2,1,"exact","R03",0,0,0,0,1
+"Gemfibrozil",2,1,"exact","R03",0,0,0,0,1
+"N-Acetylcarnosine",2,1,"exact","R03",0,0,0,0,1
+"2-Hydroxyibuprofen",2,1,"exact","R03",0,0,0,0,1
+"Carboxyibuprofen",2,1,"exact","R03",0,0,0,0,1
+"Warfarin",2,1,"exact","R03",0,0,0,0,1
+"2-Aminocaprylic acid",2,1,"exact","R03",0,0,0,0,1
+"Furosemide",2,1,"exact","R03",0,0,0,0,1
+"SM 34:2;O2",2,1,"unresolved","R08",0,1,0,0,0
+"2-Aminoheptanoic acid",2,1,"exact","R03",0,0,0,0,1
+"SM 32:2;O2",2,1,"unresolved","R01",0,1,0,0,0
+"P-Cresol glucuronide",2,1,"exact","R03",0,0,0,0,1
+"Acesulfame",2,1,"exact","R03",0,0,0,0,1
+"SM 38:2;O2",2,1,"unresolved","R01",0,1,0,0,0
+"SM 18:1;O2/22:0",2,1,"broader_narrower","R05",0,0,1,0,0
+"SM 40:2;O2",2,1,"unresolved","R08",0,1,0,0,0
+"SM 40:3;O2",2,1,"unresolved","R01",0,1,0,0,0
+"SM 18:1;O2/24:0",2,1,"broader_narrower","R05",0,0,1,0,0
+"SM 33:1;O2",2,1,"unresolved","R01",0,1,0,0,0
+"Pyrogallol sulfate",2,1,"exact","R03",0,0,0,0,1
+"3-Methoxycatechol sulfate",2,1,"exact","R03",0,0,0,0,1
+"SM 35:1;O2",2,1,"unresolved","R01",0,1,0,0,0
+"PC 16:0/18:0",2,1,"broader_narrower","R05",0,0,1,0,0
+"Oleic acid",2,1,"exact","R03",0,0,0,0,1
+"SM 41:2;O2",2,1,"unresolved","R01",0,1,0,0,0
+"SM 39:1;O2",2,1,"unresolved","R01",0,1,0,0,0
+"SM 36:0;O2",2,1,"unresolved","R01",0,1,0,0,0
+"Cetirizine",2,1,"exact","R03",0,0,0,0,1
+"Mycophenolic acid glucuronide",2,1,"exact","R03",0,0,0,0,1
+"Sulfamethoxazole",2,1,"exact","R03",0,0,0,0,1
+"DG 16:0_18:1",2,1,"exact","R03",0,0,0,0,1
+"DG 18:1_20:4",2,1,"exact","R03",0,0,0,0,1
+"DG 18:0_20:4",2,1,"exact","R03",0,0,0,0,1
+"SM 39:2;O2",2,1,"unresolved","R01",0,1,0,0,0
+"SM 43:1;O2",2,1,"unresolved","R01",0,1,0,0,0
+"Carotene diol",3,3,"exact","R03",0,0,0,0,3
+"Resveratrol sulfate",2,1,"exact","R03",0,0,0,0,1
+"Resveratrol disulfate",2,1,"exact","R03",0,0,0,0,1
+"Resveratrol glucuronide",2,1,"exact","R03",0,0,0,0,1
+"Lithocholic acid 3-sulfate",2,1,"exact","R03",0,0,0,0,1
+"3-Ethylcatechol sulfate",2,1,"exact","R03",0,0,0,0,1
+"CAR 8:0;3OH",2,1,"exact","R03",0,0,0,0,1
+"Hexose",2,1,"exact","R03",0,0,0,0,1
+"Thymine",2,1,"distinct","R02",1,0,0,0,0
