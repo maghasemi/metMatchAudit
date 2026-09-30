@@ -108,3 +108,9 @@ Each rule was tested on a real pair from the review. Five changes came out of th
 3. New rule R06b: two rows that report the same Species (or the same molecular species) at the same level are exact. Without it, "SM 36:1;O2" from two vendors ended up unresolved.
 4. R10 and R11 now require block2 to differ. Otherwise two keys that differ only in the protonation letter would be called stereo variants. Such pairs now reach R99.
 5. The headgroup case is its own rule, R04h, instead of a silent skip inside R04, so it shows up in the output with an ID.
+
+## 2026-09-30: Row check C02 dropped
+
+C02 would flag a row whose InChIKey has stereo while its name states none. Most amino acids, sugars and nucleosides fit that description ("inosine", "glucose"), so it would flag a large share of all rows and carry no signal. The case where it matters, two keys with different stereo and no stereo in either name, is already handled by pair rule R11.
+
+C01 flags only values that fail the format check. A missing key is not flagged, since many rows have none.

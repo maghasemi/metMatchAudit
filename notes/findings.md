@@ -65,6 +65,24 @@ Hierarchy vs hit abbreviation: 97 rows agree, 4 differ. All 4 are glycosylcerami
 
 Group-name rows: 29 of the LEOCC complex lipid rows report several molecular species in one name, mostly sphingomyelins. 20 of them map to one Species through their representative InChIKey. Not part of the criteria. Whether group rows can be matched at Species level is an open design question, because it relies on all members of a group sharing one chain sum.
 
+### Pair rules on groups outside the review (173 pairs)
+
+Source: classify_pairs() on results/rows.csv, groups listed in notes/review.csv excluded.
+
+| rule | pairs | relationship |
+|---|---|---|
+| R03 | 136 | exact |
+| R01 | 19 | unresolved |
+| R02 | 6 | distinct |
+| R05 | 6 | broader_narrower |
+| R99 | 4 | unresolved |
+| R08 | 2 | unresolved |
+
+- R02: MetLinkR grouped three internal standards with their analytes (glycocholate-d4, inosine-15N4, thymine-d4), not only inosine.
+- R05: all six are a Metabolon structure against a Broad Species of the same lipid. None came out exact, which confirms the lipid rules must run before R03.
+- R99: four lysophospholipid pairs such as "1-palmitoyl-GPC (16:0)" against "LPC 16:0/0:0". Both have the same Species at structure level and the Broad row has no InChIKey. They probably match at sn-position level. Comparing sn-position names could resolve them, but when that is safe enough to call exact needs more thought. Left for after the evaluation.
+- R08: two SM group rows against a Species-level SM. Both groups probably contain that Species. Deciding it needs the group-row check listed under Open questions in design.md.
+
 ### Open questions
 
 - Resolved: the one invalid InChIKey in Broad_2022Aug is row 354, "Inosine-15N4 [iSTD]", where the InChIKey field holds the literal text "inchikey". MetLinkR gave this row the standardized name "Inosine", the same as natural inosine (UGQMRVRMYYASKQ-KQYNXXCUSA-N in both files). The early exploratory count read "inchikey" as a separate connectivity block and reported 17 different_connectivity groups. The format check in 01_build_rows.R excludes it, which gives 16.

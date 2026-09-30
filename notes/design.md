@@ -113,8 +113,7 @@ A note on headgroups: SwissLipids writes glycosylceramides at Species level as H
 
 | ID | condition | flag |
 |---|---|---|
-| C01 | InChIKey fails the format check | invalid_key |
-| C02 | the key has stereo but the name states none | key_more_specific_than_name |
+| C01 | the InChIKey column holds a value that is not a standard InChIKey (a missing key is not flagged) | invalid_key |
 | C03 | SwissLipids and rgoslin give different Species for the row | lipid_source_conflict |
 | C04 | the row's SMILES and InChIKey describe different structures (v0.3) | smiles_key_mismatch |
 | C05 | the row's name is not among the PubChem synonyms of its key (v0.3) | name_key_mismatch |
@@ -142,7 +141,7 @@ Severity, most severe first: source_conflict, distinct, unresolved, broader_narr
 
 ## Versions
 
-- v0.1: audit of existing groups. InChIKey, name checks, SwissLipids file, rgoslin. No network access during a run. Rules R01 to R06 and R08 to R12, row checks C01 to C03.
+- v0.1: audit of existing groups. InChIKey, name checks, SwissLipids file, rgoslin. No network access during a run. Rules R01 to R12 except R07, row checks C01 and C03.
 - v0.2: lipid match proposals for rows the matching step left out, using the same lipid profiles. Output: candidate pairs with the level they agree at.
 - v0.3: PubChem lookup with cache and a chemistry toolkit. Adds R07, C04, C05.
 
