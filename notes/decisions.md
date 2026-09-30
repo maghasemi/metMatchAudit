@@ -141,3 +141,17 @@ Side effect on the v0.1 evaluation: the SM 36:1 review group, labeled C, now com
 propose_lipid_matches() pairs lipid rows from different files that share a Species and keeps exact and broader_narrower pairs. It does not depend on MetLinkR.
 
 Correction (2026-10-01): the first count of group rows with a SwissLipids Species was 18. A recount of results/v02_feasibility/group_rows.csv gives 19, which matches the package output.
+
+## 2026-10-01: v0.3 feasibility criteria, set before running
+
+Question: can PubChem PUG REST turn a SMILES into InChI and InChIKey reliably, including for structures PubChem has no record of?
+
+Reference: scripts/40_rdkit_reference.csv, InChIKeys computed from the same SMILES with RDKit. On the 60 sample rows, the RDKit key agrees with the key stored in the source file on the first 25 characters in 59 cases; the exception is the Broad quinic acid row, whose stored key does not match its own SMILES (known from the review).
+
+Criteria, comparing PubChem with RDKit on the first 25 characters (the protonation letter is ignored):
+- All 5 named rows must agree. Four of them are structures PubChem has no record for. If PubChem cannot return an InChI for them, it cannot serve the main purpose of v0.3.
+- At least 57 of the 60 sample rows must agree, and every disagreement must be explained.
+
+If either criterion fails, the PubChem route is dropped and a local toolkit (rinchi or rcdk) is tested next.
+
+Request time and coverage (rows with a SMILES or InChI, R11 pairs with a structure on both sides) are recorded but are not criteria.
