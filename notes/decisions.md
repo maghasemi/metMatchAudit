@@ -268,3 +268,7 @@ Criteria:
 Reported without a criterion: recall; the expert split of broader_narrower and unresolved pairs; the share of new lipid matches in one expert group; the share of expert cross-file groups found whole by MetLinkR (the paper reports 85.3%); Nightingale pairs on their own; key sources.
 
 Run once. Every wrong definite claim is listed and reviewed afterwards, with the reason, which can be a tool error or an expert choice. Results go into findings.md and the README whatever they are.
+
+## 2026-10-06: COMETS test runs on v0.4.1
+
+The first attempt to run scripts/60_comets_test.R stopped at its version check, before reading any data: R/identifiers.R differed from tag v0.4.0. The difference is the internal standard fix (decisions.md, 2026-10-06, second fix), made on the development data and used in the last development evaluation, but copied in after the tag was set. The tag is left as it is. The fix is released as v0.4.1, and the test runs on that version. Criteria are unchanged.

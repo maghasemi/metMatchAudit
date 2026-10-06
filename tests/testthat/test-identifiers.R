@@ -127,3 +127,12 @@ test_that("Species-level lipid names are not resolved, structure-level ones are"
   expect_true(all(is.na(out$inchikey[1:2])))
   expect_identical(out$inchikey[3], "UGQMRVRMYYASKQ-KQYNXXCUSA-N")
 })
+
+test_that("internal standards are not resolved", {
+  # Broad "Inosine-15N4 [iSTD]" carries the HMDB ID of plain inosine.
+  r <- data.frame(original_name = "Inosine-15N4 [iSTD]", inchikey = "inchikey",
+                  hmdb = "HMDB0000195", stringsAsFactors = FALSE)
+  out <- resolve_identifiers(r, fetch = fake_pubchem()$fetch)
+  expect_identical(out$inchikey, "inchikey")
+  expect_true(is.na(out$inchikey_source))
+})

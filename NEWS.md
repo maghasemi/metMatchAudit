@@ -1,3 +1,7 @@
+# metMatchAudit 0.4.1
+
+* `resolve_identifiers()` skips internal standards, whose identifier usually belongs to the unlabelled compound. This fix was made on the development data before the COMETS test but missed the v0.4.0 tag.
+
 # metMatchAudit 0.4.0
 
 * New `resolve_identifiers()`: rows without a valid InChIKey get one from their PubChem CID or HMDB ID, through PubChem's parent compound. Group names, alternative names, ID lists and lipid names that are not one structure are skipped. Needs httr2 and jsonlite; answers are cached on disk.

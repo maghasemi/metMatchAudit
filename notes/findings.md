@@ -46,7 +46,7 @@ Outside the review, 8 pairs that were unresolved for lack of a key (R01) now hav
 
 Three new lipid proposals, all correct: 1-palmitoyl-GPC (16:0) against LPC 16:0/0:0 (broader_narrower, R09), 1-palmitoyl-GPE (16:0) against LPE 16:0/0:0 and 1-stearoyl-GPE (18:0) against LPE 18:0/0:0 (exact, R03). These were three of the four lysophospholipid pairs left at R99 in v0.2. Proposals: 63 of 63 correct.
 
-A first version resolved identifiers on Species-level lipid names and raised row flags from 15 to 93, with 8 rows losing their lipid profile. Fixed before the version was frozen (decisions.md, 2026-10-06); row flags are now 17.
+A first version resolved identifiers on Species-level lipid names and on internal standards, raising row flags from 15 to 93 and costing 8 rows their lipid profile. Both fixed before the version was frozen (decisions.md, 2026-10-06); row flags are now 17, two of them real disagreements between a vendor's identifier and its own structure (LPC 19:0/0:0, 2-aminobutyric acid).
 
 ### Input rows
 

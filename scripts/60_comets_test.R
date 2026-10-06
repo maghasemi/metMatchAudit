@@ -1,4 +1,4 @@
-# COMETS external test of metMatchAudit v0.4.0.
+# COMETS external test of metMatchAudit v0.4.1.
 #
 # Compares MetLinkR alone, and MetLinkR plus the audit, with the expert
 # mappings of the COMETS consortium (ManualMappings.csv, MetLinkR SI) on
@@ -15,12 +15,12 @@
 
 pkgload::load_all(".", quiet = TRUE)
 
-# ---- The package must be the frozen v0.4.0 --------------------------------
+# ---- The package must be the frozen v0.4.1 --------------------------------
 # Commits after the tag (criteria, this script) are fine, but nothing in
 # the package code may differ from it.
-stopifnot(as.character(utils::packageVersion("metMatchAudit")) == "0.4.0")
-changed <- system("git diff --quiet v0.4.0 -- R DESCRIPTION NAMESPACE", ignore.stdout = TRUE)
-if (changed != 0) stop("Package code differs from tag v0.4.0. The test must run on the frozen version.")
+stopifnot(as.character(utils::packageVersion("metMatchAudit")) == "0.4.1")
+changed <- system("git diff --quiet v0.4.1 -- R DESCRIPTION NAMESPACE", ignore.stdout = TRUE)
+if (changed != 0) stop("Package code differs from tag v0.4.1. The test must run on the frozen version.")
 
 out_dir <- "results/comets_test"
 dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)

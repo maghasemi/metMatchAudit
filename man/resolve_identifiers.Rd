@@ -37,7 +37,9 @@ neither are cells that list several IDs. Lipid names that rgoslin
 reads at Species, molecular species or sn-position level (such as
 "TG 42:0" or "PC 34:1") are not resolved either: no single structure
 matches them, so a key from their identifier would claim more than the
-row reports. Rows that already have a valid key keep it.
+row reports. Internal standards are skipped too, since their
+identifier is usually that of the unlabelled compound. Rows that
+already have a valid key keep it.
 
 Needs httr2, jsonlite and internet access, unless every answer is
 already in the cache.

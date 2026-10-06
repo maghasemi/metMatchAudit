@@ -132,7 +132,9 @@ normalize_hmdb_id <- function(x) {
 #' reads at Species, molecular species or sn-position level (such as
 #' "TG 42:0" or "PC 34:1") are not resolved either: no single structure
 #' matches them, so a key from their identifier would claim more than the
-#' row reports. Rows that already have a valid key keep it.
+#' row reports. Internal standards are skipped too, since their
+#' identifier is usually that of the unlabelled compound. Rows that
+#' already have a valid key keep it.
 #'
 #' Needs httr2, jsonlite and internet access, unless every answer is
 #' already in the cache.
@@ -170,8 +172,11 @@ resolve_identifiers <- function(rows, cache_file = NULL, fetch = NULL) {
   # conflicted with their own InChI and with their lipid profile.
   lipid_level <- parse_lipid_names(rows$original_name)$level
   not_one_structure <- !is.na(lipid_level) & lipid_level %in% c("species", "molecular", "sn_position")
+  # Internal standards carry the identifier of the unlabelled compound,
+  # so a key from it would describe the wrong molecule (found on Broad
+  # "Inosine-15N4 [iSTD]", which got the key of plain inosine).
   names_ok <- !is_group_name(rows$original_name) & !has_alternative_names(rows$original_name) &
-    !not_one_structure
+    !not_one_structure & !is_internal_standard(rows$original_name)
   todo_cid  <- which(!has_key & names_ok & !is.na(cid))
   todo_hmdb <- which(!has_key & names_ok & is.na(cid) & !is.na(hmdb))
   if (length(todo_cid) + length(todo_hmdb) == 0) return(rows)
