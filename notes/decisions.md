@@ -286,3 +286,27 @@ The next attempt stopped too: 740 rows had no expert line. ManualMappings.csv wr
 ## 2026-10-06: comets-test-1 tag corrected
 
 The tag was first created on 7aec708 by mistake and pushed. A minute later it was deleted and recreated on 9389f61, the commit the COMETS test ran on. Nothing referred to the wrong tag in between.
+## 2026-10-07: v0.4.2 plan, written before any code
+
+The COMETS test (`findings.md`, 2026-10-06) found four wrong definite claims. Three come from rules that trust identifiers when the names say otherwise. v0.4.2 changes only that. Name to RefMet stays in v0.5 and the aggregate relationship in v0.6.
+
+The principle is the same as before: when the evidence does not settle a pair, the answer is unresolved. None of these changes adds a new way to call a pair distinct.
+
+### Changes
+
+1. **Names that contradict identical keys (R03c).** Runs just before R03. If the two InChIKeys are identical but the names state different isomers, the pair is unresolved, not exact. "State different isomers" means one of:
+   - both names carry stereo descriptors and the sets differ. Descriptors are the existing ones (R/S, E/Z, cis/trans, alpha/beta, D/L) plus the cyclitol and sugar prefixes myo, scyllo, epi, chiro, neo, muco, allo, threo, erythro;
+   - both names state an omega position (n3, n-3, omega-3, ω-3) and the positions differ.
+   Evidence text says the identifier in one source may point to the wrong isomer. Fixes scyllo/myo-inositol and DPA n3/n6.
+
+2. **Same name, different connectivity (R12n).** Runs just before R12. If the names are identical after normalization (lower case, spaces collapsed, a trailing `*` dropped) but block1 differs, the pair is unresolved. The keys conflict and the tool cannot tell which one is wrong. Isomer labels such as `(1)` and `(2)` stay part of the name, so DG 18:1_18:2 [1] and [2] still reach R12. Fixes fructose and 4-vinylphenol sulfate.
+
+3. **Slash names as group names.** `is_group_name()` also matches two words of three or more letters joined by a slash, such as "mannitol/sorbitol" and "oleate/vaccenate (18:1)". Digits on either side of the slash do not count, so lipid names like "PC 16:0/18:1" are not affected.
+
+### Acceptance, checked before the release
+
+- Development evaluation (`scripts/21_evaluate_v0.1.R` on the v0.4.2 audit): at least 34 agree and at most 1 wrong, as in v0.4.
+- Lipid match proposals: the same 63.
+- Every row flag that changes is listed and explained.
+- Unit tests for each change, including cases that must stay as they are: glycine against Gly stays exact, "PC 16:0/18:1" is not a group name, DG [1] against [2] stays distinct.
+- COMETS is rerun and reported as after adaptation. No criterion is claimed as met from that rerun.
