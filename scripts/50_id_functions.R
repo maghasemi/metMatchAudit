@@ -81,3 +81,29 @@ hmdb_to_cids <- function(hmdb, cache) {
   cids <- res$IdentifierList$CID
   if (is.null(cids)) character(0) else as.character(cids)
 }
+
+# Parent compound CID for each CID (PubChem's salt-stripped, neutralised
+# form). One request per CID, cached. A CID without a parent keeps
+# itself.
+cid_to_parent <- function(cids, cache) {
+  cids <- unique(cids[!is.na(cids)])
+  out <- stats::setNames(cids, cids)
+  for (cid in cids) {
+    res <- pug(paste0("compound/cid/", cid, "/cids/JSON?cids_type=parent"), cache = cache)
+    p <- res$IdentifierList$CID
+    if (!is.null(p) && length(p) >= 1) out[[cid]] <- as.character(p[1])
+  }
+  out
+}
+
+# Revised resolution (decisions.md, 2026-10-06): no resolution for group
+# or alternative names; the key returned is that of the parent compound.
+resolve_cid_keys <- function(cids, names, cache) {
+  skip <- metMatchAudit::is_group_name(names) | metMatchAudit::has_alternative_names(names)
+  use <- !skip & !is.na(cids)
+  parents <- cid_to_parent(cids[use], cache)
+  keys <- cid_to_key(unname(parents), cache)
+  out <- rep(NA_character_, length(cids))
+  out[use] <- unname(keys[parents[cids[use]]])
+  list(key = out, skipped_name = skip & !is.na(cids))
+}

@@ -203,3 +203,28 @@ Criteria:
 - Every disagreement on the first 14 characters is listed and explained.
 
 Agreement on the first 25 characters is reported but is not a criterion, since database records often carry more stereo than the source files.
+
+## 2026-10-06: Identifier resolution, first run
+
+HMDB route: 282 of 297 resolved rows agree with the stored key on the first 14 characters (94.9%). Criterion 90%: met.
+
+CID route: 1098 of 1158 (94.8%). Criterion 95%: not met, by three rows. The criterion stands as written.
+
+Reading the 60 CID disagreements by name (not yet checked record by record): 3 are group-name rows, which the tool should never have resolved (R08 already distrusts their keys); at least 2 are source errors found in the review (pregnenediol sulfate, andro steroid monosulfate); 3 are sugars in ring against open-chain form; many look like salts or charged forms (choline, thiamin, heme, acylcholines, several drugs); the rest look like rows where the CID and the InChIKey given by the vendor describe different compounds. In most of these cases PubChem returned the record for the CID correctly; the CID and the key in the same Metabolon row disagree. About 5% of LEOCC rows with both identifiers carry inconsistent ones.
+
+Decision pending: drop the CID route, or revise the design (skip group and alternative names; compare parent compounds for salts) and test the revised design on data not used so far.
+
+## 2026-10-06: Identifier resolution retest, criteria set before running
+
+Test data: annotations.csv from the MetLinkR SI (2574 rows, 1535 with both a PubChem CID and an InChIKey). Never used in development, and not one of the five files with expert mappings. Only identifier resolution is tested; no grouping is looked at.
+
+Rows are kept only if neither their CID nor the first 14 characters of their key occur in LEOCC or Broad, because the revised design was made after reading disagreements there.
+
+Design as revised (2026-10-06): group and alternative names not resolved; key taken from PubChem's parent compound.
+
+Criteria, unchanged from the first run:
+- CID route: at least 95% of resolved rows agree with the stored key on the first 14 characters.
+- HMDB route (random sample of 300, seed 20261006): at least 90%.
+- Every disagreement listed.
+
+If the CID route fails again, it is dropped from v0.4 and only the HMDB route goes in.
