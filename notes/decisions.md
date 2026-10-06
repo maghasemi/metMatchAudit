@@ -282,3 +282,7 @@ Change, made before any result was seen: rows are matched to expert labels by fi
 Criteria and definitions unchanged.
 
 The next attempt stopped too: 740 rows had no expert line. ManualMappings.csv writes IDs in upper case and, in inputs_1555609921, without spaces inside them. A check that printed only IDs and column names, not group labels, confirmed this. IDs on both sides are now compared in upper case with all spaces removed. A clash this creates within one file stops the test.
+
+## 2026-10-06: comets-test-1 tag corrected
+
+The tag was first created on 7aec708 by mistake and pushed. A minute later it was deleted and recreated on 9389f61, the commit the COMETS test ran on. Nothing referred to the wrong tag in between.
