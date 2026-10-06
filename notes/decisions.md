@@ -182,3 +182,24 @@ Criteria for the confirmation run:
 - 65 of 65 reference keys reproduced.
 - No R11 pair from a group labeled B is classified as subset.
 - Broad xylose is flagged with a connectivity difference between its InChI and its stored key.
+
+## 2026-10-06: Identifier resolution, criteria set before running
+
+Reason: the five COMETS datasets with expert mappings carry no InChIKey or SMILES, only names and in part PubChem or HMDB IDs. Many real users are in the same position. The tool therefore needs a way to get an InChIKey from an identifier.
+
+Design (scripts/50_id_functions.R):
+- PubChem CID: InChIKey of that record from PubChem.
+- HMDB ID: CIDs that PubChem lists for the HMDB registry ID, then their InChIKeys. Resolved only if all those CIDs give the same key.
+- Cells listing several IDs are not resolved.
+- HMDB IDs are normalised to seven digits ("HMDB00641" becomes "HMDB0000641").
+- Every answer is cached on disk.
+- A derived key describes the database record, not necessarily what was measured. Rules such as R11 already handle keys that claim more stereo than the name.
+
+The feature is built and tested on the development files (LEOCC, Broad), where rows carry identifiers and an InChIKey, so the stored key is the reference. The COMETS data play no part in building it.
+
+Criteria:
+- CID route: at least 95% of resolved rows agree with the stored key on the first 14 characters.
+- HMDB route (random sample of 300, seed 20261006): at least 90%.
+- Every disagreement on the first 14 characters is listed and explained.
+
+Agreement on the first 25 characters is reported but is not a criterion, since database records often carry more stereo than the source files.
