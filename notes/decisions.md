@@ -280,3 +280,5 @@ The first attempts of scripts/60_comets_test.R stopped before any comparison. Ma
 Change, made before any result was seen: rows are matched to expert labels by file and metabolite ID. A row can belong to several expert groups. Two rows count as the same for the expert when they share at least one group, and a pair in two shared groups counts once. The script also checks that audit rows are in input order before using IDs by position. It stops if any input row has no expert line, any expert line matches no row, or an ID repeats within a file.
 
 Criteria and definitions unchanged.
+
+The next attempt stopped too: 740 rows had no expert line. ManualMappings.csv writes IDs in upper case and, in inputs_1555609921, without spaces inside them. A check that printed only IDs and column names, not group labels, confirmed this. IDs on both sides are now compared in upper case with all spaces removed. A clash this creates within one file stops the test.

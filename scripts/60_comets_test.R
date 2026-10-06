@@ -54,7 +54,8 @@ rows <- audit$rows
 
 
 # ---- Attach expert groups to every row ------------------------------------
-# Rows are matched by file and metabolite ID. ManualMappings.csv lists a few
+# Rows are matched by file and metabolite ID (see norm_id below for the
+# form IDs are compared in). ManualMappings.csv lists a few
 # Nightingale rows more than once, each time with a group, so a row can
 # belong to several expert groups. Two rows count as the same for the
 # expert when they share at least one group. The test stops if an input
@@ -81,13 +82,18 @@ if (any(off)) {
   stop(sum(off), " rows are not in input order. The ID join would be wrong.")
 }
 
-row_key <- paste(rows$file, input_ids$id, sep = "|")
-if (anyDuplicated(row_key)) stop("A metabolite ID occurs twice within one input file.")
+# ManualMappings.csv writes the IDs in upper case and drops spaces inside
+# them ("cmh_amp" becomes "CMH_AMP"), so both sides are compared in that
+# form. A clash this creates within one file stops the test below.
+norm_id <- function(x) toupper(gsub("[[:space:]]", "", x))
+
+row_key <- paste(rows$file, norm_id(input_ids$id), sep = "|")
+if (anyDuplicated(row_key)) stop("A metabolite ID occurs twice within one input file (after upper case, no spaces).")
 
 mm <- read.csv(file.path(src, "ManualMappings.csv"), colClasses = "character",
                na.strings = c("", "NA"))
 mm$stem <- sub("\\.xlsx$", "", mm$SOURCE_FILE)
-mm_key <- paste(mm$stem, mm$IPT_METABID, sep = "|")
+mm_key <- paste(mm$stem, norm_id(mm$IPT_METABID), sep = "|")
 if (anyNA(mm$Manual_Metabolite_Group_Label)) stop("Some ManualMappings.csv lines have no group label.")
 
 no_expert <- !row_key %in% mm_key
