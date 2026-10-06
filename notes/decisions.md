@@ -248,3 +248,23 @@ First full run of v0.4 on the development data: the evaluation of the 53 reviewe
 Fix: resolve_identifiers() skips rows whose name rgoslin reads at Species, molecular species or sn-position level. Names that fix one structure, such as "LPE 16:0/0:0", are still resolved.
 
 Found on development data, before v0.4 was frozen, so the COMETS test is not affected.
+
+Second fix, same run: internal standards are also skipped. Broad "Inosine-15N4 [iSTD]" carries the HMDB ID of unlabelled inosine and got that compound's key. No wrong claim followed (R02 runs first), but the key described the wrong molecule.
+
+## 2026-10-06: COMETS external test, criteria set before running
+
+Data: the five COMETS files with expert mappings (ManualMappings.csv, MetLinkR SI), none used in development. MetLinkR run with default settings, RaMP database 3.0.7, metLinkR commit a6aa145 (metlinkr-run/run_metlinkr_comets.R). Global mapping rate 69.4%.
+
+Tool: metMatchAudit v0.4.0 as tagged. scripts/60_comets_test.R stops if the package code differs from the tag. Identifiers: HMDB for inputs_1539354673, PubChem CID for inputs_1555609921; no file has InChIKey or SMILES.
+
+Expert labels are matched to rows by file and metabolite ID. If the match is not one to one, the script stops; only the join may then be fixed, and the fix is logged before rerunning.
+
+Only pairs of rows from different files count. Expert positive: same Manual_Metabolite_Group_Label.
+
+Criteria:
+- C1: among cross-file pairs the tool calls exact or distinct, at least 90% agree with the expert (exact with the same expert group, distinct with different groups).
+- C2: removing the pairs the tool calls distinct from MetLinkR's links does not lower precision and does not lower F1, compared with MetLinkR alone.
+
+Reported without a criterion: recall; the expert split of broader_narrower and unresolved pairs; the share of new lipid matches in one expert group; the share of expert cross-file groups found whole by MetLinkR (the paper reports 85.3%); Nightingale pairs on their own; key sources.
+
+Run once. Every wrong definite claim is listed and reviewed afterwards, with the reason, which can be a tool error or an expert choice. Results go into findings.md and the README whatever they are.
