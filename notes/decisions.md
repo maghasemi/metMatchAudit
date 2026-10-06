@@ -272,3 +272,11 @@ Run once. Every wrong definite claim is listed and reviewed afterwards, with the
 ## 2026-10-06: COMETS test runs on v0.4.1
 
 The first attempt to run scripts/60_comets_test.R stopped at its version check, before reading any data: R/identifiers.R differed from tag v0.4.0. The difference is the internal standard fix (decisions.md, 2026-10-06, second fix), made on the development data and used in the last development evaluation, but copied in after the tag was set. The tag is left as it is. The fix is released as v0.4.1, and the test runs on that version. Criteria are unchanged.
+
+## 2026-10-06: COMETS test, join fix
+
+The first attempts of scripts/60_comets_test.R stopped before any comparison. ManualMappings.csv lists Nightingale Omega-6 six times and LA four times, each with a group, and its row order differs from the input files.
+
+Change, made before any result was seen: rows are matched to expert labels by file and metabolite ID. A row can belong to several expert groups. Two rows count as the same for the expert when they share at least one group, and a pair in two shared groups counts once. The script also checks that audit rows are in input order before using IDs by position. It stops if any input row has no expert line, any expert line matches no row, or an ID repeats within a file.
+
+Criteria and definitions unchanged.

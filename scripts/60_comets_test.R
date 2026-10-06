@@ -5,7 +5,9 @@
 # five datasets that played no part in developing the tool.
 #
 # Criteria and definitions are in notes/decisions.md (2026-10-06, COMETS
-# test), committed before this script was first run. Run it once.
+# test), committed before this script was first run. The join of expert
+# labels to rows was changed after the first attempts stopped before any
+# comparison (decisions.md, "COMETS test, join fix"). Criteria unchanged.
 #
 # Needs: the MetLinkR output from metlinkr-run/run_metlinkr_comets.R in
 # data-raw/comets/metlinkr_output/, the SwissLipids file, internet for
@@ -51,42 +53,82 @@ saveRDS(audit, file.path(out_dir, "audit.rds"))
 rows <- audit$rows
 
 
-# ---- Attach the expert group to every row ---------------------------------
-# Rows are matched by file and metabolite ID. The match must be one to one;
-# anything else stops the test, since a partial match would bias it.
+# ---- Attach expert groups to every row ------------------------------------
+# Rows are matched by file and metabolite ID. ManualMappings.csv lists a few
+# Nightingale rows more than once, each time with a group, so a row can
+# belong to several expert groups. Two rows count as the same for the
+# expert when they share at least one group. The test stops if an input
+# row has no expert line, if an expert line matches no input row, or if
+# an ID occurs twice within one input file.
+
+input_ids <- lapply(stems, function(s) {
+  d <- read.csv(file.path(src, paste0(s, ".csv")), colClasses = "character", check.names = FALSE)
+  # First column is the metabolite ID in all five files (metabid or METABID).
+  name_col <- which(tolower(names(d)) == "metabolite_name")
+  data.frame(id = d[[1]],
+             name = if (length(name_col) == 1) d[[name_col]] else NA_character_,
+             stringsAsFactors = FALSE)
+})
+input_ids <- do.call(rbind, input_ids)
+if (nrow(input_ids) != nrow(rows)) stop("Input files and audit rows differ in number.")
+
+# The ID comes from the input file by position, so the audit rows must be in
+# input order. Where the input has a metabolite_name column, check it.
+has_name <- !is.na(input_ids$name)
+off <- has_name & trimws(input_ids$name) != trimws(rows$original_name)
+if (any(off)) {
+  print(head(data.frame(file = rows$file, input = input_ids$name, audit = rows$original_name)[off, ]))
+  stop(sum(off), " rows are not in input order. The ID join would be wrong.")
+}
+
+row_key <- paste(rows$file, input_ids$id, sep = "|")
+if (anyDuplicated(row_key)) stop("A metabolite ID occurs twice within one input file.")
 
 mm <- read.csv(file.path(src, "ManualMappings.csv"), colClasses = "character",
                na.strings = c("", "NA"))
 mm$stem <- sub("\\.xlsx$", "", mm$SOURCE_FILE)
 mm_key <- paste(mm$stem, mm$IPT_METABID, sep = "|")
-if (anyDuplicated(mm_key)) stop("ManualMappings.csv has duplicate file and ID pairs.")
+if (anyNA(mm$Manual_Metabolite_Group_Label)) stop("Some ManualMappings.csv lines have no group label.")
 
-row_metabid <- unlist(lapply(stems, function(s) {
-  d <- read.csv(file.path(src, paste0(s, ".csv")), colClasses = "character", check.names = FALSE)
-  d[[1]]  # first column is the metabolite ID in all five files (metabid or METABID)
-}))
-if (length(row_metabid) != nrow(rows)) stop("Input files and audit rows differ in number.")
-rows$expert_group <- mm$Manual_Metabolite_Group_Label[match(paste(rows$file, row_metabid, sep = "|"), mm_key)]
-
-unmatched <- sum(is.na(rows$expert_group))
-if (unmatched > 0) {
-  print(table(rows$file[is.na(rows$expert_group)]))
-  stop(unmatched, " rows have no expert group. Check the ID columns before going on.")
+no_expert <- !row_key %in% mm_key
+if (any(no_expert)) {
+  print(table(rows$file[no_expert]))
+  stop(sum(no_expert), " rows have no expert group. Check the ID columns before going on.")
 }
-if (nrow(mm) != nrow(rows)) stop("ManualMappings.csv and the input files differ in number of rows.")
+no_row <- !mm_key %in% row_key
+if (any(no_row)) stop(sum(no_row), " ManualMappings.csv lines match no input row.")
+
+# One line per row and expert group. A repeated row and group pair counts once.
+membership <- unique(data.frame(row_id = rows$row_id[match(mm_key, row_key)],
+                                group  = mm$Manual_Metabolite_Group_Label,
+                                stringsAsFactors = FALSE))
+groups_of <- split(membership$group, membership$row_id)
+multi_group_rows <- names(groups_of)[lengths(groups_of) > 1]
 
 
 # ---- Helpers -------------------------------------------------------------------
 
-# Number of pairs of rows from different files within each group.
-cross_pairs_in <- function(group, file) {
-  ok <- !is.na(group)
-  n_g  <- table(group[ok])
-  n_gf <- table(paste(group[ok], file[ok]))
-  sum(choose(n_g, 2)) - sum(choose(n_gf, 2))
+file_of <- stats::setNames(rows$file, rows$row_id)
+
+expert_same_pair <- function(a, b) {
+  vapply(seq_along(a), function(i) {
+    length(intersect(groups_of[[a[i]]], groups_of[[b[i]]])) > 0
+  }, logical(1))
 }
-expert_of <- stats::setNames(rows$expert_group, rows$row_id)
-file_of   <- stats::setNames(rows$file, rows$row_id)
+
+# Number of distinct pairs of rows from different files that share at
+# least one expert group. A pair in two shared groups counts once.
+expert_positive_pairs <- function(membership, file_of) {
+  per_group <- split(membership$row_id, membership$group)
+  pp <- lapply(per_group, function(r) {
+    if (length(r) < 2) return(NULL)
+    cm <- utils::combn(sort(r), 2)
+    cm[, file_of[cm[1, ]] != file_of[cm[2, ]], drop = FALSE]
+  })
+  pp <- do.call(cbind, pp)
+  if (is.null(pp) || ncol(pp) == 0) return(0L)
+  length(unique(paste(pp[1, ], pp[2, ], sep = "\r")))
+}
 
 prf <- function(tp, predicted, positives) {
   p <- if (predicted == 0) NA else tp / predicted
@@ -99,12 +141,12 @@ prf <- function(tp, predicted, positives) {
 
 # ---- Pairs ----------------------------------------------------------------------
 
-positives <- cross_pairs_in(rows$expert_group, rows$file)
+positives <- expert_positive_pairs(membership, file_of)
 
 pairs <- audit$pairs
 pairs$cross_file <- file_of[pairs$row_a] != file_of[pairs$row_b]
 pairs <- pairs[pairs$cross_file, ]
-pairs$expert_same <- expert_of[pairs$row_a] == expert_of[pairs$row_b]
+pairs$expert_same <- expert_same_pair(pairs$row_a, pairs$row_b)
 pairs$nightingale <- file_of[pairs$row_a] == nightingale | file_of[pairs$row_b] == nightingale
 write.csv(pairs, file.path(out_dir, "cross_file_pairs.csv"), row.names = FALSE)
 
@@ -128,13 +170,14 @@ comparison <- rbind(metlinkr_alone = metlinkr_alone, with_audit = with_audit,
 # Question 3: lipid matches MetLinkR did not make.
 lm <- audit$lipid_matches
 lm <- lm[!lm$already_grouped, ]
-lm$expert_same <- expert_of[lm$row_a] == expert_of[lm$row_b]
+lm$expert_same <- expert_same_pair(lm$row_a, lm$row_b)
 write.csv(lm, file.path(out_dir, "new_lipid_matches.csv"), row.names = FALSE)
 
 # Group level, as reported in the MetLinkR paper: share of expert groups
 # spanning two or more files whose rows all got one MetLinkR name.
-eg <- split(rows$group_id, rows$expert_group)
-ef <- split(rows$file, rows$expert_group)
+gid_of <- stats::setNames(rows$group_id, rows$row_id)
+eg <- split(gid_of[membership$row_id], membership$group)
+ef <- split(file_of[membership$row_id], membership$group)
 cross_groups <- names(ef)[vapply(ef, function(f) length(unique(f)) > 1, logical(1))]
 found <- vapply(eg[cross_groups], function(g) !anyNA(g) && length(unique(g)) == 1, logical(1))
 
@@ -167,7 +210,9 @@ write.csv(summary_table, file.path(out_dir, "criteria.csv"), row.names = FALSE)
 write.csv(comparison, file.path(out_dir, "comparison.csv"))
 write.csv(by_relationship, file.path(out_dir, "by_relationship.csv"))
 
-message("Rows: ", nrow(rows), "; expert cross-file positive pairs: ", positives)
+message("Rows: ", nrow(rows), "; ManualMappings lines: ", nrow(mm),
+        "; rows in more than one expert group: ", length(multi_group_rows))
+message("Expert cross-file positive pairs: ", positives)
 message("Cross-file pairs inside MetLinkR groups: ", nrow(pairs))
 message("\nCriteria:"); print(summary_table, row.names = FALSE)
 message("\nTool relationship against the expert:"); print(by_relationship)
