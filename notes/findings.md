@@ -185,3 +185,64 @@ On this data, v0.2 would add 43 lipid links to the 10 that MetLinkR made.
 
 
 
+
+## 2026-10-06: COMETS external test (blind)
+
+### Setup
+
+metMatchAudit v0.4.1 (tag `v0.4.1`) ran on MetLinkR output for five COMETS datasets: MetLinkR commit a6aa145, RaMP DB 3.0.7. The reference is `ManualMappings.csv` from the MetLinkR supplement. Criteria are in `decisions.md` (2026-10-06, COMETS test) and were committed before the first run. The first three attempts stopped before any comparison because of how expert labels were joined to rows (see the join fix entries in `decisions.md`). The fourth ran to the end. Its state is tagged `comets-test-1`. Script: `scripts/60_comets_test.R`. Output: `results/comets_test/`.
+
+### Result
+
+- 1429 rows. 401 cross-file pairs inside MetLinkR groups. 401 cross-file pairs the expert groups.
+- Expert groups spanning two or more files that MetLinkR found whole: 183 of 214 (85.5%). The MetLinkR paper reports 85.3%, so our MetLinkR run reproduces theirs.
+- C1, definite claims agree with the expert: 121 of 125 (96.8%). Met.
+- C2, precision and F1 not lower with the audit: precision 0.895 in both, F1 0.893 against 0.895. Not met. The audit called two pairs distinct and the expert groups both.
+- Counting only exact and broader_narrower as matches: precision 0.978, recall 0.339.
+- 739 of 1429 rows got no structure key, because three files carry names only. 259 of 401 pairs ended unresolved.
+- New lipid matches: 4, all in the same expert group.
+
+| tool relationship | expert same | expert different |
+|---|---|---|
+| exact | 121 | 2 |
+| broader_narrower | 15 | 1 |
+| stereo_variant | 0 | 1 |
+| distinct | 2 | 0 |
+| unresolved | 221 | 38 |
+
+### The four wrong definite claims
+
+| pair | tool | cause |
+|---|---|---|
+| scyllo-inositol / myo-inositol | exact | Both identifiers resolved to the inositol key without stereo. Identical stereo-free keys were taken as exact. A gap in the rules. |
+| DPA n3 / DPA n6 | exact | Identical keys for two compounds with different double bond positions. An identifier in one source points to the wrong isomer. |
+| fructose / fructose | distinct | Ring form against open chain. Same known limit as xylose, now seen twice. |
+| 4-vinylphenol sulfate / 4-vinylphenol sulfate | distinct | One identifier points to 4-vinylphenol, not its sulfate. |
+
+Both wrong distinct calls, the ones that failed C2, are pairs with identical names. Identical names with different connectivity mean the identifiers conflict, and the tool cannot tell which one is wrong.
+
+### Post hoc review of the 42 pairs the expert does not group
+
+Done after the result was sealed, so it explains the result and does not replace it. Details in `notes/comets_review.csv`.
+
+| review class | pairs |
+|---|---|
+| different_compound | 7 |
+| stereo_variant | 4 |
+| broader_narrower | 12 |
+| aggregate (Nightingale class totals and fatty acids) | 5 |
+| same_compound_platform_split | 9 |
+| expert_inconsistent | 5 |
+
+- No Biocrates acylcarnitine, nor Biocrates ornithine or SM C18:0, is linked to another platform. Each sits alone in its expert group. Biocrates lysoPC a C18:2 is linked to Metabolon, so this is not a rule applied to the whole file.
+- The expert groups Nightingale Ala with beta-alanine, not alanine. The Nightingale biomarker list gives Ala as alanine.
+- Two pairs with identical names (glutamate, N-acetylcarnosine) are split across groups. Their Metabolon COMP_IDs differ, but other pairs whose COMP_IDs differ between the same two files share one group.
+- Only 7 of the 42 are different compounds. The audit called 2 of them exact and left 5 unresolved.
+
+### What this means
+
+- On COMETS the audit did not improve on MetLinkR. Its definite claims are mostly right, but it makes few of them, and it removed none of MetLinkR's wrong merges.
+- The main cause is missing evidence: rows from name-only files have no key, so most pairs stop at R01.
+- The expert answers "same measurement", the audit answers "same compound". Platform splits and class totals account for 14 of the 42 pairs.
+- Changes this test points to: identical names with different connectivity become unresolved with a row flag; identical stereo-free keys from resolved identifiers are not enough for exact when names state different isomers; names that state different omega positions conflict; names joined by a slash count as group names; name to RefMet (v0.5); an aggregate relationship (v0.6).
+- Any COMETS number after these changes counts as after adaptation. A fresh dataset with expert mappings is needed for a second blind test.

@@ -1,0 +1,43 @@
+pair,file_a,name_a,file_b,name_b,tool_relationship,expert_groups,review_class,note
+1,54673,glutamate,09921,glutamate,broader_narrower,562 / 563,expert_inconsistent,"Same name, different Metabolon COMP_IDs (32322, 57). Other pairs with different COMP_IDs across these two files (alanine, myo-inositol, palmitoylcarnitine) share one expert group."
+2,54673,scyllo-inositol,09921,myo-inositol,exact,902 / 595,different_compound,"Different stereoisomers. The tool said exact because both identifiers resolved to the inositol key without stereo."
+3,54673,docosapentaenoate (n3 DPA; 22:5n3),09921,docosapentaenoate (n6 DPA; 22:5n6),exact,910 / 815,different_compound,"n3 against n6 isomer. Identical keys mean an identifier in one source points to the wrong isomer."
+4,54673,"bilirubin (Z,Z)",09921,"bilirubin (E,E)*",stereo_variant,533 / 246,stereo_variant,"Expert keeps geometric isomers apart. Tool gives the same relationship."
+5,53822,Acetylcarnitine  ( C2 ),54673,acetylcarnitine,unresolved,207 / 587,same_compound_platform_split,"Biocrates row is alone in its expert group. No Biocrates acylcarnitine is linked to another platform."
+6,53822,Acetylcarnitine  ( C2 ),09921,acetylcarnitine,unresolved,207 / 587,same_compound_platform_split,See pair 5.
+7,53822,Propionylcarnitine  ( C3 ),54673,propionylcarnitine,unresolved,206 / 724,same_compound_platform_split,See pair 5.
+8,53822,Propionylcarnitine  ( C3 ),09921,propionylcarnitine,unresolved,206 / 724,same_compound_platform_split,See pair 5.
+9,53822,Valerylcarnitine  ( C5 ),09921,glutarylcarnitine (C5),unresolved,1020 / 1021,different_compound,Valeryl (C5) against glutaryl (C5-DC).
+10,53822,Glutarylcarnitine (Hydroxyhexanoylcarnitine)  ( C5-DC(C6-OH) ),54673,glutarylcarnitine (C5),unresolved,1136 / 1021,broader_narrower,Biocrates reports an isobaric sum of two compounds.
+11,53822,Methylglutarylcarnitine  ( C5-M-DC ),09921,3-methylglutarylcarnitine (2),unresolved,1122 / 314,broader_narrower,Biocrates value without position against one Metabolon isomer.
+12,53822,Hexanoylcarnitine (Fumarylcarnitine)  ( C6(C4:1-DC) ),54673,hexanoylcarnitine,unresolved,708 / 693,broader_narrower,Biocrates reports an isobaric sum of two compounds.
+13,53822,Hexanoylcarnitine (Fumarylcarnitine)  ( C6(C4:1-DC) ),09921,hexanoylcarnitine,unresolved,708 / 693,broader_narrower,See pair 12.
+14,53822,Decenoylcarnitine  ( C10:1 ),09921,cis-4-decenoyl carnitine,unresolved,209 / 1022,broader_narrower,C10:1 without double bond position against one isomer.
+15,53822,Dodecanoylcarnitine  ( C12 ),09921,laurylcarnitine,unresolved,208 / 837,same_compound_platform_split,See pair 5.
+16,53822,Tetradecenoylcarnitine  ( C14:1 ),09921,myristoleoylcarnitine*,unresolved,822 / 318,broader_narrower,C14:1 without double bond position against one isomer.
+17,53822,Tetradecadienylcarnitine  ( C14:2 ),09921,myristoleoylcarnitine*,unresolved,1030 / 318,different_compound,C14:2 against C14:1.
+18,53822,Hexadecanoylcarnitine  ( C16 ),54673,palmitoylcarnitine,unresolved,1134 / 598,same_compound_platform_split,See pair 5.
+19,53822,Hexadecanoylcarnitine  ( C16 ),09921,palmitoylcarnitine,unresolved,1134 / 598,same_compound_platform_split,See pair 5.
+20,53822,Octadecenoylcarnitine  ( C18:1 ),54673,oleoylcarnitine,unresolved,907 / 896,broader_narrower,C18:1 without double bond position against one isomer.
+21,53822,Octadecenoylcarnitine  ( C18:1 ),09921,oleoylcarnitine,unresolved,907 / 896,broader_narrower,See pair 20.
+22,53822,Ornithine  ( Orn-PTC ),99316,ornithine,unresolved,596 / 870,same_compound_platform_split,"Biocrates measures ornithine as its PTC derivative. The Biocrates row is alone in its expert group."
+23,53822,Ornithine  ( Orn-PTC ),09921,ornithine,unresolved,596 / 870,same_compound_platform_split,See pair 22.
+24,53822,Sphingomyeline C18:0  ( SM C18:0 ),09921,stearoyl sphingomyelin (d18:1/18:0),unresolved,515 / 771,broader_narrower,Biocrates sphingomyelin values can include isobaric species.
+25,54673,linoleate (18:2n6),98296,LA,unresolved,681 / 119,aggregate,"Nightingale LA is alone in its expert group. Probably a total that includes esterified linoleic acid, not yet confirmed from a vendor document."
+26,09921,linoleate (18:2n6),98296,LA,unresolved,681 / 119,aggregate,See pair 25.
+27,54673,oleate (18:1n9),09921,oleate/vaccenate (18:1),unresolved,591 / 346,broader_narrower,Name lists two compounds.
+28,54673,glycocholate,98296,GlycA,unresolved,560 / 125,different_compound,GlycA is the Nightingale glycoprotein acetyls signal.
+29,99316,Glycocholate,98296,GlycA,unresolved,560 / 125,different_compound,See pair 28.
+30,09921,glycocholate,98296,GlycA,unresolved,560 / 125,different_compound,See pair 28.
+31,54673,docosahexaenoate (DHA; 22:6n3),98296,DHA,unresolved,832 / 604,aggregate,See pair 25.
+32,09921,docosahexaenoate (DHA; 22:6n3),98296,DHA,unresolved,832 / 604,aggregate,See pair 25.
+33,54673,"bilirubin (Z,Z)",09921,"bilirubin (E,Z or Z,E)*",unresolved,533 / 646,stereo_variant,See pair 4.
+34,54673,"bilirubin (E,E)*",09921,"bilirubin (E,Z or Z,E)*",unresolved,246 / 646,stereo_variant,See pair 4.
+35,54673,"bilirubin (E,E)*",09921,"bilirubin (Z,Z)",unresolved,246 / 533,stereo_variant,See pair 4.
+36,54673,androsterone sulfate,09921,andro steroid monosulfate (1)*,unresolved,215 / 270,broader_narrower,Vague name that may or may not be androsterone sulfate.
+37,54673,alanine,98296,Ala,unresolved,569 / 534,expert_inconsistent,"Expert put Nightingale Ala with beta-alanine (group 534), not with alanine. The Nightingale biomarker list gives Ala as alanine."
+38,99316,alanine,98296,Ala,unresolved,569 / 534,expert_inconsistent,See pair 37.
+39,09921,alanine,98296,Ala,unresolved,569 / 534,expert_inconsistent,See pair 37.
+40,54673,N-acetylcarnosine,09921,N-acetylcarnosine,unresolved,431 / 1015,expert_inconsistent,"Same name, different COMP_IDs (33666, 43488). See pair 1."
+41,54673,1-linoleoyl-GPC (18:2),98296,Omega-6,unresolved,953 / 121,aggregate,Omega-6 is a class total. The LPC is one contributor.
+42,99316,Sorbitol,09921,mannitol/sorbitol,unresolved,606 / 230,broader_narrower,Name lists two compounds.
