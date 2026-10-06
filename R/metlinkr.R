@@ -18,12 +18,14 @@
 #'     file name without `_metLinkR.csv`
 #'   * `smiles_col`, `inchi_col` (optional): columns with a SMILES or an
 #'     InChI, used by [structure_evidence()]. `NA` where a file has none.
+#'   * `pubchem_col`, `hmdb_col` (optional): columns with PubChem CIDs or
+#'     HMDB IDs, used by [resolve_identifiers()].
 #' @param encoding Passed to [data.table::fread()]: `"UTF-8"` or
 #'   `"Latin-1"`. The MetLinkR example files are Latin-1.
 #'
 #' @return A data frame with one line per input row: `row_id`
 #'   (`label:row number`), `file`, `row_in_file`, `original_name`,
-#'   `inchikey`, `smiles`, `inchi` and `group_id` (the standardized name;
+#'   `inchikey`, `smiles`, `inchi`, `pubchem`, `hmdb` and `group_id` (the standardized name;
 #'   missing when MetLinkR assigned none).
 #'
 #' @export
@@ -33,7 +35,7 @@ read_metlinkr <- function(files, encoding = "UTF-8") {
   if (length(missing) > 0) {
     stop("`files` needs the columns ", paste(missing, collapse = ", "), ".", call. = FALSE)
   }
-  for (opt in c("smiles_col", "inchi_col")) {
+  for (opt in c("smiles_col", "inchi_col", "pubchem_col", "hmdb_col")) {
     if (!opt %in% names(files)) files[[opt]] <- NA_character_
   }
   if (!"label" %in% names(files)) {
@@ -52,7 +54,9 @@ read_metlinkr <- function(files, encoding = "UTF-8") {
     need <- c(f$name_col, "Standardized name",
               if (!is.na(f$inchikey_col)) f$inchikey_col,
               if (!is.na(f$smiles_col)) f$smiles_col,
-              if (!is.na(f$inchi_col)) f$inchi_col)
+              if (!is.na(f$inchi_col)) f$inchi_col,
+              if (!is.na(f$pubchem_col)) f$pubchem_col,
+              if (!is.na(f$hmdb_col)) f$hmdb_col)
     absent <- setdiff(need, names(d))
     if (length(absent) > 0) {
       stop(f$path, " has no column ", paste(absent, collapse = ", "), ".", call. = FALSE)
@@ -67,6 +71,8 @@ read_metlinkr <- function(files, encoding = "UTF-8") {
       inchikey      = if (is.na(f$inchikey_col)) NA_character_ else trimws(d[[f$inchikey_col]]),
       smiles        = if (is.na(f$smiles_col)) NA_character_ else trimws(d[[f$smiles_col]]),
       inchi         = if (is.na(f$inchi_col)) NA_character_ else trimws(d[[f$inchi_col]]),
+      pubchem       = if (is.na(f$pubchem_col)) NA_character_ else trimws(d[[f$pubchem_col]]),
+      hmdb          = if (is.na(f$hmdb_col)) NA_character_ else trimws(d[[f$hmdb_col]]),
       group_id      = group,
       stringsAsFactors = FALSE
     )
@@ -91,6 +97,9 @@ read_metlinkr <- function(files, encoding = "UTF-8") {
 #'   `swisslipids` is a path.
 #' @param use_rdkit Use RDKit for the structure checks (R09b, C04) when
 #'   it is available. See [structure_evidence()].
+#' @param resolve_ids Fill in missing InChIKeys from PubChem CIDs or HMDB
+#'   IDs. See [resolve_identifiers()].
+#' @param cache_file Where to keep PubChem answers between runs.
 #'
 #' @return An object of class `metmatch_audit`, a list with:
 #'   * `pairs`: every pair with `relationship`, `rule_id`, `evidence`
@@ -103,7 +112,8 @@ read_metlinkr <- function(files, encoding = "UTF-8") {
 #'
 #' @export
 audit_metlinkr <- function(files, swisslipids, encoding = "UTF-8",
-                           expected_md5 = NULL, use_rdkit = TRUE) {
+                           expected_md5 = NULL, use_rdkit = TRUE,
+                           resolve_ids = TRUE, cache_file = NULL) {
   db <- if (inherits(swisslipids, "swisslipids_db")) {
     swisslipids
   } else {
@@ -111,6 +121,13 @@ audit_metlinkr <- function(files, swisslipids, encoding = "UTF-8",
   }
 
   rows     <- read_metlinkr(files, encoding = encoding)
+  rows     <- if (resolve_ids) {
+    resolve_identifiers(rows, cache_file = cache_file)
+  } else {
+    rows$inchikey_file <- rows$inchikey
+    rows$inchikey_source <- ifelse(is_valid_inchikey(rows$inchikey), "file", NA_character_)
+    rows
+  }
   evidence <- lipid_evidence(row_evidence(rows), db)
   evidence <- structure_evidence(evidence, use_rdkit = use_rdkit)
   pairs    <- classify_pairs(evidence, make_pairs(evidence))
@@ -126,6 +143,7 @@ audit_metlinkr <- function(files, swisslipids, encoding = "UTF-8",
       run_date        = format(Sys.time(), "%Y-%m-%d %H:%M:%S %Z"),
       swisslipids_md5 = db$md5,
       structure_checks = use_rdkit && rdkit_available(),
+      keys_by_source = table(rows$inchikey_source, useNA = "ifany"),
       files           = files
     )
   )
@@ -181,6 +199,8 @@ write_audit <- function(audit, dir) {
     paste("Run date:", info$run_date),
     paste("SwissLipids md5:", info$swisslipids_md5),
     paste("Structure checks (RDKit):", isTRUE(info$structure_checks)),
+    paste("InChIKeys by source:", paste(names(info$keys_by_source), info$keys_by_source,
+                                          sep = " ", collapse = ", ")),
     "Input files:",
     paste0("  ", info$files$path, " (name: ", info$files$name_col,
            ", InChIKey: ", info$files$inchikey_col, ")")

@@ -27,8 +27,11 @@ row_flags <- function(evidence) {
          ". Run row_evidence() and lipid_evidence() first.", call. = FALSE)
   }
 
-  has_value <- !is.na(evidence$inchikey) & nzchar(trimws(evidence$inchikey))
-  c01 <- has_value & !evidence$ik_valid
+  # C01 is about the value in the source file. After identifier
+  # resolution that value is kept in inchikey_file.
+  file_key <- if ("inchikey_file" %in% names(evidence)) evidence$inchikey_file else evidence$inchikey
+  has_value <- !is.na(file_key) & nzchar(trimws(file_key))
+  c01 <- has_value & !is_valid_inchikey(file_key)
   c03 <- !is.na(evidence$lipid_conflict) & evidence$lipid_conflict
 
   c04_b1 <- c04_st <- rep(FALSE, nrow(evidence))
@@ -44,7 +47,7 @@ row_flags <- function(evidence) {
                flag = rep("invalid_key", sum(c01)),
                # sprintf, not paste0: paste0 turns an empty input into one
                # string and would create a phantom row.
-               detail = sprintf("InChIKey value: %s", evidence$inchikey[c01]),
+               detail = sprintf("InChIKey value: %s", file_key[c01]),
                stringsAsFactors = FALSE),
     data.frame(row_id = evidence$row_id[c03], check = rep("C03", sum(c03)),
                flag = rep("lipid_source_conflict", sum(c03)),

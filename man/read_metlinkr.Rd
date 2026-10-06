@@ -18,6 +18,8 @@ none
 file name without \verb{_metLinkR.csv}
 \item \code{smiles_col}, \code{inchi_col} (optional): columns with a SMILES or an
 InChI, used by \code{\link[=structure_evidence]{structure_evidence()}}. \code{NA} where a file has none.
+\item \code{pubchem_col}, \code{hmdb_col} (optional): columns with PubChem CIDs or
+HMDB IDs, used by \code{\link[=resolve_identifiers]{resolve_identifiers()}}.
 }}
 
 \item{encoding}{Passed to \code{\link[data.table:fread]{data.table::fread()}}: \code{"UTF-8"} or
@@ -26,7 +28,7 @@ InChI, used by \code{\link[=structure_evidence]{structure_evidence()}}. \code{NA
 \value{
 A data frame with one line per input row: \code{row_id}
 (\verb{label:row number}), \code{file}, \code{row_in_file}, \code{original_name},
-\code{inchikey}, \code{smiles}, \code{inchi} and \code{group_id} (the standardized name;
+\code{inchikey}, \code{smiles}, \code{inchi}, \code{pubchem}, \code{hmdb} and \code{group_id} (the standardized name;
 missing when MetLinkR assigned none).
 }
 \description{

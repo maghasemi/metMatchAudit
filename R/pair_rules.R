@@ -169,6 +169,18 @@ classify_pairs <- function(evidence, pairs) {
 
   decide(rep(TRUE, n), "unresolved", "R99", "no rule applied")
 
+  # Say where a key came from when it was not in the source file, for
+  # every rule that looked at keys.
+  if ("inchikey_source" %in% names(A)) {
+    key_rules <- rule_id %in% c("R03", "R09", "R09b", "R10", "R11", "R12")
+    src <- function(s) ifelse(is.na(s) | s == "file", NA_character_, s)
+    sa <- src(A$inchikey_source); sb <- src(B$inchikey_source)
+    tag <- ifelse(!is.na(sa) & !is.na(sb), paste0(" (keys from ", sa, " and ", sb, ")"),
+           ifelse(!is.na(sa), paste0(" (first key from ", sa, ")"),
+           ifelse(!is.na(sb), paste0(" (second key from ", sb, ")"), "")))
+    note <- ifelse(key_rules, paste0(note, tag), note)
+  }
+
   pairs$relationship <- relationship
   pairs$rule_id      <- rule_id
   pairs$evidence     <- note

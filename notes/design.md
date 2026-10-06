@@ -32,6 +32,9 @@ The MetLinkR adapter builds this table from the `*_metLinkR.csv` files. `scripts
 ## Evidence per row
 
 Nothing is typed in by hand. Each value comes from the input file, from a fixed parsing rule, or from a versioned database file.
+### Identifier resolution (v0.4)
+
+Rows without a valid InChIKey get one from PubChem when they carry a single PubChem CID (first) or a single HMDB ID (second). The key is that of PubChem's parent compound. Group names, alternative names and cells listing several IDs are not resolved, nor is an HMDB ID whose CIDs give different keys. The original file value stays in `inchikey_file` and every key has an `inchikey_source`: `file`, `pubchem_cid` or `hmdb_via_pubchem`. Pair evidence names the source when a key rule used a derived key.
 
 ### InChIKey
 
@@ -148,6 +151,15 @@ Severity, most severe first: source_conflict, distinct, unresolved, broader_narr
 - v0.1: audit of existing groups. InChIKey, name checks, SwissLipids file, rgoslin. No network access during a run. Rules R01 to R12 except R07, row checks C01 and C03.
 - v0.2: lipid match proposals for rows the matching step left out, using the same lipid profiles. Output: candidate pairs with the level they agree at.
 - v0.3: PubChem lookup with cache and a chemistry toolkit. Adds R07, C04, C05.
+
+### Roadmap after v0.3
+
+- v0.4: identifier resolution (PubChem CID and HMDB to InChIKey), built and tested on the development files.
+- COMETS test 1: v0.4 frozen with a tag, criteria committed, run once on the five COMETS files with expert mappings. This is the only blind external result; later versions will have seen COMETS names.
+- v0.5: name to RefMet record, built and tested on the development files.
+- v0.6: new relationships for class totals and for one compound measured in different ways (aggregate_member, same_compound_different_measure).
+- v0.7: same-platform rule and the vendor's own biomarker definitions for Nightingale.
+- Results on COMETS after v0.4 are marked as after adaptation. An independent check of later versions needs a second dataset with manual mappings.
 
 ## Evaluation
 

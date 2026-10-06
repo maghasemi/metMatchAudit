@@ -1,3 +1,11 @@
+# metMatchAudit 0.4.0
+
+* New `resolve_identifiers()`: rows without a valid InChIKey get one from their PubChem CID or HMDB ID, through PubChem's parent compound. Group names, alternative names, ID lists and lipid names that are not one structure are skipped. Needs httr2 and jsonlite; answers are cached on disk.
+* Every key has a source (`file`, `pubchem_cid`, `hmdb_via_pubchem`), and pair evidence names it when a derived key was used.
+* New helpers `normalize_pubchem_id()` and `normalize_hmdb_id()`.
+* `read_metlinkr()` accepts optional `pubchem_col` and `hmdb_col`.
+* Tested on 783 rows not used in development: CID-derived keys agree with stored keys in 779 of 779 cases, HMDB-derived keys in 288 of 297.
+
 # metMatchAudit 0.3.0
 
 * New optional structure checks, using RDKit through reticulate. Without RDKit the audit runs as before.

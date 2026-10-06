@@ -10,6 +10,9 @@
 #
 # Needs: scripts/00_get_data.sh and the SwissLipids file. Structure
 # checks (R09b, C04) run when RDKit is available through reticulate.
+# Rows without a valid InChIKey get one from their PubChem CID or HMDB ID
+# when possible (needs internet on the first run; answers are cached in
+# results/pubchem_cache.rds).
 # Run from the project root: Rscript scripts/20_audit_example.R
 
 pkgload::load_all(".", quiet = TRUE)
@@ -22,6 +25,8 @@ files <- data.frame(
   inchikey_col = c("INCHIKEY", "inChIKey"),
   smiles_col   = c("SMILES", "smiles"),
   inchi_col    = c(NA, "inChI"),
+  pubchem_col  = c("PUBCHEM", "pubChemId"),
+  hmdb_col     = c("HMDB", "hmdbId"),
   label        = c("LEOCC_Metabolon", "Broad_2022Aug"),
   stringsAsFactors = FALSE
 )
@@ -29,7 +34,8 @@ files <- data.frame(
 audit <- audit_metlinkr(files,
                         swisslipids  = "data-raw/swisslipids/lipids.tsv",
                         expected_md5 = "b6ddd5bc3003967dce95e905e5748953",
-                        encoding     = "Latin-1")
+                        encoding     = "Latin-1",
+                        cache_file   = "results/pubchem_cache.rds")
 
 saveRDS(audit, "results/audit_v0.1_sealed.rds")
 

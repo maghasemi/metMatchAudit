@@ -228,3 +228,23 @@ Criteria, unchanged from the first run:
 - Every disagreement listed.
 
 If the CID route fails again, it is dropped from v0.4 and only the HMDB route goes in.
+
+## 2026-10-06: Identifier resolution retest, result
+
+On 783 fresh rows of annotations.csv (no CID or key block shared with LEOCC or Broad):
+- CID route: 779 of 779 resolved rows agree on the first 14 characters (100%); 3 skipped for group or alternative names, 1 unresolved. Criterion met.
+- HMDB route: 288 of 297 (97%); 2 skipped for names. Criterion met.
+
+Both routes go into v0.4.
+
+Caveat: the Broad-format file probably took its InChIKeys from PubChem using the same CIDs, so the CID result shows that the lookup is reproduced correctly, not that the vendor's CIDs are right. In LEOCC, about 5% of rows carry a CID and an InChIKey that describe different compounds; identifier resolution passes such errors on. Every derived key therefore keeps its source in the output.
+
+The 9 HMDB disagreements include a dipeptide with the residues reversed (Ala-Phe against what looks like Phe-Ala), several lipids whose HMDB ID points to another species or isomer, and two small molecules whose HMDB ID points to a related compound. HMDB IDs in vendor files are less reliable than CIDs.
+
+## 2026-10-06: Identifier resolution skips lipid names that are not one structure
+
+First full run of v0.4 on the development data: the evaluation of the 53 reviewed groups did not change (34, 8, 1), but row flags rose from 15 to 93. Most new flags were on Broad rows such as "TG 42:0", "LPE 18:1" or "SM 34:2;O2". Broad gives no InChIKey for these Species-level names but does give an HMDB ID, and an HMDB record is always one specific structure. The derived key then claimed a structure the row never reported. Effects: 8 rows lost their lipid profile through lipid_source_conflict, and about 70 C04 flags compared two arbitrary representatives of the same Species.
+
+Fix: resolve_identifiers() skips rows whose name rgoslin reads at Species, molecular species or sn-position level. Names that fix one structure, such as "LPE 16:0/0:0", are still resolved.
+
+Found on development data, before v0.4 was frozen, so the COMETS test is not affected.

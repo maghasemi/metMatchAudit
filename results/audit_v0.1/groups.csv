@@ -12,7 +12,7 @@
 "Glycocholic acid",4,6,"distinct","R02",3,0,0,0,3
 "Inosine",3,3,"distinct","R02",2,0,0,0,1
 "Myo-inositol",2,1,"exact","R03",0,0,0,0,1
-"alpha-Aminoadipic acid",2,1,"unresolved","R01",0,1,0,0,0
+"alpha-Aminoadipic acid",2,1,"broader_narrower","R09",0,0,1,0,0
 "Palmitic acid",2,1,"exact","R03",0,0,0,0,1
 "Stearic acid",2,1,"exact","R03",0,0,0,0,1
 "Palmitoleic acid",2,1,"exact","R03",0,0,0,0,1
@@ -34,13 +34,13 @@
 "N-Acetylalanine",2,1,"exact","R03",0,0,0,0,1
 "Citric acid",2,1,"exact","R03",0,0,0,0,1
 "Uric acid",2,1,"exact","R03",0,0,0,0,1
-"11Z,14Z-Eicosadienoic acid",2,1,"unresolved","R01",0,1,0,0,0
+"11Z,14Z-Eicosadienoic acid",2,1,"exact","R03",0,0,0,0,1
 "Naproxen",2,1,"exact","R03",0,0,0,0,1
 "Palmitoyl-EA",2,1,"exact","R03",0,0,0,0,1
 "Taurochenodeoxycholic acid",2,1,"exact","R03",0,0,0,0,1
 "Salicyluric acid",3,3,"exact","R03",0,0,0,0,3
 "Azelaic acid",2,1,"exact","R03",0,0,0,0,1
-"EPA",2,1,"unresolved","R01",0,1,0,0,0
+"EPA",2,1,"exact","R03",0,0,0,0,1
 "Hydrocinnamic acid",2,1,"exact","R03",0,0,0,0,1
 "Hippuric acid",2,1,"exact","R03",0,0,0,0,1
 "Xanthurenic acid",2,1,"exact","R03",0,0,0,0,1
@@ -52,7 +52,7 @@
 "Theophylline",2,1,"exact","R03",0,0,0,0,1
 "Indoxyl sulfate",2,1,"exact","R03",0,0,0,0,1
 "Sphingosine 1-phosphate",2,1,"exact","R03",0,0,0,0,1
-"DHA",2,1,"unresolved","R01",0,1,0,0,0
+"DHA",2,1,"exact","R03",0,0,0,0,1
 "PC 14:0/16:0",2,1,"broader_narrower","R05",0,0,1,0,0
 "Isovaleric acid",2,1,"exact","R03",0,0,0,0,1
 "2-Hydroxyoctanoic acid",2,1,"exact","R03",0,0,0,0,1
@@ -73,13 +73,13 @@
 "10-Hendecenoic acid",2,1,"exact","R03",0,0,0,0,1
 "Sebacic acid",3,3,"exact","R03",0,0,0,0,3
 "5-Dodecenoic acid",2,1,"exact","R03",0,0,0,0,1
-"LPC 16:0/0:0",2,1,"unresolved","R99",0,1,0,0,0
+"LPC 16:0/0:0",2,1,"broader_narrower","R09",0,0,1,0,0
 "Piperine",2,1,"exact","R03",0,0,0,0,1
 "LPC 18:0/0:0",2,1,"unresolved","R01",0,1,0,0,0
 "Nonadeca-10Z-enoic acid",2,1,"exact","R03",0,0,0,0,1
 "10Z-Heptadecenoic acid",2,1,"exact","R03",0,0,0,0,1
 "Erythronic acid",2,1,"exact","R03",0,0,0,0,1
-"cis-Gondoic acid",2,1,"unresolved","R01",0,1,0,0,0
+"cis-Gondoic acid",2,1,"exact","R03",0,0,0,0,1
 "cis-Aconitic acid",2,1,"unresolved","R01",0,1,0,0,0
 "7-Methylxanthine",2,1,"exact","R03",0,0,0,0,1
 "1,7-Dimethyluric acid",2,1,"exact","R03",0,0,0,0,1
@@ -87,10 +87,10 @@
 "1-Methylxanthine",2,1,"exact","R03",0,0,0,0,1
 "alpha-N-Phenylacetylglutamine",2,1,"exact","R03",0,0,0,0,1
 "Ribothymidine",2,1,"exact","R03",0,0,0,0,1
-"LPE 18:0/0:0",2,1,"unresolved","R99",0,1,0,0,0
+"LPE 18:0/0:0",2,1,"exact","R03",0,0,0,0,1
 "LPC 16:1/0:0",2,1,"unresolved","R01",0,1,0,0,0
 "LPC 20:4/0:0",2,1,"unresolved","R01",0,1,0,0,0
-"LPE 16:0/0:0",2,1,"unresolved","R99",0,1,0,0,0
+"LPE 16:0/0:0",2,1,"exact","R03",0,0,0,0,1
 "LPE 18:2/0:0",2,1,"broader_narrower","R05",0,0,1,0,0
 "2-Hydroxypalmitic acid",2,1,"exact","R03",0,0,0,0,1
 "Tetradecanedioic acid",2,1,"exact","R03",0,0,0,0,1

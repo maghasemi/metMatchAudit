@@ -1,7 +1,8 @@
-metMatchAudit version: 0.2.0
-Run date: 2026-10-01 00:33:55 CEST
+metMatchAudit version: 0.3.0
+Run date: 2026-10-06 22:11:36 CEST
 SwissLipids md5: b6ddd5bc3003967dce95e905e5748953
 Structure checks (RDKit): TRUE
+InChIKeys by source: file 1437, hmdb_via_pubchem 12, pubchem_cid 5, NA 605
 Input files:
   data-raw/MetLinkR/inst/extdata/Example_output/LEOCC_Metabolon_Annotations_metLinkR.csv (name: CHEMICAL_NAME, InChIKey: INCHIKEY)
   data-raw/MetLinkR/inst/extdata/Example_output/Broad_2022Aug_annotations_metLinkR.csv (name: Metabolite, InChIKey: inChIKey)

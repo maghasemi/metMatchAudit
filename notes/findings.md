@@ -37,6 +37,17 @@ Five D groups (cholic acid, cholesterol, deoxycholic acid, chenodeoxycholic acid
 Lipid matches: 60. The new one is cholesterol, whose two rows share Species ST 27:1;O at the same level; R09b now resolves it as broader_narrower, matching the review label D. Added to notes/v02_proposal_review.csv as correct: 60 of 60.
 
 Row check C04 flags 21 Broad rows whose own InChI disagrees with their stored key, 2 in connectivity (xylose, L-urobilin).
+
+## v0.4 results
+
+Identifier resolution on the development data: the evaluation of the 53 reviewed groups is unchanged (34 agree, 8 safe_miss, 1 wrong), as expected, since every reviewed row already had a key.
+
+Outside the review, 8 pairs that were unresolved for lack of a key (R01) now have a decision: unresolved pairs 24 to 16, exact 136 to 142, broader_narrower 7 to 9.
+
+Three new lipid proposals, all correct: 1-palmitoyl-GPC (16:0) against LPC 16:0/0:0 (broader_narrower, R09), 1-palmitoyl-GPE (16:0) against LPE 16:0/0:0 and 1-stearoyl-GPE (18:0) against LPE 18:0/0:0 (exact, R03). These were three of the four lysophospholipid pairs left at R99 in v0.2. Proposals: 63 of 63 correct.
+
+A first version resolved identifiers on Species-level lipid names and raised row flags from 15 to 93, with 8 rows losing their lipid profile. Fixed before the version was frozen (decisions.md, 2026-10-06); row flags are now 17.
+
 ### Input rows
 
 Source: `results/rows_summary.csv`

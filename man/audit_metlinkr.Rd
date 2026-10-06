@@ -9,7 +9,9 @@ audit_metlinkr(
   swisslipids,
   encoding = "UTF-8",
   expected_md5 = NULL,
-  use_rdkit = TRUE
+  use_rdkit = TRUE,
+  resolve_ids = TRUE,
+  cache_file = NULL
 )
 }
 \arguments{
@@ -24,6 +26,8 @@ none
 file name without \verb{_metLinkR.csv}
 \item \code{smiles_col}, \code{inchi_col} (optional): columns with a SMILES or an
 InChI, used by \code{\link[=structure_evidence]{structure_evidence()}}. \code{NA} where a file has none.
+\item \code{pubchem_col}, \code{hmdb_col} (optional): columns with PubChem CIDs or
+HMDB IDs, used by \code{\link[=resolve_identifiers]{resolve_identifiers()}}.
 }}
 
 \item{swisslipids}{Either a path to SwissLipids \code{lipids.tsv} or an
@@ -38,6 +42,11 @@ a minute, so pass a loaded object when you run several audits.}
 
 \item{use_rdkit}{Use RDKit for the structure checks (R09b, C04) when
 it is available. See \code{\link[=structure_evidence]{structure_evidence()}}.}
+
+\item{resolve_ids}{Fill in missing InChIKeys from PubChem CIDs or HMDB
+IDs. See \code{\link[=resolve_identifiers]{resolve_identifiers()}}.}
+
+\item{cache_file}{Where to keep PubChem answers between runs.}
 }
 \value{
 An object of class \code{metmatch_audit}, a list with:
