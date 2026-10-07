@@ -636,3 +636,52 @@ The README gave 123 of 123 definite claims for v0.6, with precision 0.900 and F1
 MetLinkR alone has precision 0.895 and F1 0.895 throughout.
 
 The earlier numbers were worked out by hand from the list of changed pairs and never counted. That list covered all pairs, and one of the two new `distinct` calls is a pair within one file, which the COMETS evaluation does not count. The README now gives the recounted numbers. From now on, every number in the README comes from a script.
+
+## 2026-10-07: third blind test, plan, written before MetLinkR is run on the data
+
+### Data
+
+- **A**: the same private Metabolon file as in the second test, `data-raw/own/A_metabolon.csv`, 494 rows. Step 2 logs its md5 next to the md5 from the second test, and the test script checks it. A's naming is no longer new to the tool. It is here because it is a real vendor file the new files can be matched against.
+- **C1** and **C2**: Supplementary Data 2 (feces, 533 rows) and 3 (serum, 231 rows) of Lai Y. et al. High-coverage metabolomics uncovers microbiota-driven biochemical landscape of interorgan transport and gut-brain communication in mice. Nat. Commun. 2021, 12, 6000. DOI 10.1038/s41467-021-26209-8. Open access, CC BY 4.0. Workbook md5: C1 `24b6e7dcf7e99befe9a49aa222dca921`, C2 `22ca253e0e86ffdcb6fb6046f3794667`.
+  - Every row has a name and a PubChem CID.
+  - The names were annotated by the authors at MSI level 1 or 2 and curated by hand. They follow HMDB and LIPID MAPS style ("PI(16:0/18:1(9Z))", "LysoPE(0:0/14:1(9Z))", "Isovaleryl-L-carnitine", "D-(+)-Pantothenate", "Sucrose (or Cellobiose)"), a style the tool has not been tested on.
+  - The lists hold only metabolites that differ between germ-free and conventional mice. That is a selection, but it does not bear on how names match.
+- Only the name and the PubChem CID are passed on. Name becomes `BIOCHEMICAL` and PubChem_CID becomes `PUBCHEM`, as for B. The workbooks and the CSV copies are public and go in `data-raw/lai2021/`.
+
+What has been seen of C1 and C2 before this plan: the column headers, about 60 names printed while choosing the data, and the 40 lipid and carnitine names listed in the step below. No tool output on these files exists.
+
+### Frozen code
+
+metMatchAudit at tag `v0.7.0`, with SwissLipids (md5 `b6ddd5bc3003967dce95e905e5748953`) and LMSD (md5 `134c2b5c6d76e9883d46339a6289eefd`). MetLinkR at commit a6aa145 with RaMP DB 3.0.7. The test script stops if the package code differs from the tag.
+
+### Order, each step committed before the next
+
+1. This plan.
+2. `scripts/101_blind3_prepare.R`: CSV copies of C1 and C2, every column as text, with row counts and md5 logged.
+3. MetLinkR on A, C1 and C2 together. The output goes to `data-raw/own/metlinkr_output_blind3/`, so the second test's output is not touched.
+4. `scripts/102_blind3_sample.R`, seed 20261008:
+   - 60 groups drawn at random from MetLinkR groups that hold rows from at least two of the three files (all of them if there are fewer);
+   - every row of C1 and C2 whose name matches `^((Lyso)?(PC|PE|PS|PI|PG|PA)|SM|Cer|CerP|GlcCer|GalCer|LacCer|TG|DG|MG|CE)\(|carnitine$` (case ignored). That is 40 rows, so all are taken.
+5. Labels, made as in the second test, before the tool is run on these files:
+   - every pair in the 60 groups gets a category (A exact, B stereo, C different compounds, D broader or narrower, E source error, F unclear) and the record behind it;
+   - every one of the 40 rows gets the rows of the other two files that are the same compound or a broader or narrower annotation of it, or "none".
+
+   The md5s of the label sheets go into `notes/blind3_labels.md`, which is committed before step 6.
+6. `scripts/103_blind3_test.R` runs the audit once and compares.
+
+### Criteria
+
+The same as in the second test:
+
+- **C1:** of the tool's definite claims (exact, distinct) on labeled pairs, at least 90% agree with the label. exact agrees with A; distinct agrees with C or E.
+- **C2:** among groups labeled A to D, at most 5% get a wrong definite answer. A group's label is its most severe pair label, in the order E > C > F > D > B > A.
+- **C3:** of the tool's lipid match proposals that involve a sampled row, at least 90% are pairs in the labels. Recall is reported, with no threshold.
+
+All three are reported whatever the outcome.
+
+If fewer than 30 groups hold rows from at least two files, the test still runs, and the report says the sample is too small to carry the thresholds.
+
+### Known weaknesses
+
+- The labeler wrote the tool, as before. No independent labeler is available.
+- A was used in the second test, so its naming is known. The new part is C1 and C2, and every result is also reported for pairs that do not involve A.
