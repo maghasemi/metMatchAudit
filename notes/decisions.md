@@ -283,9 +283,14 @@ Criteria and definitions unchanged.
 
 The next attempt stopped too: 740 rows had no expert line. ManualMappings.csv writes IDs in upper case and, in inputs_1555609921, without spaces inside them. A check that printed only IDs and column names, not group labels, confirmed this. IDs on both sides are now compared in upper case with all spaces removed. A clash this creates within one file stops the test.
 
-## 2026-10-06: comets-test-1 tag corrected
+## 2026-10-07: comets-test-1 tag corrected
 
 The tag was first created on 7aec708 by mistake and pushed. A minute later it was deleted and recreated on 9389f61, the commit the COMETS test ran on. Nothing referred to the wrong tag in between.
+
+Correction, same day, before any code: change 3 is dropped. is_group_name() already treats two words joined by a slash as a group name. In COMETS, mannitol/sorbitol and oleate/vaccenate stopped at R01 because they had no key. Also, the existing stereo descriptors are R/S, E/Z, cis/trans, D/L and optical signs. alpha and beta are left out on purpose, as states_stereo() says. Expected side effect of R12n: the xylose pair in the development data becomes unresolved instead of distinct.
+
+v0.4.2 acceptance, checked 2026-10-07: 286 tests pass. Development evaluation 35 agree, 8 safe_miss, 0 wrong, 10 E_not_exact (v0.4.1: 34, 8, 1, 10). Lipid proposals 63, row flags unchanged. Two pairs changed rule. xylose against Xylose went from R12 distinct to R12n unresolved, which agrees with its review category F. (R)- against (S)-3-hydroxybutyrylcarnitine went from R03 exact to R03c unresolved. That pair is outside the reviewed groups, so the wrong exact call in v0.4.1 had not been seen before.
+
 ## 2026-10-07: v0.4.2 plan, written before any code
 
 The COMETS test (`findings.md`, 2026-10-06) found four wrong definite claims. Three come from rules that trust identifiers when the names say otherwise. v0.4.2 changes only that. Name to RefMet stays in v0.5 and the aggregate relationship in v0.6.

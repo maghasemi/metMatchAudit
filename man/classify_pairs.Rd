@@ -30,6 +30,7 @@ is kept with the result.
    R05g \tab unresolved \tab same Species, one row is a group-name row and the other is reported at molecular level or finer; membership is not checked \cr
    R05 \tab broader_narrower \tab same lipid Species, reported at different levels \cr
    R06 \tab distinct \tab same Species, both molecular or finer, molecular species differ \cr
+   R03c \tab unresolved \tab identical InChIKeys, or a pair R06b would call exact, but the names state different isomers (stereo descriptors or omega positions) \cr
    R06b \tab exact \tab same Species and same level, at species or molecular level, same name at that level \cr
    R03 \tab exact \tab identical InChIKeys \cr
    R08 \tab unresolved \tab either name reports a group of compounds \cr
@@ -38,6 +39,7 @@ is kept with the result.
    R09b \tab broader_narrower \tab same connectivity, and the stereo of one row's trusted structure is a subset of the other's (needs \code{\link[=structure_evidence]{structure_evidence()}}) \cr
    R10 \tab stereo_variant \tab same connectivity, different stereo, at least one name states stereo \cr
    R11 \tab unresolved \tab same connectivity, different stereo, no name states stereo \cr
+   R12n \tab unresolved \tab different connectivity, but the same name after \code{\link[=normalize_name]{normalize_name()}}: the keys conflict \cr
    R12 \tab distinct \tab different connectivity \cr
    R99 \tab unresolved \tab none of the above \cr
 }

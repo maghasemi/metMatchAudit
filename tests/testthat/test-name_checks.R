@@ -118,3 +118,24 @@ test_that("missing names give FALSE everywhere", {
   expect_identical(is_internal_standard(NA), FALSE)
   expect_identical(states_stereo(NA), FALSE)
 })
+
+
+test_that("normalize_name drops case, extra spaces and a trailing star", {
+  expect_identical(normalize_name(c("Xylose *", "  fructose ", "DG 18:1_18:2 [1]", NA, "")),
+                   c("xylose", "fructose", "dg 18:1_18:2 [1]", NA, NA))
+})
+
+test_that("stereo_terms collects descriptors and cyclitol prefixes", {
+  x <- c("scyllo-inositol", "myo-inositol", "D-chiro-inositol", "bilirubin (Z,Z)",
+         "(2S)-2-hydroxyglutarate", "trans-4-hydroxyproline", "L-alanine",
+         "8-epi-PGF2alpha", "epicatechin", "neoxanthin", "alanine", NA)
+  expect_identical(stereo_terms(x),
+                   c("scyllo", "myo", "D;chiro", "(Z,Z)", "(2S)", "trans", "L",
+                     "epi", "", "", "", ""))
+})
+
+test_that("omega_positions reads n3, n-3 and omega-3 forms", {
+  x <- c("docosapentaenoate (n3 DPA; 22:5n3)", "linoleate (18:2n6)", "Omega-6",
+         "FA 22:5 n-3", "N-acetylcarnosine", "n-butyrate", "(10:1n7 or n8)", NA)
+  expect_identical(omega_positions(x), c("3", "6", "6", "3", "", "", "7;8", ""))
+})

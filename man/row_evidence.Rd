@@ -23,6 +23,9 @@ treated as missing.}
 \item \code{name_isomer_label}: \code{\link[=has_isomer_label]{has_isomer_label()}}
 \item \code{name_internal_standard}: \code{\link[=is_internal_standard]{is_internal_standard()}}
 \item \code{name_states_stereo}: \code{\link[=states_stereo]{states_stereo()}}
+\item \code{name_normalized}: \code{\link[=normalize_name]{normalize_name()}}
+\item \code{name_stereo_terms}: \code{\link[=stereo_terms]{stereo_terms()}}
+\item \code{name_omega}: \code{\link[=omega_positions]{omega_positions()}}
 }
 }
 \description{

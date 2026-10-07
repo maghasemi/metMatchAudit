@@ -2,8 +2,8 @@
 # rule that applies to a pair decides it. Keep this list, the design
 # table and the tests in step with each other.
 
-.rule_order <- c("R02", "R01", "R04h", "R04", "R05g", "R05", "R06", "R06b", "R03",
-                 "R08", "R08b", "R09", "R09b", "R10", "R11", "R12", "R99")
+.rule_order <- c("R02", "R01", "R04h", "R04", "R05g", "R05", "R06", "R03c", "R06b", "R03",
+                 "R08", "R08b", "R09", "R09b", "R10", "R11", "R12n", "R12", "R99")
 
 .relationships <- c("exact", "broader_narrower", "stereo_variant",
                     "distinct", "unresolved")
@@ -12,7 +12,8 @@
                       "ik_stereo_unspecified", "inchikey", "name_group",
                       "name_alternatives", "name_internal_standard",
                       "name_states_stereo", "lipid_species",
-                      "lipid_molecular", "lipid_level")
+                      "lipid_molecular", "lipid_level", "name_normalized",
+                      "name_stereo_terms", "name_omega")
 
 # Glycosylceramides: SwissLipids writes HexCer and Hex2Cer at Species
 # level, while names may say GlcCer, GalCer or LacCer. Map the specific
@@ -40,6 +41,7 @@
 #' | R05g | unresolved | same Species, one row is a group-name row and the other is reported at molecular level or finer; membership is not checked |
 #' | R05 | broader_narrower | same lipid Species, reported at different levels |
 #' | R06 | distinct | same Species, both molecular or finer, molecular species differ |
+#' | R03c | unresolved | identical InChIKeys, or a pair R06b would call exact, but the names state different isomers (stereo descriptors or omega positions) |
 #' | R06b | exact | same Species and same level, at species or molecular level, same name at that level |
 #' | R03 | exact | identical InChIKeys |
 #' | R08 | unresolved | either name reports a group of compounds |
@@ -48,6 +50,7 @@
 #' | R09b | broader_narrower | same connectivity, and the stereo of one row's trusted structure is a subset of the other's (needs [structure_evidence()]) |
 #' | R10 | stereo_variant | same connectivity, different stereo, at least one name states stereo |
 #' | R11 | unresolved | same connectivity, different stereo, no name states stereo |
+#' | R12n | unresolved | different connectivity, but the same name after [normalize_name()]: the keys conflict |
 #' | R12 | distinct | different connectivity |
 #' | R99 | unresolved | none of the above |
 #'
@@ -122,13 +125,30 @@ classify_pairs <- function(evidence, pairs) {
            A$lipid_molecular != B$lipid_molecular,
          "distinct", "R06", mol_text)
 
-  decide(same_sp & A$lipid_level == B$lipid_level &
-           (A$lipid_level == "species" |
-              (A$lipid_level == "molecular" & !is.na(A$lipid_molecular) &
-                 !is.na(B$lipid_molecular) & A$lipid_molecular == B$lipid_molecular)),
-         "exact", "R06b", paste0("same ", A$lipid_level, " annotation ", A$lipid_species))
+  r06b <- same_sp & A$lipid_level == B$lipid_level &
+    (A$lipid_level == "species" |
+       (A$lipid_level == "molecular" & !is.na(A$lipid_molecular) &
+          !is.na(B$lipid_molecular) & A$lipid_molecular == B$lipid_molecular))
+  same_key <- keys_both & A$inchikey == B$inchikey
 
-  decide(keys_both & A$inchikey == B$inchikey, "exact", "R03",
+  # R03c: an identifier can point to the wrong isomer (DPA n3 and n6 got
+  # one key in the COMETS test), and a key without stereo cannot tell
+  # isomers apart (scyllo- and myo-inositol). When the names say the two
+  # rows are different isomers, the matching key is not enough for exact.
+  differ <- function(a, b) !is.na(a) & !is.na(b) & a != "" & b != "" & a != b
+  stereo_conflict <- differ(A$name_stereo_terms, B$name_stereo_terms)
+  omega_conflict  <- differ(A$name_omega, B$name_omega)
+  conflict_text <- ifelse(stereo_conflict,
+    paste0("stereo ", A$name_stereo_terms, " vs ", B$name_stereo_terms),
+    paste0("omega ", A$name_omega, " vs ", B$name_omega))
+  decide((stereo_conflict | omega_conflict) & (r06b | same_key), "unresolved", "R03c",
+         paste0(ifelse(r06b, "same lipid annotation", paste0("identical InChIKey ", A$inchikey)),
+                ", but the names state different isomers (", conflict_text,
+                "); an identifier may point to the wrong isomer"))
+
+  decide(r06b, "exact", "R06b", paste0("same ", A$lipid_level, " annotation ", A$lipid_species))
+
+  decide(same_key, "exact", "R03",
          paste0("identical InChIKey ", A$inchikey))
 
   decide(A$name_group | B$name_group, "unresolved", "R08",
@@ -164,6 +184,13 @@ classify_pairs <- function(evidence, pairs) {
   decide(diff_b2 & both_spec, "unresolved", "R11",
          paste0("same connectivity, stereo only in the keys: ", key_text))
 
+  # R12n: the same name with different connectivity means one of the
+  # keys is wrong or the two describe different forms of one compound
+  # (ring and open chain of a sugar). The keys cannot say which.
+  decide(keys_both & A$ik_block1 != B$ik_block1 & !is.na(A$name_normalized) &
+           A$name_normalized == B$name_normalized,
+         "unresolved", "R12n", paste0("same name, different connectivity; the keys conflict: ", key_text))
+
   decide(keys_both & A$ik_block1 != B$ik_block1, "distinct", "R12",
          paste0("different connectivity: ", key_text))
 
@@ -172,7 +199,7 @@ classify_pairs <- function(evidence, pairs) {
   # Say where a key came from when it was not in the source file, for
   # every rule that looked at keys.
   if ("inchikey_source" %in% names(A)) {
-    key_rules <- rule_id %in% c("R03", "R09", "R09b", "R10", "R11", "R12")
+    key_rules <- rule_id %in% c("R03c", "R03", "R09", "R09b", "R10", "R11", "R12n", "R12")
     src <- function(s) ifelse(is.na(s) | s == "file", NA_character_, s)
     sa <- src(A$inchikey_source); sb <- src(B$inchikey_source)
     tag <- ifelse(!is.na(sa) & !is.na(sb), paste0(" (keys from ", sa, " and ", sb, ")"),

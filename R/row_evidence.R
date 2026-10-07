@@ -18,6 +18,9 @@
 #'   * `name_isomer_label`: [has_isomer_label()]
 #'   * `name_internal_standard`: [is_internal_standard()]
 #'   * `name_states_stereo`: [states_stereo()]
+#'   * `name_normalized`: [normalize_name()]
+#'   * `name_stereo_terms`: [stereo_terms()]
+#'   * `name_omega`: [omega_positions()]
 #'
 #' @examples
 #' rows <- data.frame(
@@ -38,7 +41,8 @@ row_evidence <- function(rows) {
   new_cols <- c("ik_valid", "ik_block1", "ik_block2", "ik_protonation",
                 "ik_stereo_unspecified", "name_group", "name_alternatives",
                 "name_tentative", "name_isomer_label",
-                "name_internal_standard", "name_states_stereo")
+                "name_internal_standard", "name_states_stereo",
+                "name_normalized", "name_stereo_terms", "name_omega")
   clash <- intersect(new_cols, names(rows))
   if (length(clash) > 0) {
     stop("`rows` already has these columns: ", paste(clash, collapse = ", "),
@@ -61,5 +65,8 @@ row_evidence <- function(rows) {
   rows$name_isomer_label      <- has_isomer_label(names)
   rows$name_internal_standard <- is_internal_standard(names)
   rows$name_states_stereo     <- states_stereo(names)
+  rows$name_normalized        <- normalize_name(names)
+  rows$name_stereo_terms      <- stereo_terms(names)
+  rows$name_omega             <- omega_positions(names)
   rows
 }

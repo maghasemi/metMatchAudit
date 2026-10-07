@@ -143,12 +143,67 @@ test_that("R12 on two structure-level lipids with the same molecular species", {
   expect_identical(r$rule_id, "R12")
 })
 
-test_that("known limit: xylose ring and open-chain forms come out distinct", {
-  # Listed under Known limits in design.md. If this test starts failing
-  # because the result improved, update the design and this test.
+test_that("R12n: xylose ring and open-chain forms are no longer called distinct", {
+  # Until v0.4.1 this pair came out distinct through R12 (a known limit).
+  # The names are the same, so R12n now leaves it unresolved.
   r <- pair_result(list(name = "xylose", inchikey = "PYMYPHUHKUWMLA-VPENINKCSA-N"),
                    list(name = "Xylose", inchikey = "SRBFZHDQGSBBOR-IOVATXLUSA-N"))
+  expect_identical(r$rule_id, "R12n")
+  expect_identical(r$relationship, "unresolved")
+})
+
+test_that("R12n: same name with conflicting keys from the COMETS test", {
+  # fructose, one key for the furanose ring and one for the open chain.
+  r <- pair_result(list(name = "fructose", inchikey = "RFSUNEUAIZKAJO-ARQDHWQXSA-N"),
+                   list(name = "fructose", inchikey = "BJHIKXHVCXFQLS-UYFOZJQFSA-N"))
+  expect_identical(r$rule_id, "R12n")
+  expect_identical(r$relationship, "unresolved")
+})
+
+test_that("R12n ignores a trailing star but not an isomer label", {
+  r <- pair_result(list(name = "4-vinylphenol sulfate", inchikey = "FUGYGGDSWSUORM-UHFFFAOYSA-N"),
+                   list(name = "4-Vinylphenol sulfate*", inchikey = "IETVQHUKTKKBFF-UHFFFAOYSA-N"))
+  expect_identical(r$rule_id, "R12n")
+  r <- pair_result(list(name = "2-methoxyhydroquinone sulfate (1)", inchikey = "FUGYGGDSWSUORM-UHFFFAOYSA-N"),
+                   list(name = "2-methoxyhydroquinone sulfate (2)", inchikey = "IETVQHUKTKKBFF-UHFFFAOYSA-N"))
   expect_identical(r$rule_id, "R12")
+})
+
+test_that("R03c: one stereo-free key for scyllo- and myo-inositol is not exact", {
+  key <- "CDAISMWEOUEBRE-UHFFFAOYSA-N"
+  r <- pair_result(list(name = "scyllo-inositol", inchikey = key),
+                   list(name = "myo-inositol", inchikey = key))
+  expect_identical(r$rule_id, "R03c")
+  expect_identical(r$relationship, "unresolved")
+})
+
+test_that("R03c: one key for n3 and n6 DPA is not exact", {
+  key <- "AVKOENOBFIYBSA-WMPRHZDHSA-N"
+  r <- pair_result(list(name = "docosapentaenoate (n3 DPA; 22:5n3)", inchikey = key),
+                   list(name = "docosapentaenoate (n6 DPA; 22:5n6)", inchikey = key))
+  expect_identical(r$rule_id, "R03c")
+})
+
+test_that("R03c also stops R06b", {
+  r <- pair_result(
+    list(name = "FA 22:5 n-3", lipid_species = "FA 22:5", lipid_level = "species"),
+    list(name = "FA 22:5 n-6", lipid_species = "FA 22:5", lipid_level = "species"))
+  expect_identical(r$rule_id, "R03c")
+})
+
+test_that("R03 stays exact when only one name states stereo, or none does", {
+  key <- "QNAYBMKLOCPYGJ-REOHCLBHSA-N"
+  r <- pair_result(list(name = "L-alanine", inchikey = key),
+                   list(name = "alanine", inchikey = key))
+  expect_identical(r$rule_id, "R03")
+  key <- "DHMQDGOQFOQNFH-UHFFFAOYSA-N"
+  r <- pair_result(list(name = "glycine", inchikey = key),
+                   list(name = "Gly", inchikey = key))
+  expect_identical(r$rule_id, "R03")
+  key <- "BPYKTIZUTYGOLE-KDUUSRDASA-N"
+  r <- pair_result(list(name = "bilirubin (Z,Z)", inchikey = key),
+                   list(name = "bilirubin (Z,Z)*", inchikey = key))
+  expect_identical(r$rule_id, "R03")
 })
 
 test_that("R99: keys that differ only in protonation are not called stereo variants", {

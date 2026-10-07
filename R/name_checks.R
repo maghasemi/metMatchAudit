@@ -167,3 +167,82 @@ states_stereo <- function(x) {
     grepl("\\([+-]\\)-", x)
   !is.na(x) & hit
 }
+
+#' Normalize a name for an exact comparison
+#'
+#' Lower case, spaces collapsed, and a trailing `*` or `**` dropped, so
+#' `"Xylose"` and `"xylose"` compare equal but `"DG 18:1_18:2 [1]"` and
+#' `"DG 18:1_18:2 [2]"` do not. Used by rule R12n.
+#'
+#' @inheritParams is_group_name
+#' @return A character vector the same length as `x`. Missing names stay
+#'   missing.
+#' @export
+normalize_name <- function(x) {
+  x <- tolower(as.character(x))
+  x <- sub("\\s*\\*+\\s*$", "", x)
+  x <- gsub("\\s+", " ", trimws(x))
+  x[!is.na(x) & x == ""] <- NA_character_
+  x
+}
+
+# Pull every match of a pattern out of each name, as a list.
+.matches <- function(x, pattern, ignore.case = FALSE) {
+  x <- ifelse(is.na(x), "", as.character(x))
+  regmatches(x, gregexpr(pattern, x, perl = TRUE, ignore.case = ignore.case))
+}
+
+# Join a list of character vectors into one sorted string per element.
+.as_set <- function(l) {
+  vapply(l, function(v) paste(sort(unique(v)), collapse = ";"), character(1))
+}
+
+#' Which stereo descriptors does the name state?
+#'
+#' Collects the descriptors that [states_stereo()] looks for (R/S and E/Z
+#' in parentheses, `cis-`, `trans-`, `D-`, `L-`, `(+)-`, `(-)-`) and the
+#' prefixes for cyclitols and sugars: `myo-`, `scyllo-`, `epi-`,
+#' `chiro-`, `neo-`, `muco-`, `allo-`, `threo-`, `erythro-`. Two names
+#' that both state descriptors and do not state the same ones describe
+#' different isomers, as in `"scyllo-inositol"` and `"myo-inositol"`.
+#'
+#' A prefix counts only with a hyphen after it and no letter before it,
+#' so `"epicatechin"` and `"neoxanthin"` give nothing.
+#'
+#' @inheritParams is_group_name
+#' @return A character vector the same length as `x`: the descriptors,
+#'   sorted and joined by `";"`, or `""` when the name states none.
+#' @export
+stereo_terms <- function(x) {
+  rs  <- .matches(x, "\\((\\d+[a-z]?)?[RS](,\\s*(\\d+[a-z]?)?[RS])*\\)")
+  ez  <- .matches(x, "\\((\\d+)?[EZ](,\\s*(\\d+)?[EZ])*\\)")
+  ct  <- .matches(x, "\\b(cis|trans)-", ignore.case = TRUE)
+  dl  <- .matches(x, "(?<![A-Za-z])[DL]-(?=[a-z])")
+  opt <- .matches(x, "\\([+-]\\)-")
+  pre <- .matches(x, "(?<![A-Za-z])(myo|scyllo|epi|chiro|neo|muco|allo|threo|erythro)-",
+                  ignore.case = TRUE)
+  out <- Map(function(...) {
+    v <- c(...)
+    v <- gsub("\\s+", "", v)
+    v <- sub("-$", "", v)
+    ifelse(grepl("^[A-Za-z]{3,}$", v), tolower(v), v)
+  }, rs, ez, ct, dl, opt, pre)
+  .as_set(out)
+}
+
+#' Which omega positions does the name state?
+#'
+#' Fatty acid names often give the position of the last double bond
+#' from the methyl end, as in `"docosapentaenoate (n3 DPA; 22:5n3)"` or
+#' `"omega-6"`. Detected forms: `n3`, `n-3`, `omega-3`, `omega3` and the
+#' same with the Greek letter. The `n` must be lower case and must not
+#' follow a letter, so `"N-acetyl"` and `"amine3"` give nothing.
+#'
+#' @inheritParams is_group_name
+#' @return A character vector the same length as `x`: the positions,
+#'   sorted and joined by `";"`, or `""` when the name states none.
+#' @export
+omega_positions <- function(x) {
+  m <- .matches(x, "(?<![A-Za-z])(?:n|(?i:omega)|ω)-?\\d{1,2}(?![0-9])")
+  .as_set(lapply(m, function(v) sub("^\\D+", "", v)))
+}
