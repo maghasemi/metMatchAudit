@@ -28,5 +28,10 @@ SMILES) and its stored InChIKey describe molecules with different
 connectivity. Needs \code{\link[=structure_evidence]{structure_evidence()}}.
 \item C04 \code{structure_key_stereo}: same connectivity, but the stereo or
 isotope block differs.
+\item C06 \code{refmet_assignment_conflict}: the row's own evidence says it is
+not the RefMet entry its group stands for. Needs \code{\link[=refmet_check]{refmet_check()}}.
+\item C07 \code{refmet_identifier_conflict}: the row and its RefMet entry have
+the same name but different structures, so one of the identifiers is
+wrong or the two describe different forms. Needs \code{\link[=refmet_check]{refmet_check()}}.
 }
 }

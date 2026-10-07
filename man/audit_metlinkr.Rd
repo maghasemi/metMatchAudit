@@ -11,7 +11,9 @@ audit_metlinkr(
   expected_md5 = NULL,
   use_rdkit = TRUE,
   resolve_ids = TRUE,
-  cache_file = NULL
+  cache_file = NULL,
+  refmet = NULL,
+  refmet_md5 = NULL
 )
 }
 \arguments{
@@ -47,6 +49,14 @@ it is available. See \code{\link[=structure_evidence]{structure_evidence()}}.}
 IDs. See \code{\link[=resolve_identifiers]{resolve_identifiers()}}.}
 
 \item{cache_file}{Where to keep PubChem answers between runs.}
+
+\item{refmet}{Optional. A table from \code{\link[=load_refmet]{load_refmet()}} or the path to the
+RefMet download. When given, each row is checked against the RefMet
+entry of its group with \code{\link[=refmet_check]{refmet_check()}}, which adds row flags C06
+and C07. Pair results do not change.}
+
+\item{refmet_md5}{Expected md5 of the RefMet file, when \code{refmet} is a
+path.}
 }
 \value{
 An object of class \code{metmatch_audit}, a list with:

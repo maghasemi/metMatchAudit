@@ -100,6 +100,12 @@ read_metlinkr <- function(files, encoding = "UTF-8") {
 #' @param resolve_ids Fill in missing InChIKeys from PubChem CIDs or HMDB
 #'   IDs. See [resolve_identifiers()].
 #' @param cache_file Where to keep PubChem answers between runs.
+#' @param refmet Optional. A table from [load_refmet()] or the path to the
+#'   RefMet download. When given, each row is checked against the RefMet
+#'   entry of its group with [refmet_check()], which adds row flags C06
+#'   and C07. Pair results do not change.
+#' @param refmet_md5 Expected md5 of the RefMet file, when `refmet` is a
+#'   path.
 #'
 #' @return An object of class `metmatch_audit`, a list with:
 #'   * `pairs`: every pair with `relationship`, `rule_id`, `evidence`
@@ -113,7 +119,8 @@ read_metlinkr <- function(files, encoding = "UTF-8") {
 #' @export
 audit_metlinkr <- function(files, swisslipids, encoding = "UTF-8",
                            expected_md5 = NULL, use_rdkit = TRUE,
-                           resolve_ids = TRUE, cache_file = NULL) {
+                           resolve_ids = TRUE, cache_file = NULL,
+                           refmet = NULL, refmet_md5 = NULL) {
   db <- if (inherits(swisslipids, "swisslipids_db")) {
     swisslipids
   } else {
@@ -131,6 +138,10 @@ audit_metlinkr <- function(files, swisslipids, encoding = "UTF-8",
   evidence <- lipid_evidence(row_evidence(rows), db)
   evidence <- structure_evidence(evidence, use_rdkit = use_rdkit)
   pairs    <- classify_pairs(evidence, make_pairs(evidence))
+  if (!is.null(refmet)) {
+    if (!inherits(refmet, "refmet_db")) refmet <- load_refmet(refmet, expected_md5 = refmet_md5)
+    evidence <- refmet_check(evidence, refmet, cache_file = cache_file)
+  }
 
   out <- list(
     pairs     = pairs,
@@ -142,6 +153,7 @@ audit_metlinkr <- function(files, swisslipids, encoding = "UTF-8",
       package_version = as.character(utils::packageVersion("metMatchAudit")),
       run_date        = format(Sys.time(), "%Y-%m-%d %H:%M:%S %Z"),
       swisslipids_md5 = db$md5,
+      refmet_md5      = if (is.null(refmet)) NA_character_ else attr(refmet, "md5"),
       structure_checks = use_rdkit && rdkit_available(),
       keys_by_source = table(rows$inchikey_source, useNA = "ifany"),
       files           = files
@@ -198,6 +210,7 @@ write_audit <- function(audit, dir) {
     paste("metMatchAudit version:", info$package_version),
     paste("Run date:", info$run_date),
     paste("SwissLipids md5:", info$swisslipids_md5),
+    paste("RefMet md5:", if (is.null(info$refmet_md5)) NA else info$refmet_md5),
     paste("Structure checks (RDKit):", isTRUE(info$structure_checks)),
     paste("InChIKeys by source:", paste(names(info$keys_by_source), info$keys_by_source,
                                           sep = " ", collapse = ", ")),
