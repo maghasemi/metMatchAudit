@@ -17,3 +17,4 @@ renv/staging/
 *.tar.gz
 *.Rcheck/
 data-raw/biocrates/*.pdf
+data-raw/lipidmaps/

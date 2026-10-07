@@ -433,3 +433,30 @@ Also found: rgoslin reads one-chain names such as "CAR 14:2" at structure level 
 - A blind test still needs another dataset with Biocrates p180 rows and expert or manual mappings.
 
 scripts/80_biocrates_table.R could not run on the Mac: the pdftools binary failed to load (symbol _libintl_newlocale not found). It was run instead on Linux with pdftools 3.4.0 and poppler 24.02.0 on the same PDF (md5 4a1f84e43f5ad2f9dfe5aaa093fc0195). All six section counts matched the PDF, 188 analytes. Output data-raw/biocrates/p180_nomenclature.csv, md5 60efe0cbc17e40ff4370d4af2943cbd6, committed.
+
+## 2026-10-07: plan, LIPID MAPS as a second lipid source, written before any package code
+
+### Why
+
+The v0.6 feasibility check failed on F3: in 24 of 26 COMETS pairs with a mapped Biocrates row, the other row had no lipid profile. Those rows are mostly Metabolon acylcarnitines. SwissLipids does not give them a profile. The LIPID MAPS Structure Database (LMSD) lists fatty acyl carnitines with InChIKeys and LIPID MAPS abbreviations, for example `CAR 14:1` with key `NNCBVXBBLABOCB-SEYXRHQNSA-N`.
+
+### Source
+
+LMSD standard SDF, dated 2026-03-06 on `https://www.lipidmaps.org/databases/lmsd/download`, CC BY 4.0. Zip md5 `8ee98567e23ffb7741ec5baeddb3ed84`. Unzipped `structures.sdf`, md5 `134c2b5c6d76e9883d46339a6289eefd`, 50586 records. Neither file is committed. Attribution to LIPID MAPS goes into the README and the package documentation.
+
+### Lookup, fixed now
+
+Same as SwissLipids: full key, then the first 25 characters, then the first 14, stopping at the first tier with a hit. The hits' abbreviations are parsed with rgoslin (accepted grammars only). The row gets a Species only if every hit gives the same Species. Group names, alternative names and internal standards are skipped.
+
+### In the package, if the checks pass
+
+- SwissLipids stays the first source. LMSD is used only for rows that get no profile from SwissLipids or from the name, so no result from v0.4.2 changes through LMSD alone. `lipid_source` gets the value `"lmsd"`.
+- The Biocrates vendor table from the v0.6 plan comes with it. Profiles from the vendor table are set to species level whatever rgoslin reports, because Biocrates measures by FIA-MS and cannot separate isomers.
+
+### Feasibility, `scripts/82_lmsd_feasibility.R`, counts only
+
+- L1 (reported, no threshold): rows with a key that get a Species from LMSD and have none today, per dataset and file.
+- L2: at least 20 COMETS cross-file pairs in which the Biocrates row gets a profile from the vendor table and the other row has a Species from SwissLipids or LMSD. Same bar as F3.
+- L3: among rows where both SwissLipids (or the name) and LMSD give a Species, at least 95% agree, counting headgroup naming differences (HexCer against GlcCer) as agreement. At least 50 such rows are needed for the check to count. Every disagreement is listed and read.
+
+If L2 or L3 fails, it is logged and neither LMSD nor the vendor table goes into the package on this plan.
