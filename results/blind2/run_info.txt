@@ -1,0 +1,9 @@
+package: 0.6.0
+run: 2026-10-07 14:28:30 CEST
+swisslipids md5: b6ddd5bc3003967dce95e905e5748953
+lmsd md5: 134c2b5c6d76e9883d46339a6289eefd
+structure checks: TRUE
+metlinkr output md5: A_metabolon_metLinkR.csv 68dd94a06c79d0442c9d6125a466b711
+metlinkr output md5: B_ding2021_metLinkR.csv 8dcc0d65287a06bc8481060296794174
+label md5: label_pairs.csv 3f70bedbd9a0c5a1f21204571a37a75d
+label md5: label_lipids.csv bd170037bd8d528ddfc5d984fc5e9813

@@ -1,0 +1,11 @@
+"label","outcome","Freq"
+"A","agree",36
+"C","agree",1
+"D","agree",1
+"F","agree",1
+"A","safe_miss",6
+"D","safe_miss",2
+"A","wrong",5
+"C","wrong",4
+"D","wrong",3
+"F","wrong",1
