@@ -62,7 +62,7 @@ inventory <- function(audit, label) {
   r[, rm_found := !is.na(e$name)]
   if (any(!r$rm_found)) {
     message(label, ": group names not in the RefMet table (", sum(!r$rm_found), " rows):")
-    print(unique(r[!rm_found, .(group_id)]))
+    print(unique(r[rm_found == FALSE, .(group_id)]))
   }
   r[, rm_key := e$inchi_key]
   r[, rm_block1 := substr(rm_key, 1, 14)]
