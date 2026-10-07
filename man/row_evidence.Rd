@@ -21,6 +21,7 @@ treated as missing.}
 \item \code{name_alternatives}: \code{\link[=has_alternative_names]{has_alternative_names()}}
 \item \code{name_tentative}: \code{\link[=is_tentative_name]{is_tentative_name()}}
 \item \code{name_isomer_label}: \code{\link[=has_isomer_label]{has_isomer_label()}}
+\item \code{name_isomer_marker}: \code{\link[=has_isomer_marker]{has_isomer_marker()}}
 \item \code{name_internal_standard}: \code{\link[=is_internal_standard]{is_internal_standard()}}
 \item \code{name_states_stereo}: \code{\link[=states_stereo]{states_stereo()}}
 \item \code{name_normalized}: \code{\link[=normalize_name]{normalize_name()}}

@@ -25,6 +25,7 @@ is kept with the result.
    rule \tab relationship \tab condition \cr
    R02 \tab distinct \tab either row is an internal standard \cr
    R01 \tab unresolved \tab either row has no valid InChIKey and no lipid profile \cr
+   R03i \tab unresolved \tab either name marks a feature of unknown identity ("isomer", or a lone letter after the last semicolon), so its key and any lipid profile from that key may belong to another compound; see \code{\link[=has_isomer_marker]{has_isomer_marker()}} \cr
    R04h \tab unresolved \tab lipid Species differ only in hexose headgroup naming (HexCer vs GlcCer) \cr
    R04 \tab distinct \tab lipid Species differ \cr
    R05g \tab unresolved \tab same Species, one row is a group-name row and the other is reported at molecular level or finer; membership is not checked \cr

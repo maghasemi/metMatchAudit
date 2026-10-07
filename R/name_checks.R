@@ -114,6 +114,32 @@ has_isomer_label <- function(x) {
   !is.na(x) & grepl("\\s(\\(\\d\\)|\\[\\d\\])\\s*\\**\\s*$", x)
 }
 
+#' Does the name mark a feature of unknown identity?
+#'
+#' Some sources report a feature they could not identify under the name
+#' of a known compound it resembles, and give it that compound's
+#' identifiers. Ding et al. (2021) write `"Carnosine isomer A"` or
+#' `"Adenosine isomer"`; MS-DIAL lipid names end in a lone letter, as in
+#' `"Cer-NS d42:2; Cer-NS d18:1/24:1; A"`. The key on such a row may
+#' belong to the parent compound, so it says nothing about the feature.
+#' Used by rule R03i.
+#'
+#' Counts as a marker: the word `isomer` or `isomers`, in any case, and
+#' a single capital letter after the last semicolon. Words that only
+#' contain "isomer", such as `stereoisomer` or `isomerase`, do not.
+#' Metabolon's numbered labels are a different thing; see
+#' [has_isomer_label()].
+#'
+#' @inheritParams is_group_name
+#' @return A logical vector the same length as `x`.
+#' @export
+has_isomer_marker <- function(x) {
+  x <- as.character(x)
+  word   <- grepl("\\bisomers?\\b", x, ignore.case = TRUE, perl = TRUE)
+  letter <- grepl(";\\s*[A-Z]\\s*;?\\s*$", x, perl = TRUE)
+  !is.na(x) & (word | letter)
+}
+
 #' Is the row an internal standard?
 #'
 #' Internal standards are added to samples for quality control and are
@@ -170,9 +196,14 @@ states_stereo <- function(x) {
 
 #' Normalize a name for an exact comparison
 #'
-#' Lower case, spaces collapsed, and a trailing `*` or `**` dropped, so
-#' `"Xylose"` and `"xylose"` compare equal but `"DG 18:1_18:2 [1]"` and
-#' `"DG 18:1_18:2 [2]"` do not. Used by rule R12n.
+#' Lower case, spaces collapsed, a trailing `*` or `**` dropped, and a
+#' leading optical rotation sign (`(+)-`, `(-)-` or the plus-minus sign)
+#' dropped, so
+#' `"Xylose"` and `"xylose"` compare equal, as do
+#' `"(-)-N-Acetylneuraminic acid"` and `"N-acetylneuraminic acid"`, but
+#' `"DG 18:1_18:2 [1]"` and `"DG 18:1_18:2 [2]"` do not. The sign is the
+#' sign of the compound's own rotation, so it adds nothing to the name.
+#' Used by rule R12n.
 #'
 #' @inheritParams is_group_name
 #' @return A character vector the same length as `x`. Missing names stay
@@ -182,6 +213,7 @@ normalize_name <- function(x) {
   x <- tolower(as.character(x))
   x <- sub("\\s*\\*+\\s*$", "", x)
   x <- gsub("\\s+", " ", trimws(x))
+  x <- sub("^\\((\\+|-|\u00b1|\\+/-)\\)-\\s*", "", x, perl = TRUE)
   x[!is.na(x) & x == ""] <- NA_character_
   x
 }

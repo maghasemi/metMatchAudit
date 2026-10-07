@@ -16,6 +16,7 @@
 #'   * `name_alternatives`: [has_alternative_names()]
 #'   * `name_tentative`: [is_tentative_name()]
 #'   * `name_isomer_label`: [has_isomer_label()]
+#'   * `name_isomer_marker`: [has_isomer_marker()]
 #'   * `name_internal_standard`: [is_internal_standard()]
 #'   * `name_states_stereo`: [states_stereo()]
 #'   * `name_normalized`: [normalize_name()]
@@ -40,7 +41,7 @@ row_evidence <- function(rows) {
 
   new_cols <- c("ik_valid", "ik_block1", "ik_block2", "ik_protonation",
                 "ik_stereo_unspecified", "name_group", "name_alternatives",
-                "name_tentative", "name_isomer_label",
+                "name_tentative", "name_isomer_label", "name_isomer_marker",
                 "name_internal_standard", "name_states_stereo",
                 "name_normalized", "name_stereo_terms", "name_omega")
   clash <- intersect(new_cols, names(rows))
@@ -63,6 +64,7 @@ row_evidence <- function(rows) {
   rows$name_alternatives      <- has_alternative_names(names)
   rows$name_tentative         <- is_tentative_name(names)
   rows$name_isomer_label      <- has_isomer_label(names)
+  rows$name_isomer_marker     <- has_isomer_marker(names)
   rows$name_internal_standard <- is_internal_standard(names)
   rows$name_states_stereo     <- states_stereo(names)
   rows$name_normalized        <- normalize_name(names)

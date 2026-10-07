@@ -1,3 +1,10 @@
+# metMatchAudit 0.7.0
+
+* New rule R03i: when either name marks a feature of unknown identity, the pair stays unresolved. A marker is the word "isomer", as in "Carnosine isomer A", or a lone capital letter after the last semicolon, as in MS-DIAL's "CE 20:5; A". Such rows can carry the identifiers of the parent compound. The rule comes right after R01, before the lipid rules, because a lipid profile found through that key is no better than the key. New helper `has_isomer_marker()` and column `name_isomer_marker`.
+* `normalize_name()` drops a leading optical rotation sign, so "(-)-N-Acetylneuraminic acid" and "N-Acetylneuraminic acid" meet in R12n.
+* Written after the second blind test, where 11 of 17 wrong definite claims were `exact` calls on "isomer" features carrying their parent's key. All results on the test files after this change are after adaptation.
+* Reading MS-DIAL lipid names was planned for this version and dropped: 74.9% of the test file's lipid names parsed after cleaning, short of the 80% set beforehand.
+
 # metMatchAudit 0.6.0
 
 * New `load_lmsd()` and `lmsd_lookup()`: the LIPID MAPS Structure Database as a second lipid source, looked up by InChIKey in three tiers like SwissLipids. `lipid_evidence()` uses it only for rows that get no profile from SwissLipids or from the name; `lipid_source` is then `"lmsd"`. Where both sources gave a Species, they agreed in 149 of 149 development rows and 66 of 66 COMETS rows.

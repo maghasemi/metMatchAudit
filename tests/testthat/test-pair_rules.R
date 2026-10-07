@@ -291,3 +291,35 @@ test_that("without trusted structures the pair stays at R11", {
          st_usable_inchi = inchi_cholesterol_broad))
   expect_identical(r$rule_id, "R11")
 })
+
+test_that("R03i: an isomer feature with its parent's key is not exact", {
+  key <- "CQOVPNPJLQNMDC-ZETCQYMHSA-N"
+  r <- pair_result(list(name = "Carnosine", inchikey = key),
+                   list(name = "Carnosine isomer A", inchikey = key))
+  expect_identical(r$rule_id, "R03i")
+  expect_identical(r$relationship, "unresolved")
+  r <- pair_result(list(name = "Carnosine isomer A", inchikey = key),
+                   list(name = "Carnosine isomer B", inchikey = key))
+  expect_identical(r$rule_id, "R03i")
+})
+
+test_that("R03i comes before the lipid rules", {
+  r <- pair_result(
+    list(name = "Cer-NS d42:2; Cer-NS d18:1/24:1; A", lipid_species = "Cer 42:2;O2", lipid_level = "structure"),
+    list(name = "Cer 42:2;O2", lipid_species = "Cer 42:2;O2", lipid_level = "species"))
+  expect_identical(r$rule_id, "R03i")
+})
+
+test_that("R03i leaves R01 and R02 first", {
+  r <- pair_result(list(name = "Adenosine isomer"), list(name = "adenosine"))
+  expect_identical(r$rule_id, "R01")
+  r <- pair_result(list(name = "Inosine-15N4 [iSTD]", inchikey = "UGQMRVRMYYASKQ-KQYNXXCUSA-N"),
+                   list(name = "Inosine isomer", inchikey = "UGQMRVRMYYASKQ-KQYNXXCUSA-N"))
+  expect_identical(r$rule_id, "R02")
+})
+
+test_that("R12n: an optical rotation sign does not keep two names apart", {
+  r <- pair_result(list(name = "(-)-N-Acetylneuraminic acid", inchikey = "KBGAYAKRZNYFFG-BOHATCBPSA-N"),
+                   list(name = "N-Acetylneuraminic acid", inchikey = "SQVRNKJHWKZAKO-LUWBGTNYSA-N"))
+  expect_identical(r$rule_id, "R12n")
+})

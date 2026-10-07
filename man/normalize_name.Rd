@@ -14,7 +14,12 @@ A character vector the same length as \code{x}. Missing names stay
 missing.
 }
 \description{
-Lower case, spaces collapsed, and a trailing \code{*} or \verb{**} dropped, so
-\code{"Xylose"} and \code{"xylose"} compare equal but \code{"DG 18:1_18:2 [1]"} and
-\code{"DG 18:1_18:2 [2]"} do not. Used by rule R12n.
+Lower case, spaces collapsed, a trailing \code{*} or \verb{**} dropped, and a
+leading optical rotation sign (\verb{(+)-}, \verb{(-)-} or the plus-minus sign)
+dropped, so
+\code{"Xylose"} and \code{"xylose"} compare equal, as do
+\code{"(-)-N-Acetylneuraminic acid"} and \code{"N-acetylneuraminic acid"}, but
+\code{"DG 18:1_18:2 [1]"} and \code{"DG 18:1_18:2 [2]"} do not. The sign is the
+sign of the compound's own rotation, so it adds nothing to the name.
+Used by rule R12n.
 }

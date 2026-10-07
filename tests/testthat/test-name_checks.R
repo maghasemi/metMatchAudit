@@ -139,3 +139,17 @@ test_that("omega_positions reads n3, n-3 and omega-3 forms", {
          "FA 22:5 n-3", "N-acetylcarnosine", "n-butyrate", "(10:1n7 or n8)", NA)
   expect_identical(omega_positions(x), c("3", "6", "6", "3", "", "", "7;8", ""))
 })
+
+test_that("has_isomer_marker finds the word isomer and a trailing MS-DIAL letter", {
+  x <- c("Carnosine isomer A", "Adenosine isomer", "Hexose phosphate isomer D",
+         "PC O-42:4; or PC P-42:3 isomer A", "Cer-NS d42:2; Cer-NS d18:1/24:1; A",
+         "CE 20:5; A", "Carnosine", "stereoisomer mix", "isomerase", "PE 38:6; PE 18:2_20:4;",
+         "2-methoxyhydroquinone sulfate (1)", NA)
+  expect_identical(has_isomer_marker(x),
+                   c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE))
+})
+
+test_that("normalize_name drops a leading optical rotation sign", {
+  expect_identical(normalize_name(c("(-)-N-Acetylneuraminic acid", "(+)-Catechin", "(\u00b1)-Lactate", "N-acetyl (-)-x")),
+                   c("n-acetylneuraminic acid", "catechin", "lactate", "n-acetyl (-)-x"))
+})

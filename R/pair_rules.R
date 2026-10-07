@@ -2,7 +2,7 @@
 # rule that applies to a pair decides it. Keep this list, the design
 # table and the tests in step with each other.
 
-.rule_order <- c("R02", "R01", "R04h", "R04", "R05g", "R05", "R06", "R03c", "R06b", "R03",
+.rule_order <- c("R02", "R01", "R03i", "R04h", "R04", "R05g", "R05", "R06", "R03c", "R06b", "R03",
                  "R08", "R08b", "R09", "R09b", "R10", "R11", "R12n", "R12", "R99")
 
 .relationships <- c("exact", "broader_narrower", "stereo_variant",
@@ -13,7 +13,7 @@
                       "name_alternatives", "name_internal_standard",
                       "name_states_stereo", "lipid_species",
                       "lipid_molecular", "lipid_level", "name_normalized",
-                      "name_stereo_terms", "name_omega")
+                      "name_stereo_terms", "name_omega", "name_isomer_marker")
 
 # Glycosylceramides: SwissLipids writes HexCer and Hex2Cer at Species
 # level, while names may say GlcCer, GalCer or LacCer. Map the specific
@@ -36,6 +36,7 @@
 #' |---|---|---|
 #' | R02 | distinct | either row is an internal standard |
 #' | R01 | unresolved | either row has no valid InChIKey and no lipid profile |
+#' | R03i | unresolved | either name marks a feature of unknown identity ("isomer", or a lone letter after the last semicolon), so its key and any lipid profile from that key may belong to another compound; see [has_isomer_marker()] |
 #' | R04h | unresolved | lipid Species differ only in hexose headgroup naming (HexCer vs GlcCer) |
 #' | R04 | distinct | lipid Species differ |
 #' | R05g | unresolved | same Species, one row is a group-name row and the other is reported at molecular level or finer; membership is not checked |
@@ -109,6 +110,13 @@ classify_pairs <- function(evidence, pairs) {
 
   decide((!A$ik_valid & is.na(A$lipid_species)) | (!B$ik_valid & is.na(B$lipid_species)),
          "unresolved", "R01", "a row has neither a valid InChIKey nor a lipid profile")
+
+  # R03i: a feature reported as "X isomer" can carry the identifiers of X
+  # itself (second blind test, Ding et al. 2021). Nothing taken from such
+  # a key can decide the pair, and that includes a lipid profile found
+  # through it, so the rule comes before the lipid rules.
+  decide(A$name_isomer_marker | B$name_isomer_marker, "unresolved", "R03i",
+         "a name marks a feature of unknown identity; its identifiers may belong to the parent compound")
 
   decide(headgroup_only, "unresolved", "R04h", paste0(sp_text, " (headgroup naming only)"))
 
