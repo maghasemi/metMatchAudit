@@ -2,6 +2,8 @@
 
 One entry per decision, with the reason. Add new entries at the bottom and never rewrite old ones. If a decision changes, add a new entry that says so.
 
+On 2026-10-07, before the repository was made public, the entries were put back in the order they were written. A few paragraphs that had been pasted under the wrong heading were moved to their own entry, and the first v0.5 plan, which had sat in a separate file, was moved in. No entry's text was changed. The git history of this file shows the earlier layout.
+
 ## 2026-09-23
 
 Language is R. MetLinkR, RaMP and rgoslin are all R packages, so the comparison work happens there anyway. A Python version can come after the R one is finished.
@@ -32,8 +34,6 @@ Review categories, fixed before looking at any review results:
 Review selection: every `different_connectivity` group. For same-connectivity groups, all of them if there are 40 or fewer, otherwise a random sample of 40 using seed 20260923.
 
 Manual review is used for evaluation only. Nothing typed by hand goes into the matching logic.
-
-## 2026-09-25
 
 ## 2026-09-25: Lipid feasibility test, criteria set before running
 
@@ -287,45 +287,13 @@ The next attempt stopped too: 740 rows had no expert line. ManualMappings.csv wr
 
 The tag was first created on 7aec708 by mistake and pushed. A minute later it was deleted and recreated on 9389f61, the commit the COMETS test ran on. Nothing referred to the wrong tag in between.
 
-Correction, same day, before any code: change 3 is dropped. is_group_name() already treats two words joined by a slash as a group name. In COMETS, mannitol/sorbitol and oleate/vaccenate stopped at R01 because they had no key. Also, the existing stereo descriptors are R/S, E/Z, cis/trans, D/L and optical signs. alpha and beta are left out on purpose, as states_stereo() says. Expected side effect of R12n: the xylose pair in the development data becomes unresolved instead of distinct.
-
-v0.4.2 acceptance, checked 2026-10-07: 286 tests pass. Development evaluation 35 agree, 8 safe_miss, 0 wrong, 10 E_not_exact (v0.4.1: 34, 8, 1, 10). Lipid proposals 63, row flags unchanged. Two pairs changed rule. xylose against Xylose went from R12 distinct to R12n unresolved, which agrees with its review category F. (R)- against (S)-3-hydroxybutyrylcarnitine went from R03 exact to R03c unresolved. That pair is outside the reviewed groups, so the wrong exact call in v0.4.1 had not been seen before.
-
-
 ## 2026-10-07: v0.4.2 plan, written before any code
 
 The COMETS test (`findings.md`, 2026-10-06) found four wrong definite claims. Three come from rules that trust identifiers when the names say otherwise. v0.4.2 changes only that. Name to RefMet stays in v0.5 and the aggregate relationship in v0.6.
 
 The principle is the same as before: when the evidence does not settle a pair, the answer is unresolved. None of these changes adds a new way to call a pair distinct.
 
-## 2026-10-07: COMETS rerun with v0.4.2 (after adaptation)
-
-Script `scripts/61_comets_after_v042.R`, output `results/comets_v0.4.2/`, same PubChem cache as the blind run. Not a blind test: v0.4.2 was written to fix the four wrong claims of the blind run.
-
-- Exactly four pairs changed, the four targeted ones: fructose and 4-vinylphenol sulfate to R12n, scyllo/myo-inositol and DPA n3/n6 to R03c. All four are now unresolved.
-- Definite claims: 121 of 121 agree with the expert.
-- With the audit, precision and F1 equal MetLinkR alone (0.895). The audit now calls no COMETS pair distinct, so it removes nothing. C2 holds only in this trivial sense.
-- 263 of 401 pairs are unresolved. None of the seven MetLinkR merges of different compounds is separated.
-- On the development data the same changes also caught a wrong exact call that no review had seen ((R)- against (S)-3-hydroxybutyrylcarnitine). That is the only evidence so far that the new rules carry beyond the pairs they were written for. A second blind dataset is still needed.
-
-## 2026-10-07: v0.5 acceptance failed
-
-Run with scripts/71_v05_check.R. Pair results identical to v0.4.2 on both datasets, all 308 tests pass, and all six required rows got C06. The 80% check failed: of 40 C06 flags on the development data, 17 are rows MetLinkR assigned to the wrong compound, 22 are not, 1 is unclear (42.5%).
-
-Why the 22 are not assignment errors:
-- 15 come from the formula comparison. PubChem's parent compound for acylcarnitines and sphingomyelins is the cation (C17H32NO4+), while RefMet stores the neutral inner salt (C17H31NO4). Same compound, formulas one H and one charge apart.
-- 2 are errors in RefMet itself: CAR 20:4 is stored as C31H54NO4 (exact mass 504.405, true formula C27H45NO4), and 5-hydroxy-6-methoxyduloxetine sulfate as C19H21NO7S, one sulfur short.
-- 2 are probably wrong keys in the source file (oxindolylalanine, S-carboxyethylcysteine).
-- 3 are one compound with two records or two tautomers (3-hydroxyhippurate sulfate, imidazole lactate, imidazole propionate).
-
-The criteria stay as written and v0.5 is not released on this result. The check finds real conflicts between a row and its RefMet entry, but the flag name blames the assignment, and the cause can be the assignment, the source file or RefMet. Any change from here (neutral formulas, a flag that names the conflict but not its cause) is after adaptation on the development data and needs data not used so far for a real test.
-
-## 2026-10-07: RefMet row check shelved
-
-After the failed acceptance, the RefMet row check is set aside, not fixed. It only adds row flags and changes no pair result, so even a working version would not help the main COMETS problem: rows from name-only files carry no evidence. The code and the acceptance script are kept on branch shelved/refmet-check. main stays at v0.4.2. The two RefMet record errors found on the way (CAR 20:4 stored as C31H54NO4, 5-hydroxy-6-methoxyduloxetine sulfate one sulfur short) are kept in this log.
-
 ### Changes
-
 
 1. **Names that contradict identical keys (R03c).** Runs just before R03. If the two InChIKeys are identical but the names state different isomers, the pair is unresolved, not exact. "State different isomers" means one of:
    - both names carry stereo descriptors and the sets differ. Descriptors are the existing ones (R/S, E/Z, cis/trans, alpha/beta, D/L) plus the cyclitol and sugar prefixes myo, scyllo, epi, chiro, neo, muco, allo, threo, erythro;
@@ -343,6 +311,54 @@ After the failed acceptance, the RefMet row check is set aside, not fixed. It on
 - Every row flag that changes is listed and explained.
 - Unit tests for each change, including cases that must stay as they are: glycine against Gly stays exact, "PC 16:0/18:1" is not a group name, DG [1] against [2] stays distinct.
 - COMETS is rerun and reported as after adaptation. No criterion is claimed as met from that rerun.
+
+Correction, same day, before any code: change 3 is dropped. is_group_name() already treats two words joined by a slash as a group name. In COMETS, mannitol/sorbitol and oleate/vaccenate stopped at R01 because they had no key. Also, the existing stereo descriptors are R/S, E/Z, cis/trans, D/L and optical signs. alpha and beta are left out on purpose, as states_stereo() says. Expected side effect of R12n: the xylose pair in the development data becomes unresolved instead of distinct.
+
+v0.4.2 acceptance, checked 2026-10-07: 286 tests pass. Development evaluation 35 agree, 8 safe_miss, 0 wrong, 10 E_not_exact (v0.4.1: 34, 8, 1, 10). Lipid proposals 63, row flags unchanged. Two pairs changed rule. xylose against Xylose went from R12 distinct to R12n unresolved, which agrees with its review category F. (R)- against (S)-3-hydroxybutyrylcarnitine went from R03 exact to R03c unresolved. That pair is outside the reviewed groups, so the wrong exact call in v0.4.1 had not been seen before.
+
+## 2026-10-07: COMETS rerun with v0.4.2 (after adaptation)
+
+Script `scripts/61_comets_after_v042.R`, output `results/comets_v0.4.2/`, same PubChem cache as the blind run. Not a blind test: v0.4.2 was written to fix the four wrong claims of the blind run.
+
+- Exactly four pairs changed, the four targeted ones: fructose and 4-vinylphenol sulfate to R12n, scyllo/myo-inositol and DPA n3/n6 to R03c. All four are now unresolved.
+- Definite claims: 121 of 121 agree with the expert.
+- With the audit, precision and F1 equal MetLinkR alone (0.895). The audit now calls no COMETS pair distinct, so it removes nothing. C2 holds only in this trivial sense.
+- 263 of 401 pairs are unresolved. None of the seven MetLinkR merges of different compounds is separated.
+- On the development data the same changes also caught a wrong exact call that no review had seen ((R)- against (S)-3-hydroxybutyrylcarnitine). That is the only evidence so far that the new rules carry beyond the pairs they were written for. A second blind dataset is still needed.
+
+## 2026-10-07: v0.5 feasibility plan, name to RefMet, written before any code
+
+### Question
+
+739 of 1429 COMETS rows have no structure key, because three files carry names only. Can a row's own name give it a key that is accurate enough to audit with?
+
+### Source
+
+RefMet from the Metabolomics Workbench. The REST service returns the whole table at `https://www.metabolomicsworkbench.org/rest/refmet/all/xx/all/txt`, with name, regno, pubchem_cid, inchi_key, exactmass, formula, sys_name, main_class, sub_class and synonyms. The table is downloaded once, its md5, download date and row count are logged here, and lookups run offline against that file, the same way SwissLipids is used. The `match` service is not used: it changes on the server without a version, so results could not be repeated.
+
+### Independence
+
+MetLinkR also uses RefMet. If MetLinkR built its standardized names from the same RefMet lookup, a key from RefMet would agree with MetLinkR's grouping by construction and would audit nothing. Before the feasibility run, read the MetLinkR code at commit a6aa145 and write down how it uses RefMet. The `Standardized name` column is never used as input to the lookup.
+
+### Lookup, fixed before the run
+
+1. Normalize the row's name with `normalize_name()`.
+2. Look it up against RefMet names and synonyms, normalized the same way. Exact matches only.
+3. Collect the InChIKeys of all hits. If they share one block1, the row gets that key, and the stereo block only if all hits agree on it (otherwise the key is kept at block1 and marked stereo unknown). If block1 differs between hits, the row gets no key and is counted as ambiguous.
+4. Rows skipped by `resolve_identifiers()` are skipped here too: group names, alternative names, Species and molecular lipid names, internal standards.
+
+### Data
+
+- Accuracy set: every row in the development data (LEOCC and Broad) and in COMETS that already has a key, from the file or from identifier resolution. COMETS expert labels are not read.
+- Coverage set: the 739 COMETS rows without a key. Only the count of rows that get a key is reported, no comparison.
+
+### Criteria
+
+- Accuracy: among accuracy-set rows that get a RefMet key, block1 agrees with the existing key in at least 95%. Same bar as identifier resolution.
+- Coverage: at least 30% of the 739 keyless rows get a key. Below that, the route is not worth building and v0.5 goes another way.
+- Both must hold. Every block1 disagreement is listed and read.
+
+If either fails, the criteria stay as written and the result is logged as a failed feasibility test.
 
 ## 2026-10-07: v0.5 plan, rows checked against their RefMet entry, written before any code
 
@@ -392,6 +408,22 @@ Group names, alternative names and internal standards are skipped, as in identif
 - COMETS is run and reported as after adaptation, with the number of C06 and C07 flags and the rows behind them. No expert label is used to tune anything.
 
 If an acceptance check fails, it is logged as failed. The check is not tuned on the same data to make it pass.
+
+## 2026-10-07: v0.5 acceptance failed
+
+Run with scripts/71_v05_check.R. Pair results identical to v0.4.2 on both datasets, all 308 tests pass, and all six required rows got C06. The 80% check failed: of 40 C06 flags on the development data, 17 are rows MetLinkR assigned to the wrong compound, 22 are not, 1 is unclear (42.5%).
+
+Why the 22 are not assignment errors:
+- 15 come from the formula comparison. PubChem's parent compound for acylcarnitines and sphingomyelins is the cation (C17H32NO4+), while RefMet stores the neutral inner salt (C17H31NO4). Same compound, formulas one H and one charge apart.
+- 2 are errors in RefMet itself: CAR 20:4 is stored as C31H54NO4 (exact mass 504.405, true formula C27H45NO4), and 5-hydroxy-6-methoxyduloxetine sulfate as C19H21NO7S, one sulfur short.
+- 2 are probably wrong keys in the source file (oxindolylalanine, S-carboxyethylcysteine).
+- 3 are one compound with two records or two tautomers (3-hydroxyhippurate sulfate, imidazole lactate, imidazole propionate).
+
+The criteria stay as written and v0.5 is not released on this result. The check finds real conflicts between a row and its RefMet entry, but the flag name blames the assignment, and the cause can be the assignment, the source file or RefMet. Any change from here (neutral formulas, a flag that names the conflict but not its cause) is after adaptation on the development data and needs data not used so far for a real test.
+
+## 2026-10-07: RefMet row check shelved
+
+After the failed acceptance, the RefMet row check is set aside, not fixed. It only adds row flags and changes no pair result, so even a working version would not help the main COMETS problem: rows from name-only files carry no evidence. The code and the acceptance script are kept on branch shelved/refmet-check. main stays at v0.4.2. The two RefMet record errors found on the way (CAR 20:4 stored as C31H54NO4, 5-hydroxy-6-methoxyduloxetine sulfate one sulfur short) are kept in this log.
 
 ## 2026-10-07: v0.6 plan, Biocrates p180 names from the vendor's own table, written before any package code
 
@@ -509,7 +541,6 @@ All three are reported whatever the outcome. No rule changes between the labels 
 ### Known weakness
 
 The labeler wrote the tool. To limit that: labels come before any tool output on these files, every decision cites its record, and if a colleague can label 20 of the groups independently, agreement between the two is reported.
-
 
 Two changes to the second blind test plan, before any step ran: B's column "Pubchem CID" is renamed to PUBCHEM in the CSV copy so MetLinkR reads it without a space; no value changes. The labeling sheets hold names from the private file A, so they stay in data-raw/own/blind2/ and their md5 is committed instead, once they are filled in. This fixes the labels in git before the audit runs without publishing them.
 
