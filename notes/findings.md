@@ -314,3 +314,29 @@ So B rows got their profile from their key, at structure level, though the name 
   - a lipid name that parses below structure level caps the level a key can give;
   - read MS-DIAL names: split on ";", take the most specific annotation, and treat "or" as an alternative;
   - strip optical rotation prefixes such as "(-)-" in name normalization.
+
+### Diagnostic: v0.4.1 on the same files
+
+Done after the blind result was committed, so this is not a blind result. The question is whether the changes made after v0.4.1 (v0.4.2 and v0.6.0) made things worse on data that neither version was built on.
+
+- Script: `scripts/94_blind2_v041_diagnostic.R`.
+- Counts: `results/blind2_v041_diagnostic/`.
+- v0.4.1 got the PubChem cache of the v0.6.0 run, so both versions saw the same identifiers.
+- The script recomputes the v0.6.0 scores and checks that they match `scripts/93_blind2_test.R`.
+
+| measure | v0.4.1 | v0.6.0 |
+|---|---|---|
+| C1: definite claims that agree | 48 of 67 (71.6%) | 48 of 65 (73.8%) |
+| C2: groups labeled A to D with a wrong definite answer | 13 of 58 | 12 of 58 |
+| C3: lipid proposals involving a sampled B row, in the labels | 0 of 0 | 1 of 1 |
+| C3 recall | 0 of 5 | 1 of 5 |
+| lipid matches across files, all | 16 | 57 |
+
+Three labeled pairs changed rule:
+
+- Fructose and ribose against their furanose keys went from `distinct` (R12) to unresolved (R12n). R12n was added in v0.4.2 after COMETS. Here it removed two wrong claims on data it had not seen.
+- Sphingosine 1-phosphate against erythro-sphingosine 1-phosphate went from unresolved (R99) to broader_narrower (R05). In v0.6.0 the B row gets a lipid profile, and the pair is decided by the lipid rules. The label is A, so this group went from safe miss to wrong.
+
+That label is not consistent with another label in the same sheet. Sphinganine against erythro-sphinganine is labeled D, on the grounds that only one name states the stereo. The S1P pair has the same difference in its names, but it was labeled A because both rows give the same CID. Under the rule used for sphinganine, the S1P pair would be D, and the tool's answer would agree. The committed label stays A, and C2 stays at 12.
+
+So the versions after v0.4.1 did not make things worse here. They removed two wrong claims, added one wrong group that is open to doubt, and turned up 41 more lipid matches. The drop from COMETS to this test comes from the data, not from the later versions. Every cause listed above was already present in v0.4.1.
