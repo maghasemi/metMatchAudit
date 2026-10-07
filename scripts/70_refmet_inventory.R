@@ -56,7 +56,14 @@ inventory <- function(audit, label) {
 
   r <- r[!is.na(group_id) & group_id != "-"]
   e <- refmet[match(r$group_id, refmet$name)]
-  if (anyNA(e$name)) stop(label, ": ", sum(is.na(e$name)), " group names are not in the RefMet table.")
+  # The development data came with MetLinkR's own example output, made
+  # with an older RefMet release, so a few names may have changed since.
+  # They are listed and kept as "entry_missing" rather than dropped.
+  r[, rm_found := !is.na(e$name)]
+  if (any(!r$rm_found)) {
+    message(label, ": group names not in the RefMet table (", sum(!r$rm_found), " rows):")
+    print(unique(r[!rm_found, .(group_id)]))
+  }
   r[, rm_key := e$inchi_key]
   r[, rm_block1 := substr(rm_key, 1, 14)]
 
@@ -70,12 +77,13 @@ inventory <- function(audit, label) {
   r[, row_side := fifelse(name_group | name_alternatives, "group_or_alternative_name",
                   fifelse(ik_valid & !is.na(inchikey_source), paste0("key_", inchikey_source),
                   fifelse(!is.na(lipid_species), "lipid_profile", "none")))]
-  r[, check := fifelse(startsWith(row_side, "key_") & !is.na(rm_block1),
+  r[, check := fifelse(!rm_found, "entry_missing",
+               fifelse(startsWith(row_side, "key_") & !is.na(rm_block1),
                  fifelse(ik_block1 == rm_block1, "key_agrees", "key_differs"),
                fifelse(startsWith(row_side, "key_"), "key_but_entry_has_none",
                fifelse(row_side == "lipid_profile" & !is.na(rm_species),
                  fifelse(lipid_species == rm_species, "species_agrees", "species_differs"),
-               fifelse(row_side == "lipid_profile", "lipid_but_entry_not_parsed", "nothing_to_compare"))))]
+               fifelse(row_side == "lipid_profile", "lipid_but_entry_not_parsed", "nothing_to_compare")))))]
   r[, dataset := label]
   r
 }
