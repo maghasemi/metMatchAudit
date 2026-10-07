@@ -20,6 +20,8 @@ file name without \verb{_metLinkR.csv}
 InChI, used by \code{\link[=structure_evidence]{structure_evidence()}}. \code{NA} where a file has none.
 \item \code{pubchem_col}, \code{hmdb_col} (optional): columns with PubChem CIDs or
 HMDB IDs, used by \code{\link[=resolve_identifiers]{resolve_identifiers()}}.
+\item \code{vendor} (optional): \code{"biocrates_p180"} for a file in Biocrates
+p180 nomenclature, \code{NA} otherwise. See \code{\link[=vendor_lipid_profiles]{vendor_lipid_profiles()}}.
 }}
 
 \item{encoding}{Passed to \code{\link[data.table:fread]{data.table::fread()}}: \code{"UTF-8"} or

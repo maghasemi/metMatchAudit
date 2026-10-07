@@ -7,6 +7,9 @@
 #'   The Species and Molecular subspecies abbreviations found there are
 #'   parsed with rgoslin so they use the same notation as other vendors.
 #' * rgoslin, through the row's own name ([parse_lipid_names()]).
+#' * Optionally LIPID MAPS (LMSD), through the row's InChIKey
+#'   ([lmsd_lookup()]), only for rows that get no profile from the two
+#'   sources above. The level is `"structure"`, as for SwissLipids.
 #'
 #' Rows with alternative names get no profile. Rows with a group name
 #' get one only at `"group"` level, and only when the chain sum shared by
@@ -22,16 +25,18 @@
 #'
 #' @param rows Output of [row_evidence()].
 #' @param db An object from [load_swisslipids()].
+#' @param lmsd Optional. An object from [load_lmsd()].
 #'
 #' @return `rows` with these columns added: `sl_tier`, `sl_n_hits`,
 #'   `sl_fallback`, `sl_species_abbrev`, `lipid_species`,
 #'   `lipid_molecular`, `lipid_level` (`"species"`, `"group"`,
 #'   `"molecular"`, `"sn_position"` or `"structure"`), `lipid_source`
-#'   (`"rgoslin_name"`, `"swisslipids"`, `"swisslipids_fallback"` or
-#'   `"group_chain_sum"`), `lipid_conflict`.
+#'   (`"rgoslin_name"`, `"swisslipids"`, `"swisslipids_fallback"`,
+#'   `"lmsd"` or `"group_chain_sum"`), `lipid_conflict`, and `lm_tier`
+#'   (the LMSD hit tier, `NA` when LMSD was not used).
 #'
 #' @export
-lipid_evidence <- function(rows, db) {
+lipid_evidence <- function(rows, db, lmsd = NULL) {
   needed <- c("original_name", "inchikey", "ik_valid", "name_group",
               "name_alternatives")
   missing <- setdiff(needed, names(rows))
@@ -41,7 +46,7 @@ lipid_evidence <- function(rows, db) {
   }
   new_cols <- c("sl_tier", "sl_n_hits", "sl_fallback", "sl_species_abbrev",
                 "lipid_species", "lipid_molecular", "lipid_level",
-                "lipid_source", "lipid_conflict")
+                "lipid_source", "lipid_conflict", "lm_tier")
   clash <- intersect(new_cols, names(rows))
   if (length(clash) > 0) {
     stop("`rows` already has these columns: ", paste(clash, collapse = ", "),
@@ -87,6 +92,23 @@ lipid_evidence <- function(rows, db) {
                    ifelse(from_sl & sl$sl_fallback, "swisslipids_fallback",
                           ifelse(from_sl, "swisslipids", NA_character_)))
 
+  # LMSD, only where SwissLipids and the name gave nothing. SwissLipids
+  # stays first, so a row's profile never changes because LMSD was added.
+  lm_tier <- rep(NA_integer_, n)
+  if (!is.null(lmsd)) {
+    use_lm <- which(eligible & rows$ik_valid & is.na(species) & !conflict)
+    if (length(use_lm) > 0) {
+      lm <- lmsd_lookup(rows$inchikey[use_lm], lmsd)
+      lm_tier[use_lm] <- lm$lm_tier
+      got <- !is.na(lm$lm_species)
+      j <- use_lm[got]
+      species[j]   <- lm$lm_species[got]
+      level[j]     <- "structure"
+      molecular[j] <- lm$lm_molecular[got]
+      source[j]    <- "lmsd"
+    }
+  }
+
   # Group-name rows: profile at "group" level when the chain sum read
   # from the name and the Species found through the key agree.
   group_rows <- which(rows$name_group & !rows$name_alternatives & rows$ik_valid)
@@ -113,5 +135,6 @@ lipid_evidence <- function(rows, db) {
   rows$lipid_level       <- level
   rows$lipid_source      <- source
   rows$lipid_conflict    <- conflict
+  rows$lm_tier           <- lm_tier
   rows
 }

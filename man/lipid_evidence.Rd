@@ -4,20 +4,23 @@
 \alias{lipid_evidence}
 \title{Build a lipid profile for each row}
 \usage{
-lipid_evidence(rows, db)
+lipid_evidence(rows, db, lmsd = NULL)
 }
 \arguments{
 \item{rows}{Output of \code{\link[=row_evidence]{row_evidence()}}.}
 
 \item{db}{An object from \code{\link[=load_swisslipids]{load_swisslipids()}}.}
+
+\item{lmsd}{Optional. An object from \code{\link[=load_lmsd]{load_lmsd()}}.}
 }
 \value{
 \code{rows} with these columns added: \code{sl_tier}, \code{sl_n_hits},
 \code{sl_fallback}, \code{sl_species_abbrev}, \code{lipid_species},
 \code{lipid_molecular}, \code{lipid_level} (\code{"species"}, \code{"group"},
 \code{"molecular"}, \code{"sn_position"} or \code{"structure"}), \code{lipid_source}
-(\code{"rgoslin_name"}, \code{"swisslipids"}, \code{"swisslipids_fallback"} or
-\code{"group_chain_sum"}), \code{lipid_conflict}.
+(\code{"rgoslin_name"}, \code{"swisslipids"}, \code{"swisslipids_fallback"},
+\code{"lmsd"} or \code{"group_chain_sum"}), \code{lipid_conflict}, and \code{lm_tier}
+(the LMSD hit tier, \code{NA} when LMSD was not used).
 }
 \description{
 Combines two sources of lipid evidence, as described in
@@ -29,6 +32,9 @@ Combines two sources of lipid evidence, as described in
 The Species and Molecular subspecies abbreviations found there are
 parsed with rgoslin so they use the same notation as other vendors.
 \item rgoslin, through the row's own name (\code{\link[=parse_lipid_names]{parse_lipid_names()}}).
+\item Optionally LIPID MAPS (LMSD), through the row's InChIKey
+(\code{\link[=lmsd_lookup]{lmsd_lookup()}}), only for rows that get no profile from the two
+sources above. The level is \code{"structure"}, as for SwissLipids.
 }
 
 Rows with alternative names get no profile. Rows with a group name

@@ -1,0 +1,189 @@
+"section","old","alternative","new"
+"Amino acids","Ala",NA,NA
+"Amino acids","Arg",NA,NA
+"Amino acids","Asn",NA,NA
+"Amino acids","Asp",NA,NA
+"Amino acids","Cit",NA,NA
+"Amino acids","Glu",NA,NA
+"Amino acids","Gln",NA,NA
+"Amino acids","Gly",NA,NA
+"Amino acids","His",NA,NA
+"Amino acids","Ile",NA,NA
+"Amino acids","Leu",NA,NA
+"Amino acids","Lys",NA,NA
+"Amino acids","Met",NA,NA
+"Amino acids","Orn",NA,NA
+"Amino acids","Phe",NA,NA
+"Amino acids","Pro",NA,NA
+"Amino acids","Ser",NA,NA
+"Amino acids","Thr",NA,NA
+"Amino acids","Trp",NA,NA
+"Amino acids","Tyr",NA,NA
+"Amino acids","Val",NA,NA
+"Biogenic amines","Ac-Orn",NA,NA
+"Biogenic amines","alpha-AAA",NA,NA
+"Biogenic amines","ADMA",NA,NA
+"Biogenic amines","Carnosine",NA,NA
+"Biogenic amines","Creatinine",NA,NA
+"Biogenic amines","DOPA",NA,NA
+"Biogenic amines","Dopamine",NA,NA
+"Biogenic amines","Histamine",NA,NA
+"Biogenic amines","c4-OH-Pro",NA,NA
+"Biogenic amines","t4-OH-Pro",NA,NA
+"Biogenic amines","Kynurenine",NA,NA
+"Biogenic amines","Met-SO",NA,NA
+"Biogenic amines","Nitro-Tyr",NA,NA
+"Biogenic amines","PEA",NA,NA
+"Biogenic amines","Putrescine",NA,NA
+"Biogenic amines","Sarcosine",NA,NA
+"Biogenic amines","Serotonin",NA,NA
+"Biogenic amines","Spermidine",NA,NA
+"Biogenic amines","Spermine",NA,NA
+"Biogenic amines","SDMA",NA,NA
+"Biogenic amines","Taurine",NA,NA
+"Monosaccharides","H1",NA,NA
+"Acylcarnitines","C0",NA,NA
+"Acylcarnitines","C2",NA,NA
+"Acylcarnitines","C3",NA,NA
+"Acylcarnitines","C3-OH",NA,NA
+"Acylcarnitines","C3:1",NA,NA
+"Acylcarnitines","C4",NA,NA
+"Acylcarnitines","C4-OH","C3-DC",NA
+"Acylcarnitines","C4:1",NA,NA
+"Acylcarnitines","C5",NA,NA
+"Acylcarnitines","C5-DC","C6-OH",NA
+"Acylcarnitines","C5-M-DC",NA,NA
+"Acylcarnitines","C5-OH","C3-DC-M",NA
+"Acylcarnitines","C5:1",NA,NA
+"Acylcarnitines","C5:1-DC",NA,NA
+"Acylcarnitines","C6","C4:1-DC",NA
+"Acylcarnitines","C6:1",NA,NA
+"Acylcarnitines","C7-DC",NA,NA
+"Acylcarnitines","C8",NA,NA
+"Acylcarnitines","C9",NA,NA
+"Acylcarnitines","C10",NA,NA
+"Acylcarnitines","C10:1",NA,NA
+"Acylcarnitines","C10:2",NA,NA
+"Acylcarnitines","C12",NA,NA
+"Acylcarnitines","C12-DC",NA,NA
+"Acylcarnitines","C12:1",NA,NA
+"Acylcarnitines","C14",NA,NA
+"Acylcarnitines","C14:1",NA,NA
+"Acylcarnitines","C14:1-OH",NA,NA
+"Acylcarnitines","C14:2",NA,NA
+"Acylcarnitines","C14:2-OH",NA,NA
+"Acylcarnitines","C16",NA,NA
+"Acylcarnitines","C16-OH",NA,NA
+"Acylcarnitines","C16:1",NA,NA
+"Acylcarnitines","C16:1-OH",NA,NA
+"Acylcarnitines","C16:2",NA,NA
+"Acylcarnitines","C16:2-OH",NA,NA
+"Acylcarnitines","C18",NA,NA
+"Acylcarnitines","C18:1",NA,NA
+"Acylcarnitines","C18:1-OH",NA,NA
+"Acylcarnitines","C18:2",NA,NA
+"Glycerophospholipids","lysoPC a C14:0",NA,"LPC 14:0"
+"Glycerophospholipids","lysoPC a C16:0",NA,"LPC 16:0"
+"Glycerophospholipids","lysoPC a C16:1",NA,"LPC 16:1"
+"Glycerophospholipids","lysoPC a C17:0",NA,"LPC 17:0"
+"Glycerophospholipids","lysoPC a C18:0",NA,"LPC 18:0"
+"Glycerophospholipids","lysoPC a C18:1",NA,"LPC 18:1"
+"Glycerophospholipids","lysoPC a C18:2",NA,"LPC 18:2"
+"Glycerophospholipids","lysoPC a C20:3",NA,"LPC 20:3"
+"Glycerophospholipids","lysoPC a C20:4",NA,"LPC 20:4"
+"Glycerophospholipids","lysoPC a C24:0",NA,"LPC 24:0"
+"Glycerophospholipids","lysoPC a C26:0",NA,"LPC 26:0"
+"Glycerophospholipids","lysoPC a C26:1",NA,"LPC 26:1"
+"Glycerophospholipids","lysoPC a C28:0",NA,"PC O-28:0"
+"Glycerophospholipids","lysoPC a C28:1",NA,"PC O-28:1"
+"Glycerophospholipids","PC aa C24:0",NA,"PC 24:0"
+"Glycerophospholipids","PC aa C26:0",NA,"PC 26:0"
+"Glycerophospholipids","PC aa C28:1",NA,"PC 28:1"
+"Glycerophospholipids","PC aa C30:0",NA,"PC 30:0"
+"Glycerophospholipids","PC aa C30:2",NA,"PC 30:2"
+"Glycerophospholipids","PC aa C32:0",NA,"PC 32:0"
+"Glycerophospholipids","PC aa C32:1",NA,"PC 32:1"
+"Glycerophospholipids","PC aa C32:2",NA,"PC 32:2"
+"Glycerophospholipids","PC aa C32:3",NA,"PC 32:3"
+"Glycerophospholipids","PC aa C34:1",NA,"PC 34:1"
+"Glycerophospholipids","PC aa C34:2",NA,"PC 34:2"
+"Glycerophospholipids","PC aa C34:3",NA,"PC 34:3"
+"Glycerophospholipids","PC aa C34:4",NA,"PC 34:4"
+"Glycerophospholipids","PC aa C36:0",NA,"PC 36:0"
+"Glycerophospholipids","PC aa C36:1",NA,"PC 36:1"
+"Glycerophospholipids","PC aa C36:2",NA,"PC 36:2"
+"Glycerophospholipids","PC aa C36:3",NA,"PC 36:3"
+"Glycerophospholipids","PC aa C36:4",NA,"PC 36:4"
+"Glycerophospholipids","PC aa C36:5",NA,"PC 36:5"
+"Glycerophospholipids","PC aa C36:6",NA,"PC 36:6"
+"Glycerophospholipids","PC aa C38:0",NA,"PC 38:0"
+"Glycerophospholipids","PC aa C38:1",NA,"PC 38:1"
+"Glycerophospholipids","PC aa C38:3",NA,"PC 38:3"
+"Glycerophospholipids","PC aa C38:4",NA,"PC 38:4"
+"Glycerophospholipids","PC aa C38:5",NA,"PC 38:5"
+"Glycerophospholipids","PC aa C38:6",NA,"PC 38:6"
+"Glycerophospholipids","PC aa C40:1",NA,"PC 40:1"
+"Glycerophospholipids","PC aa C40:2",NA,"PC 40:2"
+"Glycerophospholipids","PC aa C40:3",NA,"PC 40:3"
+"Glycerophospholipids","PC aa C40:4",NA,"PC 40:4"
+"Glycerophospholipids","PC aa C40:5",NA,"PC 40:5"
+"Glycerophospholipids","PC aa C40:6",NA,"PC 40:6"
+"Glycerophospholipids","PC aa C42:0",NA,"PC 42:0"
+"Glycerophospholipids","PC aa C42:1",NA,"PC 42:1"
+"Glycerophospholipids","PC aa C42:2",NA,"PC 42:2"
+"Glycerophospholipids","PC aa C42:4",NA,"PC 42:4"
+"Glycerophospholipids","PC aa C42:5",NA,"PC 42:5"
+"Glycerophospholipids","PC aa C42:6",NA,"PC 42:6"
+"Glycerophospholipids","PC ae C30:0",NA,"PC O-30:0"
+"Glycerophospholipids","PC ae C30:1",NA,"PC O-30:1"
+"Glycerophospholipids","PC ae C30:2",NA,"PC O-30:2"
+"Glycerophospholipids","PC ae C32:1",NA,"PC O-32:1"
+"Glycerophospholipids","PC ae C32:2",NA,"PC O-32:2"
+"Glycerophospholipids","PC ae C34:0",NA,"PC O-34:0"
+"Glycerophospholipids","PC ae C34:1",NA,"PC O-34:1"
+"Glycerophospholipids","PC ae C34:2",NA,"PC O-34:2"
+"Glycerophospholipids","PC ae C34:3",NA,"PC O-34:3"
+"Glycerophospholipids","PC ae C36:0",NA,"PC O-36:0"
+"Glycerophospholipids","PC ae C36:1",NA,"PC O-36:1"
+"Glycerophospholipids","PC ae C36:2",NA,"PC O-36:2"
+"Glycerophospholipids","PC ae C36:3",NA,"PC O-36:3"
+"Glycerophospholipids","PC ae C36:4",NA,"PC O-36:4"
+"Glycerophospholipids","PC ae C36:5",NA,"PC O-36:5"
+"Glycerophospholipids","PC ae C38:0",NA,"PC O-38:0"
+"Glycerophospholipids","PC ae C38:1",NA,"PC O-38:1"
+"Glycerophospholipids","PC ae C38:2",NA,"PC O-38:2"
+"Glycerophospholipids","PC ae C38:3",NA,"PC O-38:3"
+"Glycerophospholipids","PC ae C38:4",NA,"PC O-38:4"
+"Glycerophospholipids","PC ae C38:5",NA,"PC O-38:5"
+"Glycerophospholipids","PC ae C38:6",NA,"PC O-38:6"
+"Glycerophospholipids","PC ae C40:1",NA,"PC O-40:1"
+"Glycerophospholipids","PC ae C40:2",NA,"PC O-40:2"
+"Glycerophospholipids","PC ae C40:3",NA,"PC O-40:3"
+"Glycerophospholipids","PC ae C40:4",NA,"PC O-40:4"
+"Glycerophospholipids","PC ae C40:5",NA,"PC O-40:5"
+"Glycerophospholipids","PC ae C40:6",NA,"PC O-40:6"
+"Glycerophospholipids","PC ae C42:0",NA,"PC O-42:0"
+"Glycerophospholipids","PC ae C42:1",NA,"PC O-42:1"
+"Glycerophospholipids","PC ae C42:2",NA,"PC O-42:2"
+"Glycerophospholipids","PC ae C42:3",NA,"PC O-42:3"
+"Glycerophospholipids","PC ae C42:4",NA,"PC O-42:4"
+"Glycerophospholipids","PC ae C42:5",NA,"PC O-42:5"
+"Glycerophospholipids","PC ae C44:3",NA,"PC O-44:3"
+"Glycerophospholipids","PC ae C44:4",NA,"PC O-44:4"
+"Glycerophospholipids","PC ae C44:5",NA,"PC O-44:5"
+"Glycerophospholipids","PC ae C44:6",NA,"PC O-44:6"
+"Sphingolipids","SM (OH) C14:1",NA,"SM 33:1"
+"Sphingolipids","SM C16:0",NA,"SM 34:1"
+"Sphingolipids","SM C16:1",NA,"SM 34:2"
+"Sphingolipids","SM (OH) C16:1",NA,"SM 35:1"
+"Sphingolipids","SM C18:0",NA,"SM 36:1"
+"Sphingolipids","SM C18:1",NA,"SM 36:2"
+"Sphingolipids","SM C20:2",NA,"SM 38:3"
+"Sphingolipids","SM (OH) C22:1",NA,"SM 41:1"
+"Sphingolipids","SM (OH) C22:2",NA,"SM 41:2"
+"Sphingolipids","SM C22:3",NA,"SM 40:4"
+"Sphingolipids","SM C24:0",NA,"SM 42:1"
+"Sphingolipids","SM C24:1",NA,"SM 42:2"
+"Sphingolipids","SM (OH) C24:1",NA,"SM 43:1"
+"Sphingolipids","SM C26:0",NA,"SM 44:1"
+"Sphingolipids","SM C26:1",NA,"SM 44:2"

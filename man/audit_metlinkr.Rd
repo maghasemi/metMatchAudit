@@ -11,7 +11,9 @@ audit_metlinkr(
   expected_md5 = NULL,
   use_rdkit = TRUE,
   resolve_ids = TRUE,
-  cache_file = NULL
+  cache_file = NULL,
+  lmsd = NULL,
+  lmsd_md5 = NULL
 )
 }
 \arguments{
@@ -28,6 +30,8 @@ file name without \verb{_metLinkR.csv}
 InChI, used by \code{\link[=structure_evidence]{structure_evidence()}}. \code{NA} where a file has none.
 \item \code{pubchem_col}, \code{hmdb_col} (optional): columns with PubChem CIDs or
 HMDB IDs, used by \code{\link[=resolve_identifiers]{resolve_identifiers()}}.
+\item \code{vendor} (optional): \code{"biocrates_p180"} for a file in Biocrates
+p180 nomenclature, \code{NA} otherwise. See \code{\link[=vendor_lipid_profiles]{vendor_lipid_profiles()}}.
 }}
 
 \item{swisslipids}{Either a path to SwissLipids \code{lipids.tsv} or an
@@ -47,6 +51,11 @@ it is available. See \code{\link[=structure_evidence]{structure_evidence()}}.}
 IDs. See \code{\link[=resolve_identifiers]{resolve_identifiers()}}.}
 
 \item{cache_file}{Where to keep PubChem answers between runs.}
+
+\item{lmsd}{Optional. An object from \code{\link[=load_lmsd]{load_lmsd()}} or the path to the
+LMSD SDF file, used as a second lipid source. See \code{\link[=lipid_evidence]{lipid_evidence()}}.}
+
+\item{lmsd_md5}{Expected md5 of the LMSD file, when \code{lmsd} is a path.}
 }
 \value{
 An object of class \code{metmatch_audit}, a list with:

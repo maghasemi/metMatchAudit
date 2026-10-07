@@ -20,6 +20,8 @@
 #'     InChI, used by [structure_evidence()]. `NA` where a file has none.
 #'   * `pubchem_col`, `hmdb_col` (optional): columns with PubChem CIDs or
 #'     HMDB IDs, used by [resolve_identifiers()].
+#'   * `vendor` (optional): `"biocrates_p180"` for a file in Biocrates
+#'     p180 nomenclature, `NA` otherwise. See [vendor_lipid_profiles()].
 #' @param encoding Passed to [data.table::fread()]: `"UTF-8"` or
 #'   `"Latin-1"`. The MetLinkR example files are Latin-1.
 #'
@@ -100,6 +102,9 @@ read_metlinkr <- function(files, encoding = "UTF-8") {
 #' @param resolve_ids Fill in missing InChIKeys from PubChem CIDs or HMDB
 #'   IDs. See [resolve_identifiers()].
 #' @param cache_file Where to keep PubChem answers between runs.
+#' @param lmsd Optional. An object from [load_lmsd()] or the path to the
+#'   LMSD SDF file, used as a second lipid source. See [lipid_evidence()].
+#' @param lmsd_md5 Expected md5 of the LMSD file, when `lmsd` is a path.
 #'
 #' @return An object of class `metmatch_audit`, a list with:
 #'   * `pairs`: every pair with `relationship`, `rule_id`, `evidence`
@@ -113,7 +118,8 @@ read_metlinkr <- function(files, encoding = "UTF-8") {
 #' @export
 audit_metlinkr <- function(files, swisslipids, encoding = "UTF-8",
                            expected_md5 = NULL, use_rdkit = TRUE,
-                           resolve_ids = TRUE, cache_file = NULL) {
+                           resolve_ids = TRUE, cache_file = NULL,
+                           lmsd = NULL, lmsd_md5 = NULL) {
   db <- if (inherits(swisslipids, "swisslipids_db")) {
     swisslipids
   } else {
@@ -128,7 +134,12 @@ audit_metlinkr <- function(files, swisslipids, encoding = "UTF-8",
     rows$inchikey_source <- ifelse(is_valid_inchikey(rows$inchikey), "file", NA_character_)
     rows
   }
-  evidence <- lipid_evidence(row_evidence(rows), db)
+  if (!is.null(lmsd) && !inherits(lmsd, "lmsd_db")) lmsd <- load_lmsd(lmsd, expected_md5 = lmsd_md5)
+  evidence <- lipid_evidence(row_evidence(rows), db, lmsd = lmsd)
+  if ("vendor" %in% names(files)) {
+    labels <- if ("label" %in% names(files)) files$label else sub("_metLinkR\\.csv$", "", basename(files$path))
+    evidence <- vendor_lipid_profiles(evidence, files$vendor[match(evidence$file, labels)])
+  }
   evidence <- structure_evidence(evidence, use_rdkit = use_rdkit)
   pairs    <- classify_pairs(evidence, make_pairs(evidence))
 
@@ -142,6 +153,7 @@ audit_metlinkr <- function(files, swisslipids, encoding = "UTF-8",
       package_version = as.character(utils::packageVersion("metMatchAudit")),
       run_date        = format(Sys.time(), "%Y-%m-%d %H:%M:%S %Z"),
       swisslipids_md5 = db$md5,
+      lmsd_md5        = if (is.null(lmsd)) NA_character_ else lmsd$md5,
       structure_checks = use_rdkit && rdkit_available(),
       keys_by_source = table(rows$inchikey_source, useNA = "ifany"),
       files           = files
@@ -198,6 +210,7 @@ write_audit <- function(audit, dir) {
     paste("metMatchAudit version:", info$package_version),
     paste("Run date:", info$run_date),
     paste("SwissLipids md5:", info$swisslipids_md5),
+    paste("LMSD md5:", if (is.null(info$lmsd_md5)) NA else info$lmsd_md5),
     paste("Structure checks (RDKit):", isTRUE(info$structure_checks)),
     paste("InChIKeys by source:", paste(names(info$keys_by_source), info$keys_by_source,
                                           sep = " ", collapse = ", ")),
