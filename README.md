@@ -2,9 +2,9 @@
 
 Check whether metabolites matched across datasets are really the same compound.
 
-Tools such as [MetLinkR](https://github.com/ncats/MetLinkR) link metabolomics datasets by giving every row a standardized name. Rows that end up with the same name are treated as one metabolite. metMatchAudit runs after that step. For every pair of rows that share a name, it looks at the structural evidence and reports how the two actually relate, with the rule that decided it.
+Tools such as [MetLinkR](https://github.com/ncats/MetLinkR) link metabolomics datasets by giving every row a standardized name. Rows that end up with the same name are treated as one metabolite. metMatchAudit runs after that step. For every pair of rows that share a name, it looks at the structural evidence and reports how the two actually relate, with the rule that decided it. It also proposes lipid matches across vendors that the matching step missed.
 
-Status: v0.3. Tested on the MetLinkR example data and evaluated against a blind manual review (see [Evaluation](#evaluation)). v0.2 added lipid matches across vendors; v0.3 adds stereo comparison from full structures and a check of each row's structure against its own InChIKey.
+Status: v0.6. Developed on the MetLinkR example data and evaluated against a blind manual review, then tested blind on five COMETS datasets with expert mappings (see [Evaluation](#evaluation) and [External test on COMETS](#external-test-on-comets)).
 
 ## Why
 
@@ -43,17 +43,20 @@ When the evidence is not enough, the answer is `unresolved`. The tool does not g
 | SM 36:1;O2 (Broad) | stearoyl sphingomyelin (d18:1/18:0) (Metabolon) | broader_narrower | R05 | SM 36:1;O2: level species vs structure |
 | 2-arachidonoylglycerol (20:4) | 1-arachidonylglycerol (20:4) | distinct | R12 | different connectivity |
 | Inosine | Inosine-15N4 [iSTD] | distinct | R02 | one row is an internal standard |
+| scyllo-inositol | myo-inositol | unresolved | R03c | identical InChIKey, but the names state different isomers |
 
 ## How it decides
 
-Four kinds of evidence, none of them typed in by hand:
+Every piece of evidence comes from a source file, a fixed parsing rule or a versioned database file. Nothing is typed in by hand.
 
-- the InChIKey in the source file, split into its connectivity, stereo and protonation parts
-- fixed text checks on the name: group names such as "(2 or 3)-decenoate", tentative marks, isomer labels, internal standards, stated stereochemistry
-- for lipids, a profile at species, molecular species and structure level. Rows with an InChIKey are placed in the [SwissLipids](https://www.swisslipids.org) hierarchy. Names in shorthand notation are parsed with [rgoslin](https://bioconductor.org/packages/rgoslin/). Both routes end in the same notation, so a Metabolon name like "stearoyl sphingomyelin (d18:1/18:0)" and a Broad name like "SM 36:1;O2" can be compared.
-- optionally, the full structure (the file's InChI, or its SMILES read with [RDKit](https://www.rdkit.org) through reticulate). Two InChIKeys can only say that stereo differs; two InChIs show whether one row simply leaves some centres undefined (cholesterol with one defined centre against cholesterol with all eight) or whether they disagree. A structure is used only when its own key matches the row's stored key.
+- The InChIKey in the source file, split into its connectivity, stereo and protonation parts.
+- For rows without a key, a key from the row's PubChem CID or HMDB ID, through PubChem's parent compound. Every key records where it came from.
+- Fixed text checks on the name: group names such as "(2 or 3)-decenoate", tentative marks, isomer labels, internal standards, stated stereochemistry, omega positions.
+- For lipids, a profile at species, molecular species and structure level. Rows with an InChIKey are placed in the [SwissLipids](https://www.swisslipids.org) hierarchy, or found in the [LIPID MAPS Structure Database](https://www.lipidmaps.org/databases/lmsd) when SwissLipids has nothing. Names in shorthand notation are parsed with [rgoslin](https://bioconductor.org/packages/rgoslin/). All routes end in the same notation, so a Metabolon name like "stearoyl sphingomyelin (d18:1/18:0)" and a Broad name like "SM 36:1;O2" can be compared.
+- For files in Biocrates p180 nomenclature, the vendor's own old-to-new nomenclature table, so "PC aa C36:4" becomes PC 36:4 and "C14:2" becomes CAR 14:2. These values are sums measured by flow injection, so they always count as species level.
+- Optionally, the full structure (the file's InChI, or its SMILES read with [RDKit](https://www.rdkit.org) through reticulate). Two InChIKeys can only say that stereo differs; two InChIs show whether one row simply leaves some centres undefined or whether they disagree.
 
-The rules run in a fixed order and the first one that applies decides. The full list, with the real case behind each rule, is in [notes/design.md](notes/design.md). Every change to it is logged with its reason in [notes/decisions.md](notes/decisions.md).
+The rules run in a fixed order and the first one that applies decides. The full list, with the real case behind each rule, is in [notes/design.md](notes/design.md). Every change is logged with its reason in [notes/decisions.md](notes/decisions.md), including the ideas that failed.
 
 ## Installation
 
@@ -66,140 +69,134 @@ install.packages("remotes")
 remotes::install_github("maghasemi/metMatchAudit")
 ```
 
-The lipid evidence needs the SwissLipids table. Download `lipids.tsv` from <https://www.swisslipids.org/#/downloads> (about 690 MB, CC BY 4.0).
+Data files, not included in the package:
 
-The structure checks are optional and need RDKit through reticulate. reticulate can set it up by itself:
+- SwissLipids `lipids.tsv` from <https://www.swisslipids.org/#/downloads> (about 690 MB, CC BY 4.0). Needed.
+- LMSD standard SDF from <https://www.lipidmaps.org/databases/lmsd/download> (about 290 MB unzipped, CC BY 4.0). Optional.
+
+Identifier resolution needs httr2 and jsonlite and internet access on the first run; answers are cached. The structure checks need RDKit through reticulate:
 
 ```r
-install.packages("reticulate")
+install.packages(c("httr2", "jsonlite", "reticulate"))
 reticulate::py_require("rdkit")
 ```
 
-Without RDKit the audit runs as before and skips those checks.
+Without these the audit still runs and skips the parts that need them.
 
 ## Usage
 
-MetLinkR does not record which column holds the metabolite name or the InChIKey in each file, so you say it:
+MetLinkR does not record which column holds the metabolite name or the identifiers in each file, so you say it:
 
 ```r
 library(metMatchAudit)
 
 files <- data.frame(
-  path         = c("metLinkR_output/Metabolon_metLinkR.csv",
-                   "metLinkR_output/Broad_metLinkR.csv"),
-  name_col     = c("CHEMICAL_NAME", "Metabolite"),
-  inchikey_col = c("INCHIKEY", "inChIKey"),
-  smiles_col   = c("SMILES", "smiles"),   # optional
-  inchi_col    = c(NA, "inChI")           # optional
+  path         = c("out/Metabolon_metLinkR.csv", "out/Broad_metLinkR.csv", "out/Biocrates_metLinkR.csv"),
+  name_col     = c("CHEMICAL_NAME", "Metabolite", "metabolite_name"),
+  inchikey_col = c("INCHIKEY", "inChIKey", NA),
+  pubchem_col  = c("PUBCHEM", NA, NA),            # optional
+  hmdb_col     = c("HMDB", "hmdbId", NA),         # optional
+  vendor       = c(NA, NA, "biocrates_p180")      # optional
 )
 
-audit <- audit_metlinkr(files, swisslipids = "lipids.tsv")
+sl   <- load_swisslipids("lipids.tsv")
+lmsd <- load_lmsd("structures.sdf")               # optional
+audit <- audit_metlinkr(files, swisslipids = sl, lmsd = lmsd,
+                        cache_file = "pubchem_cache.rds")
 audit
 write_audit(audit, "audit_output")
 ```
 
-`write_audit()` writes `pairs.csv`, `groups.csv` (the most severe relationship per group), `row_flags.csv`, `rows.csv` (all evidence per row), `lipid_matches.csv` (lipid matches across files, see below) and `run_info.txt` (package version, date, md5 of the SwissLipids file).
+`write_audit()` writes `pairs.csv`, `groups.csv` (the most severe relationship per group), `row_flags.csv`, `rows.csv` (all evidence per row), `lipid_matches.csv` and `run_info.txt` (package version, date, md5 of every database file).
 
-Loading SwissLipids takes about half a minute. For several audits, load it once with `load_swisslipids()` and pass the result.
+Loading SwissLipids takes about half a minute and LMSD about a minute. Both objects can be kept with `saveRDS()`.
 
 ## Evaluation
 
 The manual review of the 53 groups was finished and committed before the tool's output on those groups was opened. Each version was compared with it group by group:
 
-| outcome | v0.1 | v0.2 | v0.3 |
-|---|---|---|---|
-| agrees with the review | 28 | 29 | 34 |
-| unresolved where the review has an answer | 14 | 13 | 8 |
-| a different definite answer | 1 | 1 | 1 |
-| source-error groups called exact | 0 of 10 | 0 of 10 | 0 of 10 |
+| outcome | v0.1 | v0.2 | v0.3 | v0.4 | v0.4.2 and v0.6 |
+|---|---|---|---|---|---|
+| agrees with the review | 28 | 29 | 34 | 34 | 35 |
+| unresolved where the review has an answer | 14 | 13 | 8 | 8 | 8 |
+| a different definite answer | 1 | 1 | 1 | 1 | 0 |
+| source-error groups called exact | 0 of 10 | 0 of 10 | 0 of 10 | 0 of 10 | 0 of 10 |
 
-On the 42 groups where the review gives a definite relationship, v0.3 agrees on 34 and leaves 8 unresolved. It makes no wrong definite claim on them. Of the 13 wrong merges, it finds 12. The one wrong answer is xylose, where the ring and open-chain forms have different InChIKeys; this was listed as a known limit before the first evaluation.
+The one wrong answer up to v0.4 was xylose, whose ring and open-chain forms have different InChIKeys. Since v0.4.2, two rows with the same name and conflicting keys stay unresolved, which is what the review says for that group.
 
-What changed between versions: v0.2 resolved an SM group row through its chain sum; v0.3 resolved five groups (cholesterol, cholic, deoxycholic, chenodeoxycholic and tauro-beta-muricholic acid) where one row defines only part of the other's stereo.
+The 8 unresolved cases are 5 groups with a group-name row the tool cannot check yet, and 3 where stereo really differs but no name states it, or where a row's structure does not match its own key. By design these stay unresolved.
 
-The 8 unresolved cases:
+Lipid matches on the example data: 110 proposals between the Metabolon and Broad files, all checked by hand and all correct ([notes/v02_proposal_review.csv](notes/v02_proposal_review.csv), [notes/v06_dev_lipid_review.csv](notes/v06_dev_lipid_review.csv)).
 
-- 5 groups with a group-name row that has no lipid profile, or that is compared with a specific structure. The tool does not yet check which structures a group lists.
-- 3 groups where the stereo really differs but no name states it (androsterone against etiocholanolone glucuronide), or where a row's structure does not match its own key (quinic acid, 2-hydroxystearic acid in the Broad file). By design these stay unresolved.
+## External test on COMETS
 
-The stereo comparison was also tested on 317 structures from the example data by removing or inverting stereo marks with RDKit. Removing marks never produced a false conflict except in three symmetric molecules such as inositol, and inverting a centre never produced a false "subset". Only "subset" leads to a claim.
+To see how the tool does on data it was not built on, I ran MetLinkR on five COMETS datasets and compared the result with the COMETS expert mappings from the MetLinkR supplement. The criteria were written and committed before the run, and the expert labels were not opened until the tool's output was final. Our MetLinkR run found 183 of 214 multi-file expert groups whole (85.5%; the paper reports 85.3%).
 
-Everything needed to repeat this is in the repository:
+Blind result, v0.4.1:
 
-```
-bash scripts/00_get_data.sh              # MetLinkR example data, fixed commit
-Rscript scripts/20_audit_example.R       # run the audit
-Rscript scripts/21_evaluate_v0.1.R       # compare with notes/review.csv
-Rscript scripts/31_v02_check_proposals.R # compare lipid matches with notes/v02_proposal_review.csv
-Rscript scripts/41_v03_rdkit_feasibility.R  # RDKit checks and stereo comparison on R11 pairs
-```
-
-The manual labels, with the PubChem records behind each decision, are in [notes/review.csv](notes/review.csv).
-
-## Lipid matches across vendors
-
-`propose_lipid_matches()` looks for lipid rows in different files that describe the same Species, whether or not a matching step linked them. On the example data it proposes 60 matches between the Metabolon and Broad files; MetLinkR had linked 12 of them. All 60 were checked by hand against the names, and all are correct ([notes/v02_proposal_review.csv](notes/v02_proposal_review.csv)). For example:
-
-| Metabolon | Broad | relationship |
+| criterion | result | |
 |---|---|---|
-| 1-palmitoyl-2-oleoyl-GPC (16:0/18:1) | PC 34:1 | broader_narrower |
-| 1-(1-enyl-palmitoyl)-2-oleoyl-GPC (P-16:0/18:1)* | PC O-34:2 | broader_narrower |
-| sphingomyelin (d18:1/20:0, d16:1/22:0)* | SM 38:1;O2 | broader_narrower |
+| C1: definite claims (exact, distinct) agree with the expert, at least 90% | 121 of 125 (96.8%) | met |
+| C2: with the audit, precision and F1 not lower than MetLinkR alone | F1 0.893 against 0.895 | not met |
 
-A Broad Species often matches several Metabolon structures, such as PC 34:4 with both 14:0/20:4 and 16:1/18:3. These are marked one_to_many. A Species-level value usually covers all of them, so it should not be compared with each structure on its own.
+The audit's definite claims were mostly right, but it made few of them. 259 of 401 pairs stayed unresolved, mostly because three of the five files carry names only. Its two `distinct` calls were both wrong, and it separated none of MetLinkR's real wrong merges.
 
-Group-name rows like the last example get a profile only when every listed member adds up to the same chain sum and that sum matches the Species SwissLipids gives for the row's InChIKey. In the example data, 19 of 28 such rows qualify.
+Reading the 42 pairs the expert does not group, after the result was sealed: 7 are different compounds, 4 stereoisomers, 17 a broader against a narrower annotation or a class total, 9 the same compound measured on a different platform that the expert keeps apart, and 5 look like inconsistencies in the expert labels (Nightingale alanine is grouped with beta-alanine, for example). The expert answers "same measurement"; this tool answers "same compound". Details are in [notes/findings.md](notes/findings.md) and [notes/comets_review.csv](notes/comets_review.csv).
 
-It works without MetLinkR too:
+Changes made after that test, and their results on COMETS. These numbers are after adaptation, not blind:
 
-```r
-db <- load_swisslipids("lipids.tsv")
-rows <- row_evidence(my_rows)          # row_id, file, original_name, inchikey
-matches <- propose_lipid_matches(lipid_evidence(rows, db), group_col = NULL)
-```
+- v0.4.2: identical keys are not enough for `exact` when the names state different isomers (R03c), and the same name with conflicting keys stays unresolved (R12n). The four wrong claims of the blind run became unresolved. On the example data, R03c also caught a wrong `exact` call no review had seen, (R)- against (S)-3-hydroxybutyrylcarnitine.
+- v0.6: LMSD as a second lipid source and the Biocrates p180 table. 23 COMETS pairs moved from unresolved to a definite answer. Two became `distinct`, valerylcarnitine against glutarylcarnitine and C14:1 against C14:2, both MetLinkR merges of different compounds. Definite claims now agree with the expert in 123 of 123, precision goes from 0.895 to 0.900 and F1 from 0.895 to 0.897. 36 new lipid matches across files; the expert groups 18 of them, and the other 18 are Biocrates sums matched to single structures, which the expert links one to one or not at all.
 
-## Source file checks
+A second blind test on a dataset not used so far is still needed before these numbers mean more than "it improved on the data it was tuned on".
 
-With RDKit, each row's own structure is turned into an InChIKey and compared with the key stored in the same row (check C04). In the Broad example file, 21 rows disagree: 2 in connectivity (xylose, L-urobilin) and 19 in the stereo block. For N-formylmethionine, the Broad InChI describes the natural L form while the stored key describes the D form.
+## What did not work
 
-The Metabolon file has a different kind of error that this check cannot see: five steroid rows whose SMILES and InChIKey agree with each other but describe a stereoisomer other than the one named. They were found during the manual review and are listed in [notes/findings.md](notes/findings.md).
+Two ideas were tried and set aside. Both are logged in [notes/decisions.md](notes/decisions.md).
+
+- Giving name-only rows a key from RefMet. MetLinkR's standardized names are RefMet names, so a key from RefMet would agree with MetLinkR by construction and audit nothing.
+- Checking each row against the RefMet entry of its group. The check found real problems, among them a Metabolon row for 2-hydroxycarbamazepine filed under norcodeine and two RefMet records with wrong formulas (CAR 20:4 stored as C31H54NO4). But only 17 of 40 flags were wrong assignments, short of the 80% set beforehand, and the check could not change any pair result. The code is kept on branch `shelved/refmet-check`.
 
 ## Known limits
 
-- Sugars in ring and open-chain form get different InChIKeys and are called distinct.
-- The stereo comparison can report a false conflict for symmetric molecules such as inositol. A conflict never leads to a claim on its own, so this can only leave a pair unresolved.
+- Rows with only a name, and no identifier the tool can use, get no evidence. This is most of the COMETS Biocrates amino acids, the LC/MS file and the Nightingale file.
+- Nightingale class totals (Omega-6, total fatty acids) and other aggregate measures have no relationship of their own yet.
+- Sugars in ring and open-chain form get different InChIKeys. With the same name they stay unresolved; with different names they are called distinct.
+- The stereo comparison can report a false conflict for symmetric molecules such as inositol. A conflict never leads to a claim on its own.
 - A structure whose SMILES and key agree but which does not match its name (the Metabolon steroids above) is not detected.
-- The name checks are tuned on Metabolon and Broad naming.
-- Some lipids have no usable SwissLipids entry (d18:2 and d17:1 sphingoid bases in the test data). The rgoslin grammar for trivial fatty acid names is not used, because on the test data it read small organic acids as wax esters.
-- Glycosylceramide pairs that differ only in headgroup naming (HexCer against GlcCer) stay unresolved.
-- Pair checks cover only rows that MetLinkR grouped. Lipid matches cover all lipid rows with a profile; other unmatched rows are out of scope.
-- A group-name row compared with a specific structure of the same Species stays unresolved, since the listed members are not checked yet.
+- The name checks are tuned on Metabolon, Broad and Biocrates naming. The Biocrates table covers the p180 kit as published in 2023; analytes it does not list get no profile.
+- Pair checks cover only rows the matching step grouped. Lipid matches cover all lipid rows with a profile.
 
 ## Next
 
-- Check a row's structure against its name, to catch cases like the Metabolon steroids. This needs a reliable name-to-structure source; PubChem synonyms turned out to be wrong in at least one case during the review, so the design is still open.
-- Check which structures a group-name row lists, to resolve the remaining group rows.
+- A second blind test on new data, ideally a Metabolon dataset against another vendor that someone has curated by hand.
+- Nightingale biomarker definitions and an aggregate relationship for class totals.
+- Checking which structures a group-name row lists.
 
 ## Repository layout
 
 ```
 R/             package code
-tests/         unit tests, built from real cases in the review
+inst/extdata/  the Biocrates p180 nomenclature table, extracted by scripts/80
+tests/         unit tests, built from real cases in the reviews
 scripts/       analysis scripts, numbered by phase
-notes/         design, decisions, findings, manual review
+notes/         design, decisions, findings, manual reviews
 results/       script output
 ```
 
-## References
+## Data sources and references
 
 - Patt A. et al. metLinkR: Facilitating Metaanalysis of Human Metabolomics Data through Automated Linking of Metabolite Identifiers. J. Proteome Res. 2025, 24, 2403-2407.
-- Aimo L. et al. The SwissLipids knowledgebase for lipid biology. Bioinformatics 2015, 31, 2860-2866.
-- Kopczynski D. et al. Goslin: A Grammar of Succinct Lipid Nomenclature. Anal. Chem. 2020, 92, 10957-10960.
-- RDKit: Open-source cheminformatics. https://www.rdkit.org
+- Aimo L. et al. The SwissLipids knowledgebase for lipid biology. Bioinformatics 2015, 31, 2860-2866. CC BY 4.0.
+- LIPID MAPS Structure Database, <https://www.lipidmaps.org>. Sud M. et al. LMSD: LIPID MAPS structure database. Nucleic Acids Res. 2007, 35, D527-D532. CC BY 4.0.
 - Liebisch G. et al. Update on LIPID MAPS classification, nomenclature, and shorthand notation for MS-derived lipid structures. J. Lipid Res. 2020, 61, 1539-1555.
+- Kopczynski D. et al. Goslin: A Grammar of Succinct Lipid Nomenclature. Anal. Chem. 2020, 92, 10957-10960.
+- biocrates life sciences ag. AbsoluteIDQ p180 kit, old vs. new nomenclature (v1-2023).
+- PubChem, <https://pubchem.ncbi.nlm.nih.gov>, through PUG REST.
+- RDKit: Open-source cheminformatics, <https://www.rdkit.org>.
 
 ## License
 
-MIT. SwissLipids data is not included and keeps its own license (CC BY 4.0).
+MIT. SwissLipids and LMSD data are not included and keep their own license (CC BY 4.0). The Biocrates nomenclature table in `inst/extdata` lists analyte names from the vendor's published document.
 
 Amin Ghasemi

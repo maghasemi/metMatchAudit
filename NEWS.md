@@ -1,3 +1,20 @@
+# metMatchAudit 0.6.0
+
+* New `load_lmsd()` and `lmsd_lookup()`: the LIPID MAPS Structure Database as a second lipid source, looked up by InChIKey in three tiers like SwissLipids. `lipid_evidence()` uses it only for rows that get no profile from SwissLipids or from the name; `lipid_source` is then `"lmsd"`. Where both sources gave a Species, they agreed in 149 of 149 development rows and 66 of 66 COMETS rows.
+* New `biocrates_p180_table()` and `vendor_lipid_profiles()`: rows from a file in Biocrates p180 nomenclature get a lipid profile from the vendor's own old-to-new table, always at species level. The table ships in `inst/extdata`, extracted from the vendor PDF by `scripts/80_biocrates_table.R`.
+* `read_metlinkr()` and `audit_metlinkr()` accept an optional `vendor` column; `audit_metlinkr()` takes `lmsd` and `lmsd_md5`.
+* Development data: no pair result changed, evaluation as in 0.4.2. Lipid match proposals went from 63 to 110, all checked by hand and correct.
+* COMETS, after adaptation: 23 pairs moved from unresolved to a definite answer, among them two MetLinkR merges of different compounds now called distinct.
+
+There is no 0.5.0 release. The RefMet row check planned for it failed its acceptance test and is kept on branch `shelved/refmet-check`.
+
+# metMatchAudit 0.4.2
+
+* New rule R03c: identical InChIKeys, or a lipid annotation R06b would call exact, are not enough for `exact` when the names state different isomers (stereo descriptors such as myo and scyllo, or omega positions such as n3 and n6). The pair is unresolved.
+* New rule R12n: the same name with different connectivity means the keys conflict. The pair is unresolved, not distinct.
+* New name helpers `normalize_name()`, `stereo_terms()` and `omega_positions()`.
+* Written after the blind COMETS test to fix its four wrong definite claims. On the development data the xylose pair is no longer wrong, and R03c caught a wrong `exact` call outside the reviewed groups. Evaluation: 35 agree, 8 unresolved, 0 wrong.
+
 # metMatchAudit 0.4.1
 
 * `resolve_identifiers()` skips internal standards, whose identifier usually belongs to the unlabelled compound. This fix was made on the development data before the COMETS test but missed the v0.4.0 tag.
