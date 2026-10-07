@@ -380,3 +380,71 @@ The 8 groups still wrong:
 The 193 changed pairs include 62 that were `exact` and 43 that were `distinct` under R06. Most are not labeled. They move to unresolved, which is the safe direction but makes the tool answer less often on files like B.
 
 v0.7.0 meets its acceptance and is tagged.
+
+## 2026-10-07: third blind test (blind)
+
+### Setup
+
+metMatchAudit v0.7.0 (tag `v0.7.0`) with SwissLipids and LMSD ran on MetLinkR output for three files:
+- A, the private Metabolon file from the second test, 494 rows;
+- C1, the fecal list of Lai et al. 2021 (Nat. Commun., DOI 10.1038/s41467-021-26209-8), 533 rows;
+- C2, the serum list of the same paper, 231 rows.
+
+MetLinkR was at commit a6aa145 with RaMP DB 3.0.7. Its mapping rates were 97.4% for A, 78.2% for C1 and 89.6% for C2.
+
+Plan and criteria: `decisions.md` (2026-10-07, third blind test). Label md5s and the stereo rule: `notes/blind3_labels.md`. All of these were committed before the run.
+
+The labels: 60 groups drawn from 175 that span at least two files, 94 pairs (91 A, 3 D), and 40 lipid and carnitine rows. Script: `scripts/103_blind3_test.R`. Counts: `results/blind3/`.
+
+### Result
+
+| criterion | result | |
+|---|---|---|
+| C1: definite claims (exact, distinct) agree with the label, at least 90% | 78 of 78 (100%) | met |
+| C2: groups labeled A to D with a wrong definite answer, at most 5% | 7 of 60 (11.7%) | not met |
+| C3: lipid proposals involving a sampled row are in the labels, at least 90% | 13 of 13 | met |
+| C3 recall | 13 of 20 (65%) | no threshold |
+| C1 on pairs without A | 30 of 30 | reported |
+
+| label | exact | broader_narrower | unresolved |
+|---|---|---|---|
+| A (91) | 78 (R03) | 11 (R09) | 2 (R11) |
+| D (3) | 0 | 0 | 3 (R01) |
+
+There was no wrong `exact` and no `distinct` call at all. The causes that drove the second test's failure, placeholder keys on isomer features and sum names with single-structure keys, did not occur in these files.
+
+### Why C2 failed
+
+All 7 wrong groups are labeled A, and all were called broader_narrower by R09: same connectivity, one key without stereo. That makes 11 pairs:
+
+| group | pairs | names |
+|---|---|---|
+| 3-hydroxybutyrate | 1 | neither name states stereo |
+| CAR 12:0 | 2 | neither name states stereo ("laurylcarnitine", "dodecanoylcarnitine") |
+| CAR 18:0 | 1 | neither name states stereo |
+| glycerate | 1 | neither name states stereo |
+| N-acetylglutamate | 2 | neither name states stereo |
+| CAR 16:0 | 2 | one name says L, the natural form |
+| malate | 2 | one name says L, the natural form |
+
+In five of the seven groups, neither name says anything about stereo. The keys differ only because one source's PubChem CID is a record without stereo and the other's is a record with it. So the R09 call reflects which record each lab picked, not the compound measured.
+
+This also means the result does not depend on the stereo rule committed for this test. Under the rule used for sphinganine in the second test, where one name stating stereo makes the pair D, only CAR 16:0 and malate would change. C2 would then be 5 of 60, still not met.
+
+This is the same cause as cause 3 in the second test (ADP-ribose, N-acetylmethionine, isovalerylcarnitine), now seen on a second, independent pair of files.
+
+### The other results
+
+- The two unresolved A pairs (malonylcarnitine, N-acetylneuraminate) went to R11: keys with different stereo, and no name states any. These are safe misses.
+- The three D pairs involve A rows with no identifier ("aconitate [cis or trans]", "oleate/vaccenate (18:1)"), so R01 applied. These are safe misses too.
+- All 13 lipid proposals were right pairs. One, A's 1-palmitoyl-2-oleoyl-GPS against C2's PS(16:0/18:1) with the same CID, came out broader_narrower (R05, structure against sn position), while the label says A. C2's name does not give the double bond position, so the tool's reading can be defended. C3 counts pairs, not relationships, so this does not affect it.
+- The 7 labeled lipid pairs the tool missed:
+  - three are free carnitine, which gets no lipid profile;
+  - three have one row without a profile ("PE(P-16:0e/0:0)", "dihomo-linoleoylcarnitine (C20:2)*" without a CID, trans-2-tetradecenoylcarnitine);
+  - one is malonylcarnitine, which R11 left unresolved.
+
+### What this means
+
+- On a naming style the tool had not seen, every definite claim was right.
+- C2 failed on one thing: broader_narrower from R09 where the two names agree and only the chosen PubChem record differs in stereo. Across the two blind tests, this is the most common way the tool disagrees with a curator.
+- A change this points to, after adaptation if made: when neither name states stereo, a stereo-only key difference should not give broader_narrower. Unresolved is the conservative answer. Reading both blind tests back under such a rule is a diagnostic, not a blind result, and it needs its own plan first.

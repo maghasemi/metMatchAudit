@@ -4,7 +4,7 @@ Check whether metabolites matched across datasets are really the same compound.
 
 Tools such as [MetLinkR](https://github.com/ncats/MetLinkR) link metabolomics datasets by giving every row a standardized name. Rows that end up with the same name are treated as one metabolite. metMatchAudit runs after that step. For every pair of rows that share a name, it looks at the structural evidence and reports how the two actually relate, with the rule that decided it. It also proposes lipid matches across vendors that the matching step missed.
 
-Status: v0.7. Developed on the MetLinkR example data and evaluated against a blind manual review, then tested blind on five COMETS datasets with expert mappings and on a second pair of files, where it did not meet its criteria (see [Evaluation](#evaluation), [External test on COMETS](#external-test-on-comets) and [Second blind test](#second-blind-test)).
+Status: v0.7. Developed on the MetLinkR example data and evaluated against a blind manual review, then tested blind on five COMETS datasets with expert mappings and in two further blind tests on files it had not seen (see [Evaluation](#evaluation), [External test on COMETS](#external-test-on-comets), [Second blind test](#second-blind-test) and [Third blind test](#third-blind-test)).
 
 ## Why
 
@@ -165,6 +165,19 @@ The tool held up on the earlier test sets but did not carry over to an unseen na
 
 v0.7, after adaptation: a new rule R03i keeps a pair unresolved when a name marks a feature of unknown identity, either by the word "isomer" or, in MS-DIAL lipid names, by a lone letter after the last semicolon ("PC 36:2; A"). On the same files, C1 goes to 48 of 53 (90.6%) and C2 to 8 of 58. The development data and COMETS do not change. These numbers come from the files the rule was written for, so they show the fix works, not that it generalizes. Reading MS-DIAL lipid names was planned for v0.7 and dropped: only 74.9% of the names parsed, short of the 80% set beforehand.
 
+## Third blind test
+
+v0.7.0 ran on my Metabolon file and on two published lists from Lai et al. 2021 (Nat. Commun.; mouse feces, 533 rows, and serum, 231 rows, each with PubChem CIDs and HMDB-style names). As before, I drew 60 MetLinkR groups and 40 lipid and carnitine rows at random, labeled them, and committed the criteria and the label md5s before the run. The rule for stereo in names was also fixed in advance.
+
+| criterion | result | |
+|---|---|---|
+| C1: definite claims (exact, distinct) agree with the label, at least 90% | 78 of 78 (100%) | met |
+| C2: groups labeled A to D with a wrong definite answer, at most 5% | 7 of 60 (11.7%) | not met |
+| C3: lipid proposals involving a sampled row are in the labels, at least 90% | 13 of 13 | met |
+| C3 recall | 13 of 20 | |
+
+Every `exact` call was right, and no lipid proposal was wrong. All seven wrong groups have one cause. Two rows name the same compound, but one lab's PubChem record has stereo and the other's does not, and rule R09 then calls the pair broader_narrower. In five of the seven, neither name says anything about stereo. The same cause appeared in the second test. The sample was mostly same-compound pairs, so it tests `exact` calls far more than `distinct` ones. Details: [notes/findings.md](notes/findings.md).
+
 ## What did not work
 
 Two ideas were tried and set aside. Both are logged in [notes/decisions.md](notes/decisions.md).
@@ -186,7 +199,8 @@ Two ideas were tried and set aside. Both are logged in [notes/decisions.md](note
 
 ## Next
 
-- A third blind test on data not used so far, with criteria committed first.
+- A stereo-only key difference between two names that state no stereo should not give broader_narrower. This was the only cause of wrong answers in the third test and one of the causes in the second.
+- A further blind test with more pairs of different compounds, since the third test had almost none.
 - Reading MS-DIAL lipid names, with a class map for names such as Cer-NS and HexCer-NDS.
 - A name against key check for lipids. In the second test, B names PC 35:3 for a row whose key is PE 38:3.
 - Nightingale biomarker definitions and an aggregate relationship for class totals.
