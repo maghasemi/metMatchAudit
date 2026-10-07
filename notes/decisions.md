@@ -392,3 +392,38 @@ Group names, alternative names and internal standards are skipped, as in identif
 - COMETS is run and reported as after adaptation, with the number of C06 and C07 flags and the rows behind them. No expert label is used to tune anything.
 
 If an acceptance check fails, it is logged as failed. The check is not tuned on the same data to make it pass.
+
+## 2026-10-07: v0.6 plan, Biocrates p180 names from the vendor's own table, written before any package code
+
+### Why
+
+In COMETS, the Biocrates file (inputs_1539353822) carries names only. Its rows have no key and no lipid profile, so every pair with them stops at R01. Most of the remaining COMETS problems sit in these pairs: isobaric sums such as C18:1 or SM C18:0, and wrong merges such as C14:2 with C14:1 or C5 with glutarylcarnitine.
+
+### Source
+
+"biocrates-p180 old vs. new nomenclature (v1-2023)", last modified 2023-02-24, `https://biocrates.com/wp-content/uploads/2023/12/p180-nomenclature.pdf`, md5 `4a1f84e43f5ad2f9dfe5aaa093fc0195`. Biocrates states the new names follow Liebisch et al. 2020 (LIPID MAPS shorthand). `scripts/80_biocrates_table.R` extracts the table from the PDF. Nothing is typed by hand. The script stops unless every section has the count the PDF states. It found 21 amino acids, 21 biogenic amines, 1 monosaccharide, 40 acylcarnitines, 90 glycerophospholipids and 15 sphingolipids, 188 in all. The PDF is not committed; the extracted table is, with its source.
+
+### Mapping, fixed now
+
+- Glycerophospholipids and sphingolipids: the new name from the table, as printed. This includes the vendor's own choices, such as `lysoPC a C28:0` to `PC O-28:0` and `SM (OH) C22:1` to `SM 41:1`.
+- Acylcarnitines: the table keeps the old abbreviation and gives the chemical name, which fixes the chain. `Cx`, `Cx:y` and `Cx:y-OH` with x of at least 2 and no alternative become `CAR x:y`, plus `;OH` for the hydroxy forms. C0 (carnitine), the -DC and -M forms, and the four analytes listed with an alternative (C4-OH (C3-DC), C5-DC (C6-OH), C5-OH (C3-DC-M), C6 (C4:1-DC)) get nothing.
+- Amino acids, biogenic amines and hexoses get nothing in v0.6. Their table entries give a name, not a structure.
+- A row is matched by the abbreviation in the last pair of parentheses of its name, spaces removed, against the table abbreviation (with its alternative in parentheses, if any). Only analytes in the table are mapped. No rule extends the table to analytes it does not list.
+
+### In the package, after the feasibility check passes
+
+- A new optional `vendor` column in the files table. `"biocrates_p180"` is the only value accepted; any other value stops the run.
+- Rows of such a file get a lipid profile from the mapped name through rgoslin, with `lipid_source` set to `"vendor_table"`. If the row already has a profile from another source and the Species differ, it gets C03 as today.
+- No pair rule changes. The existing lipid rules (R04, R05, R05g, R06, R06b) then apply to these rows.
+
+### Feasibility, `scripts/81_biocrates_feasibility.R`, counts only
+
+- F1: every mapped name parses with an accepted rgoslin grammar.
+- F2: at least 90% of the COMETS Biocrates acylcarnitine and lipid rows are found in the table. While testing the matching code, the names alone (no labels) gave 145 of 148. The three not found are C8:1, lysoPC a C6:0 and PC ae C40:0, which this release of the table does not list.
+- F3: at least 20 cross-file pairs in which the Biocrates row would get a profile and the other row already has a lipid profile. Below that, the lipid rules would rarely fire and the work would change little. In that case the reason (likely Metabolon acylcarnitines without a lipid profile) is logged and v0.6 is reconsidered.
+
+### Acceptance, after the package change
+
+- All tests pass. Development evaluation identical to v0.4.2, since the development data has no Biocrates rows.
+- COMETS rerun reported as after adaptation, with every pair whose rule changed listed and read.
+- A blind test still needs another dataset with Biocrates p180 rows and expert or manual mappings.

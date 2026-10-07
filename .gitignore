@@ -16,3 +16,4 @@ renv/staging/
 *.numbers
 *.tar.gz
 *.Rcheck/
+data-raw/biocrates/*.pdf
