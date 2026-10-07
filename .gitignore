@@ -1,4 +1,4 @@
-# Downloaded source data. Rebuild it with scripts/00_get_data.sh.
+# Downloaded source data. Rebuild it with scripts/01_setup/01_get_data.sh.
 data-raw/
 
 # R session files

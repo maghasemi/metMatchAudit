@@ -27,7 +27,7 @@ One line per row:
 | inchikey | no | from the source file, never edited |
 | smiles | no | from the source file, used only for a consistency check |
 
-The MetLinkR adapter builds this table from the `*_metLinkR.csv` files. `scripts/01_build_rows.R` is its first version.
+The MetLinkR adapter builds this table from the `*_metLinkR.csv` files. `scripts/02_manual_review/01_build_rows.R` is its first version.
 
 ## Evidence per row
 

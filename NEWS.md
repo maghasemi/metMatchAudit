@@ -8,7 +8,7 @@
 # metMatchAudit 0.6.0
 
 * New `load_lmsd()` and `lmsd_lookup()`: the LIPID MAPS Structure Database as a second lipid source, looked up by InChIKey in three tiers like SwissLipids. `lipid_evidence()` uses it only for rows that get no profile from SwissLipids or from the name; `lipid_source` is then `"lmsd"`. Where both sources gave a Species, they agreed in 149 of 149 development rows and 66 of 66 COMETS rows.
-* New `biocrates_p180_table()` and `vendor_lipid_profiles()`: rows from a file in Biocrates p180 nomenclature get a lipid profile from the vendor's own old-to-new table, always at species level. The table ships in `inst/extdata`, extracted from the vendor PDF by `scripts/80_biocrates_table.R`.
+* New `biocrates_p180_table()` and `vendor_lipid_profiles()`: rows from a file in Biocrates p180 nomenclature get a lipid profile from the vendor's own old-to-new table, always at species level. The table ships in `inst/extdata`, extracted from the vendor PDF by `scripts/10_v0.6/01_biocrates_table.R`.
 * `read_metlinkr()` and `audit_metlinkr()` accept an optional `vendor` column; `audit_metlinkr()` takes `lmsd` and `lmsd_md5`.
 * Development data: no pair result changed, evaluation as in 0.4.2. Lipid match proposals went from 63 to 110, all checked by hand and correct.
 * COMETS, after adaptation: 23 pairs moved from unresolved to a definite answer, among them two MetLinkR merges of different compounds now called distinct.
