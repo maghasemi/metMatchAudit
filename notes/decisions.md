@@ -685,3 +685,50 @@ If fewer than 30 groups hold rows from at least two files, the test still runs, 
 
 - The labeler wrote the tool, as before. No independent labeler is available.
 - A was used in the second test, so its naming is known. The new part is C1 and C2, and every result is also reported for pairs that do not involve A.
+
+## 2026-10-07: v0.8 plan, written before any code
+
+All 7 wrong groups in the third blind test, and part of cause 3 in the second, come from one situation:
+- two rows name the same compound;
+- neither name says anything about stereo;
+- one lab's PubChem record has stereo and the other's does not.
+
+R09 then calls the pair broader_narrower. The difference lies in which record each lab picked, not in what was measured. Every result on data already used after this change is after adaptation.
+
+### Change
+
+R09 and R09b make a claim only when at least one of the two names states stereo (`name_states_stereo`). When neither does, the pair goes to a new rule **R09n**, unresolved, placed right before R09. This mirrors how R10 and R11 already treat two specified keys: a claim when a name states stereo, unresolved when only the keys differ.
+
+The change can only turn a broader_narrower answer into unresolved. It cannot add a wrong definite answer.
+
+### Order, each step committed before the next
+
+1. This plan.
+2. Feasibility, `scripts/104_v08_feasibility.R`, without changing the package. On the v0.7.0 audits of all four sets (development, COMETS, second and third blind test files), it lists every R09 and R09b pair where neither name states stereo, with its label:
+   - development: the review category of the group;
+   - COMETS: whether the expert groups the pair;
+   - blind tests: the pair label.
+
+   **Go-ahead:** among the touched pairs that carry a pair or group label (development, second and third test), at least two thirds must have a label other than D. A label other than D means broader_narrower was not the curator's answer there. If fewer do, the change is dropped and the reason is logged.
+3. Build, with unit tests.
+4. Acceptance, `scripts/105_v08_check.R`.
+
+### Acceptance
+
+- **Development:**
+  - wrong stays at 0;
+  - every changed pair is listed;
+  - agree turning into safe miss is reported and allowed;
+  - lipid match proposals lost are listed with the reason.
+- **COMETS:**
+  - definite claims unchanged (122 of 122);
+  - precision and F1 recomputed with `scripts/97_comets_recount.R`. They should not move, since only `distinct` pairs are removed from MetLinkR's matches.
+- **Second and third test files:** scored with the same code as their test scripts and reported as after adaptation, with no threshold.
+
+  Expected beforehand:
+  - third test: C2 goes from 7 to 2 wrong groups (CAR 16:0 and malate stay, since one name there says L);
+  - second test: the groups of cause 3 where neither name states stereo leave the wrong column.
+
+  Anything else that changes is listed.
+
+Lipid proposals: the change also removes proposals that rest on R09 alone. Third-test C3 recall will fall. That is reported and not counted against acceptance, since a pair the tool cannot settle should not be proposed as a match.
