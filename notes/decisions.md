@@ -422,6 +422,10 @@ In COMETS, the Biocrates file (inputs_1539353822) carries names only. Its rows h
 - F2: at least 90% of the COMETS Biocrates acylcarnitine and lipid rows are found in the table. While testing the matching code, the names alone (no labels) gave 145 of 148. The three not found are C8:1, lysoPC a C6:0 and PC ae C40:0, which this release of the table does not list.
 - F3: at least 20 cross-file pairs in which the Biocrates row would get a profile and the other row already has a lipid profile. Below that, the lipid rules would rarely fire and the work would change little. In that case the reason (likely Metabolon acylcarnitines without a lipid profile) is logged and v0.6 is reconsidered.
 
+v0.6 feasibility, run 2026-10-07 with scripts/81_biocrates_feasibility.R. F1 met: 136 of 136 mapped names parse. F2 met: 145 of 148 COMETS Biocrates acylcarnitine and lipid rows found in the table (98.0%). F3 not met: 26 cross-file pairs have a mapped Biocrates row, and in only 2 does the other row have a lipid profile. The other 24 are mostly Metabolon acylcarnitines, whose names rgoslin does not read and whose keys SwissLipids does not resolve to a profile. The package change is not built on this result.
+
+Also found: rgoslin reads one-chain names such as "CAR 14:2" at structure level and LPC names at molecular level. Biocrates measures by FIA-MS and cannot separate isomers, so a profile from the vendor table should be at species level whatever rgoslin reports. To be fixed in any next plan.
+
 ### Acceptance, after the package change
 
 - All tests pass. Development evaluation identical to v0.4.2, since the development data has no Biocrates rows.
