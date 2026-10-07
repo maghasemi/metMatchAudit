@@ -732,3 +732,28 @@ The change can only turn a broader_narrower answer into unresolved. It cannot ad
   Anything else that changes is listed.
 
 Lipid proposals: the change also removes proposals that rest on R09 alone. Third-test C3 recall will fall. That is reported and not counted against acceptance, since a pair the tool cannot settle should not be proposed as a match.
+
+## 2026-10-07: v0.8 feasibility result, R09n dropped
+
+`scripts/104_v08_feasibility.R` (log in `results/v08_feasibility_log.txt`) counted the R09 and R09b pairs where neither name states stereo:
+
+| set | touched | labeled | label other than D |
+|---|---|---|---|
+| development | 27 | 25 | 1 (an E pair) |
+| COMETS | 16 | | 15 grouped by the expert |
+| second test | 25 | 5 | 3 |
+| third test | 23 | 9 | 9 |
+
+Only 13 of the 39 labeled pairs, 33.3%, have a label other than D. The go-ahead needed two thirds, so **R09n is dropped**, as the plan says.
+
+The count shows something more important than the rule. My own reviews used two different conventions for the same situation:
+- The development review (2026-10, v0.1) labeled pairs such as lactate against lactic acid, malate against malic acid and cholate against cholic acid as D, broader or narrower. One record has stereo and the other does not, and the review followed the records.
+- The blind labels of the second and third tests followed the names instead. When neither name states stereo, the label is A.
+
+The tool was built and checked against the first convention. Its R09 calls agree with it in 24 of 24 development pairs. The third test's C2 failure therefore comes from the labeling convention fixed for that test, which differs from the one the tool was evaluated against. This does not change the result: C2 was not met and stays not met. It explains the result.
+
+Decision:
+- No rule change. The two conventions answer different questions. Which record is more specific is the development review's question. Whether a curator merging by name would call two rows the same compound is the blind labels' question.
+- The README will say plainly that broader_narrower from R09 means the two records differ only in whether stereo is given, and that a user who matches by name can treat such a pair as the same compound.
+- Which convention the tool should follow is a design decision. It has to be made explicitly, before any new rule. The go-ahead check above mixed labels from both conventions, which is why it could not settle the question. It is not rerun with another threshold.
+- Any further test fixes in advance which convention its labels follow.

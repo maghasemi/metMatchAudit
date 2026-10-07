@@ -187,6 +187,7 @@ Two ideas were tried and set aside. Both are logged in [notes/decisions.md](note
 
 ## Known limits
 
+- `broader_narrower` from rule R09 means one record has stereo and the other does not. Often the names agree and say nothing about stereo ("lactate" and "Lactic acid"), and the difference only reflects which PubChem record each lab chose. If you match by name, treat such a pair as the same compound. In the third blind test this was the only cause of wrong answers. Changing the rule was tried and dropped; see notes/decisions.md, 2026-10-07, v0.8.
 - Rows with only a name, and no identifier the tool can use, get no evidence. This is most of the COMETS Biocrates amino acids, the LC/MS file and the Nightingale file.
 - Nightingale class totals (Omega-6, total fatty acids) and other aggregate measures have no relationship of their own yet.
 - Sugars in ring and open-chain form get different InChIKeys. With the same name they stay unresolved; with different names they are called distinct (N-acetylneuraminic acid in the second blind test).

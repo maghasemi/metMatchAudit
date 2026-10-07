@@ -1,0 +1,64 @@
+- The project is out-of-sync -- use `]8;;x-r-run:renv::status()renv::status()]8;;` for details.
+==== R09 and R09b pairs where neither name states stereo
+         set r09_pairs touched labeled label_not_D expert_same
+ development        27      27      25           1          NA
+      comets        16      16      NA          NA          15
+      blind2        25      25       5           3          NA
+      blind3        27      23       9           9          NA
+
+Labels of touched pairs (development, blind2, blind3):
+             label
+set            A  D  E
+  blind2       3  2  0
+  blind3       9  0  0
+  development  0 24  1
+
+Share with a label other than D: 13 of 39 (33.3%). Go-ahead needs at least 66.7%: NOT MET
+
+Development and COMETS pairs (public data):
+ set         group_id                   row_a                 row_b                 name_a                           name_b                  rule_id label      
+ development Cholic acid                LEOCC_Metabolon:12    Broad_2022Aug:422     cholate                          Cholic acid             R09b    D          
+ development N-Formylmethionine         LEOCC_Metabolon:24    Broad_2022Aug:504     N-formylmethionine               N-Formylmethionine      R09     D          
+ development AMP                        LEOCC_Metabolon:27    Broad_2022Aug:331     adenosine 5'-monophosphate (AMP) AMP                     R09     D          
+ development Aspartic acid              LEOCC_Metabolon:32    Broad_2022Aug:333     aspartate                        Aspartic acid           R09     D          
+ development Cholesterol                LEOCC_Metabolon:43    Broad_2022Aug:141     cholesterol                      Cholesterol             R09b    D          
+ development Deoxycholic acid           LEOCC_Metabolon:51    Broad_2022Aug:335     deoxycholate                     Deoxycholic acid        R09b    D          
+ development Deoxycholic acid           LEOCC_Metabolon:51    Broad_2022Aug:425     deoxycholate                     Deoxycholic acid        R09b    D          
+ development alpha-Aminoadipic acid     LEOCC_Metabolon:68    Broad_2022Aug:313     2-aminoadipate                   Aminoadipic acid        R09     <NA>       
+ development Malic acid                 LEOCC_Metabolon:73    Broad_2022Aug:358     malate                           Malic acid              R09     D          
+ development Phytanic acid              LEOCC_Metabolon:85    Broad_2022Aug:479     phytanate                        Phytanic acid           R09     D          
+ development Lactic acid                LEOCC_Metabolon:88    Broad_2022Aug:357     lactate                          Lactic acid             R09     D          
+ development Uridine                    LEOCC_Metabolon:97    Broad_2022Aug:381     uridine                          Uridine                 R09     D          
+ development Glyceric acid              LEOCC_Metabolon:149   Broad_2022Aug:342     glycerate                        Glyceric acid           R09     D          
+ development Chenodeoxycholic acid      LEOCC_Metabolon:165   Broad_2022Aug:421     chenodeoxycholate                Chenodeoxycholic acid   R09b    D          
+ development Ibuprofen                  LEOCC_Metabolon:196   Broad_2022Aug:452     ibuprofen                        Ibuprofen               R09     D          
+ development sn-Glycero-3-phosphate     LEOCC_Metabolon:236   Broad_2022Aug:326     glycerol 3-phosphate             sn-Glycero-3-phosphate  R09     D          
+ development Indolelactic acid          LEOCC_Metabolon:250   Broad_2022Aug:351     indolelactate                    Indolelactic acid       R09     D          
+ development Phenyllactic acid          LEOCC_Metabolon:279   Broad_2022Aug:477     phenyllactate (PLA)              Phenyllactic acid       R09     D          
+ development Erythritol                 LEOCC_Metabolon:292   Broad_2022Aug:375     erythritol                       Erythritol              R09     D          
+ development Tauro-beta-muricholic acid LEOCC_Metabolon:356   Broad_2022Aug:488     tauro-beta-muricholate           Tauromuricholic acid    R09b    D          
+ development LPC 16:0/0:0               LEOCC_Metabolon:362   Broad_2022Aug:156     1-palmitoyl-GPC (16:0)           LPC 16:0/0:0            R09     <NA>       
+ development 3-Methyladipic acid        LEOCC_Metabolon:492   Broad_2022Aug:502     3-methyladipate                  3-Methyladipic acid     R09     D          
+ development 2-Hydroxyglutaric acid     LEOCC_Metabolon:547   Broad_2022Aug:318     2-hydroxyglutarate               2-Hydroxyglutaric acid  R09     D          
+ development Omeprazole                 LEOCC_Metabolon:604   Broad_2022Aug:468     omeprazole                       Omeprazole              R09     D          
+ development Tauroursodeoxycholic acid  LEOCC_Metabolon:630   Broad_2022Aug:511     tauroursodeoxycholate            Taurodeoxycholic acid   R09b    E          
+ development Valsartan                  LEOCC_Metabolon:789   Broad_2022Aug:497     valsartan                        Valsartan               R09     D          
+ development 3S-Hydroxyhexanoic acid    LEOCC_Metabolon:810   Broad_2022Aug:402     3-hydroxyhexanoate               3S-Hydroxyhexanoic acid R09     D          
+ comets      CAR 2:0                    inputs_1539354673:138 inputs_1555609921:211 acetylcarnitine                  acetylcarnitine         R09     expert_same
+ comets      CAR 3:0                    inputs_1539354673:154 inputs_1555609921:561 propionylcarnitine               propionylcarnitine      R09     expert_same
+ comets      CAR 4:0                    inputs_1539354673:151 inputs_1555609921:250 butyrylcarnitine                 butyrylcarnitine        R09     expert_same
+ comets      CAR 8:0                    inputs_1539354673:230 inputs_1555609921:511 octanoylcarnitine                octanoylcarnitine       R09     expert_same
+ comets      CAR 10:0                   inputs_1539354673:233 inputs_1555609921:285 decanoylcarnitine                decanoylcarnitine       R09     expert_same
+ comets      CAR 16:0                   inputs_1539354673:115 inputs_1555609921:530 palmitoylcarnitine               palmitoylcarnitine      R09     expert_same
+ comets      CAR 18:0                   inputs_1539354673:257 inputs_1555609921:612 stearoylcarnitine                stearoylcarnitine       R09     expert_same
+ comets      Arginine                   inputs_1539354673:41  inputs_1555609921:234 arginine                         arginine                R09     expert_same
+ comets      Lactic acid                inputs_1539354673:8   inputs_1555609921:418 lactate                          lactate                 R09     expert_same
+ comets      Malic acid                 inputs_1539354673:24  inputs_1555609921:431 malate                           malate                  R09     expert_same
+ comets      Glyceric acid              inputs_1539354673:38  inputs_1555609921:357 glycerate                        glycerate               R09     expert_same
+ comets      sn-Glycero-3-phosphate     inputs_1539354673:67  inputs_1555609921:359 glycerol 3-phosphate             glycerol 3-phosphate    R09     expert_same
+ comets      Indolelactic acid          inputs_1539354673:88  inputs_1555609921:402 indolelactate                    indolelactate           R09     expert_same
+ comets      Glutamic acid              inputs_1539354673:141 inputs_1555609921:351 glutamate                        glutamate               R09     expert_diff
+ comets      LPC 16:0/0:0               inputs_1539354673:234 inputs_1555609921:78  1-palmitoyl-GPC (16:0)           1-palmitoyl-GPC (16:0)  R09     expert_same
+ comets      2-Hydroxypalmitic acid     inputs_1539354673:291 inputs_1555609921:108 2-hydroxypalmitate               2-hydroxypalmitate      R09     expert_same
+
+Counts in results/v08_feasibility; blind-test rows in data-raw/own/v08_feasibility.
