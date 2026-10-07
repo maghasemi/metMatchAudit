@@ -168,6 +168,11 @@ Severity, most severe first: distinct, unresolved, broader_narrower, stereo_vari
 - Rows with only a name and no usable identifier get no evidence.
 - Glycosylceramide pairs that differ only in headgroup naming stay unresolved.
 - Name checks are tuned on Metabolon, Broad, Biocrates, MS-DIAL and HMDB-style names.
+- Nightingale class totals (Omega-6, total fatty acids) and other aggregate measures have no relationship of their own.
+- The stereo comparison can report a false conflict for symmetric molecules such as inositol. A conflict never leads to a claim on its own.
+- A structure whose SMILES and key agree but which does not match its name (the Metabolon steroids in the first review) is not detected.
+- The Biocrates table covers the p180 kit as published in 2023; analytes it does not list get no profile.
+- Pair checks cover only rows the matching step grouped. Lipid matches cover all lipid rows with a profile.
 
 ## Versions
 
