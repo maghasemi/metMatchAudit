@@ -460,3 +460,7 @@ Same as SwissLipids: full key, then the first 25 characters, then the first 14, 
 - L3: among rows where both SwissLipids (or the name) and LMSD give a Species, at least 95% agree, counting headgroup naming differences (HexCer against GlcCer) as agreement. At least 50 such rows are needed for the check to count. Every disagreement is listed and read.
 
 If L2 or L3 fails, it is logged and neither LMSD nor the vendor table goes into the package on this plan.
+
+LMSD feasibility, run 2026-10-07 with scripts/82_lmsd_feasibility.R. L1: 230 development rows and 154 COMETS rows get a Species from LMSD and have none today. L2 met: 22 of 26 COMETS pairs with a mapped Biocrates row now have a Species on the other row. L3 met: where SwissLipids or the name and LMSD both give a Species, they agree in 149 of 149 development rows and 66 of 66 COMETS rows.
+
+Correction to the plan, before building: LMSD changes no row's existing profile, but rows that gain a profile can change pair results, since lipid rules run before R03. The statement that no v0.4.2 result changes was wrong. Acceptance is therefore: development evaluation not worse than v0.4.2 (35 agree, 0 wrong), every pair whose rule changes is listed and read, and every new lipid match proposal on the development data is reviewed by hand, as the 63 of v0.2 were.
