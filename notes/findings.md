@@ -351,7 +351,7 @@ Script: `scripts/96_v07_check.R`. Log: `results/v07_check_log.txt`. Every run us
 | COMETS | 0 rows with a marker, 0 pairs changed. Definite claims across files agree with the expert in 122 of 122 for both versions. |
 | second blind test files | 155 rows with a marker, all in B: 55 by the word "isomer", 100 by a lone letter (49 A, 43 B, 8 C). 193 pairs changed rule, all to R03i except one to R12n. |
 
-COMETS is 122 of 122 here and 123 of 123 in the README. Both versions were counted the same way in this script, so v0.7 changes nothing there. The difference is in how the earlier scripts counted, and is to be checked.
+COMETS is 122 of 122 here and 123 of 123 in the README. Both versions were counted the same way in this script, so v0.7 changes nothing there. The difference is in how the earlier scripts counted, was since checked by scripts/97_comets_recount.R: 122 of 122 is right (decisions.md, 2026-10-07, COMETS numbers for v0.6 corrected).
 
 Every lone-letter name was checked by eye. All are MS-DIAL lipid features ("PC 36:2; A", "Cer-NS d42:2; Cer-NS d18:1/24:1; B").
 

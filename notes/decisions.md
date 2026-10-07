@@ -622,3 +622,17 @@ Two changes to the plan, made before the build:
 2. **R03i sits right after R01, before the lipid rules, not after R03c.** The plan said the lipid rules rest on the name and can still apply. In B that is not true: the marked lipid rows got their profile from the key, the same key the marker says not to trust. So a marked row decides nothing, whether through its key or through a profile found by that key. R02 (internal standard) and R01 (no evidence) still come first.
 
 v0.7 is now R03i and the rotation prefix. Acceptance is unchanged. The word marker and the prefix touch no row in the development data or COMETS. The letter form was not counted there, so `scripts/96_v07_check.R` reports the marker count for every set. If those counts are zero, both sets should come out unchanged, and any difference is a bug.
+
+## 2026-10-07: COMETS numbers for v0.6 corrected
+
+The README gave 123 of 123 definite claims for v0.6, with precision 0.900 and F1 0.897. `scripts/96_v07_check.R` counted 122 of 122. `scripts/97_comets_recount.R` reruns the evaluation code of `scripts/60_comets_test.R` on the stored audits of every version. It reproduces the blind v0.4.1 result exactly, 121 of 125 with F1 0.893 against 0.895.
+
+| | v0.4.1 | v0.4.2 | v0.6.0 | v0.7.0 |
+|---|---|---|---|---|
+| definite claims right | 121 of 125 | 121 of 121 | 122 of 122 | 122 of 122 |
+| precision with the audit | 0.895 | 0.895 | 0.897 | 0.897 |
+| F1 with the audit | 0.893 | 0.895 | 0.896 | 0.896 |
+
+MetLinkR alone has precision 0.895 and F1 0.895 throughout.
+
+The earlier numbers were worked out by hand from the list of changed pairs and never counted. That list covered all pairs, and one of the two new `distinct` calls is a pair within one file, which the COMETS evaluation does not count. The README now gives the recounted numbers. From now on, every number in the README comes from a script.
