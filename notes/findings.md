@@ -2,51 +2,9 @@
 
 Numbers here come from the scripts, not from memory. When a number is copied in, note which results file it came from.
 
+On 2026-10-07 the sections were put back in the order the work was done: the v0.2 to v0.4 results had been added at the top, under the phase 1a heading. No section's text was changed. A short v0.6 section was added, taken from the v0.6 entries in decisions.md, since that version had none here. The git history of this file shows the earlier layout.
+
 ## Phase 1a: InChIKey check on MetLinkR example output
-
-## v0.2 results
-
-Package output checked against the hand review (`scripts/31_v02_check_proposals.R`): all 53 reviewed proposals are reproduced, and 6 new ones come from group-name rows that now have a lipid profile. The 6 were checked by adding up each listed member's chains; all are correct. Total: 59 proposals, 59 correct, 48 of them not linked by MetLinkR.
-
-Group-name rows with a profile: 19 of 28, all in the Metabolon file.
-
-Effect on the v0.1 evaluation (53 reviewed groups): agree 28 to 29, safe_miss 14 to 13, wrong unchanged at 1 (xylose). The SM 36:1 group (C) now comes out distinct through R04. Of the 13 wrong merges by MetLinkR, the tool now finds 12.
-
-## v0.3 feasibility: RDKit and stereo comparison
-
-Source: `scripts/41_v03_rdkit_feasibility.R`, output in `results/v03_rdkit/`.
-
-All three criteria met on the development machine, with the same results as the earlier run elsewhere: 65 of 65 reference keys reproduced; no B pair classified as subset; Broad xylose flagged.
-
-R11 pairs by review label: D pairs 6 subset and 1 without a usable structure (quinic acid); B pairs 1 conflict (androsterone against etiocholanolone) and 1 without a usable structure (2-hydroxystearate); E pairs 6 conflict and 1 subset (tauroursodeoxycholate, where the structures are the same compound with partial stereo and the E label comes from the Broad row's name).
-
-Broad rows whose own InChI disagrees with their stored InChIKey: 21. Two differ in connectivity (xylose, L-urobilin); the other 19 in the stereo block, often one side with stereo and the other without. For N-formylmethionine the Broad InChI gives the L form and the stored key the D form, which confirms that the key, not the compound, is wrong.
-
-## v0.3 results
-
-Evaluation against the manual review (53 groups), with structure checks on:
-
-| outcome | v0.1 | v0.2 | v0.3 |
-|---|---|---|---|
-| agree | 28 | 29 | 34 |
-| safe_miss | 14 | 13 | 8 |
-| wrong | 1 | 1 | 1 |
-
-Five D groups (cholic acid, cholesterol, deoxycholic acid, chenodeoxycholic acid, tauro-beta-muricholic acid) moved from R11 to R09b and now agree. No B group was called broader/narrower. The one wrong answer is still xylose.
-
-Lipid matches: 60. The new one is cholesterol, whose two rows share Species ST 27:1;O at the same level; R09b now resolves it as broader_narrower, matching the review label D. Added to notes/v02_proposal_review.csv as correct: 60 of 60.
-
-Row check C04 flags 21 Broad rows whose own InChI disagrees with their stored key, 2 in connectivity (xylose, L-urobilin).
-
-## v0.4 results
-
-Identifier resolution on the development data: the evaluation of the 53 reviewed groups is unchanged (34 agree, 8 safe_miss, 1 wrong), as expected, since every reviewed row already had a key.
-
-Outside the review, 8 pairs that were unresolved for lack of a key (R01) now have a decision: unresolved pairs 24 to 16, exact 136 to 142, broader_narrower 7 to 9.
-
-Three new lipid proposals, all correct: 1-palmitoyl-GPC (16:0) against LPC 16:0/0:0 (broader_narrower, R09), 1-palmitoyl-GPE (16:0) against LPE 16:0/0:0 and 1-stearoyl-GPE (18:0) against LPE 18:0/0:0 (exact, R03). These were three of the four lysophospholipid pairs left at R99 in v0.2. Proposals: 63 of 63 correct.
-
-A first version resolved identifiers on Species-level lipid names and on internal standards, raising row flags from 15 to 93 and costing 8 rows their lipid profile. Both fixed before the version was frozen (decisions.md, 2026-10-06); row flags are now 17, two of them real disagreements between a vendor's identifier and its own structure (LPC 19:0/0:0, 2-aminobutyric acid).
 
 ### Input rows
 
@@ -183,8 +141,49 @@ On this data, v0.2 would add 43 lipid links to the 10 that MetLinkR made.
 - Quinic acid: the Broad InChIKey differs from the key computed from the Broad SMILES in the same row. A second example, after xylose, of a source row whose SMILES and InChIKey disagree. Check C04 (v0.3) would flag both.
 - PubChem synonyms can be wrong: CID 168408 is listed as tauro-alpha-muricholate, but its structure has the beta configuration at C6/C7. Check C05 (name vs PubChem synonyms, v0.3) must treat synonyms as weak evidence and should not flag a row on synonyms alone when the structure agrees with the row name.
 
+## v0.2 results
 
+Package output checked against the hand review (`scripts/31_v02_check_proposals.R`): all 53 reviewed proposals are reproduced, and 6 new ones come from group-name rows that now have a lipid profile. The 6 were checked by adding up each listed member's chains; all are correct. Total: 59 proposals, 59 correct, 48 of them not linked by MetLinkR.
 
+Group-name rows with a profile: 19 of 28, all in the Metabolon file.
+
+Effect on the v0.1 evaluation (53 reviewed groups): agree 28 to 29, safe_miss 14 to 13, wrong unchanged at 1 (xylose). The SM 36:1 group (C) now comes out distinct through R04. Of the 13 wrong merges by MetLinkR, the tool now finds 12.
+
+## v0.3 feasibility: RDKit and stereo comparison
+
+Source: `scripts/41_v03_rdkit_feasibility.R`, output in `results/v03_rdkit/`.
+
+All three criteria met on the development machine, with the same results as the earlier run elsewhere: 65 of 65 reference keys reproduced; no B pair classified as subset; Broad xylose flagged.
+
+R11 pairs by review label: D pairs 6 subset and 1 without a usable structure (quinic acid); B pairs 1 conflict (androsterone against etiocholanolone) and 1 without a usable structure (2-hydroxystearate); E pairs 6 conflict and 1 subset (tauroursodeoxycholate, where the structures are the same compound with partial stereo and the E label comes from the Broad row's name).
+
+Broad rows whose own InChI disagrees with their stored InChIKey: 21. Two differ in connectivity (xylose, L-urobilin); the other 19 in the stereo block, often one side with stereo and the other without. For N-formylmethionine the Broad InChI gives the L form and the stored key the D form, which confirms that the key, not the compound, is wrong.
+
+## v0.3 results
+
+Evaluation against the manual review (53 groups), with structure checks on:
+
+| outcome | v0.1 | v0.2 | v0.3 |
+|---|---|---|---|
+| agree | 28 | 29 | 34 |
+| safe_miss | 14 | 13 | 8 |
+| wrong | 1 | 1 | 1 |
+
+Five D groups (cholic acid, cholesterol, deoxycholic acid, chenodeoxycholic acid, tauro-beta-muricholic acid) moved from R11 to R09b and now agree. No B group was called broader/narrower. The one wrong answer is still xylose.
+
+Lipid matches: 60. The new one is cholesterol, whose two rows share Species ST 27:1;O at the same level; R09b now resolves it as broader_narrower, matching the review label D. Added to notes/v02_proposal_review.csv as correct: 60 of 60.
+
+Row check C04 flags 21 Broad rows whose own InChI disagrees with their stored key, 2 in connectivity (xylose, L-urobilin).
+
+## v0.4 results
+
+Identifier resolution on the development data: the evaluation of the 53 reviewed groups is unchanged (34 agree, 8 safe_miss, 1 wrong), as expected, since every reviewed row already had a key.
+
+Outside the review, 8 pairs that were unresolved for lack of a key (R01) now have a decision: unresolved pairs 24 to 16, exact 136 to 142, broader_narrower 7 to 9.
+
+Three new lipid proposals, all correct: 1-palmitoyl-GPC (16:0) against LPC 16:0/0:0 (broader_narrower, R09), 1-palmitoyl-GPE (16:0) against LPE 16:0/0:0 and 1-stearoyl-GPE (18:0) against LPE 18:0/0:0 (exact, R03). These were three of the four lysophospholipid pairs left at R99 in v0.2. Proposals: 63 of 63 correct.
+
+A first version resolved identifiers on Species-level lipid names and on internal standards, raising row flags from 15 to 93 and costing 8 rows their lipid profile. Both fixed before the version was frozen (decisions.md, 2026-10-06); row flags are now 17, two of them real disagreements between a vendor's identifier and its own structure (LPC 19:0/0:0, 2-aminobutyric acid).
 
 ## 2026-10-06: COMETS external test (blind)
 
@@ -246,6 +245,14 @@ Done after the result was sealed, so it explains the result and does not replace
 - The expert answers "same measurement", the audit answers "same compound". Platform splits and class totals account for 14 of the 42 pairs.
 - Changes this test points to: identical names with different connectivity become unresolved with a row flag; identical stereo-free keys from resolved identifiers are not enough for exact when names state different isomers; names that state different omega positions conflict; names joined by a slash count as group names; name to RefMet (v0.5); an aggregate relationship (v0.6).
 - Any COMETS number after these changes counts as after adaptation. A fresh dataset with expert mappings is needed for a second blind test.
+
+## 2026-10-07: v0.6 results (after adaptation on COMETS)
+
+The plans and the acceptance check are in `decisions.md` (2026-10-07, v0.6 plan and LIPID MAPS plan). Script: `scripts/10_v0.6/04_acceptance.R`. Output: `results/v06_check/`.
+
+- Development data: no pair changed rule. The evaluation is the same as for v0.4.2: 35 agree, 8 safe miss, 0 wrong, 10 E not exact. LMSD gave 233 rows a lipid profile.
+- Lipid match proposals on the development data went from 63 to 110. All 47 new ones were checked by hand and are correct (`notes/v06_dev_lipid_review.csv`).
+- COMETS: 23 pairs moved from R01 to a definite answer, 22 of them across files. Two became distinct, valerylcarnitine against glutarylcarnitine and C14:1 against C14:2, both MetLinkR merges of different compounds. Across files, definite claims agree with the expert in 122 of 122 (recounted with `scripts/08_comets/04_recount_all_versions.R`).
 
 ## 2026-10-07: second blind test (blind)
 
