@@ -592,3 +592,33 @@ If any development or COMETS condition fails, v0.7 is not tagged until the cause
 ### After v0.7
 
 A third blind test on data not used so far, with criteria C1 to C3 as in the second test, written and committed first. Ideally a file from a vendor or a naming style the tool has not seen, labeled before the run.
+
+## 2026-10-07: v0.7 feasibility result and changes to the plan
+
+The feasibility script is `scripts/95_v07_feasibility.R`, with its log in `results/v07_feasibility_log.txt`. Its results:
+
+- **Isomer marker.** 55 rows of B carry the word "isomer", 53 of them with a key. There are none in the development data, COMETS or A, so the rule cannot change any result there.
+- **MS-DIAL names.** After cleaning, 598 of B's 960 lipid rows parse from their name, which is 74.9% of the 798 that could. That is below the 80% set in the plan, so change 2 is dropped from v0.7, as the plan says.
+
+  The names that fail fall into three groups:
+  - MS-DIAL class names that rgoslin does not read (Cer-NS, Cer-NDS, HexCer-NS and the like);
+  - fatty acids written with a common name after a semicolon ("FA 16:1; (palmitoleic acid)");
+  - names whose last part is a lone letter ("CE 20:5; A").
+
+  Reading these would need a class map for MS-DIAL notation. That is a plan of its own for a later version, not a fix to make here.
+
+  Of the names that parse and also have a profile from their key, 8 disagree on the Species:
+  - five are GlcCer against HexCer, a naming difference;
+  - LPE 21:0 against PE 21:0;
+  - PC 35:3 against PE 38:3, the same formula with a different head group;
+  - PC 36:3 against PC O-36:3.
+
+  The last three are cases where B's key and B's name describe different lipids. Name against key is a check the tool could make for lipids, as C04 does for structures.
+- **Rotation prefix.** One row, B:1 "(-)-N-Acetylneuraminic acid". The plan expected both Neu5Ac pairs to become unresolved. That holds only for B:1 against B:627 "N-Acetylneuraminic acid". Against A's "N-acetylneuraminate" the names still differ after the prefix is dropped (acid against -ate), so that pair stays distinct. The expectation in the plan stays as written, and this is what the check should show.
+
+Two changes to the plan, made before the build:
+
+1. **The marker also covers MS-DIAL's lone letter.** A name whose last ";"-separated part is a single capital letter ("Cer-NS d42:2; Cer-NS d18:1/24:1; A") marks the same thing as "isomer A". B uses both forms, and the feasibility run found the letter form among the names that fail to parse.
+2. **R03i sits right after R01, before the lipid rules, not after R03c.** The plan said the lipid rules rest on the name and can still apply. In B that is not true: the marked lipid rows got their profile from the key, the same key the marker says not to trust. So a marked row decides nothing, whether through its key or through a profile found by that key. R02 (internal standard) and R01 (no evidence) still come first.
+
+v0.7 is now R03i and the rotation prefix. Acceptance is unchanged. The word marker and the prefix touch no row in the development data or COMETS. The letter form was not counted there, so `scripts/96_v07_check.R` reports the marker count for every set. If those counts are zero, both sets should come out unchanged, and any difference is a bug.

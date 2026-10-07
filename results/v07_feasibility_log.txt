@@ -1,0 +1,142 @@
+- The project is out-of-sync -- use `]8;;x-r-run:renv::status()renv::status()]8;;` for details.
+==== Isomer markers and rotation prefixes
+ set         rows isomer_marker isomer_marker_with_key rotation_prefix
+ development 2059  0             0                     0              
+ comets      1429  0             0                     0              
+ blind2_A     494  0             0                     0              
+ blind2_B    1547 55            53                     1              
+
+isomer names outside file A:
+ set      row_id name                             
+ blind2_B B:36   2-Hydroxyglutaric acid isomer A  
+ blind2_B B:37   2-Hydroxyglutaric acid isomer B  
+ blind2_B B:79   4-Hydroxyphenyllactic acid isomer
+ blind2_B B:81   4-Imidazoleacrylic acid isomer   
+ blind2_B B:82   4-Ketopimelic acid isomer A      
+ blind2_B B:90   5'-Methylthioadenosine isomer    
+ blind2_B B:122  Adenosine isomer                 
+ blind2_B B:141  Arabinonic acid isomer A         
+ blind2_B B:147  Arginine isomer                  
+ blind2_B B:157  Azelaic acid isomer A            
+ blind2_B B:176  Carnosine isomer A               
+ blind2_B B:177  Carnosine isomer B               
+ blind2_B B:237  Creatine isomer                  
+ blind2_B B:377  gamma-Glutamylglutamine isomer A 
+ blind2_B B:378  gamma-Glutamylglutamine isomer B 
+ blind2_B B:397  Glutamic acid isomer A           
+ blind2_B B:398  Glutamic acid isomer B           
+ blind2_B B:400  Glutamine isomer                 
+ blind2_B B:415  Glycerophosphocholine isomer A   
+ blind2_B B:416  Glycerophosphocholine isomer B   
+ blind2_B B:473  Hexose phosphate isomer A        
+ blind2_B B:474  Hexose phosphate isomer B        
+ blind2_B B:475  Hexose phosphate isomer C        
+ blind2_B B:476  Hexose phosphate isomer D        
+ blind2_B B:482  Histidine isomer A               
+ blind2_B B:483  Histidine isomer B               
+ blind2_B B:499  Inosine 5'-monophosphate isomer  
+ blind2_B B:614  N-Acetylaspartic acid isomer B   
+ blind2_B B:638  N-Methylalanine isomer           
+ blind2_B B:654  Oleamide isomer                  
+ blind2_B B:667  Palmitamide isomer A             
+ blind2_B B:668  Palmitamide isomer B             
+ blind2_B B:671  Pantothenic acid isomer A        
+ blind2_B B:672  Pantothenic acid isomer B        
+ blind2_B B:894  PC O-42:4; or PC P-42:3 isomer A 
+ blind2_B B:895  PC O-42:4; or PC P-42:3 isomer B 
+ blind2_B B:1103 PE P-39:1; or PE O-39:2; isomer A
+ blind2_B B:1104 PE P-39:1; or PE O-39:2; isomer B
+ blind2_B B:1152 Phosphocholine isomer            
+ blind2_B B:1220 Prolinamide isomer A             
+ blind2_B B:1221 Prolinamide isomer B             
+ blind2_B B:1225 Propionic acid isomer A          
+ blind2_B B:1226 Propionic acid isomer B          
+ blind2_B B:1290 Psicose isomer                   
+ blind2_B B:1296 Pyroglutamic acid isomer         
+ blind2_B B:1396 Stachydrine isomer               
+ blind2_B B:1397 Stearamide isomer A              
+ blind2_B B:1398 Stearamide isomer B              
+ blind2_B B:1403 Sucrose isomer A                 
+ blind2_B B:1404 Sucrose isomer B                 
+ blind2_B B:1507 trans-Nicotine-1'-oxide isomer A 
+ blind2_B B:1509 Trehalose isomer B               
+ blind2_B B:1515 Tryptophan isomer                
+ blind2_B B:1516 Turanose isomer B                
+ blind2_B B:1536 Vitamin C isomer B               
+isomer names in file A: 0 (listed in data-raw/own/blind2/v07_feasibility)
+
+rotation names outside file A:
+ set      row_id name                       
+ blind2_B B:1    (-)-N-Acetylneuraminic acid
+rotation names in file A: 0 (listed in data-raw/own/blind2/v07_feasibility)
+
+==== MS-DIAL names in B (threshold: 80% of rows that could parse)
+ measure                                                 value
+ B lipid rows                                            960.0
+ rows flagged as group or alternative names now          162.0
+ names with alternatives (' or '), no profile by design  162.0
+ cleaned names that parse                                598.0
+   share of rows that could parse                         74.9
+ parse and key profile agree on Species                  438.0
+ parse and key profile disagree (would lose the profile)   8.0
+ parse where the row has no profile now                  151.0
+
+Levels from the cleaned names:
+
+  molecular sn_position     species   structure        <NA> 
+        341          45         192          20         362 
+Grammar of names that did not parse:
+
+NOT_PARSEABLE 
+          200 
+
+Names that did not parse, by class:
+
+HexCer     PC    LPC    Cer     FA     PS     SM     PE     PI    TAG GlcCer     PG     CE 
+    43     43     24     23     23     14     10      7      4      4      2      2      1 
+
+First 30 that did not parse:
+ row_id name                               cleaned                
+ B:182  CE 20:5; A                         A                      
+ B:201  Cer-NDS d36:0; Cer-NDS d18:0/18:0; Cer-NDS d18:0/18:0     
+ B:202  Cer-NDS d40:0; Cer-NDS d18:0/22:0; Cer-NDS d18:0/22:0     
+ B:203  Cer-NDS d41:0; Cer-NDS d18:0/23:0; Cer-NDS d18:0/23:0     
+ B:204  Cer-NDS d42:0; Cer-NDS d18:0/24:0; Cer-NDS d18:0/24:0     
+ B:205  Cer-NDS d42:1; Cer-NDS d18:0/24:1; Cer-NDS d18:0/24:1     
+ B:206  Cer-NS d34:1; Cer-NS d18:1/16:0;   Cer-NS d18:1/16:0      
+ B:207  Cer-NS d36:1; Cer-NS d18:1/18:0;   Cer-NS d18:1/18:0      
+ B:208  Cer-NS d36:2; Cer-NS d18:2/18:0;   Cer-NS d18:2/18:0      
+ B:209  Cer-NS d37:1;                      Cer-NS d37:1           
+ B:210  Cer-NS d38:1; Cer-NS d20:1/18:0;   Cer-NS d20:1/18:0      
+ B:211  Cer-NS d38:2; Cer-NS d18:2/20:0;   Cer-NS d18:2/20:0      
+ B:212  Cer-NS d39:1; Cer-NS d18:1/21:0;   Cer-NS d18:1/21:0      
+ B:213  Cer-NS d39:2; Cer-NS d18:2/21:0;   Cer-NS d18:2/21:0      
+ B:214  Cer-NS d40:1; Cer-NS d18:1/22:0;   Cer-NS d18:1/22:0      
+ B:215  Cer-NS d41:1; Cer-NS d18:1/23:0;   Cer-NS d18:1/23:0      
+ B:216  Cer-NS d42:1; Cer-NS d18:1/24:0;   Cer-NS d18:1/24:0      
+ B:217  Cer-NS d42:2; Cer-NS d18:1/24:1; A A                      
+ B:218  Cer-NS d42:2; Cer-NS d18:1/24:1; B B                      
+ B:219  Cer-NS d42:2; Cer-NS d18:2/24:0;   Cer-NS d18:2/24:0      
+ B:220  Cer-NS d42:3; Cer-NS d18:2/24:1;   Cer-NS d18:2/24:1      
+ B:221  Cer-NS d42:4; Cer-NS d18:1/24:3;   Cer-NS d18:1/24:3      
+ B:222  Cer-NS d44:1; Cer-NS d18:1/26:0;   Cer-NS d18:1/26:0      
+ B:223  Cer-NS d44:2; Cer-NS d20:1/24:1;   Cer-NS d20:1/24:1      
+ B:309  FA 10:0; (capric acid)             (capric acid)          
+ B:311  FA 12:0; (lauric acid)             (lauric acid)          
+ B:313  FA 14:1; (physeteric acid)         (physeteric acid)      
+ B:315  FA 15:0; (pentadecylic acid)       (pentadecylic acid)    
+ B:317  FA 16:0 (Palmitic acid)            FA 16:0 (Palmitic acid)
+ B:318  FA 16:1; (palmitoleic acid)        (palmitoleic acid)     
+
+Disagreements between the cleaned name and the key profile:
+ row_id name                                       name_species   key_species    key_source 
+ B:381  GlcCer d34:2; GlcCer (d14:1(4E)/20:0(2OH)) GlcCer 34:1;O3 HexCer 34:1;O3 lmsd       
+ B:382  GlcCer d38:1;                              GlcCer 38:1;O2 HexCer 38:1;O2 swisslipids
+ B:383  GlcCer d40:1;                              GlcCer 40:1;O2 HexCer 40:1;O2 swisslipids
+ B:384  GlcCer d41:1;                              GlcCer 41:1;O2 HexCer 41:1;O2 swisslipids
+ B:385  GlcCer d42:1;                              GlcCer 42:1;O2 HexCer 42:1;O2 swisslipids
+ B:562  LPE 21:0;                                  LPE 21:0       PE 21:0        swisslipids
+ B:707  PC 35:3;                                   PC 35:3        PE 38:3        swisslipids
+ B:719  PC 36:3; PC 16:0_20:3;                     PC 36:3        PC O-36:3      swisslipids
+
+Counts and B lists in results/v07_feasibility; A lists in data-raw/own/blind2/v07_feasibility.

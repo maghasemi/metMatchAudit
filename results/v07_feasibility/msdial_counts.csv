@@ -1,0 +1,9 @@
+"measure","value"
+"B lipid rows",960
+"rows flagged as group or alternative names now",162
+"names with alternatives (' or '), no profile by design",162
+"cleaned names that parse",598
+"  share of rows that could parse",74.9
+"parse and key profile agree on Species",438
+"parse and key profile disagree (would lose the profile)",8
+"parse where the row has no profile now",151
