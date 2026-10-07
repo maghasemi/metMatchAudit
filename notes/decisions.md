@@ -320,6 +320,10 @@ Why the 22 are not assignment errors:
 
 The criteria stay as written and v0.5 is not released on this result. The check finds real conflicts between a row and its RefMet entry, but the flag name blames the assignment, and the cause can be the assignment, the source file or RefMet. Any change from here (neutral formulas, a flag that names the conflict but not its cause) is after adaptation on the development data and needs data not used so far for a real test.
 
+## 2026-10-07: RefMet row check shelved
+
+After the failed acceptance, the RefMet row check is set aside, not fixed. It only adds row flags and changes no pair result, so even a working version would not help the main COMETS problem: rows from name-only files carry no evidence. The code and the acceptance script are kept on branch shelved/refmet-check. main stays at v0.4.2. The two RefMet record errors found on the way (CAR 20:4 stored as C31H54NO4, 5-hydroxy-6-methoxyduloxetine sulfate one sulfur short) are kept in this log.
+
 ### Changes
 
 
