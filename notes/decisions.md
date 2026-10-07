@@ -468,3 +468,44 @@ Correction to the plan, before building: LMSD changes no row's existing profile,
 v0.6 acceptance, checked 2026-10-07 with scripts/83_v06_check.R. Development data: no pair changed rule, evaluation identical to v0.4.2 (35 agree, 8 safe_miss, 0 wrong, 10 E_not_exact). LMSD gave 233 rows a profile. Lipid match proposals went from 63 to 110; all 47 new ones were reviewed by hand and are correct (notes/v06_dev_lipid_review.csv). 46 of them were already grouped by MetLinkR and only entered the lipid matches because the rows now have a profile; one (nonadecanoate against Nonadecylic acid) is a match MetLinkR missed.
 
 COMETS, after adaptation: 23 pairs moved from R01 to a definite answer. Two became distinct (valerylcarnitine C5 against glutarylcarnitine, C14:1 against C14:2), both MetLinkR merges of different compounds that the expert also separates. 21 became broader_narrower (a Biocrates sum against one Metabolon structure); the expert groups 12 of them. 36 new lipid matches across files, 18 in the same expert group. The other 18 are all Biocrates sums matched one-to-many to single structures (C4, C5, sn-2 LPC, diacyl PC), chemically consistent but against the expert's one-to-one practice.
+
+## 2026-10-07: second blind test, plan, written before MetLinkR is run on the data
+
+### Data
+
+- A: Metabolon annotation of the author's own mouse dataset, 494 rows. Columns copied by hand from the original Metabolon file into a new workbook, no values and no edits. Eight CAS numbers were turned into dates by Excel on the way; CAS is used neither by MetLinkR nor by this tool. Private: the file stays in `data-raw/own/` and is never committed.
+- B: annotation from Ding J. et al. A metabolome atlas of the aging mouse brain. Nat. Commun. 2021, 12. DOI 10.1038/s41467-021-26310-y. 1547 rows with name, InChIKey, PubChem CID and SMILES, copied the same way from the paper's supplementary data. Source file and sheet: https://pubmed.ncbi.nlm.nih.gov/34654818/.
+- md5 of both workbooks: MD5 (data-raw/own/2ndData.xlsx) = 1b4876e548f55567bfcdd33f494c978a
+MD5 (data-raw/own/MyData.xlsx) = b2d29cb02ffc65cc53fd5b08e4b85805.
+
+The tool has never seen B's naming style. B's names follow MS-DIAL-like notation ("PE 38:1; PE 18:0_20:1;", "ACar 12:0;"), 67 of its PubChem CIDs carry invisible characters, and 15 InChIKeys start with "null_". None of this is cleaned. The test is meant to show how the tool does on data as it comes.
+
+### Frozen code
+
+metMatchAudit at tag `v0.6.0`, with LMSD (md5 `134c2b5c6d76e9883d46339a6289eefd`) and SwissLipids (md5 `b6ddd5bc3003967dce95e905e5748953`). MetLinkR at commit a6aa145 with RaMP DB 3.0.7, as for COMETS. The test script stops if the package code differs from the tag.
+
+### Order, each step committed before the next
+
+1. This plan, with the two fill-ins done.
+2. `scripts/91_blind2_prepare.R` reads both workbooks with every column as text and writes CSV copies, logging rows and md5.
+3. MetLinkR on the two CSV files. Only MetLinkR's own output is looked at: it is what is being audited.
+4. `scripts/92_blind2_sample.R`, seed 20261007:
+   - 60 groups drawn at random from MetLinkR groups that hold rows from both files (all of them if there are fewer);
+   - 40 rows drawn at random from B whose name starts with a lipid class: `^(L?P[ACEGIS]|SM|Cer|HexCer|Hex2Cer|GlcCer|TAG|TG|DAG|DG|MAG|MG|CE|ACar|CAR|FA)[ -]`.
+5. Labels by the author, with Claude's help, before the tool is run on these files:
+   - every pair in the 60 groups gets a category from `notes/review_guide.md` (A exact, B stereo, C different compounds, D broader or narrower, E source error, F unclear) and the record behind the decision;
+   - every one of the 40 lipid rows gets the rows of A that are the same compound or a broader or narrower annotation of it, or "none".
+   The labels answer "same compound", the question the tool asks, not "same measurement". Labels are committed before step 6.
+6. `scripts/93_blind2_test.R` runs the audit once and compares.
+
+### Criteria
+
+- C1, pairs: of the tool's definite claims (exact, distinct) on labeled pairs, at least 90% agree with the label. exact agrees with A; distinct agrees with C or E; exact on an E pair is wrong.
+- C2, groups: each group's most severe relationship against its most severe label, as in `scripts/21_evaluate_v0.1.R`. Among groups labeled A to D, at most 5% get a wrong definite answer. Agree and unresolved are reported.
+- C3, lipid matches: of the tool's lipid match proposals that involve a sampled B row, at least 90% are pairs in the labels. Recall against the labels is reported, with no threshold.
+
+All three are reported whatever the outcome. No rule changes between the labels and the run, and none are made on this data afterwards without being marked as after adaptation.
+
+### Known weakness
+
+The labeler wrote the tool. To limit that: labels come before any tool output on these files, every decision cites its record, and if a colleague can label 20 of the groups independently, agreement between the two is reported.

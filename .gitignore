@@ -18,3 +18,4 @@ renv/staging/
 *.Rcheck/
 data-raw/biocrates/*.pdf
 data-raw/lipidmaps/
+data-raw/own/
