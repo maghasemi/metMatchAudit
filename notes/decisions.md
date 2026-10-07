@@ -512,3 +512,25 @@ The labeler wrote the tool. To limit that: labels come before any tool output on
 
 
 Two changes to the second blind test plan, before any step ran: B's column "Pubchem CID" is renamed to PUBCHEM in the CSV copy so MetLinkR reads it without a space; no value changes. The labeling sheets hold names from the private file A, so they stay in data-raw/own/blind2/ and their md5 is committed instead, once they are filled in. This fixes the labels in git before the audit runs without publishing them.
+
+## 2026-10-07: second blind test, result and what follows
+
+C1 and C2 were not met. C3 was met, but on one proposal. Details and causes are in `findings.md` (2026-10-07, second blind test). The result is reported as it came out, in the README too.
+
+- No rule is changed on the basis of this run without the label "after adaptation". A rerun of these files after any change is not a blind result.
+- The labels stay as committed. The labels and the tool disagree in two places about what a pair is: name against key (causes 2 and 3), and the parent's key on "isomer" features (cause 1). Both are noted in the findings and not resolved by relabeling.
+- Next version (v0.7): candidates are listed at the end of the findings entry. Before building, each gets a written plan and an acceptance check on the development data, COMETS and these files, all three reported as after adaptation.
+- Any further claim of blind performance needs a third test on data not used so far, with criteria committed first.
+
+## 2026-10-07: local copy of the sealed development audit overwritten
+
+`git status` before the second blind test showed `results/audit_v0.1_sealed.rds` modified. The files in `results/audit_v0.1/` and `results/evaluation_v0.1/` were also modified. The local copy of the rds is a v0.4.2 run from 2026-10-07 09:28. The committed copy is a v0.4.0 run from 2026-10-06, and git history keeps every committed version. Most likely `scripts/20_audit_example.R` and `scripts/21_evaluate_v0.1.R` were run again with v0.4.2. Both write to these fixed paths.
+
+`scripts/83_v06_check.R` (run 12:45) read the local copy as its v0.4.2 baseline. Its message says so, and the copy is indeed v0.4.2. So the v0.6 acceptance comparison stands.
+
+Fix:
+- the local v0.4.2 outputs move to `results/dev_v0.4.2/`;
+- the committed files are restored;
+- `scripts/83_v06_check.R` now reads its baseline from `results/dev_v0.4.2/audit.rds`.
+
+Nothing is rerun. From now on, scripts that rerun an old step write to a folder named after the version.

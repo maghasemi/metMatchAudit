@@ -46,7 +46,7 @@ changed_pairs <- function(old, new) {
 
 # ---- Development data ------------------------------------------------------------
 
-old_dev <- readRDS("results/audit_v0.1_sealed.rds")
+old_dev <- readRDS("results/dev_v0.4.2/audit.rds")  # v0.4.2 baseline, see decisions.md 2026-10-07
 dev <- rerun(old_dev, "results/pubchem_cache.rds", "development")
 
 message("\n==== development")

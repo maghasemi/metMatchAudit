@@ -4,7 +4,7 @@ Check whether metabolites matched across datasets are really the same compound.
 
 Tools such as [MetLinkR](https://github.com/ncats/MetLinkR) link metabolomics datasets by giving every row a standardized name. Rows that end up with the same name are treated as one metabolite. metMatchAudit runs after that step. For every pair of rows that share a name, it looks at the structural evidence and reports how the two actually relate, with the rule that decided it. It also proposes lipid matches across vendors that the matching step missed.
 
-Status: v0.6. Developed on the MetLinkR example data and evaluated against a blind manual review, then tested blind on five COMETS datasets with expert mappings (see [Evaluation](#evaluation) and [External test on COMETS](#external-test-on-comets)).
+Status: v0.6. Developed on the MetLinkR example data and evaluated against a blind manual review, then tested blind on five COMETS datasets with expert mappings and on a second pair of files, where it did not meet its criteria (see [Evaluation](#evaluation), [External test on COMETS](#external-test-on-comets) and [Second blind test](#second-blind-test)).
 
 ## Why
 
@@ -148,7 +148,20 @@ Changes made after that test, and their results on COMETS. These numbers are aft
 - v0.4.2: identical keys are not enough for `exact` when the names state different isomers (R03c), and the same name with conflicting keys stays unresolved (R12n). The four wrong claims of the blind run became unresolved. On the example data, R03c also caught a wrong `exact` call no review had seen, (R)- against (S)-3-hydroxybutyrylcarnitine.
 - v0.6: LMSD as a second lipid source and the Biocrates p180 table. 23 COMETS pairs moved from unresolved to a definite answer. Two became `distinct`, valerylcarnitine against glutarylcarnitine and C14:1 against C14:2, both MetLinkR merges of different compounds. Definite claims now agree with the expert in 123 of 123, precision goes from 0.895 to 0.900 and F1 from 0.895 to 0.897. 36 new lipid matches across files; the expert groups 18 of them, and the other 18 are Biocrates sums matched to single structures, which the expert links one to one or not at all.
 
-A second blind test on a dataset not used so far is still needed before these numbers mean more than "it improved on the data it was tuned on".
+## Second blind test
+
+v0.6.0 ran on two files it had not seen. One is my own Metabolon annotation of a mouse dataset (494 rows, private; only counts are published). The other is the annotation from the aging mouse brain atlas of Ding et al. 2021 (1547 rows, MS-DIAL-style names). Before the run I labeled 86 pairs in 60 randomly drawn MetLinkR groups and 40 random B lipid rows, then committed the criteria and the md5 of the label files.
+
+| criterion | result | |
+|---|---|---|
+| C1: definite claims (exact, distinct) agree with the label, at least 90% | 48 of 65 (73.8%) | not met |
+| C2: groups labeled A to D with a wrong definite answer, at most 5% | 12 of 58 (20.7%) | not met |
+| C3: lipid proposals involving a sampled B row are in the labels, at least 90% | 1 of 1 | met, on one proposal |
+| C3 recall | 1 of 5 | |
+
+11 of the 17 wrong definite claims come from one habit of the B file. Features named "Adenosine isomer", "Carnosine isomer A" and the like carry the parent compound's identifiers, so the tool called them `exact` with the parent. Most of the rest are rows whose name and key disagree: "ACar 17:0" names a sum but carries a straight-chain key. The tool follows the key, and the labels follow the name. Lipid recall was low because the tool could not read MS-DIAL names such as "PE 38:6; PE 18:2_20:4;". 375 of 960 B lipid rows got no profile, and the rest got a structure-level profile from their key that their names do not support.
+
+The tool held up on the earlier test sets but did not carry over to an unseen naming style. Details: [notes/findings.md](notes/findings.md).
 
 ## What did not work
 
@@ -161,7 +174,9 @@ Two ideas were tried and set aside. Both are logged in [notes/decisions.md](note
 
 - Rows with only a name, and no identifier the tool can use, get no evidence. This is most of the COMETS Biocrates amino acids, the LC/MS file and the Nightingale file.
 - Nightingale class totals (Omega-6, total fatty acids) and other aggregate measures have no relationship of their own yet.
-- Sugars in ring and open-chain form get different InChIKeys. With the same name they stay unresolved; with different names they are called distinct.
+- Sugars in ring and open-chain form get different InChIKeys. With the same name they stay unresolved; with different names they are called distinct (N-acetylneuraminic acid in the second blind test).
+- Identifiers are trusted where the name contradicts them only for stereo terms and omega positions. A feature named "isomer" that carries its parent's key, or a sum name with a single-structure key, gets the key's answer.
+- MS-DIAL-style lipid names ("PE 40:6;", several annotations separated by ";", alternatives joined by "or") are not read.
 - The stereo comparison can report a false conflict for symmetric molecules such as inositol. A conflict never leads to a claim on its own.
 - A structure whose SMILES and key agree but which does not match its name (the Metabolon steroids above) is not detected.
 - The name checks are tuned on Metabolon, Broad and Biocrates naming. The Biocrates table covers the p180 kit as published in 2023; analytes it does not list get no profile.
@@ -169,7 +184,7 @@ Two ideas were tried and set aside. Both are logged in [notes/decisions.md](note
 
 ## Next
 
-- A second blind test on new data, ideally a Metabolon dataset against another vendor that someone has curated by hand.
+- Fixes for the causes found in the second blind test, reported as after adaptation, then a third blind test on data not used so far.
 - Nightingale biomarker definitions and an aggregate relationship for class totals.
 - Checking which structures a group-name row lists.
 

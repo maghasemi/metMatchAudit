@@ -246,3 +246,71 @@ Done after the result was sealed, so it explains the result and does not replace
 - The expert answers "same measurement", the audit answers "same compound". Platform splits and class totals account for 14 of the 42 pairs.
 - Changes this test points to: identical names with different connectivity become unresolved with a row flag; identical stereo-free keys from resolved identifiers are not enough for exact when names state different isomers; names that state different omega positions conflict; names joined by a slash count as group names; name to RefMet (v0.5); an aggregate relationship (v0.6).
 - Any COMETS number after these changes counts as after adaptation. A fresh dataset with expert mappings is needed for a second blind test.
+
+## 2026-10-07: second blind test (blind)
+
+### Setup
+
+metMatchAudit v0.6.0 (tag `v0.6.0`) with SwissLipids and LMSD ran on MetLinkR output for two files. MetLinkR was at commit a6aa145 with RaMP DB 3.0.7.
+
+- A is the author's own Metabolon annotation of a mouse dataset, 494 rows. It is private.
+- B is the annotation from Ding et al. 2021 (Nat. Commun., DOI 10.1038/s41467-021-26310-y), 1547 rows of mouse brain.
+
+The tool had never seen B's naming style. Plan and criteria are in `decisions.md` (2026-10-07, second blind test). Label md5s and the group label order are in `notes/blind2_labels.md`. All of these were committed before the run. Script: `scripts/93_blind2_test.R`. Counts: `results/blind2/`. Row-level details stay in `data-raw/own/blind2/results/` because A is private.
+
+### Result
+
+| criterion | result | |
+|---|---|---|
+| C1: definite claims (exact, distinct) agree with the label, at least 90% | 48 of 65 (73.8%) | not met |
+| C2: groups labeled A to D with a wrong definite answer, at most 5% | 12 of 58 (20.7%) | not met |
+| C3: lipid proposals involving a sampled B row are in the labels, at least 90% | 1 of 1 | met, on one proposal |
+| C3 recall | 1 of 5 | no threshold |
+
+The audit has 628 pairs in 395 groups: 216 exact, 205 distinct, 157 unresolved, 47 broader_narrower and 3 stereo_variant. It proposed 57 lipid matches across files.
+
+| label | tool: distinct | unresolved | broader_narrower | exact |
+|---|---|---|---|---|
+| A | 2 | 8 | 4 | 47 |
+| C | 1 | 0 | 0 | 11 |
+| D | 1 | 2 | 2 | 2 |
+| F | 0 | 1 | 4 | 1 |
+
+### Causes of the wrong answers
+
+The 17 wrong definite claims and the 12 wrong groups come from four causes.
+
+| cause | groups | wrong definite pairs |
+|---|---|---|
+| 1. B "isomer" features carry the parent's identifiers | 4 | 11 |
+| 2. B's name gives a sum, its key a single structure | 3 | 3 |
+| 3. Stereo in only one row's key, same compound by name | 4 | 0 |
+| 4. Ring against open-chain key, names differ | 1 | 2 |
+| F label: threonate against isothreonic acid | 1 | 1 |
+
+1. B reports adenosine, carnosine, glucose 6-phosphate and N-acetylaspartate as features. It also reports further features named "Adenosine isomer", "Carnosine isomer A" and "B", "Hexose phosphate isomer D" and "N-Acetylaspartic acid isomer B". Each of these carries the CID and InChIKey of the parent. The identical keys led to `exact` (R03). R03c reads stereo terms and omega positions in names, but not the word "isomer". The parent's key on these rows is a placeholder for an unknown isomer. The tool cannot see that from the key.
+2. B names acylcarnitines as sums ("ACar 17:0;"). Its InChIKeys are single structures, usually the straight chain. The tool follows the key, so straight-chain margaroyl and arachidoyl carnitine in A came out `exact`. For palmitoleoyl the B key is a different 16:1 isomer, so it came out `distinct`. The labels follow the name and say broader or narrower. The same thing happened with myristoylcarnitine in the lipid labels: the tool said exact, the label said D.
+3. ADP-ribose, N-acetylmethionine and isovalerylcarnitine each have one key with stereo and one without. The names say the same compound, so the label is A. The tool says broader_narrower (R09), since one record is less specific than the other. Sphingosine 1-phosphate against erythro-sphingosine 1-phosphate got broader_narrower from the lipid rules (R05). These are not definite claims under C1, but they count as wrong in C2. This is the record-against-compound difference already seen with COMETS.
+4. B:1 "(-)-N-Acetylneuraminic acid" has the open-chain key. Its connectivity differs from the ring form, so the tool calls it `distinct` from both N-acetylneuraminate rows. With fructose and ribose the same case stayed unresolved through R12n, because the names matched. Here the "(-)-" prefix keeps the names apart. This is the ring-form limit in Known limits, met for the third time.
+
+### Lipid recall
+
+B's lipid names did not parse. Of the 960 B rows matching the lipid class pattern, 485 got a profile from SwissLipids by key, 97 from LMSD, 2 from the SwissLipids fallback and 1 from the name. 375 got none. MS-DIAL-style names such as "PE 40:6;" and "PE 38:6; PE 18:2_20:4;" are not read by the name step.
+
+So B rows got their profile from their key, at structure level, though the name gives only a sum or the chains.
+
+- B:953 PE 38:6 against A:33 (18:2/20:4): both are structure level with different keys. The pair was not kept as a match.
+- B:970 PE 40:6 against A:79 (18:0/22:6): same reason.
+- B:575 LPE O-18:2 against A:12 "1-(1-enyl-oleoyl)-GPE (P-18:1)*": A:12 got no profile. It has no identifier, and its name was not parsed.
+- B:1037 "PE O-38:5; PE O-18:1_20:4; or PE P-38:4; PE P-18:0_20:4;" got no profile. That is right for a row that names two alternatives.
+
+### What this means
+
+- On data with a naming style it had not seen, the tool's definite claims were wrong a quarter of the time. That is far from the 96.8% on COMETS and the 100% after adaptation.
+- Most of the error comes from trusting identifiers that the source itself contradicts in the name: placeholder keys on "isomer" features, and structure keys on sum names. The tool checks names against keys for stereo terms and omega positions only.
+- The labels answer from the name wherever name and key disagree. Read by the key, several of these pairs would be called the way the tool called them. The labels were fixed first and are not changed here.
+- Changes this points to, all of them after adaptation if made:
+  - a name stating "isomer" (or "isomer A", "isomer B") blocks `exact` from identical keys, as R03c does;
+  - a lipid name that parses below structure level caps the level a key can give;
+  - read MS-DIAL names: split on ";", take the most specific annotation, and treat "or" as an alternative;
+  - strip optical rotation prefixes such as "(-)-" in name normalization.

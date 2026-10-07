@@ -1,0 +1,8 @@
+category,outcome,groups
+B,safe_miss,2
+C,agree,12
+C,safe_miss,1
+D,agree,22
+D,safe_miss,5
+E,E_not_exact,10
+F,agree,1
