@@ -275,6 +275,6 @@ stereo_terms <- function(x) {
 #'   sorted and joined by `";"`, or `""` when the name states none.
 #' @export
 omega_positions <- function(x) {
-  m <- .matches(x, "(?<![A-Za-z])(?:n|(?i:omega)|ω)-?\\d{1,2}(?![0-9])")
+  m <- .matches(x, "(?<![A-Za-z])(?:n|(?i:omega)|\u03c9)-?\\d{1,2}(?![0-9])")
   .as_set(lapply(m, function(v) sub("^\\D+", "", v)))
 }

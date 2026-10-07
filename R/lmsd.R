@@ -1,6 +1,6 @@
 # LIPID MAPS Structure Database (LMSD), a second lipid source looked up
 # by InChIKey the same way as SwissLipids. Tested in
-# scripts/82_lmsd_feasibility.R (notes/decisions.md, 2026-10-07): where
+# scripts/10_v0.6/03_lmsd_feasibility.R (notes/decisions.md, 2026-10-07): where
 # SwissLipids and LMSD both gave a Species, they agreed in 149 of 149
 # development rows and 66 of 66 COMETS rows.
 

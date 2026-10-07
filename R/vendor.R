@@ -1,7 +1,7 @@
 # Lipid profiles from a vendor's own nomenclature table. So far only the
 # Biocrates AbsoluteIDQ p180 kit (notes/decisions.md, 2026-10-07, v0.6
 # plan). The table ships in inst/extdata and was extracted from the
-# vendor's PDF by scripts/80_biocrates_table.R.
+# vendor's PDF by scripts/10_v0.6/01_biocrates_table.R.
 
 .known_vendors <- c("biocrates_p180")
 

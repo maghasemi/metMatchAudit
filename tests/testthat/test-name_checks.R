@@ -153,3 +153,7 @@ test_that("normalize_name drops a leading optical rotation sign", {
   expect_identical(normalize_name(c("(-)-N-Acetylneuraminic acid", "(+)-Catechin", "(\u00b1)-Lactate", "N-acetyl (-)-x")),
                    c("n-acetylneuraminic acid", "catechin", "lactate", "n-acetyl (-)-x"))
 })
+
+test_that("omega_positions reads the Greek omega sign", {
+  expect_identical(omega_positions(c("FA 20:5 ω-3", "ω6 fatty acid")), c("3", "6"))
+})
