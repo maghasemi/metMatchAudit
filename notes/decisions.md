@@ -534,3 +534,61 @@ Fix:
 - `scripts/83_v06_check.R` now reads its baseline from `results/dev_v0.4.2/audit.rds`.
 
 Nothing is rerun. From now on, scripts that rerun an old step write to a folder named after the version.
+
+## 2026-10-07: v0.7 plan, written before any code
+
+v0.7 addresses three of the four causes found in the second blind test (`findings.md`, 2026-10-07). Every result on the development data, COMETS and the second blind test files after these changes is after adaptation. A blind claim needs a third test.
+
+### Changes
+
+1. **Isomer marker in names (new rule R03i).** A name that contains the word "isomer" or "isomers", alone or followed by a letter or number ("Carnosine isomer A", "Hexose phosphate isomer D"), marks a feature whose identity is not known. Its identifiers may belong to the parent compound, as in B. When either row of a pair carries the marker, no claim is made from keys or from R06b, and the pair is unresolved. The rule sits right after R03c and before R06b, R03 and all later key rules. "stereoisomer" and other words that only contain "isomer" do not count. The lipid rules R05 and R06 still apply, because they rest on the name, not the key.
+2. **MS-DIAL lipid names.** Before rgoslin reads a name, the name is cleaned:
+   - a trailing ";" is dropped;
+   - a name with several annotations separated by "; " ("PE 38:6; PE 18:2_20:4") is read from its most specific annotation;
+   - a name with " or " between annotations is treated as alternatives and gets no profile, as alternative names already do;
+   - "ACar" is read as "CAR" if rgoslin does not know it.
+
+   No new level rule is needed. `lipid_evidence()` already lets the name set the level when name and key agree on the Species. The B rows got a structure level only because their names did not parse.
+3. **Optical rotation prefixes.** `normalize_name()` drops a leading "(+)-", "(-)-" or "(±)-". Two rows whose names then match and whose keys differ in connectivity go to R12n (unresolved) instead of R12 (distinct). This is the N-acetylneuraminic acid case.
+
+Not in v0.7: cause 3, stereo given in only one record. The tool compares records, and calling these pairs broader_narrower is by design. The labels compared compounds by name. This stays a documented difference. The inconsistent S1P label is noted in findings and is not changed.
+
+### Order, each step committed before the next
+
+1. This plan.
+2. Feasibility, `scripts/95_v07_feasibility.R`, without changing the package:
+   - count names with the isomer marker in the development data, COMETS, A and B, and list them;
+   - run the name cleaning as a stand-alone function on B's 960 lipid rows, and report how many get a profile from the name and which do not;
+   - count names with an optical rotation prefix in all four sets.
+
+   If fewer than 80% of B's lipid rows get a name profile after cleaning, change 2 is dropped from v0.7 and the reason is logged.
+3. Build, with unit tests for the marker, the cleaning and the prefix.
+4. Acceptance, `scripts/96_v07_check.R`.
+
+### Acceptance
+
+- **Development data:**
+  - the evaluation against `notes/review.csv` is no worse than v0.6.0: 35 agree, 8 safe miss, 0 wrong, 10 E not exact;
+  - every pair whose rule changes is listed and checked by hand;
+  - any of the 110 lipid match proposals that is lost is listed with its reason;
+  - new proposals are checked by hand, and all must be correct.
+- **COMETS, after adaptation:**
+  - no definite claim that agreed with the expert may change to one that does not;
+  - changed pairs are listed with the expert's view;
+  - precision and F1 are reported.
+- **Second blind test files, after adaptation:**
+  - scored with the same code as `scripts/93_blind2_test.R`;
+  - reported, with no threshold, since the changes come from these files.
+
+  Expected beforehand:
+  - the 11 wrong `exact` calls on isomer features become unresolved;
+  - the three acylcarnitine pairs become broader_narrower through R05, if B's names parse;
+  - the two Neu5Ac pairs become unresolved.
+
+  Anything else that changes is listed.
+
+If any development or COMETS condition fails, v0.7 is not tagged until the cause is found and logged.
+
+### After v0.7
+
+A third blind test on data not used so far, with criteria C1 to C3 as in the second test, written and committed first. Ideally a file from a vendor or a naming style the tool has not seen, labeled before the run.
