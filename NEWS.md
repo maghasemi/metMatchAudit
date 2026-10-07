@@ -1,3 +1,8 @@
+# metMatchAudit 0.7.1
+
+* No change in behaviour. The omega sign in the pattern behind `omega_positions()` is written as a `\u` escape, so the package code is plain ASCII and `R CMD check` passes without warnings.
+* Comments in the package code point to the new script paths (`scripts/README.md`).
+
 # metMatchAudit 0.7.0
 
 * New rule R03i: when either name marks a feature of unknown identity, the pair stays unresolved. A marker is the word "isomer", as in "Carnosine isomer A", or a lone capital letter after the last semicolon, as in MS-DIAL's "CE 20:5; A". Such rows can carry the identifiers of the parent compound. The rule comes right after R01, before the lipid rules, because a lipid profile found through that key is no better than the key. New helper `has_isomer_marker()` and column `name_isomer_marker`.

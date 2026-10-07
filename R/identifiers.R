@@ -1,6 +1,6 @@
 # Identifier resolution: PubChem CIDs and HMDB IDs to InChIKeys.
 #
-# Tested in scripts/50 and scripts/51 (notes/decisions.md, 2026-10-06):
+# Tested in scripts/07_v0.4/02_id_resolution_feasibility.R and scripts/07_v0.4/03_id_resolution_retest.R (notes/decisions.md, 2026-10-06):
 # on 783 rows not used in development, CID-derived keys agreed with the
 # stored key in 779 of 779 cases and HMDB-derived keys in 288 of 297.
 # A derived key describes the database record for the identifier. If a
