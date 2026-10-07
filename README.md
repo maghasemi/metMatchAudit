@@ -234,7 +234,7 @@ results/       script output
 
 ## AI usage
 
-This project was developed with the help of an AI assistant, Claude (Anthropic), MODEL_AND_VERSION_TO_FILL. The assistant drafted most of the code, tests, scripts and documentation, and the first proposals for the labels of the second and third blind tests. The author set the goals, chose the data, reviewed and approved every plan, criterion, label and change before it was committed, and ran all scripts and tests on his own machine. The plans, criteria and results are logged in `notes/decisions.md` and `notes/findings.md` in the order they were made.
+This project was developed with the help of an AI assistant, Claude Opus 5.5 (Anthropic), at medium effort. The assistant drafted most of the code, tests, scripts and documentation, and the first proposals for the labels of the second and third blind tests. The author set the goals, chose the data, reviewed and approved every plan, criterion, label and change before it was committed, and ran all scripts and tests on his own machine. The plans, criteria and results are logged in `notes/decisions.md` and `notes/findings.md` in the order they were made.
 
 ## License
 
