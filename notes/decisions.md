@@ -308,7 +308,20 @@ Script `scripts/61_comets_after_v042.R`, output `results/comets_v0.4.2/`, same P
 - 263 of 401 pairs are unresolved. None of the seven MetLinkR merges of different compounds is separated.
 - On the development data the same changes also caught a wrong exact call that no review had seen ((R)- against (S)-3-hydroxybutyrylcarnitine). That is the only evidence so far that the new rules carry beyond the pairs they were written for. A second blind dataset is still needed.
 
+## 2026-10-07: v0.5 acceptance failed
+
+Run with scripts/71_v05_check.R. Pair results identical to v0.4.2 on both datasets, all 308 tests pass, and all six required rows got C06. The 80% check failed: of 40 C06 flags on the development data, 17 are rows MetLinkR assigned to the wrong compound, 22 are not, 1 is unclear (42.5%).
+
+Why the 22 are not assignment errors:
+- 15 come from the formula comparison. PubChem's parent compound for acylcarnitines and sphingomyelins is the cation (C17H32NO4+), while RefMet stores the neutral inner salt (C17H31NO4). Same compound, formulas one H and one charge apart.
+- 2 are errors in RefMet itself: CAR 20:4 is stored as C31H54NO4 (exact mass 504.405, true formula C27H45NO4), and 5-hydroxy-6-methoxyduloxetine sulfate as C19H21NO7S, one sulfur short.
+- 2 are probably wrong keys in the source file (oxindolylalanine, S-carboxyethylcysteine).
+- 3 are one compound with two records or two tautomers (3-hydroxyhippurate sulfate, imidazole lactate, imidazole propionate).
+
+The criteria stay as written and v0.5 is not released on this result. The check finds real conflicts between a row and its RefMet entry, but the flag name blames the assignment, and the cause can be the assignment, the source file or RefMet. Any change from here (neutral formulas, a flag that names the conflict but not its cause) is after adaptation on the development data and needs data not used so far for a real test.
+
 ### Changes
+
 
 1. **Names that contradict identical keys (R03c).** Runs just before R03. If the two InChIKeys are identical but the names state different isomers, the pair is unresolved, not exact. "State different isomers" means one of:
    - both names carry stereo descriptors and the sets differ. Descriptors are the existing ones (R/S, E/Z, cis/trans, alpha/beta, D/L) plus the cyclitol and sugar prefixes myo, scyllo, epi, chiro, neo, muco, allo, threo, erythro;
