@@ -1,0 +1,7 @@
+"label","tool","rule","with_A","Freq"
+"A","exact","R03","FALSE",30
+"A","broader_narrower","R09","FALSE",1
+"D","unresolved","R01","TRUE",3
+"A","exact","R03","TRUE",48
+"A","broader_narrower","R09","TRUE",10
+"A","unresolved","R11","TRUE",2

@@ -1,0 +1,6 @@
+"criterion","count","of","percent","met"
+"C1: definite claims that agree with the label (at least 90%)",78,78,100,TRUE
+"C2: groups labeled A to D with a wrong definite answer (at most 5%)",7,60,11.7,FALSE
+"C3: lipid proposals that are pairs in the labels (at least 90%)",13,13,100,TRUE
+"C3 recall: labeled lipid pairs the tool proposed (no threshold)",13,20,65,NA
+"C1 on pairs without A (reported, no threshold)",30,30,100,NA
