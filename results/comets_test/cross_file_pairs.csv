@@ -1,0 +1,402 @@
+"group_id","row_a","row_b","relationship","rule_id","evidence","cross_file","expert_same","nightingale"
+"Carnitine","inputs_1539353822:1","inputs_1539354673:69","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Carnitine","inputs_1539353822:1","inputs_1553799316:11","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Carnitine","inputs_1539353822:1","inputs_1555609921:257","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Carnitine","inputs_1539354673:69","inputs_1553799316:11","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Carnitine","inputs_1539354673:69","inputs_1555609921:257","exact","R03","identical InChIKey PHIQHXFUZVPYII-ZCFIWIBFSA-O (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Carnitine","inputs_1553799316:11","inputs_1555609921:257","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"CAR 2:0","inputs_1539353822:2","inputs_1539354673:138","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"CAR 2:0","inputs_1539353822:2","inputs_1555609921:211","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"CAR 2:0","inputs_1539354673:138","inputs_1555609921:211","broader_narrower","R09","same connectivity, one key without stereo: RDHQFKQIGNGIED-MRVPVSSYSA-O vs RDHQFKQIGNGIED-UHFFFAOYSA-O (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"CAR 3:0","inputs_1539353822:3","inputs_1539354673:154","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"CAR 3:0","inputs_1539353822:3","inputs_1555609921:561","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"CAR 3:0","inputs_1539354673:154","inputs_1555609921:561","broader_narrower","R09","same connectivity, one key without stereo: UFAHZIUFPNSHSL-MRVPVSSYSA-O vs UFAHZIUFPNSHSL-UHFFFAOYSA-O (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"CAR 4:0","inputs_1539353822:6","inputs_1539354673:151","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"CAR 4:0","inputs_1539353822:6","inputs_1555609921:250","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"CAR 4:0","inputs_1539354673:151","inputs_1555609921:250","broader_narrower","R09","same connectivity, one key without stereo: QWYFHHGCZUCMBN-SECBINFHSA-O vs QWYFHHGCZUCMBN-UHFFFAOYSA-O (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"CAR 5:0","inputs_1539353822:9","inputs_1555609921:355","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"CAR 4:1;2Me","inputs_1539353822:10","inputs_1555609921:636","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"CAR DC5:0","inputs_1539353822:12","inputs_1539354673:284","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"CAR DC5:0;3Me","inputs_1539353822:13","inputs_1555609921:153","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"CAR 6:0","inputs_1539353822:15","inputs_1539354673:142","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"CAR 6:0","inputs_1539353822:15","inputs_1555609921:381","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"CAR 6:0","inputs_1539354673:142","inputs_1555609921:381","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"CAR 8:0","inputs_1539353822:18","inputs_1539354673:230","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"CAR 8:0","inputs_1539353822:18","inputs_1555609921:511","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"CAR 8:0","inputs_1539354673:230","inputs_1555609921:511","broader_narrower","R09","same connectivity, one key without stereo: CXTATJFJDMJMIY-CYBMUJFWSA-O vs CXTATJFJDMJMIY-UHFFFAOYSA-O (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"CAR 10:0","inputs_1539353822:21","inputs_1539354673:233","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"CAR 10:0","inputs_1539353822:21","inputs_1555609921:285","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"CAR 10:0","inputs_1539354673:233","inputs_1555609921:285","broader_narrower","R09","same connectivity, one key without stereo: LZOSYCMHQXPBFU-OAHLLOKOSA-O vs LZOSYCMHQXPBFU-UHFFFAOYSA-O (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"CAR 10:1","inputs_1539353822:22","inputs_1555609921:267","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"CAR 12:0","inputs_1539353822:24","inputs_1555609921:422","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"CAR 14:0","inputs_1539353822:27","inputs_1555609921:455","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"CAR 14:1","inputs_1539353822:28","inputs_1555609921:454","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"CAR 14:1","inputs_1539353822:30","inputs_1555609921:454","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"CAR 16:0","inputs_1539353822:32","inputs_1539354673:115","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"CAR 16:0","inputs_1539353822:32","inputs_1555609921:530","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"CAR 16:0","inputs_1539354673:115","inputs_1555609921:530","broader_narrower","R09","same connectivity, one key without stereo: XOMRRQXKHMYMOC-OAQYLSRUSA-O vs XOMRRQXKHMYMOC-UHFFFAOYSA-O (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"CAR 18:0","inputs_1539353822:38","inputs_1539354673:257","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"CAR 18:0","inputs_1539353822:38","inputs_1555609921:612","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"CAR 18:0","inputs_1539354673:257","inputs_1555609921:612","broader_narrower","R09","same connectivity, one key without stereo: FNPHNLNTJNMAEE-HSZRJFAPSA-O vs FNPHNLNTJNMAEE-UHFFFAOYSA-O (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"CAR 18:1","inputs_1539353822:39","inputs_1539354673:270","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"CAR 18:1","inputs_1539353822:39","inputs_1555609921:516","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"CAR 18:1","inputs_1539354673:270","inputs_1555609921:516","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"CAR 18:2","inputs_1539353822:41","inputs_1555609921:428","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Arginine","inputs_1539353822:42","inputs_1539354673:41","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Arginine","inputs_1539353822:42","inputs_1553799316:8","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Arginine","inputs_1539353822:42","inputs_1555609921:234","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Arginine","inputs_1539354673:41","inputs_1553799316:8","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Arginine","inputs_1539354673:41","inputs_1555609921:234","broader_narrower","R09","same connectivity, one key without stereo: ODKSFYDXXFIFQN-BYPYZUCNSA-N vs ODKSFYDXXFIFQN-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Arginine","inputs_1553799316:8","inputs_1555609921:234","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Glutamine","inputs_1539353822:43","inputs_1539354673:1","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Glutamine","inputs_1539353822:43","inputs_1553799316:21","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Glutamine","inputs_1539353822:43","inputs_1555609921:353","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Glutamine","inputs_1539353822:43","inputs_1571898296:39","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Glutamine","inputs_1539354673:1","inputs_1553799316:21","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Glutamine","inputs_1539354673:1","inputs_1555609921:353","exact","R03","identical InChIKey ZDXPYRJPNDTMRX-VKHMYHEASA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Glutamine","inputs_1539354673:1","inputs_1571898296:39","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Glutamine","inputs_1553799316:21","inputs_1555609921:353","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Glutamine","inputs_1553799316:21","inputs_1571898296:39","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Glutamine","inputs_1555609921:353","inputs_1571898296:39","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Glycine","inputs_1539353822:44","inputs_1539354673:143","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Glycine","inputs_1539353822:44","inputs_1553799316:23","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Glycine","inputs_1539353822:44","inputs_1555609921:362","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Glycine","inputs_1539353822:44","inputs_1571898296:40","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Glycine","inputs_1539354673:143","inputs_1553799316:23","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Glycine","inputs_1539354673:143","inputs_1555609921:362","exact","R03","identical InChIKey DHMQDGOQFOQNFH-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Glycine","inputs_1539354673:143","inputs_1571898296:40","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Glycine","inputs_1553799316:23","inputs_1555609921:362","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Glycine","inputs_1553799316:23","inputs_1571898296:40","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Glycine","inputs_1555609921:362","inputs_1571898296:40","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Histidine","inputs_1539353822:45","inputs_1539354673:3","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Histidine","inputs_1539353822:45","inputs_1553799316:29","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Histidine","inputs_1539353822:45","inputs_1555609921:383","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Histidine","inputs_1539353822:45","inputs_1571898296:41","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Histidine","inputs_1539354673:3","inputs_1553799316:29","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Histidine","inputs_1539354673:3","inputs_1555609921:383","exact","R03","identical InChIKey HNDVDQJCIGZPNO-YFKPBYRVSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Histidine","inputs_1539354673:3","inputs_1571898296:41","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Histidine","inputs_1553799316:29","inputs_1555609921:383","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Histidine","inputs_1553799316:29","inputs_1571898296:41","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Histidine","inputs_1555609921:383","inputs_1571898296:41","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Methionine","inputs_1539353822:46","inputs_1539354673:23","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Methionine","inputs_1539353822:46","inputs_1553799316:40","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Methionine","inputs_1539353822:46","inputs_1555609921:441","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Methionine","inputs_1539354673:23","inputs_1553799316:40","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Methionine","inputs_1539354673:23","inputs_1555609921:441","exact","R03","identical InChIKey FFEARJCKVFRZRR-BYPYZUCNSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Methionine","inputs_1553799316:40","inputs_1555609921:441","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Ornithine","inputs_1539353822:47","inputs_1553799316:41","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"Ornithine","inputs_1539353822:47","inputs_1555609921:519","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"Ornithine","inputs_1553799316:41","inputs_1555609921:519","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Phenylalanine","inputs_1539353822:48","inputs_1539354673:6","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Phenylalanine","inputs_1539353822:48","inputs_1553799316:45","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Phenylalanine","inputs_1539353822:48","inputs_1555609921:545","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Phenylalanine","inputs_1539353822:48","inputs_1571898296:45","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Phenylalanine","inputs_1539354673:6","inputs_1553799316:45","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Phenylalanine","inputs_1539354673:6","inputs_1555609921:545","exact","R03","identical InChIKey COLNVLDHVKWLRT-QMMMGPOBSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Phenylalanine","inputs_1539354673:6","inputs_1571898296:45","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Phenylalanine","inputs_1553799316:45","inputs_1555609921:545","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Phenylalanine","inputs_1553799316:45","inputs_1571898296:45","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Phenylalanine","inputs_1555609921:545","inputs_1571898296:45","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Proline","inputs_1539353822:49","inputs_1539354673:49","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Proline","inputs_1539353822:49","inputs_1553799316:46","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Proline","inputs_1539353822:49","inputs_1555609921:559","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Proline","inputs_1539354673:49","inputs_1553799316:46","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Proline","inputs_1539354673:49","inputs_1555609921:559","exact","R03","identical InChIKey ONIBWKKTOPOVIA-BYPYZUCNSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Proline","inputs_1553799316:46","inputs_1555609921:559","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Serine","inputs_1539353822:50","inputs_1539354673:139","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Serine","inputs_1539353822:50","inputs_1553799316:50","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Serine","inputs_1539353822:50","inputs_1555609921:585","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Serine","inputs_1539354673:139","inputs_1553799316:50","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Serine","inputs_1539354673:139","inputs_1555609921:585","exact","R03","identical InChIKey MTCFGRXMJLQNBG-REOHCLBHSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Serine","inputs_1553799316:50","inputs_1555609921:585","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Threonine","inputs_1539353822:51","inputs_1553799316:57","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Threonine","inputs_1539353822:51","inputs_1555609921:633","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Threonine","inputs_1553799316:57","inputs_1555609921:633","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Tryptophan","inputs_1539353822:52","inputs_1539354673:2","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Tryptophan","inputs_1539353822:52","inputs_1553799316:60","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Tryptophan","inputs_1539353822:52","inputs_1555609921:644","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Tryptophan","inputs_1539354673:2","inputs_1553799316:60","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Tryptophan","inputs_1539354673:2","inputs_1555609921:644","exact","R03","identical InChIKey QIVBCDIJIAJPQS-VIFPVBQESA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Tryptophan","inputs_1553799316:60","inputs_1555609921:644","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Tyrosine","inputs_1539353822:53","inputs_1539354673:21","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Tyrosine","inputs_1539353822:53","inputs_1553799316:61","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Tyrosine","inputs_1539353822:53","inputs_1555609921:647","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Tyrosine","inputs_1539353822:53","inputs_1571898296:46","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Tyrosine","inputs_1539354673:21","inputs_1553799316:61","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Tyrosine","inputs_1539354673:21","inputs_1555609921:647","exact","R03","identical InChIKey OUYCCCASQSFEME-QMMMGPOBSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Tyrosine","inputs_1539354673:21","inputs_1571898296:46","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Tyrosine","inputs_1553799316:61","inputs_1555609921:647","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Tyrosine","inputs_1553799316:61","inputs_1571898296:46","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Tyrosine","inputs_1555609921:647","inputs_1571898296:46","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Valine","inputs_1539353822:54","inputs_1539354673:45","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Valine","inputs_1539353822:54","inputs_1553799316:64","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Valine","inputs_1539353822:54","inputs_1555609921:654","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Valine","inputs_1539353822:54","inputs_1571898296:44","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Valine","inputs_1539354673:45","inputs_1553799316:64","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Valine","inputs_1539354673:45","inputs_1555609921:654","exact","R03","identical InChIKey KZSNJWFQEVHDMF-BYPYZUCNSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Valine","inputs_1539354673:45","inputs_1571898296:44","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Valine","inputs_1553799316:64","inputs_1555609921:654","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Valine","inputs_1553799316:64","inputs_1571898296:44","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Valine","inputs_1555609921:654","inputs_1571898296:44","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"SM 18:1;O2/16:0","inputs_1539353822:150","inputs_1555609921:529","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"SM 18:1;O2/18:0","inputs_1539353822:153","inputs_1555609921:611","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"Leucine","inputs_1539354673:4","inputs_1553799316:37","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Leucine","inputs_1539354673:4","inputs_1555609921:423","exact","R03","identical InChIKey ROHFNLRQFUQHCH-YFKPBYRVSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Leucine","inputs_1539354673:4","inputs_1571898296:43","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Leucine","inputs_1553799316:37","inputs_1555609921:423","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Leucine","inputs_1553799316:37","inputs_1571898296:43","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Leucine","inputs_1555609921:423","inputs_1571898296:43","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Cholesterol","inputs_1539354673:5","inputs_1555609921:262","unresolved","R11","same connectivity, stereo only in the keys: HVYWMOMLDIMFJA-DPAQBDIFSA-N vs HVYWMOMLDIMFJA-FNOPAARDSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Creatinine","inputs_1539354673:7","inputs_1553799316:16","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Creatinine","inputs_1539354673:7","inputs_1555609921:276","exact","R03","identical InChIKey DDRJAANPRJIHGJ-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Creatinine","inputs_1539354673:7","inputs_1571898296:55","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Creatinine","inputs_1553799316:16","inputs_1555609921:276","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Creatinine","inputs_1553799316:16","inputs_1571898296:55","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Creatinine","inputs_1555609921:276","inputs_1571898296:55","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Lactic acid","inputs_1539354673:8","inputs_1553799316:35","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Lactic acid","inputs_1539354673:8","inputs_1555609921:418","broader_narrower","R09","same connectivity, one key without stereo: JVTAAEKCZFNVCJ-REOHCLBHSA-N vs JVTAAEKCZFNVCJ-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Lactic acid","inputs_1539354673:8","inputs_1571898296:48","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Lactic acid","inputs_1553799316:35","inputs_1555609921:418","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Lactic acid","inputs_1553799316:35","inputs_1571898296:48","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Lactic acid","inputs_1555609921:418","inputs_1571898296:48","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"3-Hydroxybutyric acid","inputs_1539354673:9","inputs_1555609921:134","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Caffeine","inputs_1539354673:10","inputs_1555609921:251","exact","R03","identical InChIKey RYYVLZVUVIJVGH-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Fructose","inputs_1539354673:12","inputs_1555609921:327","distinct","R12","different connectivity: RFSUNEUAIZKAJO-ARQDHWQXSA-N vs BJHIKXHVCXFQLS-UYFOZJQFSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Mannose","inputs_1539354673:13","inputs_1555609921:438","unresolved","R11","same connectivity, stereo only in the keys: WQZGKKKJIJFFOK-PQMKYFCFSA-N vs WQZGKKKJIJFFOK-QTVWNMPRSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Pyruvic acid","inputs_1539354673:14","inputs_1553799316:48","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Pyruvic acid","inputs_1539354673:14","inputs_1555609921:570","exact","R03","identical InChIKey LCTONWCANYUPML-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Pyruvic acid","inputs_1539354673:14","inputs_1571898296:49","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Pyruvic acid","inputs_1553799316:48","inputs_1555609921:570","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Pyruvic acid","inputs_1553799316:48","inputs_1571898296:49","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Pyruvic acid","inputs_1555609921:570","inputs_1571898296:49","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Uridine","inputs_1539354673:15","inputs_1553799316:63","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Uridine","inputs_1539354673:15","inputs_1555609921:652","exact","R03","identical InChIKey DRTQHJPVMGBUCF-XVFCMESISA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Uridine","inputs_1553799316:63","inputs_1555609921:652","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Linoleic acid","inputs_1539354673:16","inputs_1555609921:426","exact","R03","identical InChIKey OYHQOLUKZRVURQ-HZJYTTRNSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Linoleic acid","inputs_1539354673:16","inputs_1571898296:29","unresolved","R99","no rule applied",TRUE,FALSE,TRUE
+"Linoleic acid","inputs_1555609921:426","inputs_1571898296:29","unresolved","R99","no rule applied",TRUE,FALSE,TRUE
+"Allantoin","inputs_1539354673:17","inputs_1553799316:5","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Allantoin","inputs_1539354673:17","inputs_1555609921:217","exact","R03","identical InChIKey POJWUDADGALRAB-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Allantoin","inputs_1553799316:5","inputs_1555609921:217","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Arachidonic acid","inputs_1539354673:18","inputs_1555609921:233","exact","R03","identical InChIKey YZXBAPSDXZZRGB-DOFZRALJSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Margaric acid","inputs_1539354673:19","inputs_1555609921:439","exact","R03","identical InChIKey KEMQGTRYUADPNZ-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Isoleucine","inputs_1539354673:20","inputs_1553799316:33","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Isoleucine","inputs_1539354673:20","inputs_1555609921:410","exact","R03","identical InChIKey AGPKZVBTJJNPAG-WHFBIAKZSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Isoleucine","inputs_1539354673:20","inputs_1571898296:42","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Isoleucine","inputs_1553799316:33","inputs_1555609921:410","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Isoleucine","inputs_1553799316:33","inputs_1571898296:42","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Isoleucine","inputs_1555609921:410","inputs_1571898296:42","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Lysine","inputs_1539354673:22","inputs_1553799316:38","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Lysine","inputs_1539354673:22","inputs_1555609921:430","exact","R03","identical InChIKey KDXKERNSBIXSRK-YFKPBYRVSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Lysine","inputs_1553799316:38","inputs_1555609921:430","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Malic acid","inputs_1539354673:24","inputs_1553799316:39","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Malic acid","inputs_1539354673:24","inputs_1555609921:431","broader_narrower","R09","same connectivity, one key without stereo: BJEPYKJPYRNKOW-REOHCLBHSA-N vs BJEPYKJPYRNKOW-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Malic acid","inputs_1553799316:39","inputs_1555609921:431","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Palmitic acid","inputs_1539354673:25","inputs_1555609921:525","exact","R03","identical InChIKey IPCSVZSSVZVIGE-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Stearic acid","inputs_1539354673:27","inputs_1555609921:609","exact","R03","identical InChIKey QIQXTHQIDYTFRH-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Oleic acid","inputs_1539354673:28","inputs_1555609921:514","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"Pentadecylic acid","inputs_1539354673:29","inputs_1555609921:537","exact","R03","identical InChIKey WQEPLUUGTLDZJY-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Myristic acid","inputs_1539354673:30","inputs_1555609921:452","exact","R03","identical InChIKey TUNFSRHWOTWDNC-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Pipecolic acid","inputs_1539354673:31","inputs_1555609921:551","exact","R03","identical InChIKey HXEACLLIILLPRG-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Pyroglutamic acid","inputs_1539354673:33","inputs_1555609921:203","exact","R03","identical InChIKey ODHCTXKNWHHXJC-VKHMYHEASA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Pantothenic acid","inputs_1539354673:34","inputs_1553799316:44","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Pantothenic acid","inputs_1539354673:34","inputs_1555609921:531","exact","R03","identical InChIKey GHOKWGTUZJEAQD-ZETCQYMHSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Pantothenic acid","inputs_1553799316:44","inputs_1555609921:531","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"4-Acetamidobutanoic acid","inputs_1539354673:35","inputs_1555609921:159","exact","R03","identical InChIKey UZTFMUBKZQVKLK-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"alpha-Tocopherol","inputs_1539354673:36","inputs_1555609921:226","exact","R03","identical InChIKey GVJHHUAWPYXKBD-IEOSBIPESA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Citric acid","inputs_1539354673:37","inputs_1553799316:13","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Citric acid","inputs_1539354673:37","inputs_1555609921:269","exact","R03","identical InChIKey KRKNYBCHXYNGOX-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Citric acid","inputs_1539354673:37","inputs_1571898296:50","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Citric acid","inputs_1553799316:13","inputs_1555609921:269","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Citric acid","inputs_1553799316:13","inputs_1571898296:50","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Citric acid","inputs_1555609921:269","inputs_1571898296:50","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Glyceric acid","inputs_1539354673:38","inputs_1555609921:357","broader_narrower","R09","same connectivity, one key without stereo: RBNPOMFGQQGHHO-UWTATZPHSA-N vs RBNPOMFGQQGHHO-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"N-Acetylalanine","inputs_1539354673:39","inputs_1555609921:468","exact","R03","identical InChIKey KTHDTJVBEPMMGL-VKHMYHEASA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Uric acid","inputs_1539354673:40","inputs_1553799316:62","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Uric acid","inputs_1539354673:40","inputs_1555609921:650","exact","R03","identical InChIKey LEHOTFFKMJEONL-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Uric acid","inputs_1553799316:62","inputs_1555609921:650","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Capric acid","inputs_1539354673:42","inputs_1555609921:253","exact","R03","identical InChIKey GHVNFZFCNZKVNT-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Heptylic acid","inputs_1539354673:43","inputs_1555609921:379","exact","R03","identical InChIKey MNWFXJYAOYHMED-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Lauric acid","inputs_1539354673:44","inputs_1555609921:421","exact","R03","identical InChIKey POULHZVOKOAJMA-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Urea","inputs_1539354673:46","inputs_1555609921:651","exact","R03","identical InChIKey XSQUKJJJFZCRTK-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Cortisol","inputs_1539354673:47","inputs_1555609921:271","exact","R03","identical InChIKey JYGXADMDTFJGBT-VWUMJDOOSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Cortisone","inputs_1539354673:48","inputs_1555609921:272","exact","R03","identical InChIKey MFYSYFVPBJMHGN-ZPOLXVRWSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Citrulline","inputs_1539354673:50","inputs_1553799316:14","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Citrulline","inputs_1539354673:50","inputs_1555609921:270","exact","R03","identical InChIKey RHGKLRLOHDJJDR-BYPYZUCNSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Citrulline","inputs_1553799316:14","inputs_1555609921:270","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Biliverdin","inputs_1539354673:51","inputs_1555609921:248","unresolved","R11","same connectivity, stereo only in the keys: RCNSAJSGRJSBKK-NSQVQWHSSA-N vs RCNSAJSGRJSBKK-YKSNQIBWSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"gamma-Glutamylglutamine","inputs_1539354673:52","inputs_1555609921:335","exact","R03","identical InChIKey JBFYFLXEJFQWMU-WDSKDSINSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"gamma-Glutamyltyrosine","inputs_1539354673:53","inputs_1555609921:344","exact","R03","identical InChIKey VVLXCWVSSLFQDS-QWRGUYRKSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Hypoxanthine","inputs_1539354673:54","inputs_1553799316:30","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Hypoxanthine","inputs_1539354673:54","inputs_1555609921:394","exact","R03","identical InChIKey FDGQSTZJBFJUBT-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Hypoxanthine","inputs_1553799316:30","inputs_1555609921:394","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Betaine","inputs_1539354673:55","inputs_1553799316:10","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Betaine","inputs_1539354673:55","inputs_1555609921:243","exact","R03","identical InChIKey KWIUHFFTVRNATP-UHFFFAOYSA-O (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Betaine","inputs_1553799316:10","inputs_1555609921:243","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Xanthine","inputs_1539354673:56","inputs_1553799316:65","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Xanthine","inputs_1539354673:56","inputs_1555609921:659","exact","R03","identical InChIKey LRFVTYWOQMYALW-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Xanthine","inputs_1553799316:65","inputs_1555609921:659","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Phosphoric acid","inputs_1539354673:57","inputs_1555609921:548","unresolved","R99","no rule applied",TRUE,TRUE,FALSE
+"Pelargonic acid","inputs_1539354673:58","inputs_1555609921:536","exact","R03","identical InChIKey FBUKVWPVBMHYJY-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"3-Hydroxyisovaleric acid","inputs_1539354673:60","inputs_1555609921:241","exact","R03","identical InChIKey AXFYFNCPONWUHW-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Glycerol","inputs_1539354673:65","inputs_1553799316:22","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Glycerol","inputs_1539354673:65","inputs_1555609921:358","exact","R03","identical InChIKey PEDCQBHIVMGVHV-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Glycerol","inputs_1539354673:65","inputs_1571898296:51","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Glycerol","inputs_1553799316:22","inputs_1555609921:358","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Glycerol","inputs_1553799316:22","inputs_1571898296:51","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Glycerol","inputs_1555609921:358","inputs_1571898296:51","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Kynurenine","inputs_1539354673:66","inputs_1553799316:34","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Kynurenine","inputs_1539354673:66","inputs_1555609921:417","exact","R03","identical InChIKey YGPSJZOEDVAXAB-QMMMGPOBSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Kynurenine","inputs_1553799316:34","inputs_1555609921:417","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"sn-Glycero-3-phosphate","inputs_1539354673:67","inputs_1555609921:359","broader_narrower","R09","same connectivity, one key without stereo: AWUCVROLDVIAJX-GSVOUGTGSA-N vs AWUCVROLDVIAJX-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Choline","inputs_1539354673:70","inputs_1553799316:12","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Choline","inputs_1539354673:70","inputs_1555609921:263","exact","R03","identical InChIKey OEYIOHPDSNJKLS-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Choline","inputs_1553799316:12","inputs_1555609921:263","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"1-Methyladenosine","inputs_1539354673:72","inputs_1555609921:458","exact","R03","identical InChIKey GFYLSDSUCHVORB-IOSLPCCCSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"3-Methyl-2-oxovaleric acid","inputs_1539354673:73","inputs_1555609921:152","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"3-Methylhistidine","inputs_1539354673:74","inputs_1555609921:154","exact","R03","identical InChIKey JDHILDINMRGULE-LURJTMIESA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Hydrocinnamic acid","inputs_1539354673:75","inputs_1555609921:156","exact","R03","identical InChIKey XMIIGOLPHOKFCH-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Hippuric acid","inputs_1539354673:76","inputs_1553799316:28","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Hippuric acid","inputs_1539354673:76","inputs_1555609921:382","exact","R03","identical InChIKey QIAFMBKCNZACKA-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Hippuric acid","inputs_1553799316:28","inputs_1555609921:382","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"sn-Glycero-3-phosphocholine","inputs_1539354673:78","inputs_1555609921:361","unresolved","R11","same connectivity, stereo only in the keys: SUHOQUVVVLNYQR-MRVPVSSYSA-O vs SUHOQUVVVLNYQR-QMMMGPOBSA-O (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Aspartic acid","inputs_1539354673:79","inputs_1555609921:236","exact","R03","identical InChIKey CKLJMWTZIZZHCS-REOHCLBHSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"11Z,14Z-Eicosadienoic acid","inputs_1539354673:84","inputs_1555609921:293","exact","R03","identical InChIKey XSXIVVZCUAHUJO-HZJYTTRNSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"2-Hydroxystearic acid","inputs_1539354673:85","inputs_1555609921:110","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Paraxanthine","inputs_1539354673:86","inputs_1555609921:532","exact","R03","identical InChIKey QUNWUDVFRNGTCO-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Indolelactic acid","inputs_1539354673:88","inputs_1555609921:402","broader_narrower","R09","same connectivity, one key without stereo: XGILAAMKEQUXLS-JTQLQIEISA-N vs XGILAAMKEQUXLS-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"gamma-Glutamylleucine","inputs_1539354673:89","inputs_1555609921:339","exact","R03","identical InChIKey MYFMARDICOWMQP-YUMQZZPRSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Theobromine","inputs_1539354673:90","inputs_1555609921:630","exact","R03","identical InChIKey YAPQBXQYLJRXSA-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Theophylline","inputs_1539354673:91","inputs_1555609921:631","exact","R03","identical InChIKey ZFXYFBGIUFBOJW-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"EPA","inputs_1539354673:92","inputs_1555609921:310","exact","R03","identical InChIKey JAZBEHYOTPTENJ-JLNKQSITSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Glycocholic acid","inputs_1539354673:93","inputs_1553799316:25","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Glycocholic acid","inputs_1539354673:93","inputs_1555609921:365","exact","R03","identical InChIKey RFDAIACWWDREDC-FRVQLJSFSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Glycocholic acid","inputs_1539354673:93","inputs_1571898296:57","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,TRUE
+"Glycocholic acid","inputs_1553799316:25","inputs_1555609921:365","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Glycocholic acid","inputs_1553799316:25","inputs_1571898296:57","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,TRUE
+"Glycocholic acid","inputs_1555609921:365","inputs_1571898296:57","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,TRUE
+"DHA","inputs_1539354673:95","inputs_1555609921:303","exact","R03","identical InChIKey MBMBGCFOFBJSGT-KUBAVDMBSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"DHA","inputs_1539354673:95","inputs_1571898296:30","unresolved","R99","no rule applied",TRUE,FALSE,TRUE
+"DHA","inputs_1555609921:303","inputs_1571898296:30","unresolved","R99","no rule applied",TRUE,FALSE,TRUE
+"LPI 18:0/0:0","inputs_1539354673:96","inputs_1555609921:92","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Myo-inositol","inputs_1539354673:101","inputs_1555609921:451","exact","R03","identical InChIKey CDAISMWEOUEBRE-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Myo-inositol","inputs_1539354673:147","inputs_1555609921:451","exact","R03","identical InChIKey CDAISMWEOUEBRE-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,FALSE,FALSE
+"Glucose","inputs_1539354673:102","inputs_1555609921:349","unresolved","R11","same connectivity, stereo only in the keys: WQZGKKKJIJFFOK-VFUOTHLCSA-N vs WQZGKKKJIJFFOK-DVKNGEFBSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Glucose","inputs_1539354673:102","inputs_1571898296:47","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"Glucose","inputs_1555609921:349","inputs_1571898296:47","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,TRUE
+"1,5-Anhydrosorbitol","inputs_1539354673:103","inputs_1555609921:23","exact","R03","identical InChIKey MPCAJMNYNOGXPB-SLPGGIOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Erythritol","inputs_1539354673:104","inputs_1555609921:315","exact","R03","identical InChIKey UNXHWFMMPAWVPI-ZXZARUISSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Ketoisovaleric acid","inputs_1539354673:106","inputs_1555609921:151","exact","R03","identical InChIKey QHKABHOOEWYVLI-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"MG 16:0/0:0/0:0","inputs_1539354673:107","inputs_1555609921:76","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Ketoleucine","inputs_1539354673:112","inputs_1555609921:179","exact","R03","identical InChIKey BKAJNAXTPSGJCU-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Phenyllactic acid","inputs_1539354673:113","inputs_1555609921:546","exact","R03","identical InChIKey VOXXWSYKYCBWHO-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Indoleacetic acid","inputs_1539354673:125","inputs_1555609921:400","exact","R03","identical InChIKey SEOVTRFCIGRIMH-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Indoxyl sulfate","inputs_1539354673:126","inputs_1555609921:146","exact","R03","identical InChIKey BXFFHSIDQOFMLE-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"N-Acetylglycine","inputs_1539354673:127","inputs_1555609921:479","exact","R03","identical InChIKey OKJIRPAQVSHGFK-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Bilirubin","inputs_1539354673:128","inputs_1555609921:245","stereo_variant","R10","same connectivity, stereo stated in a name: BPYKTIZUTYGOLE-IFADSCNNSA-N vs BPYKTIZUTYGOLE-BMNRKXRESA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,FALSE,FALSE
+"Bilirubin","inputs_1539354673:128","inputs_1555609921:246","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"Bilirubin","inputs_1539354673:128","inputs_1555609921:247","exact","R03","identical InChIKey BPYKTIZUTYGOLE-IFADSCNNSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Bilirubin","inputs_1539354673:165","inputs_1555609921:245","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Bilirubin","inputs_1539354673:165","inputs_1555609921:246","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"Bilirubin","inputs_1539354673:165","inputs_1555609921:247","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"Creatine","inputs_1539354673:129","inputs_1553799316:15","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Creatine","inputs_1539354673:129","inputs_1555609921:275","exact","R03","identical InChIKey CVSVTCORWBXHQV-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Creatine","inputs_1553799316:15","inputs_1555609921:275","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Cysteine","inputs_1539354673:133","inputs_1555609921:279","exact","R03","identical InChIKey XUJNEKJLAYXESH-REOHCLBHSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"4-Pyridoxic acid","inputs_1539354673:134","inputs_1553799316:47","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"4-Pyridoxic acid","inputs_1539354673:134","inputs_1555609921:566","exact","R03","identical InChIKey HXACOUQIXZGNBF-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"4-Pyridoxic acid","inputs_1553799316:47","inputs_1555609921:566","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"5alpha-Androstane-3alpha-ol-17-one sulfate","inputs_1539354673:135","inputs_1555609921:227","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"5alpha-Androstane-3alpha-ol-17-one sulfate","inputs_1539354673:135","inputs_1555609921:228","exact","R03","identical InChIKey ZMITXKRGXGRMKS-HLUDHZFRSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"3-Carboxy-4-methyl-5-propyl-2-furanpropanoic acid","inputs_1539354673:136","inputs_1555609921:131","exact","R03","identical InChIKey WMCQWXZMVIETAO-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"trans-4-Hydroxyproline","inputs_1539354673:140","inputs_1555609921:637","exact","R03","identical InChIKey PMMYEEVYMWASQN-DMTCNVIQSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Glutamic acid","inputs_1539354673:141","inputs_1555609921:351","broader_narrower","R09","same connectivity, one key without stereo: WHUUTDBJXJRKMK-VKHMYHEASA-N vs WHUUTDBJXJRKMK-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,FALSE,FALSE
+"Alanine","inputs_1539354673:144","inputs_1553799316:4","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Alanine","inputs_1539354673:144","inputs_1555609921:216","exact","R03","identical InChIKey QNAYBMKLOCPYGJ-REOHCLBHSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Alanine","inputs_1539354673:144","inputs_1571898296:38","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,TRUE
+"Alanine","inputs_1553799316:4","inputs_1555609921:216","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Alanine","inputs_1553799316:4","inputs_1571898296:38","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,TRUE
+"Alanine","inputs_1555609921:216","inputs_1571898296:38","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,TRUE
+"Glycochenodeoxycholic acid","inputs_1539354673:145","inputs_1555609921:363","exact","R03","identical InChIKey GHCZAUBVMUEKKP-GYPHWSFCSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Dodecanedioic acid","inputs_1539354673:148","inputs_1555609921:307","exact","R03","identical InChIKey TVIDDXQYHWJXFK-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"gamma-Glutamylvaline","inputs_1539354673:149","inputs_1555609921:345","exact","R03","identical InChIKey AQAKHZVPOOGUCK-XPUUQOCRSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"3-Indolepropionic acid","inputs_1539354673:150","inputs_1553799316:31","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"3-Indolepropionic acid","inputs_1539354673:150","inputs_1555609921:403","exact","R03","identical InChIKey GOLXRNDWAUTYKT-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"3-Indolepropionic acid","inputs_1553799316:31","inputs_1555609921:403","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Myristoleic acid","inputs_1539354673:152","inputs_1555609921:453","exact","R03","identical InChIKey YWWVWXASSLXJHU-WAYWQWQTSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Dehydroepiandrosterone sulfate","inputs_1539354673:153","inputs_1555609921:286","exact","R03","identical InChIKey CZWCKYRVOZZJNM-USOAJAOKSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Caproic acid","inputs_1539354673:155","inputs_1555609921:254","exact","R03","identical InChIKey FUZZWVXGSFPDMH-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Caprylic acid","inputs_1539354673:156","inputs_1555609921:255","exact","R03","identical InChIKey WWZKQHOCKIZLMA-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"10-Hendecenoic acid","inputs_1539354673:157","inputs_1555609921:27","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Docosapentaenoic acid (22n-6)","inputs_1539354673:158","inputs_1555609921:305","exact","R03","identical InChIKey AVKOENOBFIYBSA-WMPRHZDHSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,FALSE,FALSE
+"Phenyl hydrogen sulfate","inputs_1539354673:161","inputs_1555609921:539","exact","R03","identical InChIKey CTYRPMDGLDAWRQ-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"4-Methylcatechol 1-sulfate","inputs_1539354673:162","inputs_1555609921:180","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"LPE 18:2/0:0","inputs_1539354673:170","inputs_1555609921:43","exact","R03","identical InChIKey DBHKHNGBVGWQJE-USWSLJGRSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Pyroglutamine","inputs_1539354673:173","inputs_1555609921:568","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Sulfotyrosine","inputs_1539354673:179","inputs_1555609921:522","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Adrenic acid","inputs_1539354673:199","inputs_1555609921:215","exact","R03","identical InChIKey TWSWSIQAPQLDBP-DOFZRALJSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"2-Aminoheptanoic acid","inputs_1539354673:203","inputs_1555609921:97","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"gamma-Glutamylphenylalanine","inputs_1539354673:211","inputs_1555609921:341","exact","R03","identical InChIKey XHHOHZPNYFQJKL-QWRGUYRKSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"CAR 3:0;2Me","inputs_1539354673:212","inputs_1555609921:406","exact","R03","identical InChIKey LRCNOZRCYBNMEP-SECBINFHSA-O (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Pseudouridine","inputs_1539354673:213","inputs_1555609921:565","exact","R03","identical InChIKey PTJWIQPHWPFNBW-GBNDHIKLSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Palmitoleic acid","inputs_1539354673:214","inputs_1555609921:526","exact","R03","identical InChIKey SECPZKHBENQXJG-FPLPWBNLSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"2-Oxoglutaric acid","inputs_1539354673:215","inputs_1553799316:7","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"2-Oxoglutaric acid","inputs_1539354673:215","inputs_1555609921:225","exact","R03","identical InChIKey KPGXRSRHYNQIFN-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"2-Oxoglutaric acid","inputs_1553799316:7","inputs_1555609921:225","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Erythronic acid","inputs_1539354673:216","inputs_1555609921:316","exact","R03","identical InChIKey JPIJQSOTBSSVTP-PWNYCUMCSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"cis-Gondoic acid","inputs_1539354673:221","inputs_1555609921:311","exact","R03","identical InChIKey BITHHVVYSMSWAG-KTKRTIGZSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"N-Acetylcarnosine","inputs_1539354673:222","inputs_1555609921:476","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"Piperine","inputs_1539354673:229","inputs_1555609921:553","exact","R03","identical InChIKey MXXWOMGUGJBKIW-YPCIICBESA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"2-Hydroxy-3-methylbutyric acid","inputs_1539354673:231","inputs_1555609921:223","exact","R03","identical InChIKey NGEWQZIDQIYUNV-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"N-Acetylthreonine","inputs_1539354673:232","inputs_1555609921:490","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"LPC 16:0/0:0","inputs_1539354673:234","inputs_1555609921:78","broader_narrower","R09","same connectivity, one key without stereo: ASWBNKHCZGQVJV-HSZRJFAPSA-O vs ASWBNKHCZGQVJV-UHFFFAOYSA-O (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"LPC 18:0/0:0","inputs_1539354673:237","inputs_1555609921:90","exact","R03","identical InChIKey IHNKQIMGVNPMTC-RUZDIDTESA-O (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"5-Dodecenoic acid","inputs_1539354673:238","inputs_1555609921:196","exact","R03","identical InChIKey IJBFSOLHRKELLR-FPLPWBNLSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Stearidonic acid","inputs_1539354673:239","inputs_1555609921:610","exact","R03","identical InChIKey JIWBIWFOSCKQMA-LTKCOYKYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"10Z-Heptadecenoic acid","inputs_1539354673:240","inputs_1555609921:25","exact","R03","identical InChIKey GDTXICBNEOEPAZ-FPLPWBNLSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Nonadeca-10Z-enoic acid","inputs_1539354673:241","inputs_1555609921:26","exact","R03","identical InChIKey BBOWBNGUEWHNQZ-KTKRTIGZSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Epiandrosterone","inputs_1539354673:242","inputs_1555609921:312","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"2-Aminocaprylic acid","inputs_1539354673:244","inputs_1555609921:98","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Asparagine","inputs_1539354673:250","inputs_1553799316:9","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Asparagine","inputs_1539354673:250","inputs_1555609921:235","exact","R03","identical InChIKey DCXYFEDJOCDNAF-REOHCLBHSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Asparagine","inputs_1553799316:9","inputs_1555609921:235","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"1,7-Dimethyluric acid","inputs_1539354673:255","inputs_1555609921:24","exact","R03","identical InChIKey NOFNCLGCUJJPKU-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"CAR 4:0;3Me","inputs_1539354673:256","inputs_1555609921:413","exact","R03","identical InChIKey IGQBPDJNUXPEMT-UHFFFAOYSA-O (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"LPE 18:0/0:0","inputs_1539354673:258","inputs_1555609921:91","exact","R03","identical InChIKey BBYWOYAFBUOUFP-JOCHJYFZSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"LPC 18:2(9Z,12Z)/0:0","inputs_1539354673:259","inputs_1571898296:25","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,TRUE
+"Isovaleric acid","inputs_1539354673:265","inputs_1555609921:412","exact","R03","identical InChIKey GWYFCOCPABKNJV-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"alpha-N-Phenylacetylglutamine","inputs_1539354673:268","inputs_1555609921:543","exact","R03","identical InChIKey JFLIEFSWGNOPJJ-JTQLQIEISA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Pro-hydroxyPro","inputs_1539354673:269","inputs_1555609921:558","unresolved","R11","same connectivity, stereo only in the keys: ONPXCLZMBSJLSP-CSMHCCOUSA-N vs ONPXCLZMBSJLSP-ALKRTJFJSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"LPC 0:0/16:0","inputs_1539354673:275","inputs_1555609921:120","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Catechol sulfate","inputs_1539354673:280","inputs_1555609921:258","exact","R03","identical InChIKey MZPWKJZDOCIALD-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"CAR 4:0;2Me","inputs_1539354673:283","inputs_1555609921:116","exact","R03","identical InChIKey IHCPDBBYTYJYIL-UHFFFAOYSA-O (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"LPE 16:0/0:0","inputs_1539354673:289","inputs_1555609921:79","exact","R03","identical InChIKey YVYMBNSKXOXSKW-HXUWFJFHSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Tetradecanedioic acid","inputs_1539354673:290","inputs_1555609921:628","exact","R03","identical InChIKey HQHCYKULIHKCEB-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"2-Hydroxypalmitic acid","inputs_1539354673:291","inputs_1555609921:108","broader_narrower","R09","same connectivity, one key without stereo: JGHSBPIZNUXPLA-HNNXBMFYSA-N vs JGHSBPIZNUXPLA-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Hexadecanedioic acid","inputs_1539354673:292","inputs_1555609921:380","exact","R03","identical InChIKey QQHJDPROMQRDLA-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Dihomo-gamma-linolenic acid","inputs_1539354673:293","inputs_1555609921:294","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"4-Hydroxystyrene","inputs_1539354673:297","inputs_1555609921:182","distinct","R12","different connectivity: FUGYGGDSWSUORM-UHFFFAOYSA-N vs IETVQHUKTKKBFF-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"p-Cresol sulfate","inputs_1539354673:298","inputs_1555609921:534","exact","R03","identical InChIKey WGNAKZGUSRVWRH-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Octadecanedioic acid","inputs_1539354673:304","inputs_1555609921:510","exact","R03","identical InChIKey BNJOQKFENDDGSC-UHFFFAOYSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"7alpha-Hydroxy-3-oxo-4-cholestenoic acid","inputs_1539354673:305","inputs_1555609921:206","exact","R03","identical InChIKey SATGKQGFUDXGAX-MYWFJNCASA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"Dimethylarginine","inputs_1539354673:306","inputs_1555609921:299","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Taurolithocholic acid 3-sulfate","inputs_1539354673:307","inputs_1555609921:626","exact","R03","identical InChIKey HSNPMXROZIQAQD-GBURMNQMSA-N (keys from hmdb_via_pubchem and pubchem_cid)",TRUE,TRUE,FALSE
+"CAR DC4:0","inputs_1539354673:308","inputs_1555609921:618","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Adenosine","inputs_1553799316:1","inputs_1555609921:213","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"AMP","inputs_1553799316:3","inputs_1555609921:214","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Dimethylglycine","inputs_1553799316:18","inputs_1555609921:300","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Gentisic acid","inputs_1553799316:19","inputs_1555609921:347","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Glucuronic acid","inputs_1553799316:20","inputs_1555609921:350","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Inosine","inputs_1553799316:32","inputs_1555609921:405","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Orotic acid","inputs_1553799316:42","inputs_1555609921:520","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Oxalic acid","inputs_1553799316:43","inputs_1555609921:523","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Quinolinic acid","inputs_1553799316:49","inputs_1555609921:573","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Serotonin","inputs_1553799316:51","inputs_1555609921:586","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Sorbitol","inputs_1553799316:52","inputs_1555609921:437","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,FALSE,FALSE
+"Sucrose","inputs_1553799316:53","inputs_1555609921:619","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Taurine","inputs_1553799316:54","inputs_1555609921:621","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Taurocholic acid","inputs_1553799316:56","inputs_1555609921:623","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Thyroxine","inputs_1553799316:58","inputs_1555609921:635","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Trimethylamine N-oxide","inputs_1553799316:59","inputs_1555609921:643","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Xanthosine","inputs_1553799316:66","inputs_1555609921:660","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE
+"Xanthurenic acid","inputs_1553799316:67","inputs_1555609921:661","unresolved","R01","a row has neither a valid InChIKey nor a lipid profile",TRUE,TRUE,FALSE

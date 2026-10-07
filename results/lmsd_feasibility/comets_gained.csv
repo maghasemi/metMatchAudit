@@ -1,0 +1,155 @@
+"row_id","file","original_name","lmsd_species","lmsd_tier","lmsd_hits"
+"inputs_1539354673:14","inputs_1539354673","pyruvate","FA 3:1;O","full",1
+"inputs_1539354673:16","inputs_1539354673","linoleate (18:2n6)","FA 18:2","full",1
+"inputs_1539354673:18","inputs_1539354673","arachidonate (20:4n6)","FA 20:4","full",1
+"inputs_1539354673:19","inputs_1539354673","margarate (17:0)","FA 17:0","full",1
+"inputs_1539354673:25","inputs_1539354673","palmitate (16:0)","FA 16:0","full",1
+"inputs_1539354673:26","inputs_1539354673","nonadecanoate (19:0)","FA 19:0","full",1
+"inputs_1539354673:27","inputs_1539354673","stearate (18:0)","FA 18:0","full",1
+"inputs_1539354673:28","inputs_1539354673","oleate (18:1n9)","FA 18:1","full",1
+"inputs_1539354673:29","inputs_1539354673","pentadecanoate (15:0)","FA 15:0","full",1
+"inputs_1539354673:30","inputs_1539354673","myristate (14:0)","FA 14:0","full",1
+"inputs_1539354673:34","inputs_1539354673","pantothenate","NA 9:1;O4","full",1
+"inputs_1539354673:42","inputs_1539354673","caprate (10:0)","FA 10:0","full",1
+"inputs_1539354673:43","inputs_1539354673","heptanoate (7:0)","FA 7:0","full",1
+"inputs_1539354673:44","inputs_1539354673","laurate (12:0)","FA 12:0","full",1
+"inputs_1539354673:58","inputs_1539354673","pelargonate (9:0)","FA 9:0","full",1
+"inputs_1539354673:59","inputs_1539354673","undecanoate (11:0)","FA 11:0","full",1
+"inputs_1539354673:60","inputs_1539354673","beta-hydroxyisovalerate","FA 5:0;O","full",1
+"inputs_1539354673:84","inputs_1539354673","dihomo-linoleate (20:2n6)","FA 20:2","full",1
+"inputs_1539354673:92","inputs_1539354673","eicosapentaenoate (EPA; 20:5n3)","FA 20:5","full",1
+"inputs_1539354673:95","inputs_1539354673","docosahexaenoate (DHA; 22:6n3)","FA 22:6","full",1
+"inputs_1539354673:105","inputs_1539354673","2-hydroxybutyrate (AHB)","FA 4:0;O","full",1
+"inputs_1539354673:106","inputs_1539354673","3-methyl-2-oxobutyrate","FA 5:1;O","full",1
+"inputs_1539354673:110","inputs_1539354673","2-hydroxyisobutyrate","FA 4:0;O","full",1
+"inputs_1539354673:114","inputs_1539354673","levulinate (4-oxovalerate)","FA 5:1;O","full",1
+"inputs_1539354673:115","inputs_1539354673","palmitoylcarnitine","CAR 16:0","k25",1
+"inputs_1539354673:136","inputs_1539354673","3-carboxy-4-methyl-5-propyl-2-furanpropanoate (CMPF)","FA 12:4;O3","full",1
+"inputs_1539354673:138","inputs_1539354673","acetylcarnitine","CAR 2:0","k25",1
+"inputs_1539354673:148","inputs_1539354673","dodecanedioate","FA 12:1;O2","full",1
+"inputs_1539354673:151","inputs_1539354673","butyrylcarnitine","CAR 4:0","k25",1
+"inputs_1539354673:152","inputs_1539354673","myristoleate (14:1n5)","FA 14:1","full",1
+"inputs_1539354673:154","inputs_1539354673","propionylcarnitine","CAR 3:0","k25",1
+"inputs_1539354673:155","inputs_1539354673","caproate (6:0)","FA 6:0","full",1
+"inputs_1539354673:156","inputs_1539354673","caprylate (8:0)","FA 8:0","full",1
+"inputs_1539354673:158","inputs_1539354673","docosapentaenoate (n3 DPA; 22:5n3)","FA 22:5","full",1
+"inputs_1539354673:199","inputs_1539354673","adrenate (22:4n6)","FA 22:4","full",1
+"inputs_1539354673:212","inputs_1539354673","isobutyrylcarnitine","CAR 4:0","k14",1
+"inputs_1539354673:214","inputs_1539354673","palmitoleate (16:1n7)","FA 16:1","full",1
+"inputs_1539354673:221","inputs_1539354673","eicosenoate (20:1)","FA 20:1","full",1
+"inputs_1539354673:230","inputs_1539354673","octanoylcarnitine","CAR 8:0","k25",1
+"inputs_1539354673:231","inputs_1539354673","alpha-hydroxyisovalerate","FA 5:0;O","full",1
+"inputs_1539354673:233","inputs_1539354673","decanoylcarnitine","CAR 10:0","k25",1
+"inputs_1539354673:238","inputs_1539354673","5-dodecenoate (12:1n7)","FA 12:1","full",1
+"inputs_1539354673:239","inputs_1539354673","stearidonate (18:4n3)","FA 18:4","full",1
+"inputs_1539354673:240","inputs_1539354673","10-heptadecenoate (17:1n7)","FA 17:1","full",1
+"inputs_1539354673:241","inputs_1539354673","10-nonadecenoate (19:1n9)","FA 19:1","full",1
+"inputs_1539354673:256","inputs_1539354673","isovalerylcarnitine","CAR 5:0","k25",1
+"inputs_1539354673:257","inputs_1539354673","stearoylcarnitine","CAR 18:0","k25",1
+"inputs_1539354673:265","inputs_1539354673","isovalerate","FA 5:0","full",1
+"inputs_1539354673:270","inputs_1539354673","oleoylcarnitine","CAR 18:1","k14",1
+"inputs_1539354673:283","inputs_1539354673","2-methylbutyrylcarnitine (C5)","CAR 5:0","k25",1
+"inputs_1539354673:284","inputs_1539354673","glutarylcarnitine (C5)","CAR 5:1;O2","k14",1
+"inputs_1539354673:290","inputs_1539354673","tetradecanedioate","FA 14:1;O2","full",1
+"inputs_1539354673:291","inputs_1539354673","2-hydroxypalmitate","FA 16:0;O","full",1
+"inputs_1539354673:292","inputs_1539354673","hexadecanedioate","FA 16:1;O2","full",1
+"inputs_1539354673:304","inputs_1539354673","octadecanedioate","FA 18:1;O2","full",1
+"inputs_1555609921:25","inputs_1555609921","10-heptadecenoate (17:1n7)","FA 17:1","full",1
+"inputs_1555609921:26","inputs_1555609921","10-nonadecenoate (19:1n9)","FA 19:1","full",1
+"inputs_1555609921:30","inputs_1555609921","15-methylpalmitate","FA 17:0","full",1
+"inputs_1555609921:32","inputs_1555609921","16-hydroxypalmitate","FA 16:0;O","full",1
+"inputs_1555609921:33","inputs_1555609921","17-methylstearate","FA 19:0","full",1
+"inputs_1555609921:94","inputs_1555609921","2,3-dihydroxyisovalerate","FA 5:0;O2","k14",1
+"inputs_1555609921:101","inputs_1555609921","2-hydroxy-3-methylvalerate","FA 6:0;O","k14",1
+"inputs_1555609921:104","inputs_1555609921","2-hydroxydecanoate","FA 10:0;O","full",1
+"inputs_1555609921:107","inputs_1555609921","2-hydroxyoctanoate","FA 8:0;O","full",1
+"inputs_1555609921:108","inputs_1555609921","2-hydroxypalmitate","FA 16:0;O","full",1
+"inputs_1555609921:110","inputs_1555609921","2-hydroxystearate","FA 18:0;O","full",1
+"inputs_1555609921:111","inputs_1555609921","2-isopropylmalate","FA 7:1;O3","k14",1
+"inputs_1555609921:116","inputs_1555609921","2-methylbutyrylcarnitine (C5)","CAR 5:0","k25",1
+"inputs_1555609921:117","inputs_1555609921","2-methylcitrate","FA 7:2;O5","full",1
+"inputs_1555609921:131","inputs_1555609921","3-carboxy-4-methyl-5-propyl-2-furanpropanoate (CMPF)","FA 12:4;O3","full",1
+"inputs_1555609921:132","inputs_1555609921","3-hydroxy-2-ethylpropionate","FA 5:0;O","full",1
+"inputs_1555609921:134","inputs_1555609921","3-hydroxybutyrate (BHBA)","FA 4:0;O","full",1
+"inputs_1555609921:135","inputs_1555609921","3-hydroxybutyrylcarnitine (1)","CAR 4:0;O","k25",1
+"inputs_1555609921:137","inputs_1555609921","3-hydroxydecanoate","FA 10:0;O","full",1
+"inputs_1555609921:139","inputs_1555609921","3-hydroxyisobutyrate","FA 4:0;O","k14",1
+"inputs_1555609921:140","inputs_1555609921","3-hydroxylaurate","FA 12:0;O","full",1
+"inputs_1555609921:141","inputs_1555609921","3-hydroxymyristate","FA 14:0;O","full",1
+"inputs_1555609921:142","inputs_1555609921","3-hydroxyoctanoate","FA 8:0;O","full",1
+"inputs_1555609921:145","inputs_1555609921","3-hydroxysebacate","FA 10:1;O3","full",1
+"inputs_1555609921:151","inputs_1555609921","3-methyl-2-oxobutyrate","FA 5:1;O","full",1
+"inputs_1555609921:152","inputs_1555609921","3-methyl-2-oxovalerate","FA 6:1;O","k14",1
+"inputs_1555609921:196","inputs_1555609921","5-dodecenoate (12:1n7)","FA 12:1","full",1
+"inputs_1555609921:198","inputs_1555609921","5-hydroxyhexanoate","FA 6:0;O","full",1
+"inputs_1555609921:211","inputs_1555609921","acetylcarnitine","CAR 2:0","k25",1
+"inputs_1555609921:215","inputs_1555609921","adrenate (22:4n6)","FA 22:4","full",1
+"inputs_1555609921:221","inputs_1555609921","alpha-hydroxycaproate","FA 6:0;O","full",1
+"inputs_1555609921:222","inputs_1555609921","alpha-hydroxyisocaproate","FA 6:0;O","full",1
+"inputs_1555609921:223","inputs_1555609921","alpha-hydroxyisovalerate","FA 5:0;O","full",1
+"inputs_1555609921:224","inputs_1555609921","alpha-ketobutyrate","FA 4:1;O","full",1
+"inputs_1555609921:232","inputs_1555609921","arachidate (20:0)","FA 20:0","full",1
+"inputs_1555609921:233","inputs_1555609921","arachidonate (20:4n6)","FA 20:4","full",1
+"inputs_1555609921:238","inputs_1555609921","azelate (nonanedioate)","FA 9:1;O2","full",1
+"inputs_1555609921:241","inputs_1555609921","beta-hydroxyisovalerate","FA 5:0;O","full",1
+"inputs_1555609921:250","inputs_1555609921","butyrylcarnitine","CAR 4:0","k25",1
+"inputs_1555609921:252","inputs_1555609921","campesterol","ST 28:1;O","full",1
+"inputs_1555609921:253","inputs_1555609921","caprate (10:0)","FA 10:0","full",1
+"inputs_1555609921:254","inputs_1555609921","caproate (6:0)","FA 6:0","full",1
+"inputs_1555609921:255","inputs_1555609921","caprylate (8:0)","FA 8:0","full",1
+"inputs_1555609921:285","inputs_1555609921","decanoylcarnitine","CAR 10:0","k25",1
+"inputs_1555609921:292","inputs_1555609921","dexpanthenol","NA 9:0;O3","k14",1
+"inputs_1555609921:293","inputs_1555609921","dihomo-linoleate (20:2n6)","FA 20:2","full",1
+"inputs_1555609921:302","inputs_1555609921","docosadienoate (22:2n6)","FA 22:2","full",1
+"inputs_1555609921:303","inputs_1555609921","docosahexaenoate (DHA; 22:6n3)","FA 22:6","full",1
+"inputs_1555609921:304","inputs_1555609921","docosapentaenoate (n3 DPA; 22:5n3)","FA 22:5","full",1
+"inputs_1555609921:305","inputs_1555609921","docosapentaenoate (n6 DPA; 22:5n6)","FA 22:5","full",1
+"inputs_1555609921:306","inputs_1555609921","docosatrienoate (22:3n3)","FA 22:3","full",1
+"inputs_1555609921:307","inputs_1555609921","dodecanedioate","FA 12:1;O2","full",1
+"inputs_1555609921:309","inputs_1555609921","eicosanodioate","FA 20:1;O2","full",1
+"inputs_1555609921:310","inputs_1555609921","eicosapentaenoate (EPA; 20:5n3)","FA 20:5","full",1
+"inputs_1555609921:311","inputs_1555609921","eicosenoate (20:1)","FA 20:1","full",1
+"inputs_1555609921:314","inputs_1555609921","erucate (22:1n9)","FA 22:1","full",1
+"inputs_1555609921:319","inputs_1555609921","ethylmalonate","FA 5:1;O2","full",1
+"inputs_1555609921:355","inputs_1555609921","glutarylcarnitine (C5)","CAR 5:1;O2","k25",1
+"inputs_1555609921:379","inputs_1555609921","heptanoate (7:0)","FA 7:0","full",1
+"inputs_1555609921:380","inputs_1555609921","hexadecanedioate","FA 16:1;O2","full",1
+"inputs_1555609921:381","inputs_1555609921","hexanoylcarnitine","CAR 6:0","k25",1
+"inputs_1555609921:406","inputs_1555609921","isobutyrylcarnitine","CAR 4:0","k14",1
+"inputs_1555609921:412","inputs_1555609921","isovalerate","FA 5:0","full",1
+"inputs_1555609921:413","inputs_1555609921","isovalerylcarnitine","CAR 5:0","k25",1
+"inputs_1555609921:421","inputs_1555609921","laurate (12:0)","FA 12:0","full",1
+"inputs_1555609921:422","inputs_1555609921","laurylcarnitine","CAR 12:0","k25",1
+"inputs_1555609921:426","inputs_1555609921","linoleate (18:2n6)","FA 18:2","full",1
+"inputs_1555609921:428","inputs_1555609921","linoleoylcarnitine*","CAR 18:2","k25",1
+"inputs_1555609921:433","inputs_1555609921","malonate","FA 3:1;O2","full",1
+"inputs_1555609921:434","inputs_1555609921","malonylcarnitine","CAR 3:1;O2","k25",1
+"inputs_1555609921:439","inputs_1555609921","margarate (17:0)","FA 17:0","full",1
+"inputs_1555609921:447","inputs_1555609921","methylmalonate (MMA)","FA 4:1;O2","full",1
+"inputs_1555609921:448","inputs_1555609921","methylsuccinate","FA 5:1;O2","full",1
+"inputs_1555609921:452","inputs_1555609921","myristate (14:0)","FA 14:0","full",1
+"inputs_1555609921:453","inputs_1555609921","myristoleate (14:1n5)","FA 14:1","full",1
+"inputs_1555609921:455","inputs_1555609921","myristoylcarnitine","CAR 14:0","k25",1
+"inputs_1555609921:502","inputs_1555609921","nonadecanoate (19:0)","FA 19:0","full",1
+"inputs_1555609921:508","inputs_1555609921","N-stearoyltaurine","NAT 18:0","full",1
+"inputs_1555609921:510","inputs_1555609921","octadecanedioate","FA 18:1;O2","full",1
+"inputs_1555609921:511","inputs_1555609921","octanoylcarnitine","CAR 8:0","k25",1
+"inputs_1555609921:515","inputs_1555609921","oleoyl ethanolamide","NAE 18:1","full",1
+"inputs_1555609921:524","inputs_1555609921","oxaloacetate","FA 4:2;O3","full",1
+"inputs_1555609921:525","inputs_1555609921","palmitate (16:0)","FA 16:0","full",1
+"inputs_1555609921:526","inputs_1555609921","palmitoleate (16:1n7)","FA 16:1","full",1
+"inputs_1555609921:528","inputs_1555609921","palmitoyl ethanolamide","NAE 16:0","full",1
+"inputs_1555609921:530","inputs_1555609921","palmitoylcarnitine","CAR 16:0","k25",1
+"inputs_1555609921:531","inputs_1555609921","pantothenate","NA 9:1;O4","full",1
+"inputs_1555609921:536","inputs_1555609921","pelargonate (9:0)","FA 9:0","full",1
+"inputs_1555609921:537","inputs_1555609921","pentadecanoate (15:0)","FA 15:0","full",1
+"inputs_1555609921:561","inputs_1555609921","propionylcarnitine","CAR 3:0","k25",1
+"inputs_1555609921:570","inputs_1555609921","pyruvate","FA 3:1;O","full",1
+"inputs_1555609921:584","inputs_1555609921","sebacate (decanedioate)","FA 10:1;O2","full",1
+"inputs_1555609921:609","inputs_1555609921","stearate (18:0)","FA 18:0","full",1
+"inputs_1555609921:610","inputs_1555609921","stearidonate (18:4n3)","FA 18:4","full",1
+"inputs_1555609921:612","inputs_1555609921","stearoylcarnitine","CAR 18:0","k25",1
+"inputs_1555609921:614","inputs_1555609921","suberate (octanedioate)","FA 8:1;O2","full",1
+"inputs_1555609921:616","inputs_1555609921","succinate","FA 4:1;O2","full",1
+"inputs_1555609921:628","inputs_1555609921","tetradecanedioate","FA 14:1;O2","full",1
+"inputs_1555609921:636","inputs_1555609921","tiglylcarnitine","CAR 5:1","k25",1

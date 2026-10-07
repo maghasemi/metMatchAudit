@@ -1,0 +1,5 @@
+"row_a","row_b","relationship_blind","rule_id_blind","relationship_v042","rule_id_v042","expert_same","name_a","name_b"
+"inputs_1539354673:12","inputs_1555609921:327","distinct","R12","unresolved","R12n",TRUE,"fructose","fructose"
+"inputs_1539354673:147","inputs_1555609921:451","exact","R03","unresolved","R03c",FALSE,"scyllo-inositol","myo-inositol"
+"inputs_1539354673:158","inputs_1555609921:305","exact","R03","unresolved","R03c",FALSE,"docosapentaenoate (n3 DPA; 22:5n3)","docosapentaenoate (n6 DPA; 22:5n6)"
+"inputs_1539354673:297","inputs_1555609921:182","distinct","R12","unresolved","R12n",TRUE,"4-vinylphenol sulfate","4-vinylphenol sulfate"

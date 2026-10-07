@@ -1,0 +1,4 @@
+"","true_positive","predicted","precision","recall","f1"
+"metlinkr_alone",359,401,0.895,0.895,0.895
+"with_audit",357,399,0.895,0.89,0.893
+"with_audit_exact_or_bn_only",136,139,0.978,0.339,0.504

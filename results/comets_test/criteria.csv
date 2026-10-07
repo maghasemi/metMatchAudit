@@ -1,0 +1,3 @@
+"criterion","value","met"
+"C1: definite claims agree with the expert (at least 90%)","121 of 125 (96.8%)",TRUE
+"C2: with the audit, precision not lower and F1 not lower","precision 0.895 vs 0.895, F1 0.893 vs 0.895",FALSE

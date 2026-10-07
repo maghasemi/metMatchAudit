@@ -1,0 +1,24 @@
+"row_a","row_b","group_id","relationship_old","rule_id_old","relationship_new","rule_id_new","evidence","name_a","name_b","expert_same"
+"inputs_1539353822:10","inputs_1555609921:636","CAR 4:1;2Me","unresolved","R01","broader_narrower","R05","CAR 5:1: level species vs structure","Tiglylcarnitine  ( C5:1 )","tiglylcarnitine",TRUE
+"inputs_1539353822:150","inputs_1555609921:529","SM 18:1;O2/16:0","unresolved","R01","broader_narrower","R05","SM 34:1;O2: level species vs structure","Sphingomyeline C16:0  ( SM C16:0 )","palmitoyl sphingomyelin (d18:1/16:0)",TRUE
+"inputs_1539353822:153","inputs_1555609921:611","SM 18:1;O2/18:0","unresolved","R01","broader_narrower","R05","SM 36:1;O2: level species vs structure","Sphingomyeline C18:0  ( SM C18:0 )","stearoyl sphingomyelin (d18:1/18:0)",FALSE
+"inputs_1539353822:18","inputs_1539354673:230","CAR 8:0","unresolved","R01","broader_narrower","R05","CAR 8:0: level species vs structure","Octanoylcarnitine  ( C8 )","octanoylcarnitine",TRUE
+"inputs_1539353822:18","inputs_1555609921:511","CAR 8:0","unresolved","R01","broader_narrower","R05","CAR 8:0: level species vs structure","Octanoylcarnitine  ( C8 )","octanoylcarnitine",TRUE
+"inputs_1539353822:2","inputs_1539354673:138","CAR 2:0","unresolved","R01","broader_narrower","R05","CAR 2:0: level species vs structure","Acetylcarnitine  ( C2 )","acetylcarnitine",FALSE
+"inputs_1539353822:2","inputs_1555609921:211","CAR 2:0","unresolved","R01","broader_narrower","R05","CAR 2:0: level species vs structure","Acetylcarnitine  ( C2 )","acetylcarnitine",FALSE
+"inputs_1539353822:21","inputs_1539354673:233","CAR 10:0","unresolved","R01","broader_narrower","R05","CAR 10:0: level species vs structure","Decanoylcarnitine  ( C10 )","decanoylcarnitine",TRUE
+"inputs_1539353822:21","inputs_1555609921:285","CAR 10:0","unresolved","R01","broader_narrower","R05","CAR 10:0: level species vs structure","Decanoylcarnitine  ( C10 )","decanoylcarnitine",TRUE
+"inputs_1539353822:24","inputs_1555609921:422","CAR 12:0","unresolved","R01","broader_narrower","R05","CAR 12:0: level species vs structure","Dodecanoylcarnitine  ( C12 )","laurylcarnitine",FALSE
+"inputs_1539353822:27","inputs_1555609921:455","CAR 14:0","unresolved","R01","broader_narrower","R05","CAR 14:0: level species vs structure","Tetradecanoylcarnitine  ( C14 )","myristoylcarnitine",TRUE
+"inputs_1539353822:28","inputs_1539353822:30","CAR 14:1","unresolved","R01","distinct","R04","Species CAR 14:1 vs CAR 14:2","Tetradecenoylcarnitine  ( C14:1 )","Tetradecadienylcarnitine  ( C14:2 )",FALSE
+"inputs_1539353822:3","inputs_1539354673:154","CAR 3:0","unresolved","R01","broader_narrower","R05","CAR 3:0: level species vs structure","Propionylcarnitine  ( C3 )","propionylcarnitine",FALSE
+"inputs_1539353822:3","inputs_1555609921:561","CAR 3:0","unresolved","R01","broader_narrower","R05","CAR 3:0: level species vs structure","Propionylcarnitine  ( C3 )","propionylcarnitine",FALSE
+"inputs_1539353822:32","inputs_1539354673:115","CAR 16:0","unresolved","R01","broader_narrower","R05","CAR 16:0: level species vs structure","Hexadecanoylcarnitine  ( C16 )","palmitoylcarnitine",FALSE
+"inputs_1539353822:32","inputs_1555609921:530","CAR 16:0","unresolved","R01","broader_narrower","R05","CAR 16:0: level species vs structure","Hexadecanoylcarnitine  ( C16 )","palmitoylcarnitine",FALSE
+"inputs_1539353822:38","inputs_1539354673:257","CAR 18:0","unresolved","R01","broader_narrower","R05","CAR 18:0: level species vs structure","Octadecanoylcarnitine  ( C18 )","stearoylcarnitine",TRUE
+"inputs_1539353822:38","inputs_1555609921:612","CAR 18:0","unresolved","R01","broader_narrower","R05","CAR 18:0: level species vs structure","Octadecanoylcarnitine  ( C18 )","stearoylcarnitine",TRUE
+"inputs_1539353822:39","inputs_1539354673:270","CAR 18:1","unresolved","R01","broader_narrower","R05","CAR 18:1: level species vs structure","Octadecenoylcarnitine  ( C18:1 )","oleoylcarnitine",FALSE
+"inputs_1539353822:41","inputs_1555609921:428","CAR 18:2","unresolved","R01","broader_narrower","R05","CAR 18:2: level species vs structure","Octadecadienylcarnitine  ( C18:2 )","linoleoylcarnitine*",TRUE
+"inputs_1539353822:6","inputs_1539354673:151","CAR 4:0","unresolved","R01","broader_narrower","R05","CAR 4:0: level species vs structure","Butyrylcarnitine  ( C4 )","butyrylcarnitine",TRUE
+"inputs_1539353822:6","inputs_1555609921:250","CAR 4:0","unresolved","R01","broader_narrower","R05","CAR 4:0: level species vs structure","Butyrylcarnitine  ( C4 )","butyrylcarnitine",TRUE
+"inputs_1539353822:9","inputs_1555609921:355","CAR 5:0","unresolved","R01","distinct","R04","Species CAR 5:0 vs CAR 5:1;O2","Valerylcarnitine  ( C5 )","glutarylcarnitine (C5)",FALSE

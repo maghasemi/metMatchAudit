@@ -1,0 +1,231 @@
+"row_id","file","original_name","lmsd_species","lmsd_tier","lmsd_hits"
+"LEOCC_Metabolon:5","LEOCC_Metabolon","2-oxoadipate","FA 6:2;O3","full",1
+"LEOCC_Metabolon:8","LEOCC_Metabolon","3-hydroxyisobutyrate","FA 4:0;O","k14",1
+"LEOCC_Metabolon:13","LEOCC_Metabolon","4-hydroxynonenal","FAL 9:1;O","full",1
+"LEOCC_Metabolon:19","LEOCC_Metabolon","linoleate (18:2n6)","FA 18:2","full",1
+"LEOCC_Metabolon:20","LEOCC_Metabolon","laurate (12:0)","FA 12:0","full",1
+"LEOCC_Metabolon:30","LEOCC_Metabolon","arachidonate (20:4n6)","FA 20:4","full",1
+"LEOCC_Metabolon:40","LEOCC_Metabolon","succinate","FA 4:1;O2","full",1
+"LEOCC_Metabolon:41","LEOCC_Metabolon","3-hydroxybutyrate (BHBA)","FA 4:0;O","full",1
+"LEOCC_Metabolon:42","LEOCC_Metabolon","7-dehydrocholesterol","ST 27:2;O","k14",1
+"LEOCC_Metabolon:76","LEOCC_Metabolon","methylmalonate (MMA)","FA 4:1;O2","full",1
+"LEOCC_Metabolon:77","LEOCC_Metabolon","palmitate (16:0)","FA 16:0","full",1
+"LEOCC_Metabolon:79","LEOCC_Metabolon","stearate (18:0)","FA 18:0","full",1
+"LEOCC_Metabolon:82","LEOCC_Metabolon","palmitoleate (16:1n7)","FA 16:1","full",1
+"LEOCC_Metabolon:95","LEOCC_Metabolon","myristate (14:0)","FA 14:0","full",1
+"LEOCC_Metabolon:106","LEOCC_Metabolon","alpha-ketobutyrate","FA 4:1;O","full",1
+"LEOCC_Metabolon:114","LEOCC_Metabolon","malonate","FA 3:1;O2","full",1
+"LEOCC_Metabolon:116","LEOCC_Metabolon","pyruvate","FA 3:1;O","full",1
+"LEOCC_Metabolon:127","LEOCC_Metabolon","caprate (10:0)","FA 10:0","full",1
+"LEOCC_Metabolon:128","LEOCC_Metabolon","margarate (17:0)","FA 17:0","full",1
+"LEOCC_Metabolon:129","LEOCC_Metabolon","nonadecanoate (19:0)","FA 19:0","full",1
+"LEOCC_Metabolon:130","LEOCC_Metabolon","arachidate (20:0)","FA 20:0","full",1
+"LEOCC_Metabolon:135","LEOCC_Metabolon","heptanoate (7:0)","FA 7:0","full",1
+"LEOCC_Metabolon:136","LEOCC_Metabolon","caproate (6:0)","FA 6:0","full",1
+"LEOCC_Metabolon:137","LEOCC_Metabolon","caprylate (8:0)","FA 8:0","full",1
+"LEOCC_Metabolon:139","LEOCC_Metabolon","pentadecanoate (15:0)","FA 15:0","full",1
+"LEOCC_Metabolon:146","LEOCC_Metabolon","pantothenate","NA 9:1;O4","full",1
+"LEOCC_Metabolon:154","LEOCC_Metabolon","erucate (22:1n9)","FA 22:1","full",1
+"LEOCC_Metabolon:171","LEOCC_Metabolon","oleoyl ethanolamide","NAE 18:1","full",1
+"LEOCC_Metabolon:177","LEOCC_Metabolon","acetoacetate","FA 4:1;O","full",1
+"LEOCC_Metabolon:181","LEOCC_Metabolon","dihomo-linoleate (20:2n6)","FA 20:2","full",1
+"LEOCC_Metabolon:183","LEOCC_Metabolon","2-hydroxystearate","FA 18:0;O","full",1
+"LEOCC_Metabolon:195","LEOCC_Metabolon","beta-hydroxyisovalerate","FA 5:0;O","full",1
+"LEOCC_Metabolon:197","LEOCC_Metabolon","arachidonoyl ethanolamide","NAE 20:4","full",1
+"LEOCC_Metabolon:198","LEOCC_Metabolon","palmitoyl ethanolamide","NAE 16:0","full",1
+"LEOCC_Metabolon:213","LEOCC_Metabolon","azelate (C9-DC)","FA 9:1;O2","full",1
+"LEOCC_Metabolon:216","LEOCC_Metabolon","eicosapentaenoate (EPA; 20:5n3)","FA 20:5","full",1
+"LEOCC_Metabolon:217","LEOCC_Metabolon","methylsuccinate","FA 5:1;O2","full",1
+"LEOCC_Metabolon:218","LEOCC_Metabolon","ethylmalonate","FA 5:1;O2","full",1
+"LEOCC_Metabolon:225","LEOCC_Metabolon","suberate (C8-DC)","FA 8:1;O2","full",1
+"LEOCC_Metabolon:226","LEOCC_Metabolon","3-methyl-2-oxovalerate","FA 6:1;O","k14",1
+"LEOCC_Metabolon:243","LEOCC_Metabolon","2-isopropylmalate","FA 7:1;O3","k14",1
+"LEOCC_Metabolon:263","LEOCC_Metabolon","docosahexaenoate (DHA; 22:6n3)","FA 22:6","full",1
+"LEOCC_Metabolon:267","LEOCC_Metabolon","alpha-hydroxyisocaproate","FA 6:0;O","full",1
+"LEOCC_Metabolon:269","LEOCC_Metabolon","isovalerate (i5:0)","FA 5:0","full",1
+"LEOCC_Metabolon:276","LEOCC_Metabolon","2-hydroxyoctanoate","FA 8:0;O","full",1
+"LEOCC_Metabolon:277","LEOCC_Metabolon","levulinate (4-oxovalerate)","FA 5:1;O","full",1
+"LEOCC_Metabolon:278","LEOCC_Metabolon","3-hydroxyoctanoate","FA 8:0;O","full",1
+"LEOCC_Metabolon:280","LEOCC_Metabolon","palmitoylcarnitine (C16)","CAR 16:0","full",1
+"LEOCC_Metabolon:281","LEOCC_Metabolon","valproate","FA 8:0","full",1
+"LEOCC_Metabolon:282","LEOCC_Metabolon","hexanoylcarnitine (C6)","CAR 6:0","full",1
+"LEOCC_Metabolon:287","LEOCC_Metabolon","acetylcarnitine (C2)","CAR 2:0","full",1
+"LEOCC_Metabolon:299","LEOCC_Metabolon","3-methyl-2-oxobutyrate","FA 5:1;O","full",1
+"LEOCC_Metabolon:307","LEOCC_Metabolon","3-hydroxydecanoate","FA 10:0;O","full",1
+"LEOCC_Metabolon:315","LEOCC_Metabolon","beta-sitosterol","ST 29:1;O","k14",1
+"LEOCC_Metabolon:319","LEOCC_Metabolon","butyrylcarnitine (C4)","CAR 4:0","full",1
+"LEOCC_Metabolon:320","LEOCC_Metabolon","isobutyrylcarnitine (C4)","CAR 4:0","k14",1
+"LEOCC_Metabolon:326","LEOCC_Metabolon","dodecanedioate (C12-DC)","FA 12:1;O2","full",1
+"LEOCC_Metabolon:330","LEOCC_Metabolon","3-hydroxylaurate","FA 12:0;O","full",1
+"LEOCC_Metabolon:333","LEOCC_Metabolon","3-hydroxysebacate","FA 10:1;O3","full",1
+"LEOCC_Metabolon:334","LEOCC_Metabolon","5-hydroxyhexanoate","FA 6:0;O","full",1
+"LEOCC_Metabolon:338","LEOCC_Metabolon","propionylcarnitine (C3)","CAR 3:0","full",1
+"LEOCC_Metabolon:340","LEOCC_Metabolon","3-hydroxy-2-ethylpropionate","FA 5:0;O","full",1
+"LEOCC_Metabolon:341","LEOCC_Metabolon","3-carboxy-4-methyl-5-propyl-2-furanpropanoate (CMPF)","FA 12:4;O3","full",1
+"LEOCC_Metabolon:342","LEOCC_Metabolon","2-hydroxymyristate","FA 14:0;O","full",1
+"LEOCC_Metabolon:343","LEOCC_Metabolon","docosapentaenoate (n3 DPA; 22:5n3)","FA 22:5","full",1
+"LEOCC_Metabolon:344","LEOCC_Metabolon","docosadienoate (22:2n6)","FA 22:2","full",1
+"LEOCC_Metabolon:345","LEOCC_Metabolon","adrenate (22:4n6)","FA 22:4","full",1
+"LEOCC_Metabolon:346","LEOCC_Metabolon","docosatrienoate (22:3n3)","FA 22:3","full",1
+"LEOCC_Metabolon:347","LEOCC_Metabolon","10-undecenoate (11:1n1)","FA 11:1","full",1
+"LEOCC_Metabolon:349","LEOCC_Metabolon","sebacate (C10-DC)","FA 10:1;O2","full",1
+"LEOCC_Metabolon:353","LEOCC_Metabolon","stearidonate (18:4n3)","FA 18:4","full",1
+"LEOCC_Metabolon:354","LEOCC_Metabolon","5-dodecenoate (12:1n7)","FA 12:1","full",1
+"LEOCC_Metabolon:355","LEOCC_Metabolon","octanoylcarnitine (C8)","CAR 8:0","full",1
+"LEOCC_Metabolon:357","LEOCC_Metabolon","decanoylcarnitine (C10)","CAR 10:0","full",1
+"LEOCC_Metabolon:365","LEOCC_Metabolon","campesterol","ST 28:1;O","full",1
+"LEOCC_Metabolon:366","LEOCC_Metabolon","myristoylcarnitine (C14)","CAR 14:0","full",1
+"LEOCC_Metabolon:372","LEOCC_Metabolon","10-nonadecenoate (19:1n9)","FA 19:1","full",1
+"LEOCC_Metabolon:373","LEOCC_Metabolon","10-heptadecenoate (17:1n7)","FA 17:1","full",1
+"LEOCC_Metabolon:381","LEOCC_Metabolon","alpha-hydroxyisovalerate","FA 5:0;O","full",1
+"LEOCC_Metabolon:394","LEOCC_Metabolon","eicosenoate (20:1)","FA 20:1","full",1
+"LEOCC_Metabolon:399","LEOCC_Metabolon","stearoylcarnitine (C18)","CAR 18:0","full",1
+"LEOCC_Metabolon:400","LEOCC_Metabolon","laurylcarnitine (C12)","CAR 12:0","full",1
+"LEOCC_Metabolon:401","LEOCC_Metabolon","isovalerylcarnitine (C5)","CAR 5:0","full",1
+"LEOCC_Metabolon:426","LEOCC_Metabolon","3-hydroxydodecanedioate*","FA 12:1;O3","full",1
+"LEOCC_Metabolon:433","LEOCC_Metabolon","mead acid (20:3n9)","FA 20:3","full",1
+"LEOCC_Metabolon:436","LEOCC_Metabolon","oleoylcarnitine (C18:1)","CAR 18:1","k14",1
+"LEOCC_Metabolon:437","LEOCC_Metabolon","2-methylbutyrylcarnitine (C5)","CAR 5:0","full",1
+"LEOCC_Metabolon:444","LEOCC_Metabolon","2-hydroxy-3-methylvalerate","FA 6:0;O","k14",1
+"LEOCC_Metabolon:453","LEOCC_Metabolon","2-hydroxypalmitate","FA 16:0;O","full",1
+"LEOCC_Metabolon:454","LEOCC_Metabolon","docosapentaenoate (n6 DPA; 22:5n6)","FA 22:5","full",1
+"LEOCC_Metabolon:457","LEOCC_Metabolon","glutarylcarnitine (C5-DC)","CAR 5:1;O2","full",1
+"LEOCC_Metabolon:458","LEOCC_Metabolon","beta-hydroxyisovaleroylcarnitine","CAR 5:0;O","full",1
+"LEOCC_Metabolon:459","LEOCC_Metabolon","2-methylmalonylcarnitine (C4-DC)","CAR 4:1;O2","full",1
+"LEOCC_Metabolon:460","LEOCC_Metabolon","tiglylcarnitine (C5:1-DC)","CAR 5:1","full",1
+"LEOCC_Metabolon:463","LEOCC_Metabolon","cholesterol sulfate","ST 27:1;O;S","k14",1
+"LEOCC_Metabolon:466","LEOCC_Metabolon","tetradecanedioate (C14-DC)","FA 14:1;O2","full",1
+"LEOCC_Metabolon:467","LEOCC_Metabolon","hexadecanedioate (C16-DC)","FA 16:1;O2","full",1
+"LEOCC_Metabolon:468","LEOCC_Metabolon","octadecanedioate (C18-DC)","FA 18:1;O2","full",1
+"LEOCC_Metabolon:469","LEOCC_Metabolon","undecanedioate (C11-DC)","FA 11:1;O2","full",1
+"LEOCC_Metabolon:482","LEOCC_Metabolon","3,4-dihydroxybutyrate","FA 4:0;O2","full",1
+"LEOCC_Metabolon:492","LEOCC_Metabolon","3-methyladipate","FA 7:1;O2","full",1
+"LEOCC_Metabolon:518","LEOCC_Metabolon","succinylcarnitine (C4-DC)","CAR 4:1;O2","full",1
+"LEOCC_Metabolon:547","LEOCC_Metabolon","2-hydroxyglutarate","FA 5:1;O3","full",1
+"LEOCC_Metabolon:566","LEOCC_Metabolon","4-cholesten-3-one","ST 27:2;O","k14",1
+"LEOCC_Metabolon:569","LEOCC_Metabolon","stearoyl ethanolamide","NAE 18:0","full",1
+"LEOCC_Metabolon:570","LEOCC_Metabolon","cis-4-decenoylcarnitine (C10:1)","CAR 10:1","full",1
+"LEOCC_Metabolon:571","LEOCC_Metabolon","2S,3R-dihydroxybutyrate","FA 4:0;O2","k14",1
+"LEOCC_Metabolon:577","LEOCC_Metabolon","2R,3R-dihydroxybutyrate","FA 4:0;O2","k14",1
+"LEOCC_Metabolon:578","LEOCC_Metabolon","dexpanthenol","NA 9:0;O3","k14",1
+"LEOCC_Metabolon:584","LEOCC_Metabolon","2,3-dihydroxyisovalerate","FA 5:0;O2","k14",1
+"LEOCC_Metabolon:586","LEOCC_Metabolon","3-methylglutaconate","FA 6:2;O2","full",1
+"LEOCC_Metabolon:615","LEOCC_Metabolon","cis-4-decenoate (10:1n6)*","FA 10:1","full",1
+"LEOCC_Metabolon:635","LEOCC_Metabolon","eicosanedioate (C20-DC)","FA 20:1;O2","full",1
+"LEOCC_Metabolon:636","LEOCC_Metabolon","docosadioate (C22-DC)","FA 22:1;O2","full",1
+"LEOCC_Metabolon:637","LEOCC_Metabolon","16-hydroxypalmitate","FA 16:0;O","full",1
+"LEOCC_Metabolon:648","LEOCC_Metabolon","linoleoylcarnitine (C18:2)*","CAR 18:2","full",1
+"LEOCC_Metabolon:652","LEOCC_Metabolon","N-stearoyltaurine","NAT 18:0","full",1
+"LEOCC_Metabolon:675","LEOCC_Metabolon","(R)-3-hydroxybutyrylcarnitine","CAR 4:0;O","full",1
+"LEOCC_Metabolon:688","LEOCC_Metabolon","margaroylcarnitine (C17)*","CAR 17:0","full",1
+"LEOCC_Metabolon:693","LEOCC_Metabolon","2-hydroxydecanoate","FA 10:0;O","full",1
+"LEOCC_Metabolon:721","LEOCC_Metabolon","3-hydroxyadipate","FA 6:1;O3","full",1
+"LEOCC_Metabolon:747","LEOCC_Metabolon","9-hydroxystearate","FA 18:0;O","full",1
+"LEOCC_Metabolon:754","LEOCC_Metabolon","2-keto-3-deoxy-gluconate","FA 6:1;O4","full",1
+"LEOCC_Metabolon:755","LEOCC_Metabolon","2-propyl-4-pentenoate (4-ene-valproate)","FA 8:1","full",1
+"LEOCC_Metabolon:759","LEOCC_Metabolon","octadecenedioylcarnitine (C18:1-DC)*","CAR 18:2;O2","full",1
+"LEOCC_Metabolon:760","LEOCC_Metabolon","octadecanedioylcarnitine (C18-DC)*","CAR 18:1;O2","full",1
+"LEOCC_Metabolon:810","LEOCC_Metabolon","3-hydroxyhexanoate","FA 6:0;O","full",1
+"LEOCC_Metabolon:828","LEOCC_Metabolon","adipoylcarnitine (C6-DC)","CAR 6:1;O2","full",1
+"LEOCC_Metabolon:830","LEOCC_Metabolon","nonanoylcarnitine (C9)","CAR 9:0","full",1
+"LEOCC_Metabolon:838","LEOCC_Metabolon","linoleoyl ethanolamide","NAE 18:2","full",1
+"LEOCC_Metabolon:849","LEOCC_Metabolon","2-hydroxybutyrate/2-hydroxyisobutyrate","FA 4:0;O","full",1
+"LEOCC_Metabolon:853","LEOCC_Metabolon","3-hydroxystearate","FA 18:0;O","full",1
+"LEOCC_Metabolon:854","LEOCC_Metabolon","2-hydroxylaurate","FA 12:0;O","full",1
+"LEOCC_Metabolon:918","LEOCC_Metabolon","(S)-3-hydroxybutyrylcarnitine","CAR 4:0;O","full",1
+"LEOCC_Metabolon:936","LEOCC_Metabolon","hexadecadienoate (16:2n6)","FA 16:2","full",1
+"LEOCC_Metabolon:937","LEOCC_Metabolon","palmitoleoylcarnitine (C16:1)*","CAR 16:1","full",1
+"LEOCC_Metabolon:941","LEOCC_Metabolon","2,3-dihydroxy-2-methylbutyrate","FA 5:0;O2","full",1
+"LEOCC_Metabolon:959","LEOCC_Metabolon","N-palmitoyl-sphingadienine (d18:2/16:0)*","Cer 34:2;O2","full",1
+"LEOCC_Metabolon:962","LEOCC_Metabolon","N-stearoyl-sphingadienine (d18:2/18:0)*","Cer 36:2;O2","k14",1
+"LEOCC_Metabolon:963","LEOCC_Metabolon","2-hydroxybehenate","FA 22:0;O","full",1
+"LEOCC_Metabolon:967","LEOCC_Metabolon","hexadecasphingosine (d16:1)*","SPB 16:1;O2","full",1
+"LEOCC_Metabolon:975","LEOCC_Metabolon","docosatrienoate (22:3n6)*","FA 22:3","k14",1
+"LEOCC_Metabolon:983","LEOCC_Metabolon","nisinate (24:6n3)","FA 24:6","full",1
+"LEOCC_Metabolon:986","LEOCC_Metabolon","sphingomyelin (d18:2/18:1)*","SM 36:3;O2","full",1
+"LEOCC_Metabolon:993","LEOCC_Metabolon","heneicosapentaenoate (21:5n3)","FA 21:5","full",1
+"LEOCC_Metabolon:995","LEOCC_Metabolon","behenoylcarnitine (C22)*","CAR 22:0","full",1
+"LEOCC_Metabolon:996","LEOCC_Metabolon","arachidoylcarnitine (C20)*","CAR 20:0","full",1
+"LEOCC_Metabolon:998","LEOCC_Metabolon","cerotoylcarnitine (C26)*","CAR 26:0","full",1
+"LEOCC_Metabolon:1000","LEOCC_Metabolon","arachidonoylcarnitine (C20:4)","CAR 20:4","full",1
+"LEOCC_Metabolon:1001","LEOCC_Metabolon","eicosenoylcarnitine (C20:1)*","CAR 20:1","k14",1
+"LEOCC_Metabolon:1002","LEOCC_Metabolon","dihomo-linoleoylcarnitine (C20:2)*","CAR 20:2","k14",1
+"LEOCC_Metabolon:1004","LEOCC_Metabolon","docosahexaenoylcarnitine (C22:6)*","CAR 22:6","k14",1
+"LEOCC_Metabolon:1006","LEOCC_Metabolon","adrenoylcarnitine (C22:4)*","CAR 22:4","full",1
+"LEOCC_Metabolon:1007","LEOCC_Metabolon","docosapentaenoylcarnitine (C22:5n3)*","CAR 22:5","full",1
+"LEOCC_Metabolon:1023","LEOCC_Metabolon","3-hydroxyvalproate","FA 8:0;O","full",1
+"LEOCC_Metabolon:1032","LEOCC_Metabolon","5-dodecenoylcarnitine (C12:1)","CAR 12:1","full",1
+"LEOCC_Metabolon:1035","LEOCC_Metabolon","hydroxy-CMPF*","FA 12:4;O4","full",1
+"LEOCC_Metabolon:1036","LEOCC_Metabolon","3-hydroxyoleoylcarnitine","CAR 18:1;O","k14",1
+"LEOCC_Metabolon:1039","LEOCC_Metabolon","2-hydroxyarachidate*","FA 20:0;O","full",1
+"LEOCC_Metabolon:1046","LEOCC_Metabolon","heptenedioate (C7:1-DC)*","FA 7:2;O2","k14",1
+"LEOCC_Metabolon:1052","LEOCC_Metabolon","3-carboxy-4-methyl-5-pentyl-2-furanpropionate (3-CMPFP)**","FA 14:4;O3","full",1
+"LEOCC_Metabolon:1086","LEOCC_Metabolon","tetradecadienoate (14:2)*","FA 14:2","full",1
+"LEOCC_Metabolon:1094","LEOCC_Metabolon","2-hydroxysebacate","FA 10:1;O3","full",1
+"LEOCC_Metabolon:1100","LEOCC_Metabolon","dodecadienoate (12:2)*","FA 12:2","full",1
+"LEOCC_Metabolon:1129","LEOCC_Metabolon","pravastatin","FOH 23:6;O6","full",1
+"LEOCC_Metabolon:1146","LEOCC_Metabolon","3-hydroxyhexanoylcarnitine (1)","CAR 6:0;O","k14",1
+"LEOCC_Metabolon:1148","LEOCC_Metabolon","2-ketocaprylate","FA 8:1;O","full",1
+"LEOCC_Metabolon:1177","LEOCC_Metabolon","hydroxypalmitoyl sphingomyelin (d18:1/16:0(OH))**","SM 34:1;O3","full",1
+"LEOCC_Metabolon:1179","LEOCC_Metabolon","lactobacillic acid","FA 19:1","k14",1
+"LEOCC_Metabolon:1191","LEOCC_Metabolon","3-decenoylcarnitine","CAR 10:1","k14",1
+"LEOCC_Metabolon:1193","LEOCC_Metabolon","3-hydroxydecanoylcarnitine","CAR 10:0;O","k14",1
+"LEOCC_Metabolon:1211","LEOCC_Metabolon","pentose acid*","FA 5:0","full",1
+"LEOCC_Metabolon:1225","LEOCC_Metabolon","cis-3,4-methyleneheptanoylcarnitine","CAR 8:1","k14",1
+"Broad_2022Aug:318","Broad_2022Aug","2-Hydroxyglutaric acid","FA 5:1;O3","k14",1
+"Broad_2022Aug:330","Broad_2022Aug","Ketoisovaleric acid","FA 5:1;O","full",1
+"Broad_2022Aug:337","Broad_2022Aug","3-Carboxy-4-methyl-5-propyl-2-furanpropanoic acid","FA 12:4;O3","full",1
+"Broad_2022Aug:362","Broad_2022Aug","Pantothenic acid","NA 9:1;O4","full",1
+"Broad_2022Aug:364","Broad_2022Aug","Pyruvic acid","FA 3:1;O","full",1
+"Broad_2022Aug:368","Broad_2022Aug","Sebacic acid","FA 10:1;O2","full",1
+"Broad_2022Aug:370","Broad_2022Aug","Suberic acid","FA 8:1;O2","full",1
+"Broad_2022Aug:371","Broad_2022Aug","Succinic acid","FA 4:1;O2","full",1
+"Broad_2022Aug:386","Broad_2022Aug","10Z-Heptadecenoic acid","FA 17:1","full",1
+"Broad_2022Aug:387","Broad_2022Aug","Nonadeca-10Z-enoic acid","FA 19:1","full",1
+"Broad_2022Aug:389","Broad_2022Aug","10-Hendecenoic acid","FA 11:1","full",1
+"Broad_2022Aug:392","Broad_2022Aug","cis-Erucic acid","FA 22:1","full",1
+"Broad_2022Aug:394","Broad_2022Aug","Juniperic acid","FA 16:0;O","full",1
+"Broad_2022Aug:395","Broad_2022Aug","Xi-17-Methyloctadecanoic acid","FA 19:0","full",1
+"Broad_2022Aug:397","Broad_2022Aug","2-Hydroxy palmitic acid","FA 16:0;O","full",1
+"Broad_2022Aug:399","Broad_2022Aug","2-Hydroxyoctanoic acid","FA 8:0;O","full",1
+"Broad_2022Aug:400","Broad_2022Aug","2-Hydroxyoleic acid","FA 18:1;O","full",1
+"Broad_2022Aug:401","Broad_2022Aug","3-Hydroxydecanoic acid","FA 10:0;O","full",1
+"Broad_2022Aug:402","Broad_2022Aug","3S-Hydroxyhexanoic acid","FA 6:0;O","full",1
+"Broad_2022Aug:403","Broad_2022Aug","3-Hydroxyoctanoic acid","FA 8:0;O","full",1
+"Broad_2022Aug:404","Broad_2022Aug","3-oxooctadecanoate","FA 18:1;O","full",1
+"Broad_2022Aug:405","Broad_2022Aug","5-Dodecenoic acid","FA 12:1","full",1
+"Broad_2022Aug:409","Broad_2022Aug","Adrenic acid","FA 22:4","full",1
+"Broad_2022Aug:411","Broad_2022Aug","2-Hydroxystearic acid","FA 18:0;O","full",1
+"Broad_2022Aug:412","Broad_2022Aug","alpha-Linolenic acid","FA 18:3","full",1
+"Broad_2022Aug:414","Broad_2022Aug","Arachidic acid","FA 20:0","full",1
+"Broad_2022Aug:416","Broad_2022Aug","Azelaic acid","FA 9:1;O2","full",1
+"Broad_2022Aug:418","Broad_2022Aug","Capric acid","FA 10:0","full",1
+"Broad_2022Aug:427","Broad_2022Aug","Docosahexaenoic acid","FA 22:6","full",1
+"Broad_2022Aug:428","Broad_2022Aug","Docosapentanoic acid","FA 22:5","full",1
+"Broad_2022Aug:429","Broad_2022Aug","Dodecanedioic acid","FA 12:1;O2","full",1
+"Broad_2022Aug:430","Broad_2022Aug","Lauric acid","FA 12:0","full",1
+"Broad_2022Aug:431","Broad_2022Aug","Eicosadienoic acid","FA 20:2","full",1
+"Broad_2022Aug:432","Broad_2022Aug","Eicosanedioic acid","FA 20:1;O2","full",1
+"Broad_2022Aug:433","Broad_2022Aug","Eicosapentaenoic acid","FA 20:5","full",1
+"Broad_2022Aug:434","Broad_2022Aug","Eicosatrienoic acid","FA 20:3","full",1
+"Broad_2022Aug:435","Broad_2022Aug","Eicosenoic acid","FA 20:1","full",1
+"Broad_2022Aug:439","Broad_2022Aug","gamma-Linolenic acid","FA 18:3","full",1
+"Broad_2022Aug:446","Broad_2022Aug","Margaric acid","FA 17:0","full",1
+"Broad_2022Aug:447","Broad_2022Aug","Hexadecanedioic acid","FA 16:1;O2","full",1
+"Broad_2022Aug:450","Broad_2022Aug","2-Hydroxymyristic acid","FA 14:0;O","full",1
+"Broad_2022Aug:456","Broad_2022Aug","Levulinic acid","FA 5:1;O","full",1
+"Broad_2022Aug:460","Broad_2022Aug","Myristic acid","FA 14:0","full",1
+"Broad_2022Aug:461","Broad_2022Aug","Myristoleic acid","FA 14:1","full",1
+"Broad_2022Aug:464","Broad_2022Aug","Nervonic acid","FA 24:1","full",1
+"Broad_2022Aug:465","Broad_2022Aug","Nonadecylic acid","FA 19:0","full",1
+"Broad_2022Aug:471","Broad_2022Aug","Palmitoleic acid","FA 16:1","full",1
+"Broad_2022Aug:472","Broad_2022Aug","Palmitoyl-EA","NAE 16:0","full",1
+"Broad_2022Aug:475","Broad_2022Aug","Pentadecylic acid","FA 15:0","full",1
+"Broad_2022Aug:485","Broad_2022Aug","Sebacic acid","FA 10:1;O2","full",1
+"Broad_2022Aug:491","Broad_2022Aug","Tetradecanedioic acid","FA 14:1;O2","full",1
+"Broad_2022Aug:493","Broad_2022Aug","Tridecylic acid","FA 13:0","full",1
+"Broad_2022Aug:495","Broad_2022Aug","Undecanedioic acid","FA 11:1;O2","full",1
+"Broad_2022Aug:501","Broad_2022Aug","3-Decenoic acid","FA 10:1","full",1
+"Broad_2022Aug:502","Broad_2022Aug","3-Methyladipic acid","FA 7:1;O2","k14",1
+"Broad_2022Aug:506","Broad_2022Aug","LTB3","FA 20:3;O2","k14",1
+"Broad_2022Aug:509","Broad_2022Aug","Stearic acid","FA 18:0","full",1
