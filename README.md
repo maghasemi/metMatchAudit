@@ -4,7 +4,7 @@ Check whether metabolites matched across datasets are really the same compound.
 
 Tools such as [MetLinkR](https://github.com/ncats/MetLinkR) link metabolomics datasets by giving every row a standardized name. Rows that end up with the same name are treated as one metabolite. metMatchAudit runs after that step. For every pair of rows that share a name, it looks at the structural evidence and reports how the two actually relate, with the rule that decided it. It also proposes lipid matches across vendors that the matching step missed.
 
-Status: v0.6. Developed on the MetLinkR example data and evaluated against a blind manual review, then tested blind on five COMETS datasets with expert mappings and on a second pair of files, where it did not meet its criteria (see [Evaluation](#evaluation), [External test on COMETS](#external-test-on-comets) and [Second blind test](#second-blind-test)).
+Status: v0.7. Developed on the MetLinkR example data and evaluated against a blind manual review, then tested blind on five COMETS datasets with expert mappings and on a second pair of files, where it did not meet its criteria (see [Evaluation](#evaluation), [External test on COMETS](#external-test-on-comets) and [Second blind test](#second-blind-test)).
 
 ## Why
 
@@ -161,7 +161,9 @@ v0.6.0 ran on two files it had not seen. One is my own Metabolon annotation of a
 
 11 of the 17 wrong definite claims come from one habit of the B file. Features named "Adenosine isomer", "Carnosine isomer A" and the like carry the parent compound's identifiers, so the tool called them `exact` with the parent. Most of the rest are rows whose name and key disagree: "ACar 17:0" names a sum but carries a straight-chain key. The tool follows the key, and the labels follow the name. Lipid recall was low because the tool could not read MS-DIAL names such as "PE 38:6; PE 18:2_20:4;". 375 of 960 B lipid rows got no profile, and the rest got a structure-level profile from their key that their names do not support.
 
-The tool held up on the earlier test sets but did not carry over to an unseen naming style. Details: [notes/findings.md](notes/findings.md).
+The tool held up on the earlier test sets but did not carry over to an unseen naming style. Running v0.4.1 on the same files gave 48 of 67 and 13 of 58, so the later versions did not cause the drop. Details: [notes/findings.md](notes/findings.md).
+
+v0.7, after adaptation: a new rule R03i keeps a pair unresolved when a name marks a feature of unknown identity, either by the word "isomer" or, in MS-DIAL lipid names, by a lone letter after the last semicolon ("PC 36:2; A"). On the same files, C1 goes to 48 of 53 (90.6%) and C2 to 8 of 58. The development data and COMETS do not change. These numbers come from the files the rule was written for, so they show the fix works, not that it generalizes. Reading MS-DIAL lipid names was planned for v0.7 and dropped: only 74.9% of the names parsed, short of the 80% set beforehand.
 
 ## What did not work
 
@@ -175,8 +177,8 @@ Two ideas were tried and set aside. Both are logged in [notes/decisions.md](note
 - Rows with only a name, and no identifier the tool can use, get no evidence. This is most of the COMETS Biocrates amino acids, the LC/MS file and the Nightingale file.
 - Nightingale class totals (Omega-6, total fatty acids) and other aggregate measures have no relationship of their own yet.
 - Sugars in ring and open-chain form get different InChIKeys. With the same name they stay unresolved; with different names they are called distinct (N-acetylneuraminic acid in the second blind test).
-- Identifiers are trusted where the name contradicts them only for stereo terms and omega positions. A feature named "isomer" that carries its parent's key, or a sum name with a single-structure key, gets the key's answer.
-- MS-DIAL-style lipid names ("PE 40:6;", several annotations separated by ";", alternatives joined by "or") are not read.
+- Identifiers are trusted where the name contradicts them only for stereo terms, omega positions and isomer markers. A sum name with a single-structure key ("ACar 17:0" with a straight-chain key) gets the key's answer.
+- MS-DIAL-style lipid names ("PE 40:6;", several annotations separated by ";", class names such as Cer-NS) are not read. Such rows get a lipid profile only from their key.
 - The stereo comparison can report a false conflict for symmetric molecules such as inositol. A conflict never leads to a claim on its own.
 - A structure whose SMILES and key agree but which does not match its name (the Metabolon steroids above) is not detected.
 - The name checks are tuned on Metabolon, Broad and Biocrates naming. The Biocrates table covers the p180 kit as published in 2023; analytes it does not list get no profile.
@@ -184,7 +186,9 @@ Two ideas were tried and set aside. Both are logged in [notes/decisions.md](note
 
 ## Next
 
-- Fixes for the causes found in the second blind test, reported as after adaptation, then a third blind test on data not used so far.
+- A third blind test on data not used so far, with criteria committed first.
+- Reading MS-DIAL lipid names, with a class map for names such as Cer-NS and HexCer-NDS.
+- A name against key check for lipids. In the second test, B names PC 35:3 for a row whose key is PE 38:3.
 - Nightingale biomarker definitions and an aggregate relationship for class totals.
 - Checking which structures a group-name row lists.
 

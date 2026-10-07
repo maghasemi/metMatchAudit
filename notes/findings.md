@@ -340,3 +340,43 @@ Three labeled pairs changed rule:
 That label is not consistent with another label in the same sheet. Sphinganine against erythro-sphinganine is labeled D, on the grounds that only one name states the stereo. The S1P pair has the same difference in its names, but it was labeled A because both rows give the same CID. Under the rule used for sphinganine, the S1P pair would be D, and the tool's answer would agree. The committed label stays A, and C2 stays at 12.
 
 So the versions after v0.4.1 did not make things worse here. They removed two wrong claims, added one wrong group that is open to doubt, and turned up 41 more lipid matches. The drop from COMETS to this test comes from the data, not from the later versions. Every cause listed above was already present in v0.4.1.
+
+## 2026-10-07: v0.7 acceptance (after adaptation)
+
+Script: `scripts/96_v07_check.R`. Log: `results/v07_check_log.txt`. Every run used a copy of the PubChem cache of the v0.6.0 run it was compared with.
+
+| set | result |
+|---|---|
+| development | 0 rows with a marker, 0 pairs changed. Evaluation 35 agree, 8 safe miss, 0 wrong, 10 E not exact, as before. 110 lipid proposals, none lost or gained. |
+| COMETS | 0 rows with a marker, 0 pairs changed. Definite claims across files agree with the expert in 122 of 122 for both versions. |
+| second blind test files | 155 rows with a marker, all in B: 55 by the word "isomer", 100 by a lone letter (49 A, 43 B, 8 C). 193 pairs changed rule, all to R03i except one to R12n. |
+
+COMETS is 122 of 122 here and 123 of 123 in the README. Both versions were counted the same way in this script, so v0.7 changes nothing there. The difference is in how the earlier scripts counted, and is to be checked.
+
+Every lone-letter name was checked by eye. All are MS-DIAL lipid features ("PC 36:2; A", "Cer-NS d42:2; Cer-NS d18:1/24:1; B").
+
+Second blind test files, scored as in `scripts/93_blind2_test.R`:
+
+| measure | v0.6.0 (blind) | v0.7.0 (after adaptation) |
+|---|---|---|
+| C1 | 48 of 65 (73.8%) | 48 of 53 (90.6%) |
+| C2 | 12 of 58 | 8 of 58 |
+| C3 | 1 of 1 | 1 of 1 |
+| C3 recall | 1 of 5 | 1 of 5 |
+
+How the labeled pairs changed:
+- 11 C pairs, all isomer features, went from `exact` to unresolved.
+- 5 F pairs, the 2-hydroxyglutarate isomers, became unresolved.
+- B:1 against B:627 (Neu5Ac) went to R12n.
+
+This matches the expectations written in the plan, with the Neu5Ac correction from the feasibility entry. The acylcarnitine pairs did not change, as expected once MS-DIAL name reading was dropped.
+
+The 8 groups still wrong:
+- four with stereo in one record only (cause 3);
+- three acylcarnitines (cause 2);
+- N-acetylneuraminate in A against B:1 (cause 4, names still differ);
+- threonate, which is labeled F.
+
+The 193 changed pairs include 62 that were `exact` and 43 that were `distinct` under R06. Most are not labeled. They move to unresolved, which is the safe direction but makes the tool answer less often on files like B.
+
+v0.7.0 meets its acceptance and is tagged.
