@@ -427,3 +427,5 @@ In COMETS, the Biocrates file (inputs_1539353822) carries names only. Its rows h
 - All tests pass. Development evaluation identical to v0.4.2, since the development data has no Biocrates rows.
 - COMETS rerun reported as after adaptation, with every pair whose rule changed listed and read.
 - A blind test still needs another dataset with Biocrates p180 rows and expert or manual mappings.
+
+scripts/80_biocrates_table.R could not run on the Mac: the pdftools binary failed to load (symbol _libintl_newlocale not found). It was run instead on Linux with pdftools 3.4.0 and poppler 24.02.0 on the same PDF (md5 4a1f84e43f5ad2f9dfe5aaa093fc0195). All six section counts matched the PDF, 188 analytes. Output data-raw/biocrates/p180_nomenclature.csv, md5 60efe0cbc17e40ff4370d4af2943cbd6, committed.
