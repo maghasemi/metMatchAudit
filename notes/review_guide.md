@@ -1,6 +1,6 @@
 # How to fill in review.csv
 
-`scripts/03_make_review_sheet.R` creates `notes/review.csv`. Each line is one MetLinkR name whose rows carry more than one InChIKey.
+`scripts/02_manual_review/03_make_review_sheet.R` creates `notes/review.csv`. Each line is one MetLinkR name whose rows carry more than one InChIKey.
 
 For each line:
 
