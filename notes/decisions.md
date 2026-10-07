@@ -788,3 +788,7 @@ Decision:
 - The README will say plainly that broader_narrower from R09 means the two records differ only in whether stereo is given, and that a user who matches by name can treat such a pair as the same compound.
 - Which convention the tool should follow is a design decision. It has to be made explicitly, before any new rule. The go-ahead check above mixed labels from both conventions, which is why it could not settle the question. It is not rerun with another threshold.
 - Any further test fixes in advance which convention its labels follow.
+
+## 2026-10-08: README shortened
+
+The README had grown to a full report of every test. It now gives one summary table and the main limits. The sections on each test, what did not work and the open problems moved unchanged to `notes/evaluation.md`. The limits left out of the README were added to `design.md`. No number changed.
