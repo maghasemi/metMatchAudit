@@ -11,7 +11,7 @@ The sheets hold names from the private file A, so they stay in `data-raw/own/bli
 
 ## How the labels were made
 
-Claude proposed a category and a reason for every line. The proposals came from the names, the PubChem CIDs and HMDB IDs in the sheets, and the lipid naming rules. PubChem could not be queried from the session. Where CIDs differ, the reason says so and the label follows the names. The author accepted the proposals without changes. No tool output on these files had been seen.
+A category and a reason for every line were first drafted with an AI assistant (see AI usage in the README). The proposals came from the names, the PubChem CIDs and HMDB IDs in the sheets, and the lipid naming rules. PubChem could not be queried at the time. Where CIDs differ, the reason says so and the label follows the names. The author accepted the proposals without changes. No tool output on these files had been seen.
 
 ## Stereo rule
 
