@@ -509,3 +509,6 @@ All three are reported whatever the outcome. No rule changes between the labels 
 ### Known weakness
 
 The labeler wrote the tool. To limit that: labels come before any tool output on these files, every decision cites its record, and if a colleague can label 20 of the groups independently, agreement between the two is reported.
+
+
+Two changes to the second blind test plan, before any step ran: B's column "Pubchem CID" is renamed to PUBCHEM in the CSV copy so MetLinkR reads it without a space; no value changes. The labeling sheets hold names from the private file A, so they stay in data-raw/own/blind2/ and their md5 is committed instead, once they are filled in. This fixes the labels in git before the audit runs without publishing them.
