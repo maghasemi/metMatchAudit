@@ -11,7 +11,7 @@ The label sheets hold names from the private file A, so they stay in `data-raw/o
 
 ## How the labels were made
 
-Claude proposed a category and a reason for every line, working from the names and identifiers in the sheets and from PubChem, HMDB and the lipid naming rules. Claude saw no tool output on these files. The author went through the proposals and accepted them without changes. Neither of us has run the audit on A or B.
+A category and a reason for every line were first drafted with an AI assistant (see AI usage in the README), working from the names and identifiers in the sheets and from PubChem, HMDB and the lipid naming rules. No tool output on these files was seen. The author went through the drafts and accepted them without changes. The audit had not been run on A or B.
 
 ## Pairs
 

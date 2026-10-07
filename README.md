@@ -228,6 +228,13 @@ results/       script output
 - biocrates life sciences ag. AbsoluteIDQ p180 kit, old vs. new nomenclature (v1-2023).
 - PubChem, <https://pubchem.ncbi.nlm.nih.gov>, through PUG REST.
 - RDKit: Open-source cheminformatics, <https://www.rdkit.org>.
+- COMETS expert mappings: `ManualMappings.csv` from the supplement of Patt et al. 2025 (above).
+- Ding J. et al. A metabolome atlas of the aging mouse brain. Nat. Commun. 2021, 12. DOI 10.1038/s41467-021-26310-y. Annotation table used in the second blind test.
+- Lai Y. et al. High-coverage metabolomics uncovers microbiota-driven biochemical landscape of interorgan transport and gut-brain communication in mice. Nat. Commun. 2021, 12. DOI 10.1038/s41467-021-26209-8. Supplementary Data 2 and 3, used in the third blind test and included in `data-raw/lai2021/` under CC BY 4.0.
+
+## AI usage
+
+This project was developed with the help of an AI assistant, Claude Opus 5.5 (Anthropic), at medium effort. The assistant drafted most of the code, tests, scripts and documentation, and the first proposals for the labels of the second and third blind tests. The author set the goals, chose the data, reviewed and approved every plan, criterion, label and change before it was committed, and ran all scripts and tests on his own machine. The plans, criteria and results are logged in `notes/decisions.md` and `notes/findings.md` in the order they were made.
 
 ## License
 
