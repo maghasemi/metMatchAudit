@@ -1,6 +1,6 @@
 <img src="man/figures/header.svg" alt="metMatchAudit. Same name. Same compound? Audits every pair of rows a matching step grouped across datasets, and reports how they really relate, rule by rule." width="100%">
 
-![version](https://img.shields.io/badge/version-0.7.1-ffcc35?labelColor=121212)
+![version](https://img.shields.io/badge/version-0.9.0-ffcc35?labelColor=121212)
 ![R](https://img.shields.io/badge/R-%E2%89%A5%204.1-ffcc35?labelColor=121212)
 ![license](https://img.shields.io/badge/license-MIT-ffcc35?labelColor=121212)
 
@@ -8,7 +8,7 @@ Check whether metabolites matched across datasets are really the same compound.
 
 Tools such as [MetLinkR](https://github.com/ncats/MetLinkR) link metabolomics datasets by giving every row a standardized name. Rows that end up with the same name are treated as one metabolite. metMatchAudit runs after that step. For every pair of rows that share a name, it looks at the structural evidence and reports how the two actually relate, with the rule that decided it. It also proposes lipid matches across vendors that the matching step missed.
 
-Status: v0.7.1, tested in one development review and three blind tests (see [Evaluation](#evaluation)).
+Status: v0.9.0, tested in one development review and three blind tests (see [Evaluation](#evaluation)).
 
 ## Why
 
@@ -76,6 +76,7 @@ library(metMatchAudit)
 files <- data.frame(
   path         = c("out/Metabolon_metLinkR.csv", "out/Broad_metLinkR.csv", "out/Biocrates_metLinkR.csv"),
   name_col     = c("CHEMICAL_NAME", "Metabolite", "metabolite_name"),
+  name_fallback_col = c(NA, "name", NA),          # optional, used where name_col is empty
   inchikey_col = c("INCHIKEY", "inChIKey", NA),
   pubchem_col  = c("PUBCHEM", NA, NA),            # optional
   hmdb_col     = c("HMDB", "hmdbId", NA),         # optional

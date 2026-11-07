@@ -1,3 +1,11 @@
+# metMatchAudit 0.9.0
+
+* `read_metlinkr()` and `audit_metlinkr()` accept an optional `name_fallback_col` in `files`. Where the cell in `name_col` is empty, the row takes its name from that column. New row column `name_source`: `"name_col"`, `"fallback"`, or `NA` when both are empty. `run_info.txt` records the column. There is no new pair rule, and a file without the column is read as before.
+* Written for the Broad example file, where `Metabolite` is empty on 119 of 511 rows and the name is in column `name`. No other file in the four test sets has blank names, so COMETS and the blind test files do not change.
+* Development data, after adaptation: unresolved pairs went from 39 to 30, and 9 pairs moved to R05. Lipid match proposals went from 110 to 129, and 10 of the new ones are pairs MetLinkR had not grouped. The evaluation against the review did not change, because none of the affected groups is in it.
+* The 19 new claims passed a scripted check of chain sums and formulas, not a curator's review (`notes/decisions.md`).
+* Version 0.8 was planned and dropped, so there is no release with that number.
+
 # metMatchAudit 0.7.1
 
 * No change in behaviour. The omega sign in the pattern behind `omega_positions()` is written as a `\u` escape, so the package code is plain ASCII and `R CMD check` passes without warnings.

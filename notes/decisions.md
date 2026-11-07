@@ -879,3 +879,9 @@ The plan says I check every line by hand. I did not. I do not have the lipid kno
 The assistant wrote `scripts/15_v0.9/03_hand_check_evidence.R` so the check could be repeated. It compares chain sums and formulas without using the package's parser or rules. The result was 19 of 19 claims right, with 4 pairs unresolved.
 
 This is weaker than the check the plan describes. The same assistant wrote the code being checked, and the check compares names and structures, since Broad has no m/z on these rows. Anyone quoting this result should say it was a scripted check, not a curator's review.
+
+## 2026-11-07: v0.9.0 released
+
+I asked for the merge after reading the results. The automatic checks passed, and the scripted hand check gave 19 of 19 claims right, counted by the rule in the entry above and with the limits written there.
+
+The gain is small: 9 development pairs out of 39 unresolved, and nothing on COMETS. The change goes in because it fixes a real reading error and is off unless a file asks for it. The next idea, a key lookup from a name, is the one aimed at the COMETS pairs, and it needs its own plan.
