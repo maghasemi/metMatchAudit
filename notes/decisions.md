@@ -1078,3 +1078,11 @@ The work happens on branch `exp/same-name-label`. If the change is dropped, the 
 - The unit tests pass.
 
 If this passes, the change is released as v0.11.0. The two blind tests have only six R01 pairs between them, so they cannot test this. The real test is a fourth blind test on new data with name-only files.
+
+## 2026-11-07: v0.11 feasibility passed, the build goes ahead
+
+All three conditions were met: 121 COMETS R01 pairs would get `same_name` (needed 80), 120 of 121 are in one expert group (needed 98%), and 186 of 189 pairs with two keys and the same name have keys that do not conflict (needed 98%). The numbers are in `notes/findings.md`.
+
+The third condition passed by one pair. Its three conflicts look like two records of one compound, which is what R12n is for, not two compounds under one name. That reading comes after the result and does not change it.
+
+The acceptance criteria stay as written in the plan.

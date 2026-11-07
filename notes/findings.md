@@ -603,3 +603,43 @@ Source: `results/v091_check/` and `results/v091_check_log.txt`, from `scripts/17
 | pairs identical to 0.9.0 (245 and 414) | yes | yes |
 
 The runs used copies of the v0.9 caches, so no request had to go to PubChem. This shows that nothing changes when no request fails. The behaviour when requests fail is covered by the unit tests only, with a fake PubChem that answers `PUGREST.ServerBusy`.
+
+## 2026-11-07: v0.11 feasibility
+
+Source: `results/v11_feasibility/` and `results/v11_feasibility_log.txt`, from `scripts/18_v0.11/01_feasibility.R` on the v0.9.1 audits. The package did not change, and nothing was sent to PubChem.
+
+| condition | result | needed |
+|---|---|---|
+| COMETS R01 pairs that would get `same_name` | 121 | at least 80 |
+| of those, in one expert group | 120 of 121 (99.2%) | at least 98% |
+| pairs with two keys, different files and the same name, whose keys do not conflict | 186 of 189 (98.4%) | at least 98% |
+
+### The R01 pairs
+
+| set | R01s | different names | same name in one file | same name, flagged name |
+|---|---|---|---|---|
+| COMETS | 121 | 100 | 8 | 5 |
+| development | 0 | 3 | 0 | 0 |
+
+The diagnostic count from before the plan was 126. The difference is the five pairs with a flagged name, which stay R01: three tentative Metabolon names marked with `*` ("bilirubin (E,E)*", "pyroglutamine*", "2-palmitoyl-GPC (16:0)*") and two names that list alternatives ("dihomo-linolenate (20:3n3 or n6)", "dimethylarginine (SDMA + ADMA)"). The expert puts all five in one group. Leaving them out costs five pairs and is the cautious side.
+
+The script's "same file" count is 8, but none of those 8 has the same name on both sides.
+
+112 of the 121 R01s pairs have a key on one side. The other row has no key, so the pair cannot be checked by structure.
+
+The one pair the expert separates is "N-acetylcarnosine" against "N-acetylcarnosine", one side with a key. The same pair was the only exact disagreement in the v0.10 feasibility. The expert puts the two rows in different groups, so either the expert separates two measurements of one compound, or one row is not what its name says. The data cannot tell which.
+
+### The pairs with two keys
+
+| rule | COMETS | development |
+|---|---|---|
+| R03 (exact) | 119 | 37 |
+| R09 | 16 | 6 |
+| R09b | 0 | 1 |
+| R11 | 6 | 0 |
+| R12n | 2 | 1 |
+| R99 | 1 | 0 |
+
+The three conflicts are R12n pairs: xylose against Xylose, fructose against fructose and 4-vinylphenol sulfate against itself. The expert puts the two COMETS pairs in one group. All three look like two records for one compound, such as a sugar's ring and open chain, rather than two compounds under one name. None of the 189 pairs is distinct. On COMETS the expert puts 143 of the 144 in one group.
+
+This check passed with little room: 98.4% against 98%. One more conflict among these 189 pairs would have failed it.

@@ -1,0 +1,122 @@
+"set","row_a","row_b","group_id","rule_id","relationship","name_a","name_b","key_a","key_b","cross_file","same_name","flagged","keys_both","name_ok","r01s","covered","expert_same"
+"comets","inputs_1539354673:69","inputs_1553799316:11","Carnitine","R01","unresolved","carnitine","carnitine","PHIQHXFUZVPYII-ZCFIWIBFSA-O",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:11","inputs_1555609921:257","Carnitine","R01","unresolved","carnitine","carnitine",NA,"PHIQHXFUZVPYII-ZCFIWIBFSA-O",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:142","inputs_1555609921:381","CAR 6:0","R01","unresolved","hexanoylcarnitine","hexanoylcarnitine",NA,"VVPRQWTYSNDTEA-UHFFFAOYSA-O",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:270","inputs_1555609921:516","CAR 18:1","R01","unresolved","oleoylcarnitine","oleoylcarnitine","IPOLTUVFXFHAHI-WHIOSMTNSA-O",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:41","inputs_1553799316:8","Arginine","R01","unresolved","arginine","arginine","ODKSFYDXXFIFQN-BYPYZUCNSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:8","inputs_1555609921:234","Arginine","R01","unresolved","arginine","arginine",NA,"ODKSFYDXXFIFQN-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:1","inputs_1553799316:21","Glutamine","R01","unresolved","glutamine","glutamine","ZDXPYRJPNDTMRX-VKHMYHEASA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:21","inputs_1555609921:353","Glutamine","R01","unresolved","glutamine","glutamine",NA,"ZDXPYRJPNDTMRX-VKHMYHEASA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:143","inputs_1553799316:23","Glycine","R01","unresolved","glycine","glycine","DHMQDGOQFOQNFH-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:23","inputs_1555609921:362","Glycine","R01","unresolved","glycine","glycine",NA,"DHMQDGOQFOQNFH-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:3","inputs_1553799316:29","Histidine","R01","unresolved","histidine","histidine","HNDVDQJCIGZPNO-YFKPBYRVSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:29","inputs_1555609921:383","Histidine","R01","unresolved","histidine","histidine",NA,"HNDVDQJCIGZPNO-YFKPBYRVSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:23","inputs_1553799316:40","Methionine","R01","unresolved","methionine","methionine","FFEARJCKVFRZRR-BYPYZUCNSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:40","inputs_1555609921:441","Methionine","R01","unresolved","methionine","methionine",NA,"FFEARJCKVFRZRR-BYPYZUCNSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:41","inputs_1555609921:519","Ornithine","R01","unresolved","ornithine","ornithine",NA,"AHLPHDHHMVZTML-BYPYZUCNSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:6","inputs_1553799316:45","Phenylalanine","R01","unresolved","phenylalanine","phenylalanine","COLNVLDHVKWLRT-QMMMGPOBSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:45","inputs_1555609921:545","Phenylalanine","R01","unresolved","phenylalanine","phenylalanine",NA,"COLNVLDHVKWLRT-QMMMGPOBSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:49","inputs_1553799316:46","Proline","R01","unresolved","proline","proline","ONIBWKKTOPOVIA-BYPYZUCNSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:46","inputs_1555609921:559","Proline","R01","unresolved","proline","proline",NA,"ONIBWKKTOPOVIA-BYPYZUCNSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:139","inputs_1553799316:50","Serine","R01","unresolved","serine","serine","MTCFGRXMJLQNBG-REOHCLBHSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:50","inputs_1555609921:585","Serine","R01","unresolved","serine","serine",NA,"MTCFGRXMJLQNBG-REOHCLBHSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:57","inputs_1555609921:633","Threonine","R01","unresolved","threonine","threonine",NA,"AYFVYJQAPQTCCC-GBXIJSLDSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:2","inputs_1553799316:60","Tryptophan","R01","unresolved","tryptophan","tryptophan","QIVBCDIJIAJPQS-VIFPVBQESA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:60","inputs_1555609921:644","Tryptophan","R01","unresolved","tryptophan","tryptophan",NA,"QIVBCDIJIAJPQS-VIFPVBQESA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:21","inputs_1553799316:61","Tyrosine","R01","unresolved","tyrosine","tyrosine","OUYCCCASQSFEME-QMMMGPOBSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:61","inputs_1555609921:647","Tyrosine","R01","unresolved","tyrosine","tyrosine",NA,"OUYCCCASQSFEME-QMMMGPOBSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:45","inputs_1553799316:64","Valine","R01","unresolved","valine","valine","KZSNJWFQEVHDMF-BYPYZUCNSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:64","inputs_1555609921:654","Valine","R01","unresolved","valine","valine",NA,"KZSNJWFQEVHDMF-BYPYZUCNSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:4","inputs_1553799316:37","Leucine","R01","unresolved","leucine","leucine","ROHFNLRQFUQHCH-YFKPBYRVSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:37","inputs_1555609921:423","Leucine","R01","unresolved","leucine","leucine",NA,"ROHFNLRQFUQHCH-YFKPBYRVSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:7","inputs_1553799316:16","Creatinine","R01","unresolved","creatinine","creatinine","DDRJAANPRJIHGJ-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:7","inputs_1571898296:55","Creatinine","R01","unresolved","creatinine","Creatinine","DDRJAANPRJIHGJ-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:16","inputs_1555609921:276","Creatinine","R01","unresolved","creatinine","creatinine",NA,"DDRJAANPRJIHGJ-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:16","inputs_1571898296:55","Creatinine","R01","unresolved","creatinine","Creatinine",NA,NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1555609921:276","inputs_1571898296:55","Creatinine","R01","unresolved","creatinine","Creatinine","DDRJAANPRJIHGJ-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:8","inputs_1553799316:35","Lactic acid","R01","unresolved","lactate","Lactate","JVTAAEKCZFNVCJ-REOHCLBHSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:8","inputs_1571898296:48","Lactic acid","R01","unresolved","lactate","Lactate","JVTAAEKCZFNVCJ-REOHCLBHSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:35","inputs_1555609921:418","Lactic acid","R01","unresolved","Lactate","lactate",NA,"JVTAAEKCZFNVCJ-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:35","inputs_1571898296:48","Lactic acid","R01","unresolved","Lactate","Lactate",NA,NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1555609921:418","inputs_1571898296:48","Lactic acid","R01","unresolved","lactate","Lactate","JVTAAEKCZFNVCJ-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:9","inputs_1555609921:134","3-Hydroxybutyric acid","R01","unresolved","3-hydroxybutyrate (BHBA)","3-hydroxybutyrate (BHBA)",NA,"WHBMMWSBFZVSSR-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:14","inputs_1553799316:48","Pyruvic acid","R01","unresolved","pyruvate","Pyruvate","LCTONWCANYUPML-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:14","inputs_1571898296:49","Pyruvic acid","R01","unresolved","pyruvate","Pyruvate","LCTONWCANYUPML-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:48","inputs_1555609921:570","Pyruvic acid","R01","unresolved","Pyruvate","pyruvate",NA,"LCTONWCANYUPML-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:48","inputs_1571898296:49","Pyruvic acid","R01","unresolved","Pyruvate","Pyruvate",NA,NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1555609921:570","inputs_1571898296:49","Pyruvic acid","R01","unresolved","pyruvate","Pyruvate","LCTONWCANYUPML-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:15","inputs_1553799316:63","Uridine","R01","unresolved","uridine","Uridine","DRTQHJPVMGBUCF-XVFCMESISA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:63","inputs_1555609921:652","Uridine","R01","unresolved","Uridine","uridine",NA,"DRTQHJPVMGBUCF-XVFCMESISA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:17","inputs_1553799316:5","Allantoin","R01","unresolved","allantoin","allantoin","POJWUDADGALRAB-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:5","inputs_1555609921:217","Allantoin","R01","unresolved","allantoin","allantoin",NA,"POJWUDADGALRAB-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:20","inputs_1553799316:33","Isoleucine","R01","unresolved","isoleucine","isoleucine","AGPKZVBTJJNPAG-WHFBIAKZSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:33","inputs_1555609921:410","Isoleucine","R01","unresolved","isoleucine","isoleucine",NA,"AGPKZVBTJJNPAG-WHFBIAKZSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:22","inputs_1553799316:38","Lysine","R01","unresolved","lysine","lysine","KDXKERNSBIXSRK-YFKPBYRVSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:38","inputs_1555609921:430","Lysine","R01","unresolved","lysine","lysine",NA,"KDXKERNSBIXSRK-YFKPBYRVSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:24","inputs_1553799316:39","Malic acid","R01","unresolved","malate","Malate","BJEPYKJPYRNKOW-REOHCLBHSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:39","inputs_1555609921:431","Malic acid","R01","unresolved","Malate","malate",NA,"BJEPYKJPYRNKOW-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:34","inputs_1553799316:44","Pantothenic acid","R01","unresolved","pantothenate","Pantothenate","GHOKWGTUZJEAQD-ZETCQYMHSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:44","inputs_1555609921:531","Pantothenic acid","R01","unresolved","Pantothenate","pantothenate",NA,"GHOKWGTUZJEAQD-ZETCQYMHSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:37","inputs_1553799316:13","Citric acid","R01","unresolved","citrate","Citrate","KRKNYBCHXYNGOX-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:37","inputs_1571898296:50","Citric acid","R01","unresolved","citrate","Citrate","KRKNYBCHXYNGOX-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:13","inputs_1555609921:269","Citric acid","R01","unresolved","Citrate","citrate",NA,"KRKNYBCHXYNGOX-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:13","inputs_1571898296:50","Citric acid","R01","unresolved","Citrate","Citrate",NA,NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1555609921:269","inputs_1571898296:50","Citric acid","R01","unresolved","citrate","Citrate","KRKNYBCHXYNGOX-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:40","inputs_1553799316:62","Uric acid","R01","unresolved","urate","Urate","LEHOTFFKMJEONL-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:62","inputs_1555609921:650","Uric acid","R01","unresolved","Urate","urate",NA,"LEHOTFFKMJEONL-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:50","inputs_1553799316:14","Citrulline","R01","unresolved","citrulline","citrulline","RHGKLRLOHDJJDR-BYPYZUCNSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:14","inputs_1555609921:270","Citrulline","R01","unresolved","citrulline","citrulline",NA,"RHGKLRLOHDJJDR-BYPYZUCNSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:54","inputs_1553799316:30","Hypoxanthine","R01","unresolved","hypoxanthine","Hypoxanthine","FDGQSTZJBFJUBT-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:30","inputs_1555609921:394","Hypoxanthine","R01","unresolved","Hypoxanthine","hypoxanthine",NA,"FDGQSTZJBFJUBT-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:55","inputs_1553799316:10","Betaine","R01","unresolved","betaine","betaine","KWIUHFFTVRNATP-UHFFFAOYSA-O",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:10","inputs_1555609921:243","Betaine","R01","unresolved","betaine","betaine",NA,"KWIUHFFTVRNATP-UHFFFAOYSA-O",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:56","inputs_1553799316:65","Xanthine","R01","unresolved","xanthine","Xanthine","LRFVTYWOQMYALW-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:65","inputs_1555609921:659","Xanthine","R01","unresolved","Xanthine","xanthine",NA,"LRFVTYWOQMYALW-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:65","inputs_1553799316:22","Glycerol","R01","unresolved","glycerol","glycerol","PEDCQBHIVMGVHV-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:65","inputs_1571898296:51","Glycerol","R01","unresolved","glycerol","Glycerol","PEDCQBHIVMGVHV-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:22","inputs_1555609921:358","Glycerol","R01","unresolved","glycerol","glycerol",NA,"PEDCQBHIVMGVHV-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:22","inputs_1571898296:51","Glycerol","R01","unresolved","glycerol","Glycerol",NA,NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1555609921:358","inputs_1571898296:51","Glycerol","R01","unresolved","glycerol","Glycerol","PEDCQBHIVMGVHV-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:66","inputs_1553799316:34","Kynurenine","R01","unresolved","kynurenine","Kynurenine","YGPSJZOEDVAXAB-QMMMGPOBSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:34","inputs_1555609921:417","Kynurenine","R01","unresolved","Kynurenine","kynurenine",NA,"YGPSJZOEDVAXAB-QMMMGPOBSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:70","inputs_1553799316:12","Choline","R01","unresolved","choline","choline","OEYIOHPDSNJKLS-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:12","inputs_1555609921:263","Choline","R01","unresolved","choline","choline",NA,"OEYIOHPDSNJKLS-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:73","inputs_1555609921:152","3-Methyl-2-oxovaleric acid","R01","unresolved","3-methyl-2-oxovalerate","3-methyl-2-oxovalerate",NA,"JVQYSWDUAOAHFM-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:76","inputs_1553799316:28","Hippuric acid","R01","unresolved","hippurate","Hippurate","QIAFMBKCNZACKA-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:28","inputs_1555609921:382","Hippuric acid","R01","unresolved","Hippurate","hippurate",NA,"QIAFMBKCNZACKA-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:85","inputs_1555609921:110","2-Hydroxystearic acid","R01","unresolved","2-hydroxystearate","2-hydroxystearate",NA,"KIHBGTRZFAVZRV-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:93","inputs_1553799316:25","Glycocholic acid","R01","unresolved","glycocholate","Glycocholate","RFDAIACWWDREDC-FRVQLJSFSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:25","inputs_1555609921:365","Glycocholic acid","R01","unresolved","Glycocholate","glycocholate",NA,"RFDAIACWWDREDC-FRVQLJSFSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:96","inputs_1555609921:92","LPI 18:0/0:0","R01","unresolved","1-stearoyl-GPI (18:0)","1-stearoyl-GPI (18:0)",NA,NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:102","inputs_1571898296:47","Glucose","R01","unresolved","glucose","Glucose","WQZGKKKJIJFFOK-VFUOTHLCSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1555609921:349","inputs_1571898296:47","Glucose","R01","unresolved","glucose","Glucose","WQZGKKKJIJFFOK-DVKNGEFBSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:107","inputs_1555609921:76","MG 16:0/0:0/0:0","R01","unresolved","1-palmitoylglycerol (16:0)","1-palmitoylglycerol (16:0)",NA,"QHZLMUACJMDIAE-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:129","inputs_1553799316:15","Creatine","R01","unresolved","creatine","creatine","CVSVTCORWBXHQV-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:15","inputs_1555609921:275","Creatine","R01","unresolved","creatine","creatine",NA,"CVSVTCORWBXHQV-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:134","inputs_1553799316:47","4-Pyridoxic acid","R01","unresolved","pyridoxate","Pyridoxate","HXACOUQIXZGNBF-UHFFFAOYSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:47","inputs_1555609921:566","4-Pyridoxic acid","R01","unresolved","Pyridoxate","pyridoxate",NA,"HXACOUQIXZGNBF-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:144","inputs_1553799316:4","Alanine","R01","unresolved","alanine","alanine","QNAYBMKLOCPYGJ-REOHCLBHSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:4","inputs_1555609921:216","Alanine","R01","unresolved","alanine","alanine",NA,"QNAYBMKLOCPYGJ-REOHCLBHSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:157","inputs_1555609921:27","10-Hendecenoic acid","R01","unresolved","10-undecenoate (11:1n1)","10-undecenoate (11:1n1)",NA,NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:162","inputs_1555609921:180","4-Methylcatechol 1-sulfate","R01","unresolved","4-methylcatechol sulfate","4-methylcatechol sulfate",NA,NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:179","inputs_1555609921:522","Sulfotyrosine","R01","unresolved","O-sulfo-L-tyrosine","O-sulfo-L-tyrosine",NA,"CIQHWLTYGMYQQR-QMMMGPOBSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:222","inputs_1555609921:476","N-Acetylcarnosine","R01","unresolved","N-acetylcarnosine","N-acetylcarnosine",NA,"BKAYIFDRRZZKNF-VIFPVBQESA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE
+"comets","inputs_1539354673:232","inputs_1555609921:490","N-Acetylthreonine","R01","unresolved","N-acetylthreonine","N-acetylthreonine",NA,"PEDXUVCGOLSNLQ-WUJLRWPWSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:242","inputs_1555609921:312","Epiandrosterone","R01","unresolved","epiandrosterone sulfate","epiandrosterone sulfate","QGXBDMJGAMFCBF-QRIARFFBSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:250","inputs_1553799316:9","Asparagine","R01","unresolved","asparagine","asparagine","DCXYFEDJOCDNAF-REOHCLBHSA-N",NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:9","inputs_1555609921:235","Asparagine","R01","unresolved","asparagine","asparagine",NA,"DCXYFEDJOCDNAF-REOHCLBHSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1539354673:308","inputs_1555609921:618","CAR DC4:0","R01","unresolved","succinylcarnitine","succinylcarnitine",NA,NA,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:1","inputs_1555609921:213","Adenosine","R01","unresolved","adenosine","adenosine",NA,"OIRDTQYFTABQOQ-KQYNXXCUSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:18","inputs_1555609921:300","Dimethylglycine","R01","unresolved","dimethylglycine","dimethylglycine",NA,"FFDGPVCHZBVARC-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:19","inputs_1555609921:347","Gentisic acid","R01","unresolved","Gentisate","gentisate",NA,"WXTMDXOMEHJXQO-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:20","inputs_1555609921:350","Glucuronic acid","R01","unresolved","Glucuronate","glucuronate",NA,"AEMOLEFTQBMNLQ-WAXACMCWSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:32","inputs_1555609921:405","Inosine","R01","unresolved","Inosine","inosine",NA,"UGQMRVRMYYASKQ-KQYNXXCUSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:42","inputs_1555609921:520","Orotic acid","R01","unresolved","Orotate","orotate",NA,"PXQPEWDEAKTCGB-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:49","inputs_1555609921:573","Quinolinic acid","R01","unresolved","Quinolinate","quinolinate",NA,"GJAWHXHKYYXBSV-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:51","inputs_1555609921:586","Serotonin","R01","unresolved","serotonin","serotonin",NA,"QZAYGJVTTNCVMB-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:53","inputs_1555609921:619","Sucrose","R01","unresolved","Sucrose","sucrose",NA,"CZMRCDWAGMRECN-UGDNZRGBSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:54","inputs_1555609921:621","Taurine","R01","unresolved","taurine","taurine",NA,"XOAAWQZATWQOTB-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:56","inputs_1555609921:623","Taurocholic acid","R01","unresolved","Taurocholate","taurocholate",NA,"WBWWGRHZICKQGZ-HZAMXZRMSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:58","inputs_1555609921:635","Thyroxine","R01","unresolved","thyroxine","thyroxine",NA,"XUIIKFGFIJCVMT-LBPRGKRZSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:66","inputs_1555609921:660","Xanthosine","R01","unresolved","xanthosine","xanthosine",NA,"UBORTCNDUKBEOP-UUOKFMHZSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
+"comets","inputs_1553799316:67","inputs_1555609921:661","Xanthurenic acid","R01","unresolved","Xanthurenate","xanthurenate",NA,"FBZONXHGGPHHIY-UHFFFAOYSA-N",TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE
