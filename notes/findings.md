@@ -526,4 +526,18 @@ The other two LPC names read at sn position level, but "LPC 18:0/0:0" reads at s
 
 The pair is a safe miss. The older R99 pair, "LPC 24:0/0:0", has the same shape. Closing this gap needs a new pair rule, which v0.9 does not add, so it stays a separate idea.
 
-The hand check is still open.
+### The sheet check
+
+Source: `results/v09_check/hand_check_evidence.csv`, from `scripts/15_v0.9/03_hand_check_evidence.R`. The assistant did this check, not me (see `notes/decisions.md`).
+
+| check, on the 23 pairs | result |
+|---|---|
+| every alternative in the Metabolon name adds up to the chain sum in the Broad name | 23 of 23 |
+| formula of the Metabolon SMILES equals the formula worked out from the Broad name | 23 of 23 |
+| claims where the Metabolon row has more detail | 19 of 19 |
+
+Under the counting rule, 19 of 19 claims are right. The 4 unresolved pairs are safe misses. All four fit the same lipid by chain sum and formula, so a stronger rule could answer them.
+
+Three claims are structure against sn position (LPC 16:1, LPC 20:4, LPC O-16:1). Broad gives no double bond position, so broader_narrower can be defended, but a curator might call these the same compound. The third blind test had a similar case with PS(16:0/18:1).
+
+Broad has no m/z and no formula on these rows. The check shows that the names and structures fit together. It does not show that Broad measured the same compound.
