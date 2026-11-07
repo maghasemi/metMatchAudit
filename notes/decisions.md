@@ -796,3 +796,47 @@ The README had grown to a full report of every test. It now gives one summary ta
 ## 2026-11-07: README graphics
 
 The README now opens with a header image in the style of my GitHub profile, and has a diagram of how a pair gets its answer and a chart of the blind test results. The images are in `man/figures/`. The chart shows the blind results only, with criteria that were not met. The tables stay, so every number can still be read as text. No number changed.
+
+## 2026-11-07: v0.9 plan, a second name column
+
+### Why
+
+I counted the unresolved pairs of v0.7 by rule. R01, a row with no evidence, is 16 of 39 on the development data and 234 of 250 on COMETS. On the development data, 13 of those 16 pairs have one cause. In the Broad example file, column `Metabolite` is empty for 119 of 511 rows, and their name sits in column `name` ("SM 39:1;O2", "LPC 18:0/0:0"). The audit reads only `Metabolite`, so these rows have a blank name and no lipid profile. Nothing in these notes mentions the blanks.
+
+Every result on the development data after this change is after adaptation.
+
+### Change
+
+`read_metlinkr()` accepts an optional column `name_fallback_col` in `files`. When the cell in `name_col` is empty, the row takes its name from that column. A new row column, `name_source`, says which one was used (`name_col` or `fallback`). There is no new pair rule, and a file without `name_fallback_col` is read as before.
+
+Not in v0.9: looking up a key from a name, and a separate answer for pairs that only share a name. Each needs its own plan.
+
+### How the work is split
+
+The assistant writes the code and the notes and does the git work. I put the code in place, run every script and test myself and read the output.
+
+The work happens on branch `exp/name-fallback`. Plans and results stay on main. If the change is dropped, the branch becomes `shelved/name-fallback`.
+
+### Order, each step committed before the next
+
+1. This plan.
+2. Feasibility, `scripts/15_v0.9/01_feasibility.R`, without changing the package:
+   - parse the `name` value of the 119 rows;
+   - on Broad rows where both columns are filled and both parse, compare their Species;
+   - count blank names in every file of the four test sets;
+   - list the development pairs that hold a blank row.
+
+   **Go-ahead:** at least 80% of the 119 names parse, and the two columns give the same Species in at least 95% of the rows where both parse. If either fails, the change is dropped and the reason is logged.
+3. Build, with unit tests.
+4. Acceptance, `scripts/15_v0.9/02_acceptance.R`.
+
+### Acceptance
+
+- Without `name_fallback_col`, the pairs of the development data and of COMETS are identical to v0.7.1.
+- With `name_fallback_col = "name"` on the Broad file:
+  - evaluation against the review: wrong stays at 0, no source-error group is called exact, agree is at least 35;
+  - only pairs holding a row with a filled name change rule;
+  - no lipid match proposal is lost;
+  - I check by hand every changed pair and every new lipid match proposal, and at least 95% must be right.
+
+If this passes, the change is released as v0.9.0. The number 0.8 stays unused, since that plan was dropped.
