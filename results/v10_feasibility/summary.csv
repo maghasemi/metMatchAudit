@@ -1,0 +1,5 @@
+"condition","value","needed","pass"
+"one key for rows with a key",0.9034,0.5,TRUE
+"same connectivity",0.9525,0.98,FALSE
+"COMETS R01 pairs becoming exact",142,80,TRUE
+"those pairs agree with the expert",0.9859,0.98,TRUE

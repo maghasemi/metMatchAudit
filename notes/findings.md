@@ -541,3 +541,53 @@ Under the counting rule, 19 of 19 claims are right. The 4 unresolved pairs are s
 Three claims are structure against sn position (LPC 16:1, LPC 20:4, LPC O-16:1). Broad gives no double bond position, so broader_narrower can be defended, but a curator might call these the same compound. The third blind test had a similar case with PS(16:0/18:1).
 
 Broad has no m/z and no formula on these rows. The check shows that the names and structures fit together. It does not show that Broad measured the same compound.
+
+## 2026-11-07: v0.10 feasibility
+
+Source: `results/v10_feasibility/` and `results/v10_feasibility_log.txt`, from `scripts/16_v0.10/01_feasibility.R` on version 0.9.0. The package did not change. Only development and COMETS names were sent to PubChem.
+
+| condition | result | needed | |
+|---|---|---|---|
+| one key for rows that already have a key | 1179 of 1305 (90.3%) | at least 50% | pass |
+| of those, same connectivity as the row's key | 1123 of 1179 (95.3%) | at least 98% | **fail** |
+| COMETS R01 pairs that would become exact | 142 of 234 | at least 80 | pass |
+| of those, agree with the expert | 140 of 142 (98.6%) | at least 98% | pass |
+
+### Three runs
+
+The script was run three times. The numbers above are from the third run, the only one in which no request failed.
+
+- First run: 21 name requests failed. Same connectivity was 1110 of 1165 (95.3%), and 141 COMETS pairs became exact.
+- Second run: no name request failed, but 198 rows got a CID and no key. A request for parents or keys that fails is not cached, but within the run it becomes a missing key, or the CID is used as its own parent, and nothing reported it. The script now counts every failed request and gives no go-ahead while any are left (commit `beae16b`).
+- Third run: 0 failed requests. The result is close to the first run.
+
+The same silence is in `resolve_identifiers()` in the released package. A rerun repairs it, since failed answers are not cached, but the user is not told to rerun.
+
+### The 56 rows with different connectivity
+
+The check compares PubChem's answer with the row's own key, and the row's key is not always right. These groups come from the names alone. I did not check the structures.
+
+- 19 sulfates, most of them Metabolon names.
+- 7 choline esters and choline itself, and 4 acylcarnitines. The name key often ends in `-O` or `-P`, so PubChem picked a charged record.
+- 6 sugars (xylose, fructose three times, erythrose, maltotriose), probably the open chain against the ring form.
+- 3 bile acids (glycocholic, deoxycholic and taurodeoxycholic acid), where the file key may be the wrong one.
+- 17 others, among them 4-hydroxyphenylacetate, where PubChem seems to read the name as the ester.
+
+By set: 713 of 759 on the development data (93.9%) and 410 of 420 on COMETS (97.6%).
+
+### The COMETS R01 pairs
+
+| outcome | expert same | expert different | no expert label |
+|---|---|---|---|
+| exact | 140 | 2 | 0 |
+| both keys from names (would be R01n) | 34 | 1 | 0 |
+| same connectivity, different stereo | 15 | 0 | 0 |
+| different connectivity, same name | 1 | 0 | 0 |
+| different connectivity, different names | 2 | 1 | 0 |
+| no key on a side | 10 | 28 | 0 |
+
+Rows without an expert label count as not covered. None of these 234 pairs lacks one.
+
+The two exact pairs the expert separates are "Ornithine ( Orn-PTC )" against "ornithine" and "N-acetylcarnosine" against "N-acetylcarnosine". In both, the names point to the same compound.
+
+Of the three pairs with different connectivity and different names, the expert calls two the same compound: "indolepropionate" and "Indole propionate", once in each direction. PubChem returns two different structures for two spellings of one name. Distinct would have been allowed only at 98% or more, and this is 1 of 3, so those pairs would stay unresolved.

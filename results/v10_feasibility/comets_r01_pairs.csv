@@ -1,0 +1,235 @@
+"row_a","row_b","group_id","name_a","name_b","key_a","key_b","outcome","covered","expert_same"
+"inputs_1539353822:1","inputs_1539354673:69","Carnitine","Carnitine  ( C0 )","carnitine","PHIQHXFUZVPYII-UHFFFAOYSA-O","PHIQHXFUZVPYII-ZCFIWIBFSA-O","same_connectivity",TRUE,TRUE
+"inputs_1539353822:1","inputs_1553799316:11","Carnitine","Carnitine  ( C0 )","carnitine","PHIQHXFUZVPYII-UHFFFAOYSA-O","PHIQHXFUZVPYII-UHFFFAOYSA-O","both_from_names",TRUE,TRUE
+"inputs_1539353822:1","inputs_1555609921:257","Carnitine","Carnitine  ( C0 )","carnitine","PHIQHXFUZVPYII-UHFFFAOYSA-O","PHIQHXFUZVPYII-ZCFIWIBFSA-O","same_connectivity",TRUE,TRUE
+"inputs_1539354673:69","inputs_1553799316:11","Carnitine","carnitine","carnitine","PHIQHXFUZVPYII-ZCFIWIBFSA-O","PHIQHXFUZVPYII-UHFFFAOYSA-O","same_connectivity",TRUE,TRUE
+"inputs_1553799316:11","inputs_1555609921:257","Carnitine","carnitine","carnitine","PHIQHXFUZVPYII-UHFFFAOYSA-O","PHIQHXFUZVPYII-ZCFIWIBFSA-O","same_connectivity",TRUE,TRUE
+"inputs_1539353822:12","inputs_1539354673:284","CAR DC5:0","Glutarylcarnitine (Hydroxyhexanoylcarnitine)  ( C5-DC(C6-OH) )","glutarylcarnitine (C5)",NA,"NXJAXUYOQLTISD-SECBINFHSA-O","no_key_on_a_side",TRUE,FALSE
+"inputs_1539353822:13","inputs_1555609921:153","CAR DC5:0;3Me","Methylglutarylcarnitine  ( C5-M-DC )","3-methylglutarylcarnitine (2)","APURPPSDSPDCQD-UHFFFAOYSA-P","HFCPFJNSBPQJDP-UHFFFAOYSA-O","different_connectivity",TRUE,FALSE
+"inputs_1539353822:15","inputs_1539354673:142","CAR 6:0","Hexanoylcarnitine (Fumarylcarnitine)  ( C6(C4:1-DC) )","hexanoylcarnitine",NA,"VVPRQWTYSNDTEA-UHFFFAOYSA-O","no_key_on_a_side",TRUE,FALSE
+"inputs_1539353822:15","inputs_1555609921:381","CAR 6:0","Hexanoylcarnitine (Fumarylcarnitine)  ( C6(C4:1-DC) )","hexanoylcarnitine",NA,"VVPRQWTYSNDTEA-UHFFFAOYSA-O","no_key_on_a_side",TRUE,FALSE
+"inputs_1539354673:142","inputs_1555609921:381","CAR 6:0","hexanoylcarnitine","hexanoylcarnitine","VVPRQWTYSNDTEA-UHFFFAOYSA-O","VVPRQWTYSNDTEA-UHFFFAOYSA-O","exact",TRUE,TRUE
+"inputs_1539353822:22","inputs_1555609921:267","CAR 10:1","Decenoylcarnitine  ( C10:1 )","cis-4-decenoyl carnitine",NA,"OQWOHRPOYAVIOK-UHFFFAOYSA-O","no_key_on_a_side",TRUE,FALSE
+"inputs_1539353822:28","inputs_1555609921:454","CAR 14:1","Tetradecenoylcarnitine  ( C14:1 )","myristoleoylcarnitine*",NA,NA,"no_key_on_a_side",TRUE,FALSE
+"inputs_1539353822:30","inputs_1555609921:454","CAR 14:1","Tetradecadienylcarnitine  ( C14:2 )","myristoleoylcarnitine*",NA,NA,"no_key_on_a_side",TRUE,FALSE
+"inputs_1539353822:39","inputs_1555609921:516","CAR 18:1","Octadecenoylcarnitine  ( C18:1 )","oleoylcarnitine",NA,"IPOLTUVFXFHAHI-SEYXRHQNSA-O","no_key_on_a_side",TRUE,FALSE
+"inputs_1539354673:270","inputs_1555609921:516","CAR 18:1","oleoylcarnitine","oleoylcarnitine","IPOLTUVFXFHAHI-WHIOSMTNSA-O","IPOLTUVFXFHAHI-SEYXRHQNSA-O","same_connectivity",TRUE,TRUE
+"inputs_1539353822:42","inputs_1539354673:41","Arginine","Arginine  ( Arg-PTC )","arginine","ODKSFYDXXFIFQN-BYPYZUCNSA-N","ODKSFYDXXFIFQN-BYPYZUCNSA-N","exact",TRUE,TRUE
+"inputs_1539353822:42","inputs_1553799316:8","Arginine","Arginine  ( Arg-PTC )","arginine","ODKSFYDXXFIFQN-BYPYZUCNSA-N","ODKSFYDXXFIFQN-BYPYZUCNSA-N","both_from_names",TRUE,TRUE
+"inputs_1539353822:42","inputs_1555609921:234","Arginine","Arginine  ( Arg-PTC )","arginine","ODKSFYDXXFIFQN-BYPYZUCNSA-N","ODKSFYDXXFIFQN-UHFFFAOYSA-N","same_connectivity",TRUE,TRUE
+"inputs_1539354673:41","inputs_1553799316:8","Arginine","arginine","arginine","ODKSFYDXXFIFQN-BYPYZUCNSA-N","ODKSFYDXXFIFQN-BYPYZUCNSA-N","exact",TRUE,TRUE
+"inputs_1553799316:8","inputs_1555609921:234","Arginine","arginine","arginine","ODKSFYDXXFIFQN-BYPYZUCNSA-N","ODKSFYDXXFIFQN-UHFFFAOYSA-N","same_connectivity",TRUE,TRUE
+"inputs_1539353822:43","inputs_1539354673:1","Glutamine","Glutamine  ( Gln-PTC )","glutamine","ZDXPYRJPNDTMRX-VKHMYHEASA-N","ZDXPYRJPNDTMRX-VKHMYHEASA-N","exact",TRUE,TRUE
+"inputs_1539353822:43","inputs_1553799316:21","Glutamine","Glutamine  ( Gln-PTC )","glutamine","ZDXPYRJPNDTMRX-VKHMYHEASA-N","ZDXPYRJPNDTMRX-VKHMYHEASA-N","both_from_names",TRUE,TRUE
+"inputs_1539353822:43","inputs_1555609921:353","Glutamine","Glutamine  ( Gln-PTC )","glutamine","ZDXPYRJPNDTMRX-VKHMYHEASA-N","ZDXPYRJPNDTMRX-VKHMYHEASA-N","exact",TRUE,TRUE
+"inputs_1539353822:43","inputs_1571898296:39","Glutamine","Glutamine  ( Gln-PTC )","Gln","ZDXPYRJPNDTMRX-VKHMYHEASA-N","ZDXPYRJPNDTMRX-VKHMYHEASA-N","both_from_names",TRUE,TRUE
+"inputs_1539354673:1","inputs_1553799316:21","Glutamine","glutamine","glutamine","ZDXPYRJPNDTMRX-VKHMYHEASA-N","ZDXPYRJPNDTMRX-VKHMYHEASA-N","exact",TRUE,TRUE
+"inputs_1539354673:1","inputs_1571898296:39","Glutamine","glutamine","Gln","ZDXPYRJPNDTMRX-VKHMYHEASA-N","ZDXPYRJPNDTMRX-VKHMYHEASA-N","exact",TRUE,TRUE
+"inputs_1553799316:21","inputs_1555609921:353","Glutamine","glutamine","glutamine","ZDXPYRJPNDTMRX-VKHMYHEASA-N","ZDXPYRJPNDTMRX-VKHMYHEASA-N","exact",TRUE,TRUE
+"inputs_1553799316:21","inputs_1571898296:39","Glutamine","glutamine","Gln","ZDXPYRJPNDTMRX-VKHMYHEASA-N","ZDXPYRJPNDTMRX-VKHMYHEASA-N","both_from_names",TRUE,TRUE
+"inputs_1555609921:353","inputs_1571898296:39","Glutamine","glutamine","Gln","ZDXPYRJPNDTMRX-VKHMYHEASA-N","ZDXPYRJPNDTMRX-VKHMYHEASA-N","exact",TRUE,TRUE
+"inputs_1539353822:44","inputs_1539354673:143","Glycine","Glycine  ( Gly-PTC )","glycine","DHMQDGOQFOQNFH-UHFFFAOYSA-N","DHMQDGOQFOQNFH-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539353822:44","inputs_1553799316:23","Glycine","Glycine  ( Gly-PTC )","glycine","DHMQDGOQFOQNFH-UHFFFAOYSA-N","DHMQDGOQFOQNFH-UHFFFAOYSA-N","both_from_names",TRUE,TRUE
+"inputs_1539353822:44","inputs_1555609921:362","Glycine","Glycine  ( Gly-PTC )","glycine","DHMQDGOQFOQNFH-UHFFFAOYSA-N","DHMQDGOQFOQNFH-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539353822:44","inputs_1571898296:40","Glycine","Glycine  ( Gly-PTC )","Gly","DHMQDGOQFOQNFH-UHFFFAOYSA-N","DHMQDGOQFOQNFH-UHFFFAOYSA-N","both_from_names",TRUE,TRUE
+"inputs_1539354673:143","inputs_1553799316:23","Glycine","glycine","glycine","DHMQDGOQFOQNFH-UHFFFAOYSA-N","DHMQDGOQFOQNFH-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:143","inputs_1571898296:40","Glycine","glycine","Gly","DHMQDGOQFOQNFH-UHFFFAOYSA-N","DHMQDGOQFOQNFH-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:23","inputs_1555609921:362","Glycine","glycine","glycine","DHMQDGOQFOQNFH-UHFFFAOYSA-N","DHMQDGOQFOQNFH-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:23","inputs_1571898296:40","Glycine","glycine","Gly","DHMQDGOQFOQNFH-UHFFFAOYSA-N","DHMQDGOQFOQNFH-UHFFFAOYSA-N","both_from_names",TRUE,TRUE
+"inputs_1555609921:362","inputs_1571898296:40","Glycine","glycine","Gly","DHMQDGOQFOQNFH-UHFFFAOYSA-N","DHMQDGOQFOQNFH-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539353822:45","inputs_1539354673:3","Histidine","Histidine  ( His-PTC )","histidine","HNDVDQJCIGZPNO-YFKPBYRVSA-N","HNDVDQJCIGZPNO-YFKPBYRVSA-N","exact",TRUE,TRUE
+"inputs_1539353822:45","inputs_1553799316:29","Histidine","Histidine  ( His-PTC )","histidine","HNDVDQJCIGZPNO-YFKPBYRVSA-N","HNDVDQJCIGZPNO-YFKPBYRVSA-N","both_from_names",TRUE,TRUE
+"inputs_1539353822:45","inputs_1555609921:383","Histidine","Histidine  ( His-PTC )","histidine","HNDVDQJCIGZPNO-YFKPBYRVSA-N","HNDVDQJCIGZPNO-YFKPBYRVSA-N","exact",TRUE,TRUE
+"inputs_1539353822:45","inputs_1571898296:41","Histidine","Histidine  ( His-PTC )","His","HNDVDQJCIGZPNO-YFKPBYRVSA-N","HNDVDQJCIGZPNO-YFKPBYRVSA-N","both_from_names",TRUE,TRUE
+"inputs_1539354673:3","inputs_1553799316:29","Histidine","histidine","histidine","HNDVDQJCIGZPNO-YFKPBYRVSA-N","HNDVDQJCIGZPNO-YFKPBYRVSA-N","exact",TRUE,TRUE
+"inputs_1539354673:3","inputs_1571898296:41","Histidine","histidine","His","HNDVDQJCIGZPNO-YFKPBYRVSA-N","HNDVDQJCIGZPNO-YFKPBYRVSA-N","exact",TRUE,TRUE
+"inputs_1553799316:29","inputs_1555609921:383","Histidine","histidine","histidine","HNDVDQJCIGZPNO-YFKPBYRVSA-N","HNDVDQJCIGZPNO-YFKPBYRVSA-N","exact",TRUE,TRUE
+"inputs_1553799316:29","inputs_1571898296:41","Histidine","histidine","His","HNDVDQJCIGZPNO-YFKPBYRVSA-N","HNDVDQJCIGZPNO-YFKPBYRVSA-N","both_from_names",TRUE,TRUE
+"inputs_1555609921:383","inputs_1571898296:41","Histidine","histidine","His","HNDVDQJCIGZPNO-YFKPBYRVSA-N","HNDVDQJCIGZPNO-YFKPBYRVSA-N","exact",TRUE,TRUE
+"inputs_1539353822:46","inputs_1539354673:23","Methionine","Methionine  ( Met-PTC )","methionine","FFEARJCKVFRZRR-BYPYZUCNSA-N","FFEARJCKVFRZRR-BYPYZUCNSA-N","exact",TRUE,TRUE
+"inputs_1539353822:46","inputs_1553799316:40","Methionine","Methionine  ( Met-PTC )","methionine","FFEARJCKVFRZRR-BYPYZUCNSA-N","FFEARJCKVFRZRR-BYPYZUCNSA-N","both_from_names",TRUE,TRUE
+"inputs_1539353822:46","inputs_1555609921:441","Methionine","Methionine  ( Met-PTC )","methionine","FFEARJCKVFRZRR-BYPYZUCNSA-N","FFEARJCKVFRZRR-BYPYZUCNSA-N","exact",TRUE,TRUE
+"inputs_1539354673:23","inputs_1553799316:40","Methionine","methionine","methionine","FFEARJCKVFRZRR-BYPYZUCNSA-N","FFEARJCKVFRZRR-BYPYZUCNSA-N","exact",TRUE,TRUE
+"inputs_1553799316:40","inputs_1555609921:441","Methionine","methionine","methionine","FFEARJCKVFRZRR-BYPYZUCNSA-N","FFEARJCKVFRZRR-BYPYZUCNSA-N","exact",TRUE,TRUE
+"inputs_1539353822:47","inputs_1553799316:41","Ornithine","Ornithine  ( Orn-PTC )","ornithine","AHLPHDHHMVZTML-BYPYZUCNSA-N","AHLPHDHHMVZTML-BYPYZUCNSA-N","both_from_names",TRUE,FALSE
+"inputs_1539353822:47","inputs_1555609921:519","Ornithine","Ornithine  ( Orn-PTC )","ornithine","AHLPHDHHMVZTML-BYPYZUCNSA-N","AHLPHDHHMVZTML-BYPYZUCNSA-N","exact",TRUE,FALSE
+"inputs_1553799316:41","inputs_1555609921:519","Ornithine","ornithine","ornithine","AHLPHDHHMVZTML-BYPYZUCNSA-N","AHLPHDHHMVZTML-BYPYZUCNSA-N","exact",TRUE,TRUE
+"inputs_1539353822:48","inputs_1539354673:6","Phenylalanine","Phenylalanine  ( Phe-PTC )","phenylalanine","COLNVLDHVKWLRT-QMMMGPOBSA-N","COLNVLDHVKWLRT-QMMMGPOBSA-N","exact",TRUE,TRUE
+"inputs_1539353822:48","inputs_1553799316:45","Phenylalanine","Phenylalanine  ( Phe-PTC )","phenylalanine","COLNVLDHVKWLRT-QMMMGPOBSA-N","COLNVLDHVKWLRT-QMMMGPOBSA-N","both_from_names",TRUE,TRUE
+"inputs_1539353822:48","inputs_1555609921:545","Phenylalanine","Phenylalanine  ( Phe-PTC )","phenylalanine","COLNVLDHVKWLRT-QMMMGPOBSA-N","COLNVLDHVKWLRT-QMMMGPOBSA-N","exact",TRUE,TRUE
+"inputs_1539353822:48","inputs_1571898296:45","Phenylalanine","Phenylalanine  ( Phe-PTC )","Phe","COLNVLDHVKWLRT-QMMMGPOBSA-N","COLNVLDHVKWLRT-QMMMGPOBSA-N","both_from_names",TRUE,TRUE
+"inputs_1539354673:6","inputs_1553799316:45","Phenylalanine","phenylalanine","phenylalanine","COLNVLDHVKWLRT-QMMMGPOBSA-N","COLNVLDHVKWLRT-QMMMGPOBSA-N","exact",TRUE,TRUE
+"inputs_1539354673:6","inputs_1571898296:45","Phenylalanine","phenylalanine","Phe","COLNVLDHVKWLRT-QMMMGPOBSA-N","COLNVLDHVKWLRT-QMMMGPOBSA-N","exact",TRUE,TRUE
+"inputs_1553799316:45","inputs_1555609921:545","Phenylalanine","phenylalanine","phenylalanine","COLNVLDHVKWLRT-QMMMGPOBSA-N","COLNVLDHVKWLRT-QMMMGPOBSA-N","exact",TRUE,TRUE
+"inputs_1553799316:45","inputs_1571898296:45","Phenylalanine","phenylalanine","Phe","COLNVLDHVKWLRT-QMMMGPOBSA-N","COLNVLDHVKWLRT-QMMMGPOBSA-N","both_from_names",TRUE,TRUE
+"inputs_1555609921:545","inputs_1571898296:45","Phenylalanine","phenylalanine","Phe","COLNVLDHVKWLRT-QMMMGPOBSA-N","COLNVLDHVKWLRT-QMMMGPOBSA-N","exact",TRUE,TRUE
+"inputs_1539353822:49","inputs_1539354673:49","Proline","Proline  ( Pro-PTC )","proline","ONIBWKKTOPOVIA-BYPYZUCNSA-N","ONIBWKKTOPOVIA-BYPYZUCNSA-N","exact",TRUE,TRUE
+"inputs_1539353822:49","inputs_1553799316:46","Proline","Proline  ( Pro-PTC )","proline","ONIBWKKTOPOVIA-BYPYZUCNSA-N","ONIBWKKTOPOVIA-BYPYZUCNSA-N","both_from_names",TRUE,TRUE
+"inputs_1539353822:49","inputs_1555609921:559","Proline","Proline  ( Pro-PTC )","proline","ONIBWKKTOPOVIA-BYPYZUCNSA-N","ONIBWKKTOPOVIA-BYPYZUCNSA-N","exact",TRUE,TRUE
+"inputs_1539354673:49","inputs_1553799316:46","Proline","proline","proline","ONIBWKKTOPOVIA-BYPYZUCNSA-N","ONIBWKKTOPOVIA-BYPYZUCNSA-N","exact",TRUE,TRUE
+"inputs_1553799316:46","inputs_1555609921:559","Proline","proline","proline","ONIBWKKTOPOVIA-BYPYZUCNSA-N","ONIBWKKTOPOVIA-BYPYZUCNSA-N","exact",TRUE,TRUE
+"inputs_1539353822:50","inputs_1539354673:139","Serine","Serine  ( Ser-PTC )","serine","MTCFGRXMJLQNBG-REOHCLBHSA-N","MTCFGRXMJLQNBG-REOHCLBHSA-N","exact",TRUE,TRUE
+"inputs_1539353822:50","inputs_1553799316:50","Serine","Serine  ( Ser-PTC )","serine","MTCFGRXMJLQNBG-REOHCLBHSA-N","MTCFGRXMJLQNBG-REOHCLBHSA-N","both_from_names",TRUE,TRUE
+"inputs_1539353822:50","inputs_1555609921:585","Serine","Serine  ( Ser-PTC )","serine","MTCFGRXMJLQNBG-REOHCLBHSA-N","MTCFGRXMJLQNBG-REOHCLBHSA-N","exact",TRUE,TRUE
+"inputs_1539354673:139","inputs_1553799316:50","Serine","serine","serine","MTCFGRXMJLQNBG-REOHCLBHSA-N","MTCFGRXMJLQNBG-REOHCLBHSA-N","exact",TRUE,TRUE
+"inputs_1553799316:50","inputs_1555609921:585","Serine","serine","serine","MTCFGRXMJLQNBG-REOHCLBHSA-N","MTCFGRXMJLQNBG-REOHCLBHSA-N","exact",TRUE,TRUE
+"inputs_1539353822:51","inputs_1553799316:57","Threonine","Threonine  ( Thr-PTC )","threonine","AYFVYJQAPQTCCC-GBXIJSLDSA-N","AYFVYJQAPQTCCC-GBXIJSLDSA-N","both_from_names",TRUE,TRUE
+"inputs_1539353822:51","inputs_1555609921:633","Threonine","Threonine  ( Thr-PTC )","threonine","AYFVYJQAPQTCCC-GBXIJSLDSA-N","AYFVYJQAPQTCCC-GBXIJSLDSA-N","exact",TRUE,TRUE
+"inputs_1553799316:57","inputs_1555609921:633","Threonine","threonine","threonine","AYFVYJQAPQTCCC-GBXIJSLDSA-N","AYFVYJQAPQTCCC-GBXIJSLDSA-N","exact",TRUE,TRUE
+"inputs_1539353822:52","inputs_1539354673:2","Tryptophan","Tryptophan  ( Trp-PTC )","tryptophan","QIVBCDIJIAJPQS-VIFPVBQESA-N","QIVBCDIJIAJPQS-VIFPVBQESA-N","exact",TRUE,TRUE
+"inputs_1539353822:52","inputs_1553799316:60","Tryptophan","Tryptophan  ( Trp-PTC )","tryptophan","QIVBCDIJIAJPQS-VIFPVBQESA-N","QIVBCDIJIAJPQS-VIFPVBQESA-N","both_from_names",TRUE,TRUE
+"inputs_1539353822:52","inputs_1555609921:644","Tryptophan","Tryptophan  ( Trp-PTC )","tryptophan","QIVBCDIJIAJPQS-VIFPVBQESA-N","QIVBCDIJIAJPQS-VIFPVBQESA-N","exact",TRUE,TRUE
+"inputs_1539354673:2","inputs_1553799316:60","Tryptophan","tryptophan","tryptophan","QIVBCDIJIAJPQS-VIFPVBQESA-N","QIVBCDIJIAJPQS-VIFPVBQESA-N","exact",TRUE,TRUE
+"inputs_1553799316:60","inputs_1555609921:644","Tryptophan","tryptophan","tryptophan","QIVBCDIJIAJPQS-VIFPVBQESA-N","QIVBCDIJIAJPQS-VIFPVBQESA-N","exact",TRUE,TRUE
+"inputs_1539353822:53","inputs_1539354673:21","Tyrosine","Tyrosine  ( Tyr-PTC )","tyrosine","OUYCCCASQSFEME-QMMMGPOBSA-N","OUYCCCASQSFEME-QMMMGPOBSA-N","exact",TRUE,TRUE
+"inputs_1539353822:53","inputs_1553799316:61","Tyrosine","Tyrosine  ( Tyr-PTC )","tyrosine","OUYCCCASQSFEME-QMMMGPOBSA-N","OUYCCCASQSFEME-QMMMGPOBSA-N","both_from_names",TRUE,TRUE
+"inputs_1539353822:53","inputs_1555609921:647","Tyrosine","Tyrosine  ( Tyr-PTC )","tyrosine","OUYCCCASQSFEME-QMMMGPOBSA-N","OUYCCCASQSFEME-QMMMGPOBSA-N","exact",TRUE,TRUE
+"inputs_1539353822:53","inputs_1571898296:46","Tyrosine","Tyrosine  ( Tyr-PTC )","Tyr","OUYCCCASQSFEME-QMMMGPOBSA-N","OUYCCCASQSFEME-QMMMGPOBSA-N","both_from_names",TRUE,TRUE
+"inputs_1539354673:21","inputs_1553799316:61","Tyrosine","tyrosine","tyrosine","OUYCCCASQSFEME-QMMMGPOBSA-N","OUYCCCASQSFEME-QMMMGPOBSA-N","exact",TRUE,TRUE
+"inputs_1539354673:21","inputs_1571898296:46","Tyrosine","tyrosine","Tyr","OUYCCCASQSFEME-QMMMGPOBSA-N","OUYCCCASQSFEME-QMMMGPOBSA-N","exact",TRUE,TRUE
+"inputs_1553799316:61","inputs_1555609921:647","Tyrosine","tyrosine","tyrosine","OUYCCCASQSFEME-QMMMGPOBSA-N","OUYCCCASQSFEME-QMMMGPOBSA-N","exact",TRUE,TRUE
+"inputs_1553799316:61","inputs_1571898296:46","Tyrosine","tyrosine","Tyr","OUYCCCASQSFEME-QMMMGPOBSA-N","OUYCCCASQSFEME-QMMMGPOBSA-N","both_from_names",TRUE,TRUE
+"inputs_1555609921:647","inputs_1571898296:46","Tyrosine","tyrosine","Tyr","OUYCCCASQSFEME-QMMMGPOBSA-N","OUYCCCASQSFEME-QMMMGPOBSA-N","exact",TRUE,TRUE
+"inputs_1539353822:54","inputs_1539354673:45","Valine","Valine  ( Val-PTC )","valine","KZSNJWFQEVHDMF-BYPYZUCNSA-N","KZSNJWFQEVHDMF-BYPYZUCNSA-N","exact",TRUE,TRUE
+"inputs_1539353822:54","inputs_1553799316:64","Valine","Valine  ( Val-PTC )","valine","KZSNJWFQEVHDMF-BYPYZUCNSA-N","KZSNJWFQEVHDMF-BYPYZUCNSA-N","both_from_names",TRUE,TRUE
+"inputs_1539353822:54","inputs_1555609921:654","Valine","Valine  ( Val-PTC )","valine","KZSNJWFQEVHDMF-BYPYZUCNSA-N","KZSNJWFQEVHDMF-BYPYZUCNSA-N","exact",TRUE,TRUE
+"inputs_1539353822:54","inputs_1571898296:44","Valine","Valine  ( Val-PTC )","Val","KZSNJWFQEVHDMF-BYPYZUCNSA-N","KZSNJWFQEVHDMF-BYPYZUCNSA-N","both_from_names",TRUE,TRUE
+"inputs_1539354673:45","inputs_1553799316:64","Valine","valine","valine","KZSNJWFQEVHDMF-BYPYZUCNSA-N","KZSNJWFQEVHDMF-BYPYZUCNSA-N","exact",TRUE,TRUE
+"inputs_1539354673:45","inputs_1571898296:44","Valine","valine","Val","KZSNJWFQEVHDMF-BYPYZUCNSA-N","KZSNJWFQEVHDMF-BYPYZUCNSA-N","exact",TRUE,TRUE
+"inputs_1553799316:64","inputs_1555609921:654","Valine","valine","valine","KZSNJWFQEVHDMF-BYPYZUCNSA-N","KZSNJWFQEVHDMF-BYPYZUCNSA-N","exact",TRUE,TRUE
+"inputs_1553799316:64","inputs_1571898296:44","Valine","valine","Val","KZSNJWFQEVHDMF-BYPYZUCNSA-N","KZSNJWFQEVHDMF-BYPYZUCNSA-N","both_from_names",TRUE,TRUE
+"inputs_1555609921:654","inputs_1571898296:44","Valine","valine","Val","KZSNJWFQEVHDMF-BYPYZUCNSA-N","KZSNJWFQEVHDMF-BYPYZUCNSA-N","exact",TRUE,TRUE
+"inputs_1539354673:4","inputs_1553799316:37","Leucine","leucine","leucine","ROHFNLRQFUQHCH-YFKPBYRVSA-N","ROHFNLRQFUQHCH-YFKPBYRVSA-N","exact",TRUE,TRUE
+"inputs_1539354673:4","inputs_1571898296:43","Leucine","leucine","Leu","ROHFNLRQFUQHCH-YFKPBYRVSA-N","ROHFNLRQFUQHCH-YFKPBYRVSA-N","exact",TRUE,TRUE
+"inputs_1553799316:37","inputs_1555609921:423","Leucine","leucine","leucine","ROHFNLRQFUQHCH-YFKPBYRVSA-N","ROHFNLRQFUQHCH-YFKPBYRVSA-N","exact",TRUE,TRUE
+"inputs_1553799316:37","inputs_1571898296:43","Leucine","leucine","Leu","ROHFNLRQFUQHCH-YFKPBYRVSA-N","ROHFNLRQFUQHCH-YFKPBYRVSA-N","both_from_names",TRUE,TRUE
+"inputs_1555609921:423","inputs_1571898296:43","Leucine","leucine","Leu","ROHFNLRQFUQHCH-YFKPBYRVSA-N","ROHFNLRQFUQHCH-YFKPBYRVSA-N","exact",TRUE,TRUE
+"inputs_1539354673:7","inputs_1553799316:16","Creatinine","creatinine","creatinine","DDRJAANPRJIHGJ-UHFFFAOYSA-N","DDRJAANPRJIHGJ-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:7","inputs_1571898296:55","Creatinine","creatinine","Creatinine","DDRJAANPRJIHGJ-UHFFFAOYSA-N","DDRJAANPRJIHGJ-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:16","inputs_1555609921:276","Creatinine","creatinine","creatinine","DDRJAANPRJIHGJ-UHFFFAOYSA-N","DDRJAANPRJIHGJ-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:16","inputs_1571898296:55","Creatinine","creatinine","Creatinine","DDRJAANPRJIHGJ-UHFFFAOYSA-N","DDRJAANPRJIHGJ-UHFFFAOYSA-N","both_from_names",TRUE,TRUE
+"inputs_1555609921:276","inputs_1571898296:55","Creatinine","creatinine","Creatinine","DDRJAANPRJIHGJ-UHFFFAOYSA-N","DDRJAANPRJIHGJ-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:8","inputs_1553799316:35","Lactic acid","lactate","Lactate","JVTAAEKCZFNVCJ-REOHCLBHSA-N","JVTAAEKCZFNVCJ-UHFFFAOYSA-N","same_connectivity",TRUE,TRUE
+"inputs_1539354673:8","inputs_1571898296:48","Lactic acid","lactate","Lactate","JVTAAEKCZFNVCJ-REOHCLBHSA-N","JVTAAEKCZFNVCJ-UHFFFAOYSA-N","same_connectivity",TRUE,TRUE
+"inputs_1553799316:35","inputs_1555609921:418","Lactic acid","Lactate","lactate","JVTAAEKCZFNVCJ-UHFFFAOYSA-N","JVTAAEKCZFNVCJ-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:35","inputs_1571898296:48","Lactic acid","Lactate","Lactate","JVTAAEKCZFNVCJ-UHFFFAOYSA-N","JVTAAEKCZFNVCJ-UHFFFAOYSA-N","both_from_names",TRUE,TRUE
+"inputs_1555609921:418","inputs_1571898296:48","Lactic acid","lactate","Lactate","JVTAAEKCZFNVCJ-UHFFFAOYSA-N","JVTAAEKCZFNVCJ-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:9","inputs_1555609921:134","3-Hydroxybutyric acid","3-hydroxybutyrate (BHBA)","3-hydroxybutyrate (BHBA)","WHBMMWSBFZVSSR-UHFFFAOYSA-N","WHBMMWSBFZVSSR-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:14","inputs_1553799316:48","Pyruvic acid","pyruvate","Pyruvate","LCTONWCANYUPML-UHFFFAOYSA-N","LCTONWCANYUPML-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:14","inputs_1571898296:49","Pyruvic acid","pyruvate","Pyruvate","LCTONWCANYUPML-UHFFFAOYSA-N","LCTONWCANYUPML-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:48","inputs_1555609921:570","Pyruvic acid","Pyruvate","pyruvate","LCTONWCANYUPML-UHFFFAOYSA-N","LCTONWCANYUPML-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:48","inputs_1571898296:49","Pyruvic acid","Pyruvate","Pyruvate","LCTONWCANYUPML-UHFFFAOYSA-N","LCTONWCANYUPML-UHFFFAOYSA-N","both_from_names",TRUE,TRUE
+"inputs_1555609921:570","inputs_1571898296:49","Pyruvic acid","pyruvate","Pyruvate","LCTONWCANYUPML-UHFFFAOYSA-N","LCTONWCANYUPML-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:15","inputs_1553799316:63","Uridine","uridine","Uridine","DRTQHJPVMGBUCF-XVFCMESISA-N","DRTQHJPVMGBUCF-XVFCMESISA-N","exact",TRUE,TRUE
+"inputs_1553799316:63","inputs_1555609921:652","Uridine","Uridine","uridine","DRTQHJPVMGBUCF-XVFCMESISA-N","DRTQHJPVMGBUCF-XVFCMESISA-N","exact",TRUE,TRUE
+"inputs_1539354673:17","inputs_1553799316:5","Allantoin","allantoin","allantoin","POJWUDADGALRAB-UHFFFAOYSA-N","POJWUDADGALRAB-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:5","inputs_1555609921:217","Allantoin","allantoin","allantoin","POJWUDADGALRAB-UHFFFAOYSA-N","POJWUDADGALRAB-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:20","inputs_1553799316:33","Isoleucine","isoleucine","isoleucine","AGPKZVBTJJNPAG-WHFBIAKZSA-N","AGPKZVBTJJNPAG-WHFBIAKZSA-N","exact",TRUE,TRUE
+"inputs_1539354673:20","inputs_1571898296:42","Isoleucine","isoleucine","Ile","AGPKZVBTJJNPAG-WHFBIAKZSA-N","AGPKZVBTJJNPAG-WHFBIAKZSA-N","exact",TRUE,TRUE
+"inputs_1553799316:33","inputs_1555609921:410","Isoleucine","isoleucine","isoleucine","AGPKZVBTJJNPAG-WHFBIAKZSA-N","AGPKZVBTJJNPAG-WHFBIAKZSA-N","exact",TRUE,TRUE
+"inputs_1553799316:33","inputs_1571898296:42","Isoleucine","isoleucine","Ile","AGPKZVBTJJNPAG-WHFBIAKZSA-N","AGPKZVBTJJNPAG-WHFBIAKZSA-N","both_from_names",TRUE,TRUE
+"inputs_1555609921:410","inputs_1571898296:42","Isoleucine","isoleucine","Ile","AGPKZVBTJJNPAG-WHFBIAKZSA-N","AGPKZVBTJJNPAG-WHFBIAKZSA-N","exact",TRUE,TRUE
+"inputs_1539354673:22","inputs_1553799316:38","Lysine","lysine","lysine","KDXKERNSBIXSRK-YFKPBYRVSA-N","KDXKERNSBIXSRK-YFKPBYRVSA-N","exact",TRUE,TRUE
+"inputs_1553799316:38","inputs_1555609921:430","Lysine","lysine","lysine","KDXKERNSBIXSRK-YFKPBYRVSA-N","KDXKERNSBIXSRK-YFKPBYRVSA-N","exact",TRUE,TRUE
+"inputs_1539354673:24","inputs_1553799316:39","Malic acid","malate","Malate","BJEPYKJPYRNKOW-REOHCLBHSA-N","BJEPYKJPYRNKOW-UHFFFAOYSA-N","same_connectivity",TRUE,TRUE
+"inputs_1553799316:39","inputs_1555609921:431","Malic acid","Malate","malate","BJEPYKJPYRNKOW-UHFFFAOYSA-N","BJEPYKJPYRNKOW-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:28","inputs_1555609921:514","Oleic acid","oleate (18:1n9)","oleate/vaccenate (18:1)","ZQPPMHVWECSIRJ-KTKRTIGZSA-N",NA,"no_key_on_a_side",TRUE,FALSE
+"inputs_1539354673:34","inputs_1553799316:44","Pantothenic acid","pantothenate","Pantothenate","GHOKWGTUZJEAQD-ZETCQYMHSA-N","GHOKWGTUZJEAQD-UHFFFAOYSA-N","same_connectivity",TRUE,TRUE
+"inputs_1553799316:44","inputs_1555609921:531","Pantothenic acid","Pantothenate","pantothenate","GHOKWGTUZJEAQD-UHFFFAOYSA-N","GHOKWGTUZJEAQD-ZETCQYMHSA-N","same_connectivity",TRUE,TRUE
+"inputs_1539354673:37","inputs_1553799316:13","Citric acid","citrate","Citrate","KRKNYBCHXYNGOX-UHFFFAOYSA-N","KRKNYBCHXYNGOX-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:37","inputs_1571898296:50","Citric acid","citrate","Citrate","KRKNYBCHXYNGOX-UHFFFAOYSA-N","KRKNYBCHXYNGOX-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:13","inputs_1555609921:269","Citric acid","Citrate","citrate","KRKNYBCHXYNGOX-UHFFFAOYSA-N","KRKNYBCHXYNGOX-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:13","inputs_1571898296:50","Citric acid","Citrate","Citrate","KRKNYBCHXYNGOX-UHFFFAOYSA-N","KRKNYBCHXYNGOX-UHFFFAOYSA-N","both_from_names",TRUE,TRUE
+"inputs_1555609921:269","inputs_1571898296:50","Citric acid","citrate","Citrate","KRKNYBCHXYNGOX-UHFFFAOYSA-N","KRKNYBCHXYNGOX-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:40","inputs_1553799316:62","Uric acid","urate","Urate","LEHOTFFKMJEONL-UHFFFAOYSA-N","LEHOTFFKMJEONL-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:62","inputs_1555609921:650","Uric acid","Urate","urate","LEHOTFFKMJEONL-UHFFFAOYSA-N","LEHOTFFKMJEONL-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:50","inputs_1553799316:14","Citrulline","citrulline","citrulline","RHGKLRLOHDJJDR-BYPYZUCNSA-N","RHGKLRLOHDJJDR-BYPYZUCNSA-N","exact",TRUE,TRUE
+"inputs_1553799316:14","inputs_1555609921:270","Citrulline","citrulline","citrulline","RHGKLRLOHDJJDR-BYPYZUCNSA-N","RHGKLRLOHDJJDR-BYPYZUCNSA-N","exact",TRUE,TRUE
+"inputs_1539354673:54","inputs_1553799316:30","Hypoxanthine","hypoxanthine","Hypoxanthine","FDGQSTZJBFJUBT-UHFFFAOYSA-N","FDGQSTZJBFJUBT-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:30","inputs_1555609921:394","Hypoxanthine","Hypoxanthine","hypoxanthine","FDGQSTZJBFJUBT-UHFFFAOYSA-N","FDGQSTZJBFJUBT-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:55","inputs_1553799316:10","Betaine","betaine","betaine","KWIUHFFTVRNATP-UHFFFAOYSA-O","KWIUHFFTVRNATP-UHFFFAOYSA-O","exact",TRUE,TRUE
+"inputs_1553799316:10","inputs_1555609921:243","Betaine","betaine","betaine","KWIUHFFTVRNATP-UHFFFAOYSA-O","KWIUHFFTVRNATP-UHFFFAOYSA-O","exact",TRUE,TRUE
+"inputs_1539354673:56","inputs_1553799316:65","Xanthine","xanthine","Xanthine","LRFVTYWOQMYALW-UHFFFAOYSA-N","LRFVTYWOQMYALW-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:65","inputs_1555609921:659","Xanthine","Xanthine","xanthine","LRFVTYWOQMYALW-UHFFFAOYSA-N","LRFVTYWOQMYALW-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:65","inputs_1553799316:22","Glycerol","glycerol","glycerol","PEDCQBHIVMGVHV-UHFFFAOYSA-N","PEDCQBHIVMGVHV-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:65","inputs_1571898296:51","Glycerol","glycerol","Glycerol","PEDCQBHIVMGVHV-UHFFFAOYSA-N","PEDCQBHIVMGVHV-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:22","inputs_1555609921:358","Glycerol","glycerol","glycerol","PEDCQBHIVMGVHV-UHFFFAOYSA-N","PEDCQBHIVMGVHV-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:22","inputs_1571898296:51","Glycerol","glycerol","Glycerol","PEDCQBHIVMGVHV-UHFFFAOYSA-N","PEDCQBHIVMGVHV-UHFFFAOYSA-N","both_from_names",TRUE,TRUE
+"inputs_1555609921:358","inputs_1571898296:51","Glycerol","glycerol","Glycerol","PEDCQBHIVMGVHV-UHFFFAOYSA-N","PEDCQBHIVMGVHV-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:66","inputs_1553799316:34","Kynurenine","kynurenine","Kynurenine","YGPSJZOEDVAXAB-QMMMGPOBSA-N","YGPSJZOEDVAXAB-QMMMGPOBSA-N","exact",TRUE,TRUE
+"inputs_1553799316:34","inputs_1555609921:417","Kynurenine","Kynurenine","kynurenine","YGPSJZOEDVAXAB-QMMMGPOBSA-N","YGPSJZOEDVAXAB-QMMMGPOBSA-N","exact",TRUE,TRUE
+"inputs_1539354673:70","inputs_1553799316:12","Choline","choline","choline","OEYIOHPDSNJKLS-UHFFFAOYSA-N","OEYIOHPDSNJKLS-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:12","inputs_1555609921:263","Choline","choline","choline","OEYIOHPDSNJKLS-UHFFFAOYSA-N","OEYIOHPDSNJKLS-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:73","inputs_1555609921:152","3-Methyl-2-oxovaleric acid","3-methyl-2-oxovalerate","3-methyl-2-oxovalerate","JVQYSWDUAOAHFM-UHFFFAOYSA-N","JVQYSWDUAOAHFM-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:76","inputs_1553799316:28","Hippuric acid","hippurate","Hippurate","QIAFMBKCNZACKA-UHFFFAOYSA-N","QIAFMBKCNZACKA-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:28","inputs_1555609921:382","Hippuric acid","Hippurate","hippurate","QIAFMBKCNZACKA-UHFFFAOYSA-N","QIAFMBKCNZACKA-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:85","inputs_1555609921:110","2-Hydroxystearic acid","2-hydroxystearate","2-hydroxystearate","KIHBGTRZFAVZRV-UHFFFAOYSA-N","KIHBGTRZFAVZRV-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:93","inputs_1553799316:25","Glycocholic acid","glycocholate","Glycocholate","RFDAIACWWDREDC-FRVQLJSFSA-N","RFDAIACWWDREDC-FRVQLJSFSA-N","exact",TRUE,TRUE
+"inputs_1539354673:93","inputs_1571898296:57","Glycocholic acid","glycocholate","GlycA","RFDAIACWWDREDC-FRVQLJSFSA-N",NA,"no_key_on_a_side",TRUE,FALSE
+"inputs_1553799316:25","inputs_1555609921:365","Glycocholic acid","Glycocholate","glycocholate","RFDAIACWWDREDC-FRVQLJSFSA-N","RFDAIACWWDREDC-FRVQLJSFSA-N","exact",TRUE,TRUE
+"inputs_1553799316:25","inputs_1571898296:57","Glycocholic acid","Glycocholate","GlycA","RFDAIACWWDREDC-FRVQLJSFSA-N",NA,"no_key_on_a_side",TRUE,FALSE
+"inputs_1555609921:365","inputs_1571898296:57","Glycocholic acid","glycocholate","GlycA","RFDAIACWWDREDC-FRVQLJSFSA-N",NA,"no_key_on_a_side",TRUE,FALSE
+"inputs_1539354673:96","inputs_1555609921:92","LPI 18:0/0:0","1-stearoyl-GPI (18:0)","1-stearoyl-GPI (18:0)",NA,NA,"no_key_on_a_side",TRUE,TRUE
+"inputs_1539354673:102","inputs_1571898296:47","Glucose","glucose","Glucose","WQZGKKKJIJFFOK-VFUOTHLCSA-N","WQZGKKKJIJFFOK-GASJEMHNSA-N","same_connectivity",TRUE,TRUE
+"inputs_1555609921:349","inputs_1571898296:47","Glucose","glucose","Glucose","WQZGKKKJIJFFOK-DVKNGEFBSA-N","WQZGKKKJIJFFOK-GASJEMHNSA-N","same_connectivity",TRUE,TRUE
+"inputs_1539354673:107","inputs_1555609921:76","MG 16:0/0:0/0:0","1-palmitoylglycerol (16:0)","1-palmitoylglycerol (16:0)",NA,"QHZLMUACJMDIAE-UHFFFAOYSA-N","no_key_on_a_side",TRUE,TRUE
+"inputs_1539354673:128","inputs_1539354673:165","Bilirubin","bilirubin (Z,Z)","bilirubin (E,E)*","BPYKTIZUTYGOLE-IFADSCNNSA-N",NA,"no_key_on_a_side",TRUE,FALSE
+"inputs_1539354673:128","inputs_1555609921:246","Bilirubin","bilirubin (Z,Z)","bilirubin (E,Z or Z,E)*","BPYKTIZUTYGOLE-IFADSCNNSA-N",NA,"no_key_on_a_side",TRUE,FALSE
+"inputs_1539354673:165","inputs_1555609921:245","Bilirubin","bilirubin (E,E)*","bilirubin (E,E)*",NA,"BPYKTIZUTYGOLE-BMNRKXRESA-N","no_key_on_a_side",TRUE,TRUE
+"inputs_1539354673:165","inputs_1555609921:246","Bilirubin","bilirubin (E,E)*","bilirubin (E,Z or Z,E)*",NA,NA,"no_key_on_a_side",TRUE,FALSE
+"inputs_1539354673:165","inputs_1555609921:247","Bilirubin","bilirubin (E,E)*","bilirubin (Z,Z)",NA,"BPYKTIZUTYGOLE-IFADSCNNSA-N","no_key_on_a_side",TRUE,FALSE
+"inputs_1555609921:245","inputs_1555609921:246","Bilirubin","bilirubin (E,E)*","bilirubin (E,Z or Z,E)*","BPYKTIZUTYGOLE-BMNRKXRESA-N",NA,"no_key_on_a_side",TRUE,FALSE
+"inputs_1555609921:246","inputs_1555609921:247","Bilirubin","bilirubin (E,Z or Z,E)*","bilirubin (Z,Z)",NA,"BPYKTIZUTYGOLE-IFADSCNNSA-N","no_key_on_a_side",TRUE,FALSE
+"inputs_1539354673:129","inputs_1553799316:15","Creatine","creatine","creatine","CVSVTCORWBXHQV-UHFFFAOYSA-N","CVSVTCORWBXHQV-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:15","inputs_1555609921:275","Creatine","creatine","creatine","CVSVTCORWBXHQV-UHFFFAOYSA-N","CVSVTCORWBXHQV-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:134","inputs_1553799316:47","4-Pyridoxic acid","pyridoxate","Pyridoxate","HXACOUQIXZGNBF-UHFFFAOYSA-N",NA,"no_key_on_a_side",TRUE,TRUE
+"inputs_1553799316:47","inputs_1555609921:566","4-Pyridoxic acid","Pyridoxate","pyridoxate",NA,"HXACOUQIXZGNBF-UHFFFAOYSA-N","no_key_on_a_side",TRUE,TRUE
+"inputs_1539354673:135","inputs_1555609921:227","5alpha-Androstane-3alpha-ol-17-one sulfate","androsterone sulfate","andro steroid monosulfate (1)*","ZMITXKRGXGRMKS-HLUDHZFRSA-N",NA,"no_key_on_a_side",TRUE,FALSE
+"inputs_1555609921:227","inputs_1555609921:228","5alpha-Androstane-3alpha-ol-17-one sulfate","andro steroid monosulfate (1)*","androsterone sulfate",NA,"ZMITXKRGXGRMKS-HLUDHZFRSA-N","no_key_on_a_side",TRUE,FALSE
+"inputs_1539354673:144","inputs_1553799316:4","Alanine","alanine","alanine","QNAYBMKLOCPYGJ-REOHCLBHSA-N","QNAYBMKLOCPYGJ-REOHCLBHSA-N","exact",TRUE,TRUE
+"inputs_1539354673:144","inputs_1571898296:38","Alanine","alanine","Ala","QNAYBMKLOCPYGJ-REOHCLBHSA-N",NA,"no_key_on_a_side",TRUE,FALSE
+"inputs_1553799316:4","inputs_1555609921:216","Alanine","alanine","alanine","QNAYBMKLOCPYGJ-REOHCLBHSA-N","QNAYBMKLOCPYGJ-REOHCLBHSA-N","exact",TRUE,TRUE
+"inputs_1553799316:4","inputs_1571898296:38","Alanine","alanine","Ala","QNAYBMKLOCPYGJ-REOHCLBHSA-N",NA,"no_key_on_a_side",TRUE,FALSE
+"inputs_1555609921:216","inputs_1571898296:38","Alanine","alanine","Ala","QNAYBMKLOCPYGJ-REOHCLBHSA-N",NA,"no_key_on_a_side",TRUE,FALSE
+"inputs_1539354673:150","inputs_1553799316:31","3-Indolepropionic acid","indolepropionate","Indole propionate","GOLXRNDWAUTYKT-UHFFFAOYSA-N","PWFLRAMXDKDXRH-UHFFFAOYSA-N","different_connectivity",TRUE,TRUE
+"inputs_1553799316:31","inputs_1555609921:403","3-Indolepropionic acid","Indole propionate","indolepropionate","PWFLRAMXDKDXRH-UHFFFAOYSA-N","GOLXRNDWAUTYKT-UHFFFAOYSA-N","different_connectivity",TRUE,TRUE
+"inputs_1539354673:157","inputs_1555609921:27","10-Hendecenoic acid","10-undecenoate (11:1n1)","10-undecenoate (11:1n1)",NA,NA,"no_key_on_a_side",TRUE,TRUE
+"inputs_1539354673:162","inputs_1555609921:180","4-Methylcatechol 1-sulfate","4-methylcatechol sulfate","4-methylcatechol sulfate","AATDNGCLCGOWJE-UHFFFAOYSA-N","AATDNGCLCGOWJE-UHFFFAOYSA-N","both_from_names",TRUE,TRUE
+"inputs_1539354673:173","inputs_1555609921:568","Pyroglutamine","pyroglutamine*","pyroglutamine*",NA,"NPWMTBZSRRLQNJ-UHFFFAOYSA-N","no_key_on_a_side",TRUE,TRUE
+"inputs_1539354673:179","inputs_1555609921:522","Sulfotyrosine","O-sulfo-L-tyrosine","O-sulfo-L-tyrosine","CIQHWLTYGMYQQR-QMMMGPOBSA-N","CIQHWLTYGMYQQR-QMMMGPOBSA-N","exact",TRUE,TRUE
+"inputs_1539354673:203","inputs_1555609921:97","2-Aminoheptanoic acid","2-aminoheptanoic acid","2-aminoheptanoate","RDFMDVXONNIGBC-UHFFFAOYSA-N","RDFMDVXONNIGBC-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:215","inputs_1553799316:7","2-Oxoglutaric acid","alpha-ketoglutarate","Alpha ketoglutarate","KPGXRSRHYNQIFN-UHFFFAOYSA-N","KPGXRSRHYNQIFN-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:7","inputs_1555609921:225","2-Oxoglutaric acid","Alpha ketoglutarate","alpha-ketoglutarate","KPGXRSRHYNQIFN-UHFFFAOYSA-N","KPGXRSRHYNQIFN-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:222","inputs_1555609921:476","N-Acetylcarnosine","N-acetylcarnosine","N-acetylcarnosine","BKAYIFDRRZZKNF-VIFPVBQESA-N","BKAYIFDRRZZKNF-VIFPVBQESA-N","exact",TRUE,FALSE
+"inputs_1539354673:232","inputs_1555609921:490","N-Acetylthreonine","N-acetylthreonine","N-acetylthreonine","PEDXUVCGOLSNLQ-WUJLRWPWSA-N","PEDXUVCGOLSNLQ-WUJLRWPWSA-N","exact",TRUE,TRUE
+"inputs_1539354673:242","inputs_1555609921:312","Epiandrosterone","epiandrosterone sulfate","epiandrosterone sulfate","QGXBDMJGAMFCBF-QRIARFFBSA-N","ZMITXKRGXGRMKS-LUJOEAJASA-N","different_connectivity_same_name",TRUE,TRUE
+"inputs_1539354673:244","inputs_1555609921:98","2-Aminocaprylic acid","2-aminooctanoic acid","2-aminooctanoate","AKVBCGQVQXPRLD-UHFFFAOYSA-N","AKVBCGQVQXPRLD-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1539354673:250","inputs_1553799316:9","Asparagine","asparagine","asparagine","DCXYFEDJOCDNAF-REOHCLBHSA-N","DCXYFEDJOCDNAF-REOHCLBHSA-N","exact",TRUE,TRUE
+"inputs_1553799316:9","inputs_1555609921:235","Asparagine","asparagine","asparagine","DCXYFEDJOCDNAF-REOHCLBHSA-N","DCXYFEDJOCDNAF-REOHCLBHSA-N","exact",TRUE,TRUE
+"inputs_1539354673:259","inputs_1571898296:25","LPC 18:2(9Z,12Z)/0:0","1-linoleoyl-GPC (18:2)","Omega-6","SPJFYYJXNPEZDW-FTJOPAKQSA-O",NA,"no_key_on_a_side",TRUE,FALSE
+"inputs_1539354673:275","inputs_1555609921:120","LPC 0:0/16:0","2-palmitoyl-GPC (16:0)*","2-palmitoyl-GPC (16:0)*",NA,"NEGQHKSYEYVFTD-HSZRJFAPSA-O","no_key_on_a_side",TRUE,TRUE
+"inputs_1539354673:293","inputs_1555609921:294","Dihomo-gamma-linolenic acid","dihomo-linolenate (20:3n3 or n6)","dihomo-linolenate (20:3n3 or n6)",NA,NA,"no_key_on_a_side",TRUE,TRUE
+"inputs_1539354673:306","inputs_1555609921:299","Dimethylarginine","dimethylarginine (SDMA + ADMA)","dimethylarginine (SDMA + ADMA)",NA,NA,"no_key_on_a_side",TRUE,TRUE
+"inputs_1539354673:308","inputs_1555609921:618","CAR DC4:0","succinylcarnitine","succinylcarnitine","HAEVNYBCYZZDFL-MRVPVSSYSA-O","HAEVNYBCYZZDFL-MRVPVSSYSA-O","both_from_names",TRUE,TRUE
+"inputs_1553799316:1","inputs_1555609921:213","Adenosine","adenosine","adenosine","OIRDTQYFTABQOQ-KQYNXXCUSA-N","OIRDTQYFTABQOQ-KQYNXXCUSA-N","exact",TRUE,TRUE
+"inputs_1553799316:3","inputs_1555609921:214","AMP","Adenosine monophosphate (AMP)","adenosine 5'-monophosphate (AMP)","UDMBCSSLTHHNCD-KQYNXXCUSA-N","UDMBCSSLTHHNCD-KQYNXXCUSA-N","exact",TRUE,TRUE
+"inputs_1553799316:18","inputs_1555609921:300","Dimethylglycine","dimethylglycine","dimethylglycine","FFDGPVCHZBVARC-UHFFFAOYSA-N","FFDGPVCHZBVARC-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:19","inputs_1555609921:347","Gentisic acid","Gentisate","gentisate","WXTMDXOMEHJXQO-UHFFFAOYSA-N","WXTMDXOMEHJXQO-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:20","inputs_1555609921:350","Glucuronic acid","Glucuronate","glucuronate","AEMOLEFTQBMNLQ-AQKNRBDQSA-N","AEMOLEFTQBMNLQ-WAXACMCWSA-N","same_connectivity",TRUE,TRUE
+"inputs_1553799316:32","inputs_1555609921:405","Inosine","Inosine","inosine","UGQMRVRMYYASKQ-KQYNXXCUSA-N","UGQMRVRMYYASKQ-KQYNXXCUSA-N","exact",TRUE,TRUE
+"inputs_1553799316:42","inputs_1555609921:520","Orotic acid","Orotate","orotate","PXQPEWDEAKTCGB-UHFFFAOYSA-N","PXQPEWDEAKTCGB-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:43","inputs_1555609921:523","Oxalic acid","Oxalate","oxalate (ethanedioate)","MUBZPKHOEPUJKR-UHFFFAOYSA-N","MUBZPKHOEPUJKR-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:49","inputs_1555609921:573","Quinolinic acid","Quinolinate","quinolinate","GJAWHXHKYYXBSV-UHFFFAOYSA-N","GJAWHXHKYYXBSV-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:51","inputs_1555609921:586","Serotonin","serotonin","serotonin","QZAYGJVTTNCVMB-UHFFFAOYSA-N","QZAYGJVTTNCVMB-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:52","inputs_1555609921:437","Sorbitol","Sorbitol","mannitol/sorbitol","FBPFZTCFMRRESA-JGWLITMVSA-N",NA,"no_key_on_a_side",TRUE,FALSE
+"inputs_1553799316:53","inputs_1555609921:619","Sucrose","Sucrose","sucrose","CZMRCDWAGMRECN-UGDNZRGBSA-N","CZMRCDWAGMRECN-UGDNZRGBSA-N","exact",TRUE,TRUE
+"inputs_1553799316:54","inputs_1555609921:621","Taurine","taurine","taurine","XOAAWQZATWQOTB-UHFFFAOYSA-N","XOAAWQZATWQOTB-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:56","inputs_1555609921:623","Taurocholic acid","Taurocholate","taurocholate","WBWWGRHZICKQGZ-HZAMXZRMSA-N","WBWWGRHZICKQGZ-HZAMXZRMSA-N","exact",TRUE,TRUE
+"inputs_1553799316:58","inputs_1555609921:635","Thyroxine","thyroxine","thyroxine","XUIIKFGFIJCVMT-LBPRGKRZSA-N","XUIIKFGFIJCVMT-LBPRGKRZSA-N","exact",TRUE,TRUE
+"inputs_1553799316:59","inputs_1555609921:643","Trimethylamine N-oxide","trimethylamine-n-oxide","trimethylamine N-oxide","UYPYRKYUKCHHIB-UHFFFAOYSA-N","UYPYRKYUKCHHIB-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1553799316:66","inputs_1555609921:660","Xanthosine","xanthosine","xanthosine","UBORTCNDUKBEOP-UUOKFMHZSA-N","UBORTCNDUKBEOP-UUOKFMHZSA-N","exact",TRUE,TRUE
+"inputs_1553799316:67","inputs_1555609921:661","Xanthurenic acid","Xanthurenate","xanthurenate","FBZONXHGGPHHIY-UHFFFAOYSA-N","FBZONXHGGPHHIY-UHFFFAOYSA-N","exact",TRUE,TRUE
+"inputs_1555609921:135","inputs_1555609921:136","CAR 4:0;3OH","3-hydroxybutyrylcarnitine (1)","3-hydroxybutyrylcarnitine (2)","UEFRDQSMQXDWTO-GKAPJAKFSA-O",NA,"no_key_on_a_side",TRUE,FALSE
+"inputs_1555609921:149","inputs_1555609921:150","3-Methylcatechol sulfate","3-methyl catechol sulfate (1)","3-methyl catechol sulfate (2)",NA,NA,"no_key_on_a_side",TRUE,FALSE
+"inputs_1555609921:466","inputs_1555609921:467","N-Acetyl-3-methylhistidine","N-acetyl-1-methylhistidine*","N-acetyl-3-methylhistidine*",NA,"FKTXRTPBUWLETL-QMMMGPOBSA-N","no_key_on_a_side",TRUE,FALSE
+"inputs_1555609921:554","inputs_1555609921:557","Pregnenolone sulfate","pregn steroid monosulfate*","pregnenolone sulfate",NA,"DIJBBUIOWGGQOP-QGVNFLHTSA-N","no_key_on_a_side",TRUE,FALSE

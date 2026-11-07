@@ -95,10 +95,11 @@ The 19 new claims passed a scripted check of chain sums and formulas. A curator 
 
 ## What did not work
 
-Two ideas were tried and set aside. Both are logged in [decisions.md](decisions.md).
+Three ideas were tried and set aside. All are logged in [decisions.md](decisions.md).
 
 - Giving name-only rows a key from RefMet. MetLinkR's standardized names are RefMet names, so a key from RefMet would agree with MetLinkR by construction and audit nothing.
 - Checking each row against the RefMet entry of its group. The check found real problems, among them a Metabolon row for 2-hydroxycarbamazepine filed under norcodeine and two RefMet records with wrong formulas (CAR 20:4 stored as C31H54NO4). But only 17 of 40 flags were wrong assignments, short of the 80% set beforehand, and the check could not change any pair result. The code is kept on branch `shelved/refmet-check`.
+- Giving name-only rows a key from PubChem, looked up by the row's own name. On COMETS, 142 of the 234 R01 pairs would have become exact, and 140 of them agree with the expert. But on rows that already have a key, the name's key had the same connectivity in only 95.3%, short of the 98% set beforehand. The code is kept on branch `shelved/name-key-lookup`.
 
 ## Open problems
 

@@ -166,7 +166,8 @@ Severity, most severe first: distinct, unresolved, broader_narrower, stereo_vari
 - Sugars in ring and open-chain form get different keys. With the same name they stay unresolved (R12n); with different names they are called distinct.
 - A sum name with a single-structure key ("ACar 17:0" with a straight-chain key) gets the key's answer.
 - MS-DIAL-style lipid names are not read.
-- Rows with only a name and no usable identifier get no evidence.
+- Rows with only a name and no usable identifier get no evidence. A key looked up from the name was tried in v0.10 and dropped (decisions.md, 2026-11-07).
+- A PubChem request that fails during `resolve_identifiers()` leaves the row without a key, or keeps the CID as its own parent, and no message says so. Failed answers are not cached, so a rerun repairs it.
 - Two rows at structure level with the same Species stay unresolved (R99) when only one has a key, as with "1-stearoyl-GPC (18:0)" and "LPC 18:0/0:0".
 - Glycosylceramide pairs that differ only in headgroup naming stay unresolved.
 - Name checks are tuned on Metabolon, Broad, Biocrates, MS-DIAL and HMDB-style names.
@@ -188,6 +189,7 @@ Severity, most severe first: distinct, unresolved, broader_narrower, stereo_vari
 - v0.7: R03i for isomer markers; optical rotation signs dropped in name normalization.
 - v0.8: R09n planned and dropped at feasibility.
 - v0.9: a second name column for rows with an empty name. No new pair rule.
+- v0.10: a key from the row's own name through PubChem, planned and dropped at feasibility. Kept on branch `shelved/name-key-lookup`.
 
 ## Evaluation
 

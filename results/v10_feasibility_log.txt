@@ -1,0 +1,137 @@
+Rows with a clean name and no lipid profile:
+             role
+set           check fill
+  comets        455  503
+  development   850  293
+Keys of the rows used as a check, by source:
+             source
+set           file hmdb_via_pubchem pubchem_cid
+  comets         0              109         346
+  development  848                2           0
+
+Asking PubChem for 1584 names
+  200 of 1584
+  400 of 1584
+  600 of 1584
+  800 of 1584
+  1000 of 1584
+  1200 of 1584
+  1400 of 1584
+Finding parents of 823 CIDs
+Requests that failed in this run: 0; rows with a name that got no answer: 0
+
+1. Rows with a key: PubChem gave one key for 1179 of 1305 (90.3%). Needed: at least 50%.
+             status
+set           not_found one_key several_keys
+  comets             24     420           11
+  development        78     759           13
+Same connectivity: 1123 of 1179 (95.3%). Needed: at least 98%.
+Identical key: 919 of 1179 (77.9%).
+             same_connectivity
+set           FALSE TRUE
+  comets         10  410
+  development    46  713
+Different connectivity:
+ set         name                                 sent                                 inchikey                    name_key                    inchikey_source 
+ development 4-hydroxyphenylacetate               4-hydroxyphenylacetate               XQXPVVBIMDBYFF-UHFFFAOYSA-N HBMCQTHGYMTCOF-UHFFFAOYSA-N file            
+ development xylose                               xylose                               PYMYPHUHKUWMLA-VPENINKCSA-N SRBFZHDQGSBBOR-IOVATXLUSA-N file            
+ development fructose                             fructose                             RFSUNEUAIZKAJO-ARQDHWQXSA-N LKDRXBCSQODPBY-VRPWFDPXSA-N file            
+ development choline                              choline                              CRBHXDCYXIISFC-UHFFFAOYSA-N OEYIOHPDSNJKLS-UHFFFAOYSA-N file            
+ development alpha-lipoate                        alpha-lipoate                        AGBQKNBQESQNJD-UHFFFAOYSA-N FCCDDURTIIUXBY-UHFFFAOYSA-N file            
+ development trizma acetate                       trizma acetate                       LENZDBCJOHFCAS-UHFFFAOYSA-N PIEPQKCYPFFYMG-UHFFFAOYSA-N file            
+ development hydroxybupropion                     hydroxybupropion                     RCOBKSKAZMVBHT-NCWAPJAISA-N AKOAEVOSDHIVFX-UHFFFAOYSA-N file            
+ development nicotinamide riboside                nicotinamide riboside                BUCXGWMZJBKEMD-UHFFFAOYSA-N JLEBZPBDRKPWTD-TURQNECASA-O file            
+ development heme                                 heme                                 GGIDWJQWCUJYRY-UHFFFAOYSA-K ZCFFYALKHPIRKJ-UHFFFAOYSA-N file            
+ development indoleacetylglutamine                indoleacetylglutamine                DVJIJAYHBZALOJ-UHFFFAOYSA-N YQHNRQDGQKDKHX-LBPRGKRZSA-N file            
+ development 2-ethylphenylsulfate                 2-ethylphenylsulfate                 TXENPQZYQPWRAV-UHFFFAOYSA-N VYHOQNBQODHWTB-UHFFFAOYSA-N file            
+ development doxycycline                          doxycycline                          JBIWCJUYHHGXTC-VONWRGRHSA-N SGKRLCUYIXIAHR-AKNGSSGZSA-N file            
+ development 2-O-methylascorbic acid              2-O-methylascorbic acid              RMHBODZVODTFAH-UHFFFAOYSA-N JBXPKMHATRSERD-WVZVXSGGSA-N file            
+ development imidazole propionate                 imidazole propionate                 ZCKYOWGFRHAZIQ-UHFFFAOYSA-N VSFNAZLYGOOSEY-UHFFFAOYSA-N file            
+ development 4-methylcatechol sulfate             4-methylcatechol sulfate             NCOMUGOPQPRVSE-UHFFFAOYSA-N AATDNGCLCGOWJE-UHFFFAOYSA-N file            
+ development 2,8-quinolinediol sulfate            2,8-quinolinediol sulfate            ZLYUIVZAQHFCNP-UHFFFAOYSA-N FXUMDIMYLNQKKT-UHFFFAOYSA-N file            
+ development 2-aminophenol sulfate                2-aminophenol sulfate                VSTZVCJQGSLNLL-UHFFFAOYSA-N BNOCVKCSBKRYHN-UHFFFAOYSA-N file            
+ development 4-methylguaiacol sulfate             4-methylguaiacol sulfate             LILXPJXZNJTPQZ-UHFFFAOYSA-N BVRPZMHASDDXLG-UHFFFAOYSA-N file            
+ development syringol sulfate                     syringol sulfate                     UDIAPBFEZFMUCP-UHFFFAOYSA-N CCBASKDUSOFIKL-UHFFFAOYSA-N file            
+ development 4-hydroxyphenylacetoylcarnitine      4-hydroxyphenylacetoylcarnitine      RLMMGDAPWBGWEF-UHFFFAOYSA-N IOXNYYHXTMBQPV-UHFFFAOYSA-O file            
+ development suberoylcarnitine (C8-DC)            suberoylcarnitine                    YVWVEIPYMGBQPE-UHFFFAOYSA-N OMXXOMUNJWASGK-UHFFFAOYSA-O file            
+ development rocuronium                           rocuronium                           YESZIQBQBRDCJZ-OOJCLDBCSA-N YXRDKMPIGHSVRX-OOJCLDBCSA-N file            
+ development 5-hydroxyindole sulfate              5-hydroxyindole sulfate              YJRFFCVUYDRNTR-UHFFFAOYSA-N WBDBEDFKLQMUPZ-UHFFFAOYSA-N file            
+ development palmitoylcholine                     palmitoylcholine                     UFQZDKMTMXCDBP-UHFFFAOYSA-N ODYPFMHOOQOHEF-UHFFFAOYSA-N file            
+ development methylsuccinoylcarnitine             methylsuccinoylcarnitine             GFWWWKVGRZVWDS-UHFFFAOYSA-N ZCVILQFQYXCJMK-UHFFFAOYSA-P file            
+ development ascorbic acid 2-sulfate              ascorbic acid 2-sulfate              SKKZOYBAANIUOV-ZAFYKAAXSA-N XDBMXUKHMOFBPJ-ZAFYKAAXSA-N file            
+ development oleoylcholine                        oleoylcholine                        GFSSJDJAEKYAGX-UHFFFAOYSA-N PVXGXBXEHLTWOE-SEYXRHQNSA-N file            
+ development arachidonoylcholine                  arachidonoylcholine                  XUWOVXDQNYUPNL-WYTUUNCASA-N NJSSWIYQGNCVTH-SNPVRQPZSA-N file            
+ development docosahexaenoylcholine               docosahexaenoylcholine               OKLWSURGMYZXCS-GUTOPQIJSA-N OQLFEDZOXQQFGP-WSDBEMKQSA-N file            
+ development palmitoloelycholine                  palmitoloelycholine                  CLIZBTUFRKKPFA-UHFFFAOYSA-N KZSMYKYPFGHWQV-KHPPLWFESA-N file            
+ development eicosapentaenoylcholine              eicosapentaenoylcholine              AVBRNEQAXKXDAZ-CGRWFSSPSA-N GVBOIWTXZCLZKP-WMPRHZDHSA-N file            
+ development caffeic acid sulfate                 caffeic acid sulfate                 SNVAIAITQIIEMQ-DUXPYHPUSA-N VWQNTRNACRFUCQ-DUXPYHPUSA-N file            
+ development 2-furoylcarnitine                    2-furoylcarnitine                    PAWKFSDYZWNWRA-SECBINFHSA-N JTPNKHTWUMOFTF-UHFFFAOYSA-O file            
+ development 4-ethylcatechol sulfate              4-ethylcatechol sulfate              KHZCNGJFSKSSIJ-UHFFFAOYSA-N QOOIRZQEHNQOAJ-UHFFFAOYSA-N file            
+ development 4-allylcatechol sulfate              4-allylcatechol sulfate              USWXDXYEVISELK-UHFFFAOYSA-N SHFOFUYTQRQSNC-UHFFFAOYSA-N file            
+ development 2-hydroxyfluorene sulfate            2-hydroxyfluorene sulfate            ZAEQSKSORYMOAE-UHFFFAOYSA-N OBPJHWVIUJOPQH-UHFFFAOYSA-N file            
+ development minocyclin                           minocyclin                           DYKFCLLONBREIL-KVUCHLLUSA-N FFTVPQUHLQBXQZ-KVUCHLLUSA-N file            
+ development 5-hydroxy-2-methylpyridine sulfate   5-hydroxy-2-methylpyridine sulfate   UAQAOMYUJQVGMD-UHFFFAOYSA-N VZCFLNLYNRUCHM-UHFFFAOYSA-N file            
+ development 3-hydroxy-2-methylpyridine sulfate   3-hydroxy-2-methylpyridine sulfate   GOXQGRHDLROYBT-UHFFFAOYSA-N PIDWMOXDWRUIHQ-UHFFFAOYSA-N file            
+ development taurochenodeoxycholic acid 3-sulfate taurochenodeoxycholic acid 3-sulfate IJHJZQKOSUFQCX-WZJRQFJBSA-N GLVWZDCWCRWVFM-BJLOMENOSA-N file            
+ development 4-vinylcatechol sulfate              4-vinylcatechol sulfate              ILVXQMHYFMBCMJ-UHFFFAOYSA-N OUMNCVRNBHDRRG-UHFFFAOYSA-N file            
+ development oxindolylalanine                     oxindolylalanine                     YLEQTOAIAOPFBY-UHFFFAOYSA-N SFJCKRJKEWLPTL-UHFFFAOYSA-N file            
+ development Glycocholic acid                     Glycocholic acid                     WVULKSPCQVQLCU-BUXLTGKBSA-N RFDAIACWWDREDC-FRVQLJSFSA-N file            
+ development Deoxycholic acid                     Deoxycholic acid                     DGABKXLVXPYZII-SIBKNCMHSA-N KXGVEGMKQFWNSR-LLQZFEROSA-N file            
+ development Phenyllactic acid                    Phenyllactic acid                    VOXXWSYKYCBWHO-QMMMGPOBSA-N NWCHELUCVWSRRS-UHFFFAOYSA-N file            
+ development Taurodeoxycholic acid                Taurodeoxycholic acid                BHTRKEVKTKCXOH-LBSADWJPSA-N AWDRATDZQPNJFN-VAYUFCLWSA-N file            
+ comets      fructose                             fructose                             RFSUNEUAIZKAJO-ARQDHWQXSA-N LKDRXBCSQODPBY-VRPWFDPXSA-N hmdb_via_pubchem
+ comets      erythrose                            erythrose                            FMAORJIQYMIRHF-HERZVMAMSA-N YTBSYETUWUMLBZ-IUYQGCFVSA-N hmdb_via_pubchem
+ comets      epiandrosterone sulfate              epiandrosterone sulfate              QGXBDMJGAMFCBF-QRIARFFBSA-N ZMITXKRGXGRMKS-LUJOEAJASA-N hmdb_via_pubchem
+ comets      4-vinylphenol sulfate                4-vinylphenol sulfate                FUGYGGDSWSUORM-UHFFFAOYSA-N IETVQHUKTKKBFF-UHFFFAOYSA-N hmdb_via_pubchem
+ comets      2-aminophenol sulfate                2-aminophenol sulfate                VSTZVCJQGSLNLL-UHFFFAOYSA-N BNOCVKCSBKRYHN-UHFFFAOYSA-N pubchem_cid     
+ comets      4-hydroxyphenylacetate               4-hydroxyphenylacetate               XQXPVVBIMDBYFF-UHFFFAOYSA-N HBMCQTHGYMTCOF-UHFFFAOYSA-N pubchem_cid     
+ comets      fructose                             fructose                             BJHIKXHVCXFQLS-UYFOZJQFSA-N LKDRXBCSQODPBY-VRPWFDPXSA-N pubchem_cid     
+ comets      imidazole propionate                 imidazole propionate                 ZCKYOWGFRHAZIQ-UHFFFAOYSA-N VSFNAZLYGOOSEY-UHFFFAOYSA-N pubchem_cid     
+ comets      indoleacetylglutamine                indoleacetylglutamine                DVJIJAYHBZALOJ-UHFFFAOYSA-N YQHNRQDGQKDKHX-LBPRGKRZSA-N pubchem_cid     
+ comets      maltotriose                          maltotriose                          FYGDTMLNYKFZSV-DZOUCCHMSA-N RXVWSYJTUUKTEA-CGQAXDJHSA-N pubchem_cid     
+
+Rows the change would fill:
+             status
+set           not_found one_key several_keys
+  comets            341     158            4
+  development       292       1            0
+Names sent in the shorter form: 24 of the fill rows, 21 with one key.
+
+2. R01 pairs on the development data:
+ name_a                      name_b                outcome         
+ aconitate [cis or trans]    cis-Aconitic acid     no_key_on_a_side
+ androsterone glucuronide    11-methyl lauric acid no_key_on_a_side
+ etiocholanolone glucuronide 11-methyl lauric acid no_key_on_a_side
+
+R01 pairs on COMETS: 234
+                                  expert_same
+outcome                            FALSE TRUE
+  both_from_names                      1   34
+  different_connectivity               1    2
+  different_connectivity_same_name     0    1
+  exact                                2  140
+  no_key_on_a_side                    28   10
+  same_connectivity                    0   15
+
+3. Would become exact: 142 of 234. Needed: at least 80.
+4. Agree with the expert: 140 of 142 (98.6%). Needed: at least 98%.
+Exact against the expert:
+ name_a                 name_b            key_a                       key_b                       outcome expert_same
+ Ornithine  ( Orn-PTC ) ornithine         AHLPHDHHMVZTML-BYPYZUCNSA-N AHLPHDHHMVZTML-BYPYZUCNSA-N exact   FALSE      
+ N-acetylcarnosine      N-acetylcarnosine BKAYIFDRRZZKNF-VIFPVBQESA-N BKAYIFDRRZZKNF-VIFPVBQESA-N exact   FALSE      
+
+Different connectivity, different names: 3; covered by the expert: 3; different compounds: 1 (33.3%). Distinct needs at least 98%: not allowed, they stay unresolved
+ name_a                               name_b                        key_a                       key_b                       outcome                expert_same
+ Methylglutarylcarnitine  ( C5-M-DC ) 3-methylglutarylcarnitine (2) APURPPSDSPDCQD-UHFFFAOYSA-P HFCPFJNSBPQJDP-UHFFFAOYSA-O different_connectivity FALSE      
+ indolepropionate                     Indole propionate             GOLXRNDWAUTYKT-UHFFFAOYSA-N PWFLRAMXDKDXRH-UHFFFAOYSA-N different_connectivity  TRUE      
+ Indole propionate                    indolepropionate              PWFLRAMXDKDXRH-UHFFFAOYSA-N GOLXRNDWAUTYKT-UHFFFAOYSA-N different_connectivity  TRUE      
+
+==== summary
+ condition                         value    needed pass 
+ one key for rows with a key         0.9034  0.50   TRUE
+ same connectivity                   0.9525  0.98  FALSE
+ COMETS R01 pairs becoming exact   142.0000 80.00   TRUE
+ those pairs agree with the expert   0.9859  0.98   TRUE
+
+Requests that failed in this run: 0
+Go-ahead: NO

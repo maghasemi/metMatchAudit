@@ -958,3 +958,31 @@ The work happens on branch `exp/name-key-lookup`. Plans and results stay on main
 - Where the expert covers a pair, the expert is the check. Pairs the expert does not cover, and changed pairs on the development data, get a scripted comparison of name and PubChem record, reported as such. It is not a curator's review.
 
 If this passes, the change is released as v0.10.0. These numbers stay after adaptation, and the real test is a fourth blind test on new data.
+
+## 2026-11-07: v0.10 feasibility result, the name lookup is dropped
+
+Condition 2 failed. Of the rows that already have a key, PubChem's answer for the name has the same connectivity in 95.3% (1123 of 1179). The plan needed 98%. The other three conditions passed. The numbers are in `notes/findings.md`.
+
+**The name lookup is dropped**, as the plan says. The branch becomes `shelved/name-key-lookup`. The script and its results stay on main, as with v0.8. The number 0.10 stays unused.
+
+### Not rerun with another threshold
+
+Part of the 4.7% is not the name lookup's fault. The row's own key can be the wrong one, as it may be for three bile acids, and some differences are the same compound in another form, such as a sugar ring or a charged record. The condition was set before the run with the row's key as the reference, so it stays as it was. Deciding afterwards which differences count would be fitting the check to the result.
+
+### What the run shows
+
+Where a name key agrees with a file key, the answer is good: 140 of 142 COMETS exact pairs agree with the expert. The risk lies on the other side. A wrong name key matches nothing, so the pair falls into different connectivity or different stereo, the two outcomes where a key from a name would have to carry a claim. "indolepropionate" and "Indole propionate" are one compound to the expert and two structures to PubChem.
+
+A narrower change follows from this: a key from a name may only make a pair exact and never gives distinct or broader_narrower. I thought of it after seeing these numbers, so this data cannot test it. If it is taken up, it needs its own plan, written before it runs, and data that was not used here. Blind test names still may not be sent to PubChem.
+
+### The script was changed during the runs
+
+The criteria did not change. Two things in the script did:
+- before the first run, two checks that could return `NA` (commit `9559994`);
+- after the second run, a count of every failed request, because that run lost the keys of 198 rows without a message (commit `beae16b`).
+
+The result is from the third run, with 0 failed requests.
+
+### A gap in the released package
+
+`resolve_identifiers()` has the same silence. A request that fails during a run leaves the row without a key, or keeps the CID as its own parent, and the user is not told. Failed answers are not cached, so a rerun repairs it. A message that names the failed requests is a small fix of its own and is not part of this change.
