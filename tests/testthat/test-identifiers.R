@@ -1,8 +1,13 @@
 # PubChem is replaced by a fake that answers from fixed tables, so these
 # tests run offline. Keys and CIDs are real: choline chloride (CID 6209)
 # has parent choline (CID 305); inosine is CID 6021.
-fake_pubchem <- function(calls = new.env()) {
+#
+# `calls$fail` is a pattern: requests whose path matches it get the busy
+# answer PubChem sends under load. Set it to NULL to let them through.
+busy <- list(Fault = list(Code = "PUGREST.ServerBusy", Message = "Too many requests or server too busy"))
+fake_pubchem <- function(calls = new.env(), fail = NULL) {
   calls$n <- 0
+  calls$fail <- fail
   parents <- c("6209" = "305", "6021" = "6021", "111" = "111", "222" = "222")
   keys <- c("305"  = "OEYIOHPDSNJKLS-UHFFFAOYSA-N",
             "6021" = "UGQMRVRMYYASKQ-KQYNXXCUSA-N",
@@ -12,6 +17,7 @@ fake_pubchem <- function(calls = new.env()) {
                HMDB0009999 = c("111", "222"))
   fetch <- function(path, body = NULL) {
     calls$n <- calls$n + 1
+    if (!is.null(calls$fail) && grepl(calls$fail, path)) return(busy)
     if (grepl("cids_type=parent", path)) {
       cid <- sub("compound/cid/([0-9]+)/.*", "\\1", path)
       return(list(IdentifierList = list(CID = unname(parents[cid]))))
@@ -22,7 +28,7 @@ fake_pubchem <- function(calls = new.env()) {
       return(list(PropertyTable = list(Properties = data.frame(CID = cids, InChIKey = unname(keys[cids])))))
     }
     id <- sub(".*RegistryID/(HMDB[0-9]+)/.*", "\\1", path)
-    if (is.null(hmdb[[id]])) return(list(Fault = list(Message = "not found")))
+    if (is.null(hmdb[[id]])) return(list(Fault = list(Code = "PUGREST.NotFound", Message = "No CID found")))
     list(IdentifierList = list(CID = hmdb[[id]]))
   }
   list(fetch = fetch, calls = calls)
@@ -135,4 +141,74 @@ test_that("internal standards are not resolved", {
   out <- resolve_identifiers(r, fetch = fake_pubchem()$fetch)
   expect_identical(out$inchikey, "inchikey")
   expect_true(is.na(out$inchikey_source))
+})
+
+# ---- Failed requests (0.9.1) --------------------------------------------------
+
+choline_row <- function() data.frame(original_name = "choline", inchikey = NA, pubchem = "6209")
+
+test_that("a failed parent request leaves the row without a key and is counted", {
+  # Before 0.9.1 the CID itself was used, so the row got the key of
+  # choline chloride's own record as if it were an answer.
+  fk <- fake_pubchem(fail = "cids_type=parent")
+  expect_message(out <- resolve_identifiers(choline_row(), fetch = fk$fetch), "1 PubChem request failed")
+  expect_true(is.na(out$inchikey))
+  expect_true(is.na(out$inchikey_source))
+  expect_identical(attr(out, "pubchem_failed"), 1)
+})
+
+test_that("a failed key request is counted and gives no key", {
+  fk <- fake_pubchem(fail = "^compound/cid/property")
+  expect_message(out <- resolve_identifiers(choline_row(), fetch = fk$fetch), "PubChem request failed")
+  expect_true(is.na(out$inchikey))
+  expect_identical(attr(out, "pubchem_failed"), 1)
+})
+
+test_that("a busy answer is not cached, so the next run asks again", {
+  f <- tempfile(fileext = ".rds")
+  fk <- fake_pubchem(fail = "cids_type=parent")
+  expect_message(resolve_identifiers(choline_row(), cache_file = f, fetch = fk$fetch), "failed")
+  fk$calls$fail <- NULL
+  expect_silent(out <- resolve_identifiers(choline_row(), cache_file = f, fetch = fk$fetch))
+  expect_identical(out$inchikey, "OEYIOHPDSNJKLS-UHFFFAOYSA-N")
+  expect_identical(attr(out, "pubchem_failed"), 0)
+})
+
+test_that("a busy answer already in a cache is asked again", {
+  # Versions before 0.9.1 kept such answers.
+  f <- tempfile(fileext = ".rds")
+  env <- new.env()
+  env[[paste("compound/cid/6209/cids/JSON?cids_type=parent", "")]] <- busy
+  saveRDS(env, f)
+  fk <- fake_pubchem()
+  out <- resolve_identifiers(choline_row(), cache_file = f, fetch = fk$fetch)
+  expect_identical(out$inchikey, "OEYIOHPDSNJKLS-UHFFFAOYSA-N")
+})
+
+test_that("not found is a real answer: cached, and not counted as failed", {
+  f <- tempfile(fileext = ".rds")
+  r <- data.frame(original_name = "unknown thing", inchikey = NA, hmdb = "HMDB0001234")
+  fk <- fake_pubchem()
+  expect_silent(out <- resolve_identifiers(r, cache_file = f, fetch = fk$fetch))
+  expect_identical(attr(out, "pubchem_failed"), 0)
+  first <- fk$calls$n
+  resolve_identifiers(r, cache_file = f, fetch = fk$fetch)
+  expect_identical(fk$calls$n, first)
+})
+
+test_that("an HMDB row whose CIDs could not all be asked stays open", {
+  # HMDB0000097 lists CIDs 6209 and 305, both leading to choline. If the
+  # parent of 6209 cannot be asked, the one answer left is not enough.
+  r <- data.frame(original_name = "choline", inchikey = NA, hmdb = "HMDB0000097")
+  fk <- fake_pubchem(fail = "compound/cid/6209/")
+  expect_message(out <- resolve_identifiers(r, fetch = fk$fetch), "failed")
+  expect_true(is.na(out$inchikey))
+  fk$calls$fail <- NULL
+  out <- resolve_identifiers(r, fetch = fk$fetch)
+  expect_identical(out$inchikey, "OEYIOHPDSNJKLS-UHFFFAOYSA-N")
+})
+
+test_that("the message says how to keep answers when there is no cache file", {
+  fk <- fake_pubchem(fail = "cids_type=parent")
+  expect_message(resolve_identifiers(choline_row(), fetch = fk$fetch), "cache_file")
 })

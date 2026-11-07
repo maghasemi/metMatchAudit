@@ -69,19 +69,33 @@ normalize_hmdb_id <- function(x) {
            error = function(e) list(error = "response was not JSON"))
 }
 
+# A request has failed when it gives an error, or a PubChem Fault other
+# than "not found", such as PUGREST.ServerBusy. Not found is a real answer.
+.failed <- function(res) {
+  if (!is.null(res$error)) return(TRUE)
+  if (is.null(res$Fault)) return(FALSE)
+  !identical(res$Fault$Code, "PUGREST.NotFound")
+}
+
 # A cache is an environment, written to `file` after each new answer so
-# an interrupted run loses nothing.
+# an interrupted run loses nothing. `failed` counts the requests of this
+# run that failed. Their answers are not kept, so the next run asks again.
 .new_cache <- function(file) {
   env <- if (!is.null(file) && file.exists(file)) readRDS(file) else new.env()
-  list(env = env, file = file)
+  failed <- new.env()
+  failed$n <- 0
+  list(env = env, file = file, failed = failed)
 }
 
 .cached <- function(cache, fetch, path, body = NULL) {
   key <- paste(path, paste(unlist(body), collapse = ","))
   hit <- cache$env[[key]]
-  if (!is.null(hit)) return(hit)
+  # A failed answer stored by a version before 0.9.1 is asked again.
+  if (!is.null(hit) && !.failed(hit)) return(hit)
   res <- fetch(path, body)
-  if (is.null(res$error)) {
+  if (.failed(res)) {
+    cache$failed$n <- cache$failed$n + 1
+  } else {
     cache$env[[key]] <- res
     if (!is.null(cache$file)) {
       dir.create(dirname(cache$file), showWarnings = FALSE, recursive = TRUE)
@@ -93,6 +107,9 @@ normalize_hmdb_id <- function(x) {
 
 .parent_cid <- function(cid, cache, fetch) {
   res <- .cached(cache, fetch, paste0("compound/cid/", cid, "/cids/JSON?cids_type=parent"))
+  # Without an answer the parent is unknown. Using the CID itself would
+  # give the key of what may be a salt, and it would look like an answer.
+  if (.failed(res)) return(NA_character_)
   p <- res$IdentifierList$CID
   if (is.null(p) || length(p) == 0) cid else as.character(p[1])
 }
@@ -139,6 +156,11 @@ normalize_hmdb_id <- function(x) {
 #' Needs httr2, jsonlite and internet access, unless every answer is
 #' already in the cache.
 #'
+#' A request that fails (a network error, or a PubChem error such as a
+#' busy server) is not cached, and the rows that needed it get no key in
+#' this run. A message gives the number of failed requests, and running
+#' again asks them again. "Not found" is a real answer and is cached.
+#'
 #' @param rows A data frame with `original_name` and `inchikey`, and
 #'   optionally `pubchem` and `hmdb` columns.
 #' @param cache_file Where to keep PubChem answers between runs. `NULL`
@@ -147,7 +169,9 @@ normalize_hmdb_id <- function(x) {
 #'
 #' @return `rows` with `inchikey` filled in where possible, the original
 #'   value kept in `inchikey_file`, and `inchikey_source`: `"file"`,
-#'   `"pubchem_cid"`, `"hmdb_via_pubchem"`, or `NA`.
+#'   `"pubchem_cid"`, `"hmdb_via_pubchem"`, or `NA`. The number of failed
+#'   PubChem requests is in `attr(, "pubchem_failed")`; it is absent when
+#'   no row needed PubChem.
 #'
 #' @export
 resolve_identifiers <- function(rows, cache_file = NULL, fetch = NULL) {
@@ -203,14 +227,26 @@ resolve_identifiers <- function(rows, cache_file = NULL, fetch = NULL) {
   # Rows whose CID did not resolve also get a chance through HMDB.
   todo_hmdb <- union(todo_hmdb, todo_cid[is.na(rows$inchikey_source[todo_cid]) & !is.na(hmdb[todo_cid])])
   for (i in todo_hmdb) {
+    failed_before <- cache$failed$n
     cids <- .hmdb_cids(hmdb[i], cache, fetch)
     if (length(cids) == 0) next
     parents <- vapply(cids, .parent_cid, character(1), cache = cache, fetch = fetch)
     k <- unique(stats::na.omit(unname(.keys_for_cids(parents, cache, fetch)[parents])))
+    # All CIDs must agree, so one that could not be asked leaves the row open.
+    if (cache$failed$n > failed_before) next
     if (length(k) == 1) {
       rows$inchikey[i] <- k
       rows$inchikey_source[i] <- "hmdb_via_pubchem"
     }
   }
+
+  n_failed <- cache$failed$n
+  if (n_failed > 0) {
+    message(n_failed, " PubChem request", if (n_failed > 1) "s" else "", " failed. ",
+            "Rows that needed ", if (n_failed > 1) "them" else "it", " have no key from PubChem in this run. ",
+            "Run again to ask again", if (is.null(cache_file)) "; give `cache_file` to keep the answers already received" else "",
+            ".")
+  }
+  attr(rows, "pubchem_failed") <- n_failed
   rows
 }

@@ -1,3 +1,11 @@
+# metMatchAudit 0.9.1
+
+* `resolve_identifiers()` reports failed PubChem requests. A request has failed when it gives a network error or a PubChem error other than "not found", such as `PUGREST.ServerBusy`. A message gives the count and says to run again. The count is in `attr(, "pubchem_failed")`, in the audit's `info$pubchem_failed` and in `run_info.txt`.
+* A PubChem error that came back as JSON was stored in the cache and reused on every later run. Failed answers are no longer cached, and one already in a cache is asked again.
+* When the request for a CID's parent failed, the row got the key of the CID itself, which can be a salt or a charged record. It now gets no key in that run. An HMDB row whose CIDs could not all be asked also stays without a key.
+* No pair rule changed. When no request fails, results are the same as in 0.9.0.
+* Found during the v0.10 feasibility, where a run lost the keys of 198 rows without a message. The v0.10 change itself was dropped (`notes/decisions.md`), so there is no release with that number.
+
 # metMatchAudit 0.9.0
 
 * `read_metlinkr()` and `audit_metlinkr()` accept an optional `name_fallback_col` in `files`. Where the cell in `name_col` is empty, the row takes its name from that column. New row column `name_source`: `"name_col"`, `"fallback"`, or `NA` when both are empty. `run_info.txt` records the column. There is no new pair rule, and a file without the column is read as before.

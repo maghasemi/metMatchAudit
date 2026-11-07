@@ -20,6 +20,7 @@ One folder per stage, in the order the work was done. Within a folder, the numbe
 | `14_v0.8/` | v0.8 feasibility (the change was dropped). |
 | `15_v0.9/` | v0.9 feasibility, acceptance and the evidence for the hand check. |
 | `16_v0.10/` | v0.10 feasibility (the change was dropped). |
+| `17_v0.9.1/` | v0.9.1 acceptance. |
 
 The three `*_run_metlinkr.R` scripts are not run from this project. MetLinkR, RaMP and Java are kept in a separate R project so that they stay out of this package's `renv.lock`. The scripts are copied here unchanged so that every step of the tests can be read in one place. Their headers give the paths they used.
 
