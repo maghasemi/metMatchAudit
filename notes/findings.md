@@ -627,7 +627,7 @@ The script's "same file" count is 8, but none of those 8 has the same name on bo
 
 112 of the 121 R01s pairs have a key on one side. The other row has no key, so the pair cannot be checked by structure.
 
-The one pair the expert separates is "N-acetylcarnosine" against "N-acetylcarnosine", one side with a key. The same pair was the only exact disagreement in the v0.10 feasibility. Two rows with this name are in two expert groups, so either the expert separates two measurements of one compound, or one row is not what its name says. The data cannot tell which.
+The one pair the expert separates is "N-acetylcarnosine" against "N-acetylcarnosine", one side with a key. The same pair was the only exact disagreement in the v0.10 feasibility. The expert puts the two rows in different groups, so either the expert separates two measurements of one compound, or one row is not what its name says. The data cannot tell which.
 
 ### The pairs with two keys
 
