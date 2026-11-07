@@ -18,7 +18,9 @@ keeps them only for this call.}
 \value{
 \code{rows} with \code{inchikey} filled in where possible, the original
 value kept in \code{inchikey_file}, and \code{inchikey_source}: \code{"file"},
-\code{"pubchem_cid"}, \code{"hmdb_via_pubchem"}, or \code{NA}.
+\code{"pubchem_cid"}, \code{"hmdb_via_pubchem"}, or \code{NA}. The number of failed
+PubChem requests is in \code{attr(, "pubchem_failed")}; it is absent when
+no row needed PubChem.
 }
 \description{
 For each row without a valid InChIKey, tries its PubChem CID first and
@@ -43,4 +45,9 @@ already have a valid key keep it.
 
 Needs httr2, jsonlite and internet access, unless every answer is
 already in the cache.
+
+A request that fails (a network error, or a PubChem error such as a
+busy server) is not cached, and the rows that needed it get no key in
+this run. A message gives the number of failed requests, and running
+again asks them again. "Not found" is a real answer and is cached.
 }
