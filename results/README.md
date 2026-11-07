@@ -31,3 +31,5 @@ Output of the scripts in `scripts/`. Each folder or file is listed with the scri
 | `v07_check/`, `v07_check_log.txt` | `scripts/12_v0.7/02_acceptance.R` |
 | `blind3/` | `scripts/13_blind_test_3/04_test.R` |
 | `v08_feasibility/`, `v08_feasibility_log.txt` | `scripts/14_v0.8/01_feasibility.R` |
+| `v09_feasibility/` | `scripts/15_v0.9/01_feasibility.R` |
+| `v09_check/`, `v09_check_log.txt` | `scripts/15_v0.9/02_acceptance.R` |

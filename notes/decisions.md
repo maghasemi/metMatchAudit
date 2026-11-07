@@ -859,3 +859,15 @@ The criteria were committed before the results, so they do not change. One of th
 
 - `name_source` is `NA` on a row where both columns are empty. Neither column supplied a name, so neither label would be true.
 - `DESCRIPTION` moves to 0.9.0 on the branch before acceptance, as v0.7.0 did, so that the acceptance run records its own version. If the change is dropped, the bump stays on the shelved branch.
+
+## 2026-11-07: how the v0.9 hand check is counted
+
+The automatic acceptance checks all passed (`notes/findings.md`). The plan asks that at least 95% of the changed pairs and new lipid proposals be right, but it does not say how to count two things. I am settling them after seeing the automatic results and before filling in the sheet, so this reading comes after the plan and should be read that way.
+
+`results/v09_check/hand_check.csv` has 32 lines but 23 different pairs, because nine pairs are both a changed pair and a new proposal. Each pair counts once.
+
+Four of the 23 are unresolved (R08 three times, R99 once). They make no claim, so they cannot be wrong, and they stay out of the percentage. The evaluation treats unresolved the same way, as a safe miss. I report them apart.
+
+That leaves 19 claims, all broader_narrower. 18 of 19 is 94.7%, so all 19 must be right.
+
+A claim is right when the two rows can be the same lipid and the row with more detail really is the narrower one. If the four unresolved pairs were counted as not right, the share could be at most 19 of 23, and the change would fail.
