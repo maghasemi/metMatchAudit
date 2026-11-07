@@ -1,4 +1,8 @@
-# metMatchAudit
+<img src="man/figures/header.svg" alt="metMatchAudit. Same name. Same compound? Audits every pair of rows a matching step grouped across datasets, and reports how they really relate, rule by rule." width="100%">
+
+![version](https://img.shields.io/badge/version-0.7.1-ffcc35?labelColor=121212)
+![R](https://img.shields.io/badge/R-%E2%89%A5%204.1-ffcc35?labelColor=121212)
+![license](https://img.shields.io/badge/license-MIT-ffcc35?labelColor=121212)
 
 Check whether metabolites matched across datasets are really the same compound.
 
@@ -32,6 +36,8 @@ When the evidence is not enough, the answer is `unresolved`. The tool does not g
 | scyllo-inositol | myo-inositol | unresolved | R03c | identical InChIKey, but the names state different isomers |
 
 ## How it decides
+
+<img src="man/figures/how-it-decides.svg" alt="A pair of rows from one group is checked against its evidence. Twenty rules run in a fixed order and the first that applies decides. SM 36:1;O2 and stearoyl sphingomyelin stop at rule R05, and the answer is broader_narrower." width="100%">
 
 Evidence comes only from the source files, fixed parsing rules and versioned database files: the InChIKey (or one derived from a PubChem CID or HMDB ID), text checks on the name, lipid profiles from [SwissLipids](https://www.swisslipids.org), [LIPID MAPS](https://www.lipidmaps.org/databases/lmsd), [rgoslin](https://bioconductor.org/packages/rgoslin/) and the Biocrates p180 nomenclature table, and optionally the full structure through [RDKit](https://www.rdkit.org). The rules run in a fixed order and the first one that applies decides. The rules, with the real case behind each, are in [notes/design.md](notes/design.md).
 
@@ -91,6 +97,8 @@ Loading SwissLipids takes about half a minute and LMSD about a minute. Both obje
 ## Evaluation
 
 Each test fixed its criteria and labels before the tool ran on its data. Full results, including what failed, are in [notes/evaluation.md](notes/evaluation.md).
+
+<img src="man/figures/blind-tests.svg" alt="Blind test results against their criteria. The numbers are in the table below." width="100%">
 
 | test | data | result |
 |---|---|---|

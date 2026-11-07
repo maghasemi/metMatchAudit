@@ -19,11 +19,11 @@ The rules and their order are described in \code{notes/design.md} in the
 project repository.
 }
 \author{
-\strong{Maintainer}: Amin Ghasemi \email{your.email@example.com}
+\strong{Maintainer}: Amin Ghasemi \email{m.a.ghasemi.ta@gmail.com}
 
 Authors:
 \itemize{
-  \item Amin Ghasemi \email{your.email@example.com}
+  \item Amin Ghasemi \email{m.a.ghasemi.ta@gmail.com}
 }
 
 }

@@ -63,4 +63,6 @@ Until 2026-10-07 the scripts sat in one folder with two- or three-digit prefixes
 | `scripts/102_blind3_sample.R` | `scripts/13_blind_test_3/03_sample.R` |
 | `scripts/103_blind3_test.R` | `scripts/13_blind_test_3/04_test.R` |
 | `scripts/104_v08_feasibility.R` | `scripts/14_v0.8/01_feasibility.R` |
+| `scripts/71_v05_check.R` | not on main; kept on branch `shelved/refmet-check` |
+| `scripts/105_v08_check.R` | never written; planned for v0.8, which was dropped at feasibility |
 | (kept in the separate MetLinkR project) | `scripts/08_comets/01_run_metlinkr.R`, `scripts/11_blind_test_2/02_run_metlinkr.R`, `scripts/13_blind_test_3/02_run_metlinkr.R` |
