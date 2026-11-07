@@ -455,3 +455,40 @@ This is the same cause as cause 3 in the second test (ADP-ribose, N-acetylmethio
 - On a naming style the tool had not seen, every definite claim was right.
 - C2 failed on one thing: broader_narrower from R09 where the two names agree and only the chosen PubChem record differs in stereo. Across the two blind tests, this is the most common way the tool disagrees with a curator.
 - A change this points to, after adaptation if made: when neither name states stereo, a stereo-only key difference should not give broader_narrower. Unresolved is the conservative answer. Reading both blind tests back under such a rule is a diagnostic, not a blind result, and it needs its own plan first.
+
+## 2026-11-07: v0.9 feasibility
+
+Source: `results/v09_feasibility/`, from `scripts/15_v0.9/01_feasibility.R` on v0.7.1. The package did not change.
+
+| check | result | needed |
+|---|---|---|
+| empty `Metabolite` rows of Broad whose `name` parses | 119 of 119 | at least 80% |
+| same Species, where both columns are filled and both parse | 188 of 189 (99.5%) | at least 95% |
+
+The 119 names parsed at three levels: 105 species, 11 sn position, 3 structure.
+
+392 Broad rows have both columns filled, and 183 of them have identical text. The second check covers the 189 where both columns parse. The one disagreement is `Metabolite` "PC 33:1" against `name` "PC 30:1". That row keeps its `Metabolite` under the plan, so the change does not touch it, but it shows that `name` is not a plain copy of the other column.
+
+### Where the blanks are
+
+Broad is the only file with blank names: 119 of 511 rows. The other 11 entries in `blank_names.csv` have none, and that covers LEOCC, the five COMETS files and all the blind test files.
+
+So this change cannot affect COMETS or the blind test files. The 234 R01 pairs on COMETS have another cause: rows without a key, not rows without a name.
+
+### The 13 development pairs
+
+All 13 are R01 today, and each has one Broad row with an empty name. From the rules and the v0.7 rows, I expect these results after the change. This is a reading of the code, not a run.
+
+| pairs | Metabolon side | Broad side after the change | expected |
+|---|---|---|---|
+| 3 LPC | structure | sn position | R05, broader_narrower |
+| 7 SM | group | species | R05, broader_narrower |
+| 3 SM (`LEOCC_Metabolon:862`, `:988`, `:990`) | a key, no lipid profile | a profile, no key | R08, unresolved |
+
+That would take development unresolved from 39 to 29. The last three leave R01 but stay unresolved.
+
+None of the 13 groups is in `notes/review.csv`, so the evaluation against the review cannot show this gain. Only the hand check in the acceptance step can.
+
+### A detail for the build
+
+Empty cells in these files come through `fread()` as empty text, not as `NA`, and the same goes for `pubChemId` and `hmdbId` on these rows. The reader has to treat both as blank. The 119 rows also have no key and no identifier, so no PubChem lookup can follow from filling their names.

@@ -840,3 +840,22 @@ The work happens on branch `exp/name-fallback`. Plans and results stay on main. 
   - I check by hand every changed pair and every new lipid match proposal, and at least 95% must be right.
 
 If this passes, the change is released as v0.9.0. The number 0.8 stays unused, since that plan was dropped.
+
+## 2026-11-07: v0.9 feasibility passed, the build goes ahead
+
+Both go-ahead conditions were met: 119 of 119 names parse (needed 80%), and the two columns give the same Species in 188 of 189 rows (needed 95%). The numbers are in `notes/findings.md`.
+
+### The gain is smaller than the plan's reasons suggest
+
+The plan quoted 234 R01 pairs on COMETS. None of them comes from a blank name, because COMETS has no blank names. Broad is the only file with any. I expect 10 of the 39 unresolved development pairs to get an answer, and nothing to change on COMETS or the blind test files.
+
+I am going ahead anyway. The reader drops a name that is in the file, the fix is small, and the option is off unless a file asks for it. The COMETS pairs need a different idea, the key lookup from a name, which gets its own plan.
+
+### Acceptance stays as written
+
+The criteria were committed before the results, so they do not change. One of them is weaker than it looks: none of the 13 groups is in the review, so "agree at least 35" cannot move either way. The hand check of every changed pair and every new lipid proposal is what tests this change.
+
+### Two choices the plan left open
+
+- `name_source` is `NA` on a row where both columns are empty. Neither column supplied a name, so neither label would be true.
+- `DESCRIPTION` moves to 0.9.0 on the branch before acceptance, as v0.7.0 did, so that the acceptance run records its own version. If the change is dropped, the bump stays on the shelved branch.
