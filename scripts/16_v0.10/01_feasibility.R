@@ -22,7 +22,19 @@ dir.create(out, showWarnings = FALSE, recursive = TRUE)
 dev <- readRDS("results/v09_check/audit_development.rds")
 com <- readRDS("results/v09_check/audit_comets_no_fallback.rds")
 
-fetch <- metMatchAudit:::.pubchem_fetch
+# Every request that fails is counted. The package helpers do not cache a
+# failed request, but within the run they turn it into a missing key, or
+# into the CID itself where the parent was asked for. The second run on
+# 2026-11-07 lost the keys of 198 rows this way without any message.
+n_failed <- 0
+fetch <- function(path, body = NULL) {
+  res <- metMatchAudit:::.pubchem_fetch(path, body)
+  code <- res$Fault$Code
+  if (!is.null(res$error) || (!is.null(code) && !identical(code, "PUGREST.NotFound"))) {
+    n_failed <<- n_failed + 1
+  }
+  res
+}
 cache <- metMatchAudit:::.new_cache(file.path(out, "pubchem_name_cache.rds"))
 
 
@@ -107,7 +119,8 @@ rows$name_key <- res[i, "key"]
 rows$sent <- vapply(answers, `[[`, "", "sent")[i]
 rows$shortened <- rows$sent != rows$name
 n_err <- sum(rows$status == "error")
-if (n_err > 0) message("Rows with a server or network error: ", n_err, ". Run the script again before reading the results.")
+message("Requests that failed in this run: ", n_failed, "; rows with a name that got no answer: ", n_err)
+if (n_failed > 0) message("Run the script again before reading the results.")
 
 
 # ---- 1. Rows that already have a key -----------------------------------------
@@ -227,5 +240,6 @@ summary$pass <- summary$value >= summary$needed
 message("\n==== summary")
 print(summary, row.names = FALSE, right = FALSE)
 write.csv(summary, file.path(out, "summary.csv"), row.names = FALSE)
-message("\nGo-ahead: ", if (isTRUE(all(summary$pass)) && n_err == 0) "YES" else "NO",
-        if (n_err > 0) " (errors left, run again)" else "")
+message("\nRequests that failed in this run: ", n_failed)
+message("Go-ahead: ", if (isTRUE(all(summary$pass)) && n_failed == 0) "YES" else "NO",
+        if (n_failed > 0) " (failed requests, the numbers above are not final; run again)" else "")
