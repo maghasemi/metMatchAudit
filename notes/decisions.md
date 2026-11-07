@@ -885,3 +885,76 @@ This is weaker than the check the plan describes. The same assistant wrote the c
 I asked for the merge after reading the results. The automatic checks passed, and the scripted hand check gave 19 of 19 claims right, counted by the rule in the entry above and with the limits written there.
 
 The gain is small: 9 development pairs out of 39 unresolved, and nothing on COMETS. The change goes in because it fixes a real reading error and is off unless a file asks for it. The next idea, a key lookup from a name, is the one aimed at the COMETS pairs, and it needs its own plan.
+
+## 2026-11-07: v0.10 plan, a key from the row's own name
+
+### Why
+
+R01 is 234 of the 250 unresolved pairs on COMETS. These rows have a name but no key and no identifier. I counted from the saved audits: 503 COMETS rows and 293 development rows have no key, no lipid profile and a clean name. A clean name is one that is not a group, a list of alternatives, an internal standard, an isomer label or marker, or a tentative name. On COMETS, 213 of the 234 pairs have a clean name on every side that lacks evidence.
+
+Every result on COMETS and the development data after this change is after adaptation.
+
+### How this differs from the dropped v0.5 idea
+
+The first v0.5 plan took a key from the RefMet name and was dropped, because MetLinkR's `Standardized name` is a RefMet name and the key would agree with the grouping by construction. This plan uses the row's own `original_name` and PubChem, not `Standardized name` and RefMet.
+
+That removes the direct circle but not all of it. Two rows with the same name get the same answer from PubChem, so the match would say nothing new. The rules below treat that case on its own.
+
+### Change
+
+`audit_metlinkr()` gets an option, `name_lookup`, off by default. When it is on, a row with a clean name, no key and no lipid profile asks PubChem for its name. The row takes a key only if every CID PubChem returns leads to one parent key. Its `inchikey_source` is `pubchem_name`.
+
+The name sent is the row's name. If PubChem does not know it, the name is sent once more without a last bracket holding one word of at least two characters, as in "Proline ( Pro-PTC )" or "Adenosine monophosphate (AMP)". A name that states stereo is not shortened.
+
+A name-derived key says less than a key from a file, so the pair rules limit it:
+
+| pair | answer |
+|---|---|
+| both keys come from names | unresolved, new rule R01n |
+| one key from a name, identical keys | exact, through R03, and the evidence names the source |
+| one key from a name, same connectivity, different stereo | unresolved, because the stereo is PubChem's choice of record |
+| one key from a name, different connectivity, same normalized name | unresolved, through R12n |
+| one key from a name, different connectivity, different names | distinct, only if the feasibility numbers allow it; otherwise unresolved |
+
+### Privacy
+
+Names leave the computer when this option is on. It stays off by default and the help page says so. The feasibility and acceptance runs use only the development data and COMETS. Names from the blind test files, private file A among them, are never sent.
+
+### How the work is split
+
+The assistant writes the code and the notes, puts the code in place and does the git work. I run the scripts and the tests and read the output. The hand check needs lipid and metabolite knowledge I may not have, so the plan says now how it is done: see Acceptance.
+
+The work happens on branch `exp/name-key-lookup`. Plans and results stay on main. If the change is dropped, the branch becomes `shelved/name-key-lookup`.
+
+### Order, each step committed before the next
+
+1. This plan.
+2. Feasibility, `scripts/16_v0.10/01_feasibility.R`, without changing the package:
+   - Hide nothing and change nothing: on rows with a clean name, no lipid profile and a valid key, ask PubChem for the name and compare the answer with the key the row already has.
+   - Ask for the name of every row the change would fill, and work out what would happen to each R01 pair.
+   - Compare the outcome on COMETS with the expert groups.
+
+   **Go-ahead**, all four needed:
+   1. PubChem gives one key for at least 50% of the rows with a key.
+   2. Of those, at least 98% have the same connectivity as the row's key.
+   3. At least 80 of the 234 COMETS R01 pairs would become exact. That is a third of them, and less would not pay for a new option and a new rule.
+   4. At least 98% of those exact pairs agree with the expert, among pairs the expert covers.
+
+   If any of the four fails, the change is dropped and the reason is logged.
+
+   The row for different connectivity and different names is decided from the same run. It gives distinct only if at least 98% of those pairs are different compounds by the expert. Otherwise those pairs stay unresolved. This does not stop the go-ahead.
+3. Build, with unit tests that use a fake `fetch`, so they need no internet.
+4. Acceptance, `scripts/16_v0.10/02_acceptance.R`.
+
+### Acceptance
+
+- With `name_lookup` off, the pairs of the development data and of COMETS are identical to v0.9.0.
+- With it on:
+  - evaluation against the review: wrong stays at 0, no source-error group is called exact, agree is at least 35;
+  - only pairs that were R01 change rule;
+  - no lipid match proposal is lost;
+  - on COMETS, definite claims across files agree with the expert in at least 98%. Today this is 122 of 122;
+  - every disagreement with the expert is listed and read.
+- Where the expert covers a pair, the expert is the check. Pairs the expert does not cover, and changed pairs on the development data, get a scripted comparison of name and PubChem record, reported as such. It is not a curator's review.
+
+If this passes, the change is released as v0.10.0. These numbers stay after adaptation, and the real test is a fourth blind test on new data.
