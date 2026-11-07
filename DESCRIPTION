@@ -3,7 +3,7 @@ Title: Audit Cross-Dataset Metabolite Matches with Structural Evidence
 Version: 0.7.1
 Authors@R:
     person("Amin", "Ghasemi", role = c("aut", "cre"),
-           email = "m.a.ghasemi.ta@gmail.com")
+           email = "Aminghasemi@live.com")
 Description: Takes metabolite rows that a matching step (such as MetLinkR)
     has grouped across datasets and reports how each pair of rows relates:
     same compound, broader and narrower annotation, stereo variant,
