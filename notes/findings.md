@@ -492,3 +492,38 @@ None of the 13 groups is in `notes/review.csv`, so the evaluation against the re
 ### A detail for the build
 
 Empty cells in these files come through `fread()` as empty text, not as `NA`, and the same goes for `pubChemId` and `hmdbId` on these rows. The reader has to treat both as blank. The 119 rows also have no key and no identifier, so no PubChem lookup can follow from filling their names.
+
+## 2026-11-07: v0.9 acceptance, automatic part (after adaptation)
+
+Source: `results/v09_check/` and `results/v09_check_log.txt`, from `scripts/15_v0.9/02_acceptance.R` on branch `exp/name-fallback`, version 0.9.0. The unit tests passed first: 345 passed, 0 failed.
+
+| check | result | needed |
+|---|---|---|
+| development pairs without the fallback | 245 of 245 identical | identical |
+| COMETS pairs without the fallback | 414 of 414 identical | identical |
+| wrong in the evaluation | 0 | 0 |
+| source-error groups called exact | 0 | 0 |
+| agree in the evaluation | 35 | at least 35 |
+| changed pairs that hold a filled row | 13 of 13 | all |
+| lipid proposals lost | 0 | 0 |
+
+All 119 filled rows got a lipid profile from their name. None got a key.
+
+Development pairs, before and after:
+
+| | exact | broader_narrower | stereo_variant | distinct | unresolved |
+|---|---|---|---|---|---|
+| before | 146 | 35 | 3 | 22 | 39 |
+| after | 146 | 44 | 3 | 22 | 30 |
+
+Lipid proposals went from 110 to 129. Nine of the 19 new ones are the nine pairs that moved to R05, and ten are pairs MetLinkR did not group.
+
+### One prediction was wrong
+
+I expected 10 pairs to reach R05 and 29 unresolved. The result was 9 and 30. "1-stearoyl-GPC (18:0)" against "LPC 18:0/0:0" went to R99 and stayed unresolved.
+
+The other two LPC names read at sn position level, but "LPC 18:0/0:0" reads at structure level. With no double bond, the name leaves nothing open. "LPC 20:0/0:0" reads the same way. So both rows of the pair are at structure level, and R05 needs two different levels. Only the Metabolon row has a key and only that row has no molecular annotation, so the key rules and R06 do not apply either.
+
+The pair is a safe miss. The older R99 pair, "LPC 24:0/0:0", has the same shape. Closing this gap needs a new pair rule, which v0.9 does not add, so it stays a separate idea.
+
+The hand check is still open.

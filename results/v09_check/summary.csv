@@ -1,0 +1,8 @@
+"check","value","pass"
+"development pairs identical without fallback",1,TRUE
+"COMETS pairs identical without fallback",1,TRUE
+"wrong stays at 0",0,TRUE
+"no source-error group exact",0,TRUE
+"agree at least 35",35,TRUE
+"only pairs with a filled row change rule",1,TRUE
+"no lipid proposal lost",0,TRUE
