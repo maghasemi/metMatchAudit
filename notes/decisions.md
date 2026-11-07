@@ -792,3 +792,7 @@ Decision:
 ## 2026-10-08: README shortened
 
 The README had grown to a full report of every test. It now gives one summary table and the main limits. The sections on each test, what did not work and the open problems moved unchanged to `notes/evaluation.md`. The limits left out of the README were added to `design.md`. No number changed.
+
+## 2026-11-07: README graphics
+
+The README now opens with a header image in the style of my GitHub profile, and has a diagram of how a pair gets its answer and a chart of the blind test results. The images are in `man/figures/`. The chart shows the blind results only, with criteria that were not met. The tables stay, so every number can still be read as text. No number changed.

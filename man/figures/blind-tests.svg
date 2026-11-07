@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500" role="img" aria-labelledby="t d">
+  <title id="t">Blind test results</title>
+  <desc id="d">Definite claims right, at least 90 percent needed: COMETS 121 of 125, 96.8 percent, met. Second blind test 48 of 65, 73.8 percent, not met. Third blind test 78 of 78, 100 percent, met. Groups with a wrong definite answer, at most 5 percent allowed: second blind test 12 of 58, 20.7 percent, not met. Third blind test 7 of 60, 11.7 percent, not met.</desc>
+  <defs><clipPath id="card"><rect width="1200" height="500" rx="16"/></clipPath></defs>
+  <g clip-path="url(#card)" font-family="'Helvetica Neue', Helvetica, Arial, 'Liberation Sans', sans-serif">
+    <rect width="1200" height="500" fill="#121212"/>
+    <g fill="none" stroke="#2a2415" stroke-width="2">
+      <circle cx="1180" cy="-20" r="220"/>
+      <circle cx="1180" cy="-20" r="140"/>
+    </g>
+
+    <text x="50" y="56" font-size="30" font-weight="700" fill="#ffffff">Blind tests, <tspan fill="#ffcc35">as they came out</tspan></text>
+
+    <!-- panel titles -->
+    <text x="50" y="108" font-size="20" font-weight="700" fill="#ffffff">Definite claims that were right</text>
+    <text x="50" y="134" font-size="16" fill="#9a9a9a">exact and distinct calls; higher is better</text>
+    <text x="640" y="108" font-size="20" font-weight="700" fill="#ffffff">Groups with a wrong definite answer</text>
+    <text x="640" y="134" font-size="16" fill="#9a9a9a">lower is better</text>
+
+    <!-- panel 1: 0-100% over 510 px from x=50 -->
+    <g font-size="18" fill="#ffffff">
+      <text x="50" y="182" font-weight="700">COMETS <tspan font-weight="400" fill="#c4c4c4">121 of 125 (96.8%)</tspan></text>
+      <text x="50" y="262" font-weight="700">Second <tspan font-weight="400" fill="#c4c4c4">48 of 65 (73.8%)</tspan></text>
+      <text x="50" y="342" font-weight="700">Third <tspan font-weight="400" fill="#c4c4c4">78 of 78 (100%)</tspan></text>
+    </g>
+    <g font-size="16" font-weight="700" text-anchor="end">
+      <text x="560" y="182" fill="#ffffff">✓ met</text>
+      <text x="560" y="262" fill="#c4c4c4">✕ not met</text>
+      <text x="560" y="342" fill="#ffffff">✓ met</text>
+    </g>
+    <g fill="#262626">
+      <rect x="50" y="194" width="510" height="14" rx="4"/>
+      <rect x="50" y="274" width="510" height="14" rx="4"/>
+      <rect x="50" y="354" width="510" height="14" rx="4"/>
+    </g>
+    <rect x="50" y="194" width="493.7" height="14" rx="4" fill="#ffcc35"/>
+    <rect x="50" y="274" width="376.4" height="14" rx="4" fill="#8a8a8a"/>
+    <rect x="50" y="354" width="510" height="14" rx="4" fill="#ffcc35"/>
+    <g stroke="#ffffff" stroke-width="2.5" stroke-linecap="round">
+      <line x1="509" y1="189" x2="509" y2="213"/>
+      <line x1="509" y1="269" x2="509" y2="293"/>
+      <line x1="509" y1="349" x2="509" y2="373"/>
+    </g>
+    <text x="509" y="396" font-size="15" fill="#c4c4c4" text-anchor="middle">needed: at least 90%</text>
+
+    <!-- panel 2: 0-25% over 510 px from x=640 -->
+    <g font-size="18" fill="#ffffff">
+      <text x="640" y="182" font-weight="700">Second <tspan font-weight="400" fill="#c4c4c4">12 of 58 (20.7%)</tspan></text>
+      <text x="640" y="262" font-weight="700">Third <tspan font-weight="400" fill="#c4c4c4">7 of 60 (11.7%)</tspan></text>
+    </g>
+    <g font-size="16" font-weight="700" text-anchor="end" fill="#c4c4c4">
+      <text x="1150" y="182">✕ not met</text>
+      <text x="1150" y="262">✕ not met</text>
+    </g>
+    <g fill="#262626">
+      <rect x="640" y="194" width="510" height="14" rx="4"/>
+      <rect x="640" y="274" width="510" height="14" rx="4"/>
+    </g>
+    <rect x="640" y="194" width="422.3" height="14" rx="4" fill="#8a8a8a"/>
+    <rect x="640" y="274" width="238.7" height="14" rx="4" fill="#8a8a8a"/>
+    <g stroke="#ffffff" stroke-width="2.5" stroke-linecap="round">
+      <line x1="742" y1="189" x2="742" y2="213"/>
+      <line x1="742" y1="269" x2="742" y2="293"/>
+    </g>
+    <text x="742" y="316" font-size="15" fill="#c4c4c4" text-anchor="middle">allowed: at most 5%</text>
+    <text font-size="16" fill="#9a9a9a">
+      <tspan x="640" y="358">COMETS had a different second criterion: F1 not</tspan>
+      <tspan x="640" y="382">below MetLinkR alone. 0.893 against 0.895, not met.</tspan>
+    </text>
+
+    <line x1="50" y1="430" x2="1150" y2="430" stroke="#2a2a2a" stroke-width="1"/>
+    <text font-size="16" fill="#9a9a9a">
+      <tspan x="50" y="462">Blind results of COMETS (v0.4.1), second test (v0.6.0) and third test (v0.7.0), before any later fix.</tspan>
+    </text>
+  </g>
+</svg>

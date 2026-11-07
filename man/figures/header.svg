@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="1200" height="480" role="img" aria-labelledby="t d">
+  <title id="t">metMatchAudit</title>
+  <desc id="d">Same name. Same compound? Audits every pair of rows a matching step grouped across datasets and reports how they really relate.</desc>
+  <defs>
+    <clipPath id="card"><rect width="1200" height="480" rx="16"/></clipPath>
+    <polygon id="hex" points="0,-50 43.3,-25 43.3,25 0,50 -43.3,25 -43.3,-25"/>
+  </defs>
+  <g clip-path="url(#card)" font-family="'Helvetica Neue', Helvetica, Arial, 'Liberation Sans', sans-serif">
+    <rect width="1200" height="480" fill="#121212"/>
+    <g fill="none" stroke="#2a2415" stroke-width="2">
+      <circle cx="1160" cy="420" r="260"/>
+      <circle cx="1160" cy="420" r="170"/>
+    </g>
+
+    <!-- icon: two linked rings -->
+    <rect x="60" y="50" width="56" height="56" rx="14" fill="#1a1a1a" stroke="#c09b2c" stroke-width="2"/>
+    <g transform="translate(88 78)" fill="none" stroke="#ffcc35" stroke-width="2.2" stroke-linejoin="round">
+      <polygon transform="translate(-8 0) scale(.2)" points="0,-50 43.3,-25 43.3,25 0,50 -43.3,25 -43.3,-25" vector-effect="non-scaling-stroke"/>
+      <polygon transform="translate(8 0) scale(.2)" points="0,-50 43.3,-25 43.3,25 0,50 -43.3,25 -43.3,-25" vector-effect="non-scaling-stroke"/>
+    </g>
+    <text x="134" y="87" font-size="28" font-weight="700" fill="#ffffff">metMatch<tspan fill="#ffcc35">Audit</tspan></text>
+
+    <text x="60" y="151" font-size="13" font-weight="700" letter-spacing="3" fill="#ffcc35">R · METABOLOMICS · LIPIDOMICS</text>
+
+    <text font-size="44" font-weight="700" fill="#ffffff">
+      <tspan x="60" y="224">Same name.</tspan>
+      <tspan x="60" y="278">Same compound?</tspan>
+    </text>
+
+    <text font-size="18" fill="#c4c4c4">
+      <tspan x="60" y="330">Audits every pair of rows a matching step grouped across</tspan>
+      <tspan x="60" y="356">datasets, and reports how they really relate, rule by rule.</tspan>
+    </text>
+
+    <g font-size="15" font-weight="700" letter-spacing=".5" fill="#ffffff" text-anchor="middle">
+      <g fill="none" stroke="#ffcc35" stroke-width="2">
+        <rect x="60" y="384" width="196" height="42" rx="21"/>
+        <rect x="270" y="384" width="180" height="42" rx="21"/>
+        <rect x="464" y="384" width="154" height="42" rx="21"/>
+      </g>
+      <text x="158" y="410">Structural Evidence</text>
+      <text x="360" y="410">Rule-Traced Calls</text>
+      <text x="541" y="410">Lipid Matching</text>
+    </g>
+
+    <line x1="60" y1="444" x2="1140" y2="444" stroke="#2a2a2a" stroke-width="1"/>
+    <g fill="none" stroke="#9a9a9a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="68" cy="461" r="7"/>
+      <path d="M64.5 461l2.5 2.5 4.5-5"/>
+    </g>
+    <text x="84" y="466" font-size="14" font-style="italic" fill="#9a9a9a">v0.7.1 · one development review and three blind tests.</text>
+
+    <!-- two molecules, same ring, side chain in a different place -->
+    <g fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+      <use href="#hex" x="800" y="170"/>
+      <path d="M800 120v-34"/>
+      <path d="M770 188l26 15M770 152l26-15" stroke="#8a8a8a" stroke-width="2.5"/>
+    </g>
+    <circle cx="800" cy="76" r="10" fill="#121212" stroke="#ffcc35" stroke-width="3"/>
+    <g fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+      <use href="#hex" x="1030" y="290"/>
+      <path d="M1073.3 265l30-17"/>
+      <path d="M1000 308l26 15M1000 272l26-15" stroke="#8a8a8a" stroke-width="2.5"/>
+    </g>
+    <circle cx="1112" cy="243" r="10" fill="#121212" stroke="#ffcc35" stroke-width="3"/>
+
+    <line x1="846" y1="195" x2="984" y2="265" stroke="#ffcc35" stroke-width="2.5" stroke-dasharray="3 9" stroke-linecap="round"/>
+    <circle cx="915" cy="230" r="30" fill="#121212" stroke="#ffcc35" stroke-width="2.5"/>
+    <text x="915" y="242" font-size="34" font-weight="700" fill="#ffcc35" text-anchor="middle">?</text>
+  </g>
+</svg>
