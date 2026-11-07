@@ -12,6 +12,8 @@ these columns:
 \itemize{
 \item \code{path}: path to the \verb{_metLinkR.csv} file
 \item \code{name_col}: column with the metabolite name
+\item \code{name_fallback_col} (optional): column to take the name from where
+the cell in \code{name_col} is empty. \code{NA} where a file has none.
 \item \code{inchikey_col}: column with the InChIKey, or \code{NA} if the file has
 none
 \item \code{label} (optional): short name used in row IDs; defaults to the
@@ -30,6 +32,7 @@ p180 nomenclature, \code{NA} otherwise. See \code{\link[=vendor_lipid_profiles]{
 \value{
 A data frame with one line per input row: \code{row_id}
 (\verb{label:row number}), \code{file}, \code{row_in_file}, \code{original_name},
+\code{name_source} (\code{"name_col"}, \code{"fallback"}, or \code{NA} when both are empty),
 \code{inchikey}, \code{smiles}, \code{inchi}, \code{pubchem}, \code{hmdb} and \code{group_id} (the standardized name;
 missing when MetLinkR assigned none).
 }

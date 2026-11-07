@@ -12,6 +12,8 @@
 #'   these columns:
 #'   * `path`: path to the `_metLinkR.csv` file
 #'   * `name_col`: column with the metabolite name
+#'   * `name_fallback_col` (optional): column to take the name from where
+#'     the cell in `name_col` is empty. `NA` where a file has none.
 #'   * `inchikey_col`: column with the InChIKey, or `NA` if the file has
 #'     none
 #'   * `label` (optional): short name used in row IDs; defaults to the
@@ -27,6 +29,7 @@
 #'
 #' @return A data frame with one line per input row: `row_id`
 #'   (`label:row number`), `file`, `row_in_file`, `original_name`,
+#'   `name_source` (`"name_col"`, `"fallback"`, or `NA` when both are empty),
 #'   `inchikey`, `smiles`, `inchi`, `pubchem`, `hmdb` and `group_id` (the standardized name;
 #'   missing when MetLinkR assigned none).
 #'
@@ -37,7 +40,7 @@ read_metlinkr <- function(files, encoding = "UTF-8") {
   if (length(missing) > 0) {
     stop("`files` needs the columns ", paste(missing, collapse = ", "), ".", call. = FALSE)
   }
-  for (opt in c("smiles_col", "inchi_col", "pubchem_col", "hmdb_col")) {
+  for (opt in c("name_fallback_col", "smiles_col", "inchi_col", "pubchem_col", "hmdb_col")) {
     if (!opt %in% names(files)) files[[opt]] <- NA_character_
   }
   if (!"label" %in% names(files)) {
@@ -54,6 +57,7 @@ read_metlinkr <- function(files, encoding = "UTF-8") {
                            na.strings = c("", "NA"), data.table = FALSE,
                            showProgress = FALSE)
     need <- c(f$name_col, "Standardized name",
+              if (!is.na(f$name_fallback_col)) f$name_fallback_col,
               if (!is.na(f$inchikey_col)) f$inchikey_col,
               if (!is.na(f$smiles_col)) f$smiles_col,
               if (!is.na(f$inchi_col)) f$inchi_col,
@@ -63,13 +67,24 @@ read_metlinkr <- function(files, encoding = "UTF-8") {
     if (length(absent) > 0) {
       stop(f$path, " has no column ", paste(absent, collapse = ", "), ".", call. = FALSE)
     }
+    # Empty cells reach this point as NA or as "", depending on quoting.
+    blank <- function(x) is.na(x) | !nzchar(trimws(x))
+    name <- d[[f$name_col]]
+    name_source <- ifelse(blank(name), NA_character_, "name_col")
+    if (!is.na(f$name_fallback_col)) {
+      spare <- d[[f$name_fallback_col]]
+      use <- blank(name) & !blank(spare)
+      name[use] <- trimws(spare[use])
+      name_source[use] <- "fallback"
+    }
     group <- trimws(d[["Standardized name"]])
     group[group %in% c("", "-")] <- NA_character_
     data.frame(
       row_id        = paste0(f$label, ":", seq_len(nrow(d))),
       file          = f$label,
       row_in_file   = seq_len(nrow(d)),
-      original_name = d[[f$name_col]],
+      original_name = name,
+      name_source   = name_source,
       inchikey      = if (is.na(f$inchikey_col)) NA_character_ else trimws(d[[f$inchikey_col]]),
       smiles        = if (is.na(f$smiles_col)) NA_character_ else trimws(d[[f$smiles_col]]),
       inchi         = if (is.na(f$inchi_col)) NA_character_ else trimws(d[[f$inchi_col]]),
@@ -206,6 +221,7 @@ write_audit <- function(audit, dir) {
   utils::write.csv(audit$rows,      paths[4], row.names = FALSE)
   utils::write.csv(audit$lipid_matches, paths[5], row.names = FALSE)
   info <- audit$info
+  fallback <- info$files$name_fallback_col
   writeLines(c(
     paste("metMatchAudit version:", info$package_version),
     paste("Run date:", info$run_date),
@@ -216,6 +232,7 @@ write_audit <- function(audit, dir) {
                                           sep = " ", collapse = ", ")),
     "Input files:",
     paste0("  ", info$files$path, " (name: ", info$files$name_col,
+           if (!is.null(fallback)) ifelse(is.na(fallback), "", paste0(", name fallback: ", fallback)),
            ", InChIKey: ", info$files$inchikey_col, ")")
   ), paths[6])
   invisible(paths)
