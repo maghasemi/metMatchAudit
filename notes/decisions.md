@@ -1017,3 +1017,7 @@ If both pass, the change is released as v0.9.1.
 ## 2026-11-07: v0.9.1 acceptance passed
 
 Both conditions were met: the tests pass (367, 0 failed), and the development data and COMETS give the same keys and pairs as 0.9.0 with 0 failed requests (`notes/findings.md`). The change goes to main as v0.9.1 once I have read the pull request.
+
+## 2026-11-07: v0.9.1 released
+
+I asked for the merge and the tag after reading the results. Pull request #8 is merged and main is at 0.9.1. No result changed, since no request failed in the acceptance runs.
