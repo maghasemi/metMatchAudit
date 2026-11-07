@@ -986,3 +986,30 @@ The result is from the third run, with 0 failed requests.
 ### A gap in the released package
 
 `resolve_identifiers()` has the same silence. A request that fails during a run leaves the row without a key, or keeps the CID as its own parent, and the user is not told. Failed answers are not cached, so a rerun repairs it. A message that names the failed requests is a small fix of its own and is not part of this change.
+
+## 2026-11-07: v0.9.1 plan, failed PubChem requests are reported
+
+### Why
+
+The v0.10 feasibility found that a failed PubChem request has no visible effect (entry above). This is also true of `resolve_identifiers()`, so of every audit with `resolve_ids = TRUE`. Reading the code for this showed two more gaps:
+
+- A PubChem error that comes back as JSON, such as `PUGREST.ServerBusy`, does not count as an error in `.cached()`. It is stored in the cache and reused on every later run. No such answer was found in the v0.10 cache, but nothing prevents one.
+- When the request for a CID's parent fails, `.parent_cid()` uses the CID itself. The row then gets the key of that record, which can be a salt or a charged form, and it looks like a normal answer.
+
+### Change
+
+- A request has failed when it gives an error, or a PubChem `Fault` whose code is not `PUGREST.NotFound`. Not found is a real answer, and it stays as it is.
+- A failed answer is not stored in the cache, and one already in a cache is asked again.
+- When the parent request fails, the row gets no key in that run, rather than the key of the CID itself.
+- `resolve_identifiers()` counts the failed requests. If there are any, it gives a message with the count, saying that those rows have no key in this run and that a rerun asks again. The count is kept in the audit's `info` and written to `run_info.txt`.
+
+No pair rule changes. When no request fails, every result is the same as in 0.9.0.
+
+The work happens on branch `release-prep/v0.9.1`.
+
+### Acceptance
+
+- The unit tests pass, with new tests that use a fake `fetch`: a busy answer is neither cached nor used from the cache; a failed parent request leaves the row without a key; a not-found answer is still cached; the message gives the count.
+- `scripts/17_v0.9.1/01_acceptance.R` reruns the development data and COMETS on copies of the v0.9 caches. The pairs are identical to `results/v09_check/`, and the count of failed requests is 0.
+
+If both pass, the change is released as v0.9.1.
