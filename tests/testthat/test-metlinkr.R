@@ -70,3 +70,88 @@ test_that("print shows a summary without error", {
   a <- audit_metlinkr(mini_files(), db)
   expect_output(print(a), "metmatch_audit")
 })
+
+fallback_files <- function() {
+  path <- tempfile(fileext = ".csv")
+  writeLines(c(
+    '"Metabolite","name","inChIKey","Standardized name"',
+    '"","SM 39:1;O2","","SM 39:1;O2"',
+    ',"LPC 18:0/0:0",,"LPC 18:0/0:0"',
+    '"   "," PC 34:1 ","","PC 34:1"',
+    '"Inosine","something else","","Inosine"',
+    '"","","","-"'), path)
+  data.frame(path = path, name_col = "Metabolite", name_fallback_col = "name",
+             inchikey_col = "inChIKey", label = "fb", stringsAsFactors = FALSE)
+}
+
+test_that("an empty name is taken from name_fallback_col", {
+  rows <- read_metlinkr(fallback_files())
+  expect_identical(rows$original_name[1:3], c("SM 39:1;O2", "LPC 18:0/0:0", "PC 34:1"))
+  expect_identical(rows$name_source[1:3], rep("fallback", 3))
+})
+
+test_that("a filled name is kept, even when the fallback column differs", {
+  rows <- read_metlinkr(fallback_files())
+  expect_identical(rows$original_name[4], "Inosine")
+  expect_identical(rows$name_source[4], "name_col")
+})
+
+test_that("a row empty in both columns has no name_source", {
+  rows <- read_metlinkr(fallback_files())
+  expect_true(is.na(rows$original_name[5]) || !nzchar(trimws(rows$original_name[5])))
+  expect_true(is.na(rows$name_source[5]))
+})
+
+test_that("without name_fallback_col nothing is filled", {
+  f <- fallback_files()
+  f$name_fallback_col <- NULL
+  rows <- read_metlinkr(f)
+  expect_identical(rows$name_source, c(NA, NA, NA, "name_col", NA))
+  expect_false(any(rows$original_name %in% c("SM 39:1;O2", "LPC 18:0/0:0", "PC 34:1")))
+})
+
+test_that("name_fallback_col = NA reads a file as if the column were absent", {
+  f <- mini_files()
+  f$name_fallback_col <- NA_character_
+  expect_identical(read_metlinkr(f), read_metlinkr(mini_files()))
+})
+
+test_that("a wrong fallback column stops with the column named", {
+  f <- fallback_files()
+  f$name_fallback_col <- "no_such_column"
+  expect_error(read_metlinkr(f), "no_such_column")
+})
+
+spare_files <- function() {
+  path <- tempfile(fileext = ".csv")
+  writeLines(c('"Metabolite","name","inChIKey","Standardized name"',
+               '"","SM 36:1;O2","","SM 18:1;O2/18:0"'), path)
+  f <- mini_files()
+  f$path[2] <- path
+  f$label <- c("LEOCC_mini", "spare")
+  f
+}
+
+test_that("a filled name moves a pair from R01 to the lipid rules", {
+  db <- load_swisslipids(test_path("fixtures", "swisslipids_mini.tsv"))
+  f <- spare_files()
+  rule_of <- function(a) a$pairs$rule_id[a$pairs$row_a == "spare:1" | a$pairs$row_b == "spare:1"]
+
+  before <- audit_metlinkr(f, db, use_rdkit = FALSE, resolve_ids = FALSE)
+  expect_identical(rule_of(before), "R01")
+
+  f$name_fallback_col <- c(NA, "name")
+  after <- audit_metlinkr(f, db, use_rdkit = FALSE, resolve_ids = FALSE)
+  expect_identical(rule_of(after), "R05")
+  expect_identical(after$rows$name_source[after$rows$row_id == "spare:1"], "fallback")
+})
+
+test_that("write_audit records the fallback column", {
+  db <- load_swisslipids(test_path("fixtures", "swisslipids_mini.tsv"))
+  f <- spare_files()
+  f$name_fallback_col <- c(NA, "name")
+  a <- audit_metlinkr(f, db, use_rdkit = FALSE, resolve_ids = FALSE)
+  dir <- tempfile()
+  write_audit(a, dir)
+  expect_match(paste(readLines(file.path(dir, "run_info.txt")), collapse = " "), "name fallback: name")
+})

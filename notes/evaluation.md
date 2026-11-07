@@ -85,6 +85,14 @@ v0.7.0 ran on my Metabolon file and on two published lists from Lai et al. 2021 
 
 Every `exact` call was right, and no lipid proposal was wrong. All seven wrong groups have one cause. Two rows name the same compound, but one lab's PubChem record has stereo and the other's does not, and rule R09 then calls the pair broader_narrower. In five of the seven, neither name says anything about stereo. The same cause appeared in the second test. The sample was mostly same-compound pairs, so it tests `exact` calls far more than `distinct` ones. Details: [findings.md](findings.md).
 
+## A second name column (v0.9)
+
+In the Broad example file, `Metabolite` is empty on 119 of 511 rows and the name is in column `name`. v0.9 can read that column, and these results are after adaptation.
+
+On the development data, unresolved pairs went from 39 to 30, and lipid proposals went from 110 to 129. The evaluation against the review did not change, because none of the 13 affected groups is in it. COMETS and the blind test files have no blank names, so nothing changed there.
+
+The 19 new claims passed a scripted check of chain sums and formulas. A curator did not review them, and Broad has no m/z on these rows.
+
 ## What did not work
 
 Two ideas were tried and set aside. Both are logged in [decisions.md](decisions.md).

@@ -1,6 +1,6 @@
 # Design
 
-This file describes what the tool does, as of v0.7.0. Changes to behaviour are planned in `notes/decisions.md` first. This file is then updated to match the released code. Earlier versions of it are in the git history.
+This file describes what the tool does, as of v0.9.0. Changes to behaviour are planned in `notes/decisions.md` first. This file is then updated to match the released code. Earlier versions of it are in the git history.
 
 One principle runs through every rule below. When the evidence does not settle a question, the answer is `unresolved`. A rule that fixes one problem by guessing, and so creates a new one, does not go in.
 
@@ -22,7 +22,8 @@ One line per row:
 |---|---|---|
 | row_id | yes | unique, such as `LEOCC_Metabolon:132` |
 | file | yes | source dataset |
-| original_name | yes | as written in the source file |
+| original_name | yes | as written in the source file; an empty cell can be filled from a second column, `name_fallback_col` |
+| name_source | no | `name_col`, `fallback`, or empty when neither column has a name |
 | group_id | yes | the group the matching step assigned; for MetLinkR, `Standardized name` |
 | inchikey | no | from the source file, never edited |
 | smiles, inchi | no | from the source file, used for structure checks |
@@ -166,6 +167,7 @@ Severity, most severe first: distinct, unresolved, broader_narrower, stereo_vari
 - A sum name with a single-structure key ("ACar 17:0" with a straight-chain key) gets the key's answer.
 - MS-DIAL-style lipid names are not read.
 - Rows with only a name and no usable identifier get no evidence.
+- Two rows at structure level with the same Species stay unresolved (R99) when only one has a key, as with "1-stearoyl-GPC (18:0)" and "LPC 18:0/0:0".
 - Glycosylceramide pairs that differ only in headgroup naming stay unresolved.
 - Name checks are tuned on Metabolon, Broad, Biocrates, MS-DIAL and HMDB-style names.
 - Nightingale class totals (Omega-6, total fatty acids) and other aggregate measures have no relationship of their own.
@@ -185,6 +187,7 @@ Severity, most severe first: distinct, unresolved, broader_narrower, stereo_vari
 - v0.6: LIPID MAPS as a second lipid source and the Biocrates p180 vendor table.
 - v0.7: R03i for isomer markers; optical rotation signs dropped in name normalization.
 - v0.8: R09n planned and dropped at feasibility.
+- v0.9: a second name column for rows with an empty name. No new pair rule.
 
 ## Evaluation
 

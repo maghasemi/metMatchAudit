@@ -48,7 +48,7 @@
       <circle cx="68" cy="461" r="7"/>
       <path d="M64.5 461l2.5 2.5 4.5-5"/>
     </g>
-    <text x="84" y="466" font-size="14" font-style="italic" fill="#9a9a9a">v0.7.1 · one development review and three blind tests.</text>
+    <text x="84" y="466" font-size="14" font-style="italic" fill="#9a9a9a">v0.9.0 · one development review and three blind tests.</text>
 
     <!-- two molecules, same ring, side chain in a different place -->
     <g fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
