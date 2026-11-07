@@ -1,0 +1,7 @@
+"check","value","pass"
+"development: failed PubChem requests",0,TRUE
+"development: keys identical to 0.9.0",1,TRUE
+"development: pairs identical to 0.9.0",1,TRUE
+"COMETS: failed PubChem requests",0,TRUE
+"COMETS: keys identical to 0.9.0",1,TRUE
+"COMETS: pairs identical to 0.9.0",1,TRUE

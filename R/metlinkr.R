@@ -128,7 +128,9 @@ read_metlinkr <- function(files, encoding = "UTF-8") {
 #'   * `lipid_matches`: lipid pairs across files, see
 #'     [propose_lipid_matches()]
 #'   * `rows`: every row with its evidence
-#'   * `info`: package version, date, and the md5 of the SwissLipids file
+#'   * `info`: package version, date, the md5 of the SwissLipids file, and
+#'     `pubchem_failed`, the number of PubChem requests that failed (`NA`
+#'     when `resolve_ids = FALSE`)
 #'
 #' @export
 audit_metlinkr <- function(files, swisslipids, encoding = "UTF-8",
@@ -148,6 +150,10 @@ audit_metlinkr <- function(files, swisslipids, encoding = "UTF-8",
     rows$inchikey_file <- rows$inchikey
     rows$inchikey_source <- ifelse(is_valid_inchikey(rows$inchikey), "file", NA_character_)
     rows
+  }
+  pubchem_failed <- if (!resolve_ids) NA_integer_ else {
+    n <- attr(rows, "pubchem_failed")
+    if (is.null(n)) 0L else as.integer(n)
   }
   if (!is.null(lmsd) && !inherits(lmsd, "lmsd_db")) lmsd <- load_lmsd(lmsd, expected_md5 = lmsd_md5)
   evidence <- lipid_evidence(row_evidence(rows), db, lmsd = lmsd)
@@ -171,6 +177,7 @@ audit_metlinkr <- function(files, swisslipids, encoding = "UTF-8",
       lmsd_md5        = if (is.null(lmsd)) NA_character_ else lmsd$md5,
       structure_checks = use_rdkit && rdkit_available(),
       keys_by_source = table(rows$inchikey_source, useNA = "ifany"),
+      pubchem_failed  = pubchem_failed,
       files           = files
     )
   )
@@ -230,6 +237,10 @@ write_audit <- function(audit, dir) {
     paste("Structure checks (RDKit):", isTRUE(info$structure_checks)),
     paste("InChIKeys by source:", paste(names(info$keys_by_source), info$keys_by_source,
                                           sep = " ", collapse = ", ")),
+    if (!is.null(info$pubchem_failed)) {
+      paste("PubChem requests that failed:",
+            if (is.na(info$pubchem_failed)) "PubChem not asked (resolve_ids = FALSE)" else info$pubchem_failed)
+    },
     "Input files:",
     paste0("  ", info$files$path, " (name: ", info$files$name_col,
            if (!is.null(fallback)) ifelse(is.na(fallback), "", paste0(", name fallback: ", fallback)),

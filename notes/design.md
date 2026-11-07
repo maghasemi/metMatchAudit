@@ -1,6 +1,6 @@
 # Design
 
-This file describes what the tool does, as of v0.9.0. Changes to behaviour are planned in `notes/decisions.md` first. This file is then updated to match the released code. Earlier versions of it are in the git history.
+This file describes what the tool does, as of v0.9.1. Changes to behaviour are planned in `notes/decisions.md` first. This file is then updated to match the released code. Earlier versions of it are in the git history.
 
 One principle runs through every rule below. When the evidence does not settle a question, the answer is `unresolved`. A rule that fixes one problem by guessing, and so creates a new one, does not go in.
 
@@ -46,6 +46,8 @@ A row without a valid InChIKey gets one from PubChem when it carries a single Pu
 - an HMDB ID whose CIDs give different keys.
 
 The file value stays in `inchikey_file`. Every key has an `inchikey_source` (`file`, `pubchem_cid` or `hmdb_via_pubchem`), and pair evidence names the source when a key rule used a derived key. PubChem answers are cached on disk.
+
+A request that fails, through a network error or a PubChem error such as a busy server, is not cached. The rows that needed it get no key in that run, and a row whose parent could not be asked does not fall back to the CID's own key. `resolve_identifiers()` gives a message with the number of failed requests, and the audit keeps it in `info$pubchem_failed` and in `run_info.txt`. Running again asks the failed requests again. "Not found" is a real answer and is cached.
 
 ### InChIKey
 
@@ -167,7 +169,6 @@ Severity, most severe first: distinct, unresolved, broader_narrower, stereo_vari
 - A sum name with a single-structure key ("ACar 17:0" with a straight-chain key) gets the key's answer.
 - MS-DIAL-style lipid names are not read.
 - Rows with only a name and no usable identifier get no evidence. A key looked up from the name was tried in v0.10 and dropped (decisions.md, 2026-11-07).
-- A PubChem request that fails during `resolve_identifiers()` leaves the row without a key, or keeps the CID as its own parent, and no message says so. Failed answers are not cached, so a rerun repairs it.
 - Two rows at structure level with the same Species stay unresolved (R99) when only one has a key, as with "1-stearoyl-GPC (18:0)" and "LPC 18:0/0:0".
 - Glycosylceramide pairs that differ only in headgroup naming stay unresolved.
 - Name checks are tuned on Metabolon, Broad, Biocrates, MS-DIAL and HMDB-style names.
@@ -188,7 +189,7 @@ Severity, most severe first: distinct, unresolved, broader_narrower, stereo_vari
 - v0.6: LIPID MAPS as a second lipid source and the Biocrates p180 vendor table.
 - v0.7: R03i for isomer markers; optical rotation signs dropped in name normalization.
 - v0.8: R09n planned and dropped at feasibility.
-- v0.9: a second name column for rows with an empty name. No new pair rule.
+- v0.9: a second name column for rows with an empty name. No new pair rule. v0.9.1 reports failed PubChem requests instead of hiding them.
 - v0.10: a key from the row's own name through PubChem, planned and dropped at feasibility. Kept on branch `shelved/name-key-lookup`.
 
 ## Evaluation

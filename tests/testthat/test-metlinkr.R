@@ -155,3 +155,15 @@ test_that("write_audit records the fallback column", {
   write_audit(a, dir)
   expect_match(paste(readLines(file.path(dir, "run_info.txt")), collapse = " "), "name fallback: name")
 })
+
+test_that("the audit records failed PubChem requests in info and run_info", {
+  db <- load_swisslipids(test_path("fixtures", "swisslipids_mini.tsv"))
+  a <- audit_metlinkr(mini_files(), db, use_rdkit = FALSE)
+  expect_identical(a$info$pubchem_failed, 0L)
+  dir <- tempfile()
+  write_audit(a, dir)
+  expect_true("PubChem requests that failed: 0" %in% readLines(file.path(dir, "run_info.txt")))
+
+  b <- audit_metlinkr(mini_files(), db, use_rdkit = FALSE, resolve_ids = FALSE)
+  expect_true(is.na(b$info$pubchem_failed))
+})

@@ -1013,3 +1013,7 @@ The work happens on branch `release-prep/v0.9.1`.
 - `scripts/17_v0.9.1/01_acceptance.R` reruns the development data and COMETS on copies of the v0.9 caches. The pairs are identical to `results/v09_check/`, and the count of failed requests is 0.
 
 If both pass, the change is released as v0.9.1.
+
+## 2026-11-07: v0.9.1 acceptance passed
+
+Both conditions were met: the tests pass (367, 0 failed), and the development data and COMETS give the same keys and pairs as 0.9.0 with 0 failed requests (`notes/findings.md`). The change goes to main as v0.9.1 once I have read the pull request.

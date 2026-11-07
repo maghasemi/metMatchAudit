@@ -68,7 +68,9 @@ An object of class \code{metmatch_audit}, a list with:
 \item \code{lipid_matches}: lipid pairs across files, see
 \code{\link[=propose_lipid_matches]{propose_lipid_matches()}}
 \item \code{rows}: every row with its evidence
-\item \code{info}: package version, date, and the md5 of the SwissLipids file
+\item \code{info}: package version, date, the md5 of the SwissLipids file, and
+\code{pubchem_failed}, the number of PubChem requests that failed (\code{NA}
+when \code{resolve_ids = FALSE})
 }
 }
 \description{

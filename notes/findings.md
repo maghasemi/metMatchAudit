@@ -591,3 +591,15 @@ Rows without an expert label count as not covered. None of these 234 pairs lacks
 The two exact pairs the expert separates are "Ornithine ( Orn-PTC )" against "ornithine" and "N-acetylcarnosine" against "N-acetylcarnosine". In both, the names point to the same compound.
 
 Of the three pairs with different connectivity and different names, the expert calls two the same compound: "indolepropionate" and "Indole propionate", once in each direction. PubChem returns two different structures for two spellings of one name. Distinct would have been allowed only at 98% or more, and this is 1 of 3, so those pairs would stay unresolved.
+
+## 2026-11-07: v0.9.1 acceptance
+
+Source: `results/v091_check/` and `results/v091_check_log.txt`, from `scripts/17_v0.9.1/01_acceptance.R` on branch `release-prep/v0.9.1`, version 0.9.1. The unit tests passed first: 367 passed, 0 failed.
+
+| check | development | COMETS |
+|---|---|---|
+| failed PubChem requests | 0 | 0 |
+| keys and their sources identical to 0.9.0 | yes | yes |
+| pairs identical to 0.9.0 (245 and 414) | yes | yes |
+
+The runs used copies of the v0.9 caches, so no request had to go to PubChem. This shows that nothing changes when no request fails. The behaviour when requests fail is covered by the unit tests only, with a fake PubChem that answers `PUGREST.ServerBusy`.
