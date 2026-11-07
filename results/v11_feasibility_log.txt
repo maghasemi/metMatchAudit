@@ -1,0 +1,45 @@
+R01 pairs and the rule's conditions:
+             condition
+set           different names R01s same file same name, flagged name
+  comets                  100  121         8                       5
+  development               3    0         0                       0
+
+Same name within one file (stay R01):
+  none
+
+Same name across files, but a flagged name (stay R01):
+ set    name_a                           name_b                           expert_same
+ comets bilirubin (E,E)*                 bilirubin (E,E)*                 TRUE       
+ comets pyroglutamine*                   pyroglutamine*                   TRUE       
+ comets 2-palmitoyl-GPC (16:0)*          2-palmitoyl-GPC (16:0)*          TRUE       
+ comets dihomo-linolenate (20:3n3 or n6) dihomo-linolenate (20:3n3 or n6) TRUE       
+ comets dimethylarginine (SDMA + ADMA)   dimethylarginine (SDMA + ADMA)   TRUE       
+
+R01s pairs: development 0, COMETS 121
+R01s pairs with a key on one side: 112 of 121
+1. COMETS R01 pairs that would get same_name: 121. Needed: at least 80.
+2. In one expert group: 120 of 121 the expert covers (99.2%). Needed: at least 98%. Not covered: 0
+R01s pairs the expert separates:
+ name_a            name_b            key_a key_b                       group_id         
+ N-acetylcarnosine N-acetylcarnosine <NA>  BKAYIFDRRZZKNF-VIFPVBQESA-N N-Acetylcarnosine
+
+3. Pairs with two keys, different files and the same name: 189 (development 45, COMETS 144)
+             rule
+set           R03 R09 R09b R11 R12n R99
+  comets      119  16    0   6    2   1
+  development  37   6    1   0    1   0
+Keys that do not conflict: 186 of 189 (98.4%). Needed: at least 98%.
+Pairs whose keys conflict:
+ set         name_a                name_b                key_a                       key_b                       rule_id expert_same
+ development xylose                Xylose                PYMYPHUHKUWMLA-VPENINKCSA-N SRBFZHDQGSBBOR-IOVATXLUSA-N R12n      NA       
+ comets      fructose              fructose              RFSUNEUAIZKAJO-ARQDHWQXSA-N BJHIKXHVCXFQLS-UYFOZJQFSA-N R12n    TRUE       
+ comets      4-vinylphenol sulfate 4-vinylphenol sulfate FUGYGGDSWSUORM-UHFFFAOYSA-N IETVQHUKTKKBFF-UHFFFAOYSA-N R12n    TRUE       
+For comparison, the same pairs on COMETS against the expert: 143 of 144 in one group
+
+==== summary
+ condition                                    value    needed pass
+ COMETS R01 pairs getting same_name           121.0000 80.00  TRUE
+ those pairs in one expert group                0.9917  0.98  TRUE
+ keyed same-name pairs without a key conflict   0.9841  0.98  TRUE
+
+Go-ahead: YES

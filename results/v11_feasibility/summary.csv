@@ -1,0 +1,4 @@
+"condition","value","needed","pass"
+"COMETS R01 pairs getting same_name",121,80,TRUE
+"those pairs in one expert group",0.9917,0.98,TRUE
+"keyed same-name pairs without a key conflict",0.9841,0.98,TRUE
