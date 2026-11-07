@@ -1,6 +1,6 @@
 <img src="man/figures/header.svg" alt="metMatchAudit. Same name. Same compound? Audits every pair of rows a matching step grouped across datasets, and reports how they really relate, rule by rule." width="100%">
 
-![version](https://img.shields.io/badge/version-0.9.1-ffcc35?labelColor=121212)
+![version](https://img.shields.io/badge/version-0.11.0-ffcc35?labelColor=121212)
 ![R](https://img.shields.io/badge/R-%E2%89%A5%204.1-ffcc35?labelColor=121212)
 ![license](https://img.shields.io/badge/license-MIT-ffcc35?labelColor=121212)
 
@@ -8,7 +8,7 @@ Check whether metabolites matched across datasets are really the same compound.
 
 Tools such as [MetLinkR](https://github.com/ncats/MetLinkR) link metabolomics datasets by giving every row a standardized name. Rows that end up with the same name are treated as one metabolite. metMatchAudit runs after that step. For every pair of rows that share a name, it looks at the structural evidence and reports how the two actually relate, with the rule that decided it. It also proposes lipid matches across vendors that the matching step missed.
 
-Status: v0.9.1, tested in one development review and three blind tests (see [Evaluation](#evaluation)).
+Status: v0.11.0, tested in one development review and three blind tests (see [Evaluation](#evaluation)).
 
 ## Why
 
@@ -25,6 +25,7 @@ For each pair of rows in a group, one of:
 | `stereo_variant` | same connectivity, different stereochemistry, stated in a name |
 | `distinct` | different compounds |
 | `unresolved` | the evidence does not settle it |
+| `same_name` | no structure could be compared, but the names agree across files; not a claim that the compounds are the same |
 
 When the evidence is not enough, the answer is `unresolved`. The tool does not guess. Every result carries a rule ID and a short evidence text, for example:
 
@@ -37,7 +38,7 @@ When the evidence is not enough, the answer is `unresolved`. The tool does not g
 
 ## How it decides
 
-<img src="man/figures/how-it-decides.svg" alt="A pair of rows from one group is checked against its evidence. Twenty rules run in a fixed order and the first that applies decides. SM 36:1;O2 and stearoyl sphingomyelin stop at rule R05, and the answer is broader_narrower." width="100%">
+<img src="man/figures/how-it-decides.svg" alt="A pair of rows from one group is checked against its evidence. Twenty-one rules run in a fixed order and the first that applies decides. SM 36:1;O2 and stearoyl sphingomyelin stop at rule R05, and the answer is broader_narrower." width="100%">
 
 Evidence comes only from the source files, fixed parsing rules and versioned database files: the InChIKey (or one derived from a PubChem CID or HMDB ID), text checks on the name, lipid profiles from [SwissLipids](https://www.swisslipids.org), [LIPID MAPS](https://www.lipidmaps.org/databases/lmsd), [rgoslin](https://bioconductor.org/packages/rgoslin/) and the Biocrates p180 nomenclature table, and optionally the full structure through [RDKit](https://www.rdkit.org). The rules run in a fixed order and the first one that applies decides. The rules, with the real case behind each, are in [notes/design.md](notes/design.md).
 

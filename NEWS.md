@@ -1,3 +1,11 @@
+# metMatchAudit 0.11.0
+
+* New rule R01s and relationship `same_name`. A pair that R01 would leave unresolved gets `same_name` when the rows are in different files and their names are the same after `normalize_name()`, and neither name is a group name, a list of alternatives, an isomer label or marker, or a tentative name. No structure is compared, and MetLinkR groups by name, so this is not a claim that the compounds are the same. It separates such pairs from pairs where nothing agrees.
+* `same_name` ranks after unresolved and before broader_narrower. `summarise_groups()` gets a column `n_same_name`. In evaluations it counts as unresolved does.
+* `classify_pairs()` now needs `name_isomer_label` and `name_tentative`, which `row_evidence()` provides. R01s runs only when the evidence has a `file` column.
+* COMETS, after adaptation (feasibility): 121 of the 234 R01 pairs would get `same_name`, and the expert puts 120 of them in one group.
+* There is no 0.10 release. The name lookup planned for it was dropped at feasibility.
+
 # metMatchAudit 0.9.1
 
 * `resolve_identifiers()` reports failed PubChem requests. A request has failed when it gives a network error or a PubChem error other than "not found", such as `PUGREST.ServerBusy`. A message gives the count and says to run again. The count is in `attr(, "pubchem_failed")`, in the audit's `info$pubchem_failed` and in `run_info.txt`.

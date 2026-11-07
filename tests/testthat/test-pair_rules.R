@@ -323,3 +323,60 @@ test_that("R12n: an optical rotation sign does not keep two names apart", {
                    list(name = "N-Acetylneuraminic acid", inchikey = "SQVRNKJHWKZAKO-LUWBGTNYSA-N"))
   expect_identical(r$rule_id, "R12n")
 })
+
+# ---- R01s (0.11.0) -------------------------------------------------------------
+
+# Two rows with names and files given. The second row has the key of
+# sarcosine unless `key_b` says otherwise; the first has no key.
+same_name_pair <- function(name_a, name_b, file_a = "F1", file_b = "F2",
+                           key_a = NA_character_, key_b = "FSYKKLYZXJSNPZ-UHFFFAOYSA-N") {
+  rows <- data.frame(row_id = c("a", "b"), file = c(file_a, file_b),
+                     original_name = c(name_a, name_b), inchikey = c(key_a, key_b),
+                     lipid_species = NA_character_, lipid_molecular = NA_character_,
+                     lipid_level = NA_character_, stringsAsFactors = FALSE)
+  classify_pairs(row_evidence(rows), data.frame(group_id = "g", row_a = "a", row_b = "b"))
+}
+
+test_that("R01s: the same name in two files gives same_name, not unresolved", {
+  r <- same_name_pair("Sarcosine", "sarcosine")
+  expect_identical(r$rule_id, "R01s")
+  expect_identical(r$relationship, "same_name")
+  expect_match(r$evidence, "no structure was compared")
+})
+
+test_that("R01s also applies when neither row has a key", {
+  r <- same_name_pair("pseudouridine", "Pseudouridine", key_b = NA_character_)
+  expect_identical(r$rule_id, "R01s")
+})
+
+test_that("the same name twice in one file stays R01", {
+  r <- same_name_pair("Sarcosine", "sarcosine", file_b = "F1")
+  expect_identical(r$rule_id, "R01")
+})
+
+test_that("different names stay R01", {
+  r <- same_name_pair("N-methylglycine", "sarcosine")
+  expect_identical(r$rule_id, "R01")
+})
+
+test_that("tentative names and lists of alternatives stay R01", {
+  # Both from the COMETS feasibility (results/v11_feasibility_log.txt).
+  expect_identical(same_name_pair("pyroglutamine*", "pyroglutamine*")$rule_id, "R01")
+  expect_identical(same_name_pair("dimethylarginine (SDMA + ADMA)", "dimethylarginine (SDMA + ADMA)")$rule_id,
+                   "R01")
+})
+
+test_that("names with an isomer marker stay R01", {
+  expect_identical(same_name_pair("Carnosine isomer A", "Carnosine isomer A")$rule_id, "R01")
+})
+
+test_that("with a key on both rows, the key rules decide as before", {
+  r <- same_name_pair("Sarcosine", "sarcosine", key_a = "FSYKKLYZXJSNPZ-UHFFFAOYSA-N")
+  expect_identical(r$rule_id, "R03")
+})
+
+test_that("without a file column R01s is skipped", {
+  r <- pair_result(list(name = "Sarcosine"),
+                   list(name = "sarcosine", inchikey = "FSYKKLYZXJSNPZ-UHFFFAOYSA-N"))
+  expect_identical(r$rule_id, "R01")
+})

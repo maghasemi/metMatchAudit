@@ -2,18 +2,19 @@
 # rule that applies to a pair decides it. Keep this list, the design
 # table and the tests in step with each other.
 
-.rule_order <- c("R02", "R01", "R03i", "R04h", "R04", "R05g", "R05", "R06", "R03c", "R06b", "R03",
+.rule_order <- c("R02", "R01s", "R01", "R03i", "R04h", "R04", "R05g", "R05", "R06", "R03c", "R06b", "R03",
                  "R08", "R08b", "R09", "R09b", "R10", "R11", "R12n", "R12", "R99")
 
 .relationships <- c("exact", "broader_narrower", "stereo_variant",
-                    "distinct", "unresolved")
+                    "distinct", "unresolved", "same_name")
 
 .needed_evidence <- c("row_id", "ik_valid", "ik_block1", "ik_block2",
                       "ik_stereo_unspecified", "inchikey", "name_group",
                       "name_alternatives", "name_internal_standard",
                       "name_states_stereo", "lipid_species",
                       "lipid_molecular", "lipid_level", "name_normalized",
-                      "name_stereo_terms", "name_omega", "name_isomer_marker")
+                      "name_stereo_terms", "name_omega", "name_isomer_marker",
+                      "name_isomer_label", "name_tentative")
 
 # Glycosylceramides: SwissLipids writes HexCer and Hex2Cer at Species
 # level, while names may say GlcCer, GalCer or LacCer. Map the specific
@@ -35,6 +36,7 @@
 #' | rule | relationship | condition |
 #' |---|---|---|
 #' | R02 | distinct | either row is an internal standard |
+#' | R01s | same_name | R01 would apply, the rows are in different files, and both names are the same after [normalize_name()]; neither name is a group name, a list of alternatives, an isomer label or marker, or a tentative name. No structure was compared |
 #' | R01 | unresolved | either row has no valid InChIKey and no lipid profile |
 #' | R03i | unresolved | either name marks a feature of unknown identity ("isomer", or a lone letter after the last semicolon), so its key and any lipid profile from that key may belong to another compound; see [has_isomer_marker()] |
 #' | R04h | unresolved | lipid Species differ only in hexose headgroup naming (HexCer vs GlcCer) |
@@ -108,8 +110,28 @@ classify_pairs <- function(evidence, pairs) {
   decide(A$name_internal_standard | B$name_internal_standard,
          "distinct", "R02", "one row is an internal standard")
 
-  decide((!A$ik_valid & is.na(A$lipid_species)) | (!B$ik_valid & is.na(B$lipid_species)),
-         "unresolved", "R01", "a row has neither a valid InChIKey nor a lipid profile")
+  no_evidence <- (!A$ik_valid & is.na(A$lipid_species)) | (!B$ik_valid & is.na(B$lipid_species))
+
+  # R01s: the names agree, and that is all that is known. MetLinkR groups
+  # by name, so this repeats part of its own work and is not a claim that
+  # the compounds are the same. It keeps such pairs apart from pairs where
+  # nothing agrees. Two rows of one file stay R01: a lab that reports a
+  # name twice may be reporting two features. Without a `file` column the
+  # rule is skipped.
+  if ("file" %in% names(evidence)) {
+    flagged <- function(X) {
+      X$name_group | X$name_alternatives | X$name_internal_standard |
+        X$name_isomer_label | X$name_isomer_marker | X$name_tentative
+    }
+    same_name <- !is.na(A$name_normalized) & !is.na(B$name_normalized) &
+      A$name_normalized == B$name_normalized
+    decide(no_evidence & A$file != B$file & same_name & !flagged(A) & !flagged(B),
+           "same_name", "R01s",
+           paste0("same name \"", A$name_normalized, "\" in two files; a row has neither a valid ",
+                  "InChIKey nor a lipid profile, so no structure was compared"))
+  }
+
+  decide(no_evidence, "unresolved", "R01", "a row has neither a valid InChIKey nor a lipid profile")
 
   # R03i: a feature reported as "X isomer" can carry the identifiers of X
   # itself (second blind test, Ding et al. 2021). Nothing taken from such

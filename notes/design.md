@@ -1,8 +1,8 @@
 # Design
 
-This file describes what the tool does, as of v0.9.1. Changes to behaviour are planned in `notes/decisions.md` first. This file is then updated to match the released code. Earlier versions of it are in the git history.
+This file describes what the tool does, as of v0.11.0. Changes to behaviour are planned in `notes/decisions.md` first. This file is then updated to match the released code. Earlier versions of it are in the git history.
 
-One principle runs through every rule below. When the evidence does not settle a question, the answer is `unresolved`. A rule that fixes one problem by guessing, and so creates a new one, does not go in.
+One principle runs through every rule below. When the evidence does not settle a question, the answer is `unresolved`. A rule that fixes one problem by guessing, and so creates a new one, does not go in. The one answer that is not about structure, `same_name`, says only that two names agree, and it is never counted as a claim.
 
 ## What the tool answers
 
@@ -105,6 +105,7 @@ Rules run in this order. The first rule that applies decides, and every result k
 | ID | condition | relationship |
 |---|---|---|
 | R02 | either row is an internal standard | distinct |
+| R01s | R01 would apply, the rows are in different files, and the names are the same after normalization; neither name is a group name, a list of alternatives, an isomer label or marker, or a tentative name | same_name |
 | R01 | either row has neither a valid InChIKey nor a lipid profile | unresolved |
 | R03i | either name carries an isomer marker | unresolved |
 | R04h | lipid Species differ only in hexose headgroup naming (HexCer vs GlcCer) | unresolved |
@@ -130,6 +131,7 @@ R04 to R06b apply only when both rows have a lipid profile. R09 to R12 need a va
 Where the rules come from:
 
 - R02: inosine-15N4 [iSTD] merged with inosine.
+- R01s: COMETS, where 234 of the 250 unresolved pairs had no evidence on one side and 121 of those had the same name in two files. MetLinkR groups by name, so the label repeats part of its work. It sorts unresolved pairs; it does not check them.
 - R03i: "Carnosine isomer A" carrying the key of carnosine (second blind test).
 - R04: SM 36:1 merged with an SM 38:3 group.
 - R05: Broad "SM 36:1;O2" against Metabolon "stearoyl sphingomyelin (d18:1/18:0)". Both resolve to Species `SM 36:1;O2`.
@@ -160,7 +162,7 @@ A note on headgroups: SwissLipids writes glycosylceramides at Species level as H
 4. `rows`: every row with its evidence
 5. `lipid_matches`: lipid pairs across files, with relationship, shape (one_to_one or one_to_many) and whether the matching step had already grouped them
 
-Severity, most severe first: distinct, unresolved, broader_narrower, stereo_variant, exact.
+Severity, most severe first: distinct, unresolved, same_name, broader_narrower, stereo_variant, exact.
 
 ## Known limits
 
@@ -168,7 +170,7 @@ Severity, most severe first: distinct, unresolved, broader_narrower, stereo_vari
 - Sugars in ring and open-chain form get different keys. With the same name they stay unresolved (R12n); with different names they are called distinct.
 - A sum name with a single-structure key ("ACar 17:0" with a straight-chain key) gets the key's answer.
 - MS-DIAL-style lipid names are not read.
-- Rows with only a name and no usable identifier get no evidence. A key looked up from the name was tried in v0.10 and dropped (decisions.md, 2026-11-07).
+- Rows with only a name and no usable identifier get no evidence. A key looked up from the name was tried in v0.10 and dropped (decisions.md, 2026-11-07). Since v0.11 such a pair gets `same_name` when the names agree across files, which says nothing about structure.
 - Two rows at structure level with the same Species stay unresolved (R99) when only one has a key, as with "1-stearoyl-GPC (18:0)" and "LPC 18:0/0:0".
 - Glycosylceramide pairs that differ only in headgroup naming stay unresolved.
 - Name checks are tuned on Metabolon, Broad, Biocrates, MS-DIAL and HMDB-style names.
@@ -191,6 +193,7 @@ Severity, most severe first: distinct, unresolved, broader_narrower, stereo_vari
 - v0.8: R09n planned and dropped at feasibility.
 - v0.9: a second name column for rows with an empty name. No new pair rule. v0.9.1 reports failed PubChem requests instead of hiding them.
 - v0.10: a key from the row's own name through PubChem, planned and dropped at feasibility. Kept on branch `shelved/name-key-lookup`.
+- v0.11: R01s and the relationship `same_name`, for pairs without evidence whose names agree across files.
 
 ## Evaluation
 
@@ -205,4 +208,4 @@ Each test fixes its criteria and labels in `notes/decisions.md` before the tool 
 | E | not exact (source error) |
 | F | unresolved |
 
-A group's label is its most severe pair label, in the order E > C > F > D > B > A. The comparison uses each group's most severe relationship.
+A group's label is its most severe pair label, in the order E > C > F > D > B > A. The comparison uses each group's most severe relationship. `same_name` counts as unresolved does: a safe miss, never a definite claim.

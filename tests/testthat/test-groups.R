@@ -31,3 +31,13 @@ test_that("an unknown relationship is refused", {
                       relationship = "group_overlap", rule_id = "R08")
   expect_error(summarise_groups(pairs), "Unknown relationship")
 })
+
+test_that("same_name ranks below unresolved and above broader/narrower", {
+  pairs <- data.frame(group_id = c("g1", "g1", "g2", "g2"), row_a = c("a", "a", "c", "c"),
+                      row_b = c("b", "x", "d", "y"),
+                      relationship = c("same_name", "unresolved", "same_name", "broader_narrower"),
+                      rule_id = c("R01s", "R11", "R01s", "R09"), stringsAsFactors = FALSE)
+  g <- summarise_groups(pairs)
+  expect_identical(g$worst_relationship, c("unresolved", "same_name"))
+  expect_identical(g$n_same_name, c(1L, 1L))
+})

@@ -1,5 +1,7 @@
 # Most severe first. A group is summarised by its most severe pair.
-.severity <- c("distinct", "unresolved", "broader_narrower", "stereo_variant", "exact")
+# same_name compared no structure, so it ranks below every structural
+# answer except unresolved.
+.severity <- c("distinct", "unresolved", "same_name", "broader_narrower", "stereo_variant", "exact")
 
 #' Summarise pair results per group
 #'
@@ -7,7 +9,7 @@
 #'
 #' @return A data frame with one line per group: `group_id`, `n_rows`,
 #'   `n_pairs`, `worst_relationship` (most severe first: distinct,
-#'   unresolved, broader_narrower, stereo_variant, exact), `worst_rule`
+#'   unresolved, same_name, broader_narrower, stereo_variant, exact), `worst_rule`
 #'   (the rule behind the first pair with that relationship), and one
 #'   count column per relationship.
 #'
