@@ -1021,3 +1021,60 @@ Both conditions were met: the tests pass (367, 0 failed), and the development da
 ## 2026-11-07: v0.9.1 released
 
 I asked for the merge and the tag after reading the results. Pull request #8 is merged and main is at 0.9.1. No result changed, since no request failed in the acceptance runs.
+
+## 2026-11-07: v0.11 plan, a separate label for pairs that only share a name
+
+### Why
+
+R01 is still 234 of the 250 unresolved pairs on COMETS. The name lookup of v0.10 was dropped. Many of these pairs have the same name on both sides, and today they get the same answer as a pair with two unrelated names: unresolved, nothing known.
+
+When I chose the ideas, I counted on the COMETS R01 pairs across files: 126 of 226 have the same name after `normalize_name()`, and the expert puts 125 of them in one group. That count was made after the data had been seen, with code written for the purpose, so it is a diagnostic. Every result on the development data and COMETS after this change is after adaptation.
+
+### What the label says and what it does not
+
+The label says the two names are the same after normalization, and that neither structure nor lipid profile was compared. It is not a claim that the compounds are the same. MetLinkR groups rows by name, so for many of these pairs the label repeats part of what MetLinkR did. It audits nothing. Its use is sorting: a user reviewing unresolved pairs can tell the pairs where the names agree from those where nothing agrees.
+
+So it gets its own relationship, `same_name`, and is never counted as a definite claim. In every evaluation it counts the way unresolved does, as a safe miss, and it is reported apart. The precision and C1 and C2 figures of earlier tests are not recomputed.
+
+### Change
+
+- New relationship `same_name`. In the order of severity it comes after unresolved and before broader_narrower: distinct, unresolved, same_name, broader_narrower, stereo_variant, exact.
+- New rule R01s, just before R01. It applies when R01 would apply and all of these hold:
+  - the two rows are in different files;
+  - both names are the same after `normalize_name()`;
+  - neither name is a group name, a list of alternatives, an internal standard, an isomer label or marker, or a tentative name.
+- Two rows with the same name in one file stay R01. A lab that reports one name twice may be reporting two features.
+- No other rule changes. A pair where both rows have a key or a profile is decided by the rules that look at them, as now.
+
+### How the work is split
+
+As in v0.10: the assistant writes the code and notes, puts the code in place and does the git work. I run the scripts and tests. The check against the COMETS expert is scripted, and no hand check needs lipid knowledge.
+
+The work happens on branch `exp/same-name-label`. If the change is dropped, the branch becomes `shelved/same-name-label`.
+
+### Order, each step committed before the next
+
+1. This plan.
+2. Feasibility, `scripts/18_v0.11/01_feasibility.R`, on the v0.9.1 audits in `results/v091_check/`, without changing the package. Nothing is sent to PubChem.
+
+   **Go-ahead**, all three needed:
+   1. At least 80 COMETS R01 pairs would get `same_name`.
+   2. Of those the expert covers, at least 98% are in one expert group.
+   3. Pairs that already have two keys, are in different files and pass the same name conditions, development data and COMETS together: at least 98% have keys that do not conflict, that is, a relationship other than distinct and a rule other than R12n. This is the one check with evidence independent of the names: when such pairs have keys, the keys should agree.
+
+   The first two thresholds were set knowing the diagnostic count above, so they confirm that count with the rule's exact conditions. They are not an independent test. The third has not been counted yet.
+
+   If any of the three fails, the change is dropped and the reason is logged.
+3. Build, with unit tests.
+4. Acceptance, `scripts/18_v0.11/02_acceptance.R`.
+
+### Acceptance
+
+- On the development data and COMETS, the only pairs that change are R01 pairs, and every one of them moves to R01s.
+- Development evaluation against the review: 35 agree, 8 safe_miss, 0 wrong, 10 E_not_exact, as in 0.9.1.
+- No lipid match proposal is lost or gained.
+- On COMETS, definite claims across files are the same as in 0.9.1, since `same_name` is not one.
+- On COMETS, at least 98% of `same_name` pairs the expert covers are in one expert group, and every disagreement is listed.
+- The unit tests pass.
+
+If this passes, the change is released as v0.11.0. The two blind tests have only six R01 pairs between them, so they cannot test this. The real test is a fourth blind test on new data with name-only files.
