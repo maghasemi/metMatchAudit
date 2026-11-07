@@ -78,7 +78,7 @@ for (i in seq_along(names_all)) {
   nm <- names_all[i]
   a <- ask_name(nm)
   a$sent <- nm
-  stereo <- any(rows$states_stereo[rows$name == nm])
+  stereo <- isTRUE(any(rows$states_stereo[rows$name == nm]))
   shorter <- short_name(nm)
   if (a$status == "not_found" && !stereo && nzchar(shorter) && shorter != nm) {
     a <- ask_name(shorter)
@@ -227,5 +227,5 @@ summary$pass <- summary$value >= summary$needed
 message("\n==== summary")
 print(summary, row.names = FALSE, right = FALSE)
 write.csv(summary, file.path(out, "summary.csv"), row.names = FALSE)
-message("\nGo-ahead: ", if (all(summary$pass, na.rm = FALSE) && n_err == 0) "YES" else "NO",
+message("\nGo-ahead: ", if (isTRUE(all(summary$pass)) && n_err == 0) "YES" else "NO",
         if (n_err > 0) " (errors left, run again)" else "")
