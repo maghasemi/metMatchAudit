@@ -1213,3 +1213,16 @@ Three workarounds were needed. None changes MetLinkR's settings or the names it 
 No metabolite name or group has been looked at. `scripts/19_blind_test_4/03_sample.R` (commit c18c17e) was written and committed before this output existed.
 
 Next: run `03_sample.R`, then draft the labels.
+
+## 2026-11-08: fourth blind test, step 4, the sample and the draft labels
+
+`scripts/19_blind_test_4/03_sample.R` ran (seed 20261108). MetLinkR made 107 groups with rows from at least two files: 27 with one name after `normalize_name()` and 80 with different names. By file combination, all 27 same-name groups are F1+F2. The 80 others are F1+F2 (73), F1+F3 (3) and F1+F2+F3 (4); no group holds only F2 and F3.
+
+- The same-name stratum has fewer than 30 groups, so all 27 were taken, as the plan says. The different-name stratum gave 30.
+- 57 groups, 67 pairs (64 across files). C1 to C4 are reported with these counts, and the report says the same-name stratum is below the planned size.
+- 108 rows match the lipid and carnitine pattern; 40 were drawn: 4 from F1, 36 from F2, none from F3. F3 (TG, DG, Cer, SM in a short-name style) is therefore only a source of matches, not of sampled rows.
+- Sheets: `data-raw/blind4/labels/label_pairs.csv` and `label_lipids.csv` (git ignores them).
+
+Draft labels were written by the assistant from the names, the identifiers in the sheets and a few PubChem records (CID 5280818, 5280819, 44457542, 442106, 5283572 and others), before any tool output. Pairs: A 55 (27 same-name, 28 other), C 8, D 3, F 1, no B, no E. The F pair is F1:21 against F2:695, the plasmalogen PC whose ether chain sits at sn-1 in F1 and at sn-2 by F2's notation; PubChem has no record under either name. Lipid rows: 6 with an A match, 6 with a D match, 28 with none. Judgment calls the user should look at: the F pair and the lipid row F2:726 (same doubt); "Urobilin" against L-urobilin (labeled C, formulas differ in PubChem); F2:277 (D, position open against sn-1); F2:723 (D, double bond positions open); the stereo rule of the third test applied to plain names.
+
+The sheets have not been accepted yet. Their md5s go into `notes/blind4_labels.md` after the user accepts, and `04_test.R` is written only after that.
