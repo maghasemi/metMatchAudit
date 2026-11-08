@@ -1,6 +1,6 @@
 Package: metMatchAudit
 Title: Audit Cross-Dataset Metabolite Matches with Structural Evidence
-Version: 0.9.1
+Version: 0.11.0
 Authors@R:
     person("Amin", "Ghasemi", role = c("aut", "cre"),
            email = "Aminghasemi@live.com")

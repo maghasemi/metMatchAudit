@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" role="img" aria-labelledby="t d">
   <title id="t">How a pair gets its answer</title>
-  <desc id="d">A pair of rows from one group is checked against its evidence. Twenty rules run in a fixed order and the first that applies decides. In this example, SM 36:1;O2 and stearoyl sphingomyelin stop at rule R05 and the answer is broader_narrower.</desc>
+  <desc id="d">A pair of rows from one group is checked against its evidence. Twenty-one rules run in a fixed order and the first that applies decides. In this example, SM 36:1;O2 and stearoyl sphingomyelin stop at rule R05 and the answer is broader_narrower.</desc>
   <defs>
     <clipPath id="card"><rect width="1200" height="520" rx="16"/></clipPath>
     <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
@@ -18,10 +18,10 @@
 
     <!-- cards -->
     <g fill="#1a1a1a" stroke="#2e2e2e" stroke-width="1.5">
-      <rect x="30" y="86" width="260" height="404" rx="14"/>
-      <rect x="325" y="86" width="210" height="404" rx="14"/>
-      <rect x="570" y="86" width="300" height="404" rx="14"/>
-      <rect x="905" y="86" width="265" height="404" rx="14"/>
+      <rect x="30" y="86" width="260" height="414" rx="14"/>
+      <rect x="325" y="86" width="210" height="414" rx="14"/>
+      <rect x="570" y="86" width="300" height="414" rx="14"/>
+      <rect x="905" y="86" width="265" height="414" rx="14"/>
     </g>
     <g font-size="13" font-weight="700" letter-spacing="2.5" fill="#ffcc35">
       <text x="50" y="120">1 · A PAIR</text>
@@ -75,15 +75,15 @@
         <rect x="794" y="144" width="60" height="38" rx="8"/>
         <rect x="590" y="190" width="60" height="38" rx="8"/>
         <rect x="658" y="190" width="60" height="38" rx="8"/>
+        <rect x="726" y="190" width="60" height="38" rx="8"/>
       </g>
       <g fill="#c4c4c4">
-        <text x="620" y="169">R02</text><text x="688" y="169">R01</text><text x="756" y="169">R03i</text><text x="824" y="169">R04h</text>
-        <text x="620" y="215">R04</text><text x="688" y="215">R05g</text>
+        <text x="620" y="169">R02</text><text x="688" y="169">R01s</text><text x="756" y="169">R01</text><text x="824" y="169">R03i</text>
+        <text x="620" y="215">R04h</text><text x="688" y="215">R04</text><text x="756" y="215">R05g</text>
       </g>
-      <rect x="726" y="190" width="60" height="38" rx="8" fill="#ffcc35"/>
-      <text x="756" y="215" fill="#121212">R05</text>
+      <rect x="794" y="190" width="60" height="38" rx="8" fill="#ffcc35"/>
+      <text x="824" y="215" fill="#121212">R05</text>
       <g fill="none" stroke="#333333" stroke-width="1.5" stroke-dasharray="4 4">
-        <rect x="794" y="190" width="60" height="38" rx="8"/>
         <rect x="590" y="236" width="60" height="38" rx="8"/>
         <rect x="658" y="236" width="60" height="38" rx="8"/>
         <rect x="726" y="236" width="60" height="38" rx="8"/>
@@ -96,18 +96,19 @@
         <rect x="658" y="328" width="60" height="38" rx="8"/>
         <rect x="726" y="328" width="60" height="38" rx="8"/>
         <rect x="794" y="328" width="60" height="38" rx="8"/>
+        <rect x="590" y="374" width="60" height="38" rx="8"/>
       </g>
       <g fill="#6a6a6a">
-        <text x="824" y="215">R06</text>
-        <text x="620" y="261">R03c</text><text x="688" y="261">R06b</text><text x="756" y="261">R03</text><text x="824" y="261">R08</text>
-        <text x="620" y="307">R08b</text><text x="688" y="307">R09</text><text x="756" y="307">R09b</text><text x="824" y="307">R10</text>
-        <text x="620" y="353">R11</text><text x="688" y="353">R12n</text><text x="756" y="353">R12</text><text x="824" y="353">R99</text>
+        <text x="620" y="261">R06</text><text x="688" y="261">R03c</text><text x="756" y="261">R06b</text><text x="824" y="261">R03</text>
+        <text x="620" y="307">R08</text><text x="688" y="307">R08b</text><text x="756" y="307">R09</text><text x="824" y="307">R09b</text>
+        <text x="620" y="353">R10</text><text x="688" y="353">R11</text><text x="756" y="353">R12n</text><text x="824" y="353">R12</text>
+        <text x="620" y="399">R99</text>
       </g>
     </g>
     <text font-size="16" fill="#c4c4c4">
-      <tspan x="590" y="406">Grey: checked, does not apply.</tspan>
-      <tspan x="590" y="432">Yellow: the first that applies decides.</tspan>
-      <tspan x="590" y="458">Dashed: never reached.</tspan>
+      <tspan x="590" y="440">Grey: checked, does not apply.</tspan>
+      <tspan x="590" y="462">Yellow: the first that applies decides.</tspan>
+      <tspan x="590" y="484">Dashed: never reached.</tspan>
     </text>
 
     <!-- 4: answer -->
@@ -117,6 +118,7 @@
         <rect x="925" y="236" width="225" height="38" rx="19"/>
         <rect x="925" y="282" width="225" height="38" rx="19"/>
         <rect x="925" y="328" width="225" height="38" rx="19"/>
+        <rect x="925" y="374" width="225" height="38" rx="19"/>
       </g>
       <rect x="925" y="190" width="225" height="38" rx="19" fill="#ffcc35"/>
       <text x="1037.5" y="169" fill="#c4c4c4">exact</text>
@@ -124,11 +126,12 @@
       <text x="1037.5" y="261" fill="#c4c4c4">stereo_variant</text>
       <text x="1037.5" y="307" fill="#c4c4c4">distinct</text>
       <text x="1037.5" y="353" fill="#c4c4c4">unresolved</text>
+      <text x="1037.5" y="399" fill="#c4c4c4">same_name</text>
     </g>
     <text font-size="16" fill="#c4c4c4">
-      <tspan x="925" y="406">Evidence, R05:</tspan>
-      <tspan x="925" y="432">SM 36:1;O2: level</tspan>
-      <tspan x="925" y="458">species vs structure</tspan>
+      <tspan x="925" y="440">Evidence, R05:</tspan>
+      <tspan x="925" y="462">SM 36:1;O2: level</tspan>
+      <tspan x="925" y="484">species vs structure</tspan>
     </text>
   </g>
 </svg>
