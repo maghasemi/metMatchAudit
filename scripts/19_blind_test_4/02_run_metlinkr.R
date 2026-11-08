@@ -61,14 +61,25 @@ stopifnot(ramp_version %in% RaMP:::listRaMPVersions(local = TRUE))
 ramp_orig <- RaMP::RaMP
 assignInNamespace("RaMP", function(version = ramp_version, branch = "main") ramp_orig(version, branch), "RaMP")
 
-# Diagnostic, added after the second attempt stopped in tidyr inside
-# metLinkR's pivot_mapping_library(). The table it is given is saved before
-# the call, so the failure can be studied without another full run. The
-# call itself is unchanged.
+# metLinkR's pivot_mapping_library() stopped twice inside tidyr's
+# names_sep splitting ("SET_VECTOR_ELT() can only be applied to a 'list',
+# not a 'promise'"). On the saved input table, the same call ran without
+# error in a fresh session, so the failure depends on the state of the long
+# run, not on the data. If it happens again, the same pivot is done with
+# names_pattern, which avoids that code. On this run's table the two give
+# identical results (checked 2026-11-08). The run log says which was used.
 pivot_orig <- get("pivot_mapping_library", asNamespace("metLinkR"))
+pivot_fallback_used <- FALSE
 assignInNamespace("pivot_mapping_library", function(mappings) {
-  saveRDS(mappings, "debug_pivot_input.rds")
-  pivot_orig(mappings)
+  tryCatch(pivot_orig(mappings), error = function(e) {
+    pivot_fallback_used <<- TRUE
+    message("pivot_mapping_library() failed (", conditionMessage(e), "); using names_pattern instead")
+    mappings |>
+      tidyr::pivot_longer(cols = -"Harmonized name", names_to = c(".value", "Origin file"),
+                          names_pattern = "^(.*) \\((.*)\\)$", values_drop_na = TRUE) |>
+      dplyr::filter(`Input name` != "-") |>
+      dplyr::mutate(`Origin file` = gsub("\\)", "", `Origin file`))
+  })
 }, "metLinkR")
 
 old <- setwd(run_dir)
@@ -87,6 +98,7 @@ writeLines(c(
   utils::capture.output(RaMP::listAvailableRaMPDbVersions()),
   paste("RaMP database version used (pinned):", ramp_version),
   paste("Files given an empty extra column for metLinkR:", paste(padded, collapse = ", ")),
+  paste("pivot_mapping_library() replaced by the names_pattern pivot after an error:", pivot_fallback_used),
   "Settings: MetLinkR defaults, n_cores = 1",
   "",
   utils::capture.output(sessionInfo())
