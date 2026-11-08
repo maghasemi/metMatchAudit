@@ -1108,3 +1108,71 @@ The idea: when two keys differ only in stereo and no name states stereo (R11, un
 Only the size was counted for this entry (15 R11 pairs; the names of 25 of their 30 rows were already in the v0.10 cache). No outcome was looked at. Nothing is built, and no branch or version number is used.
 
 The next step is a fourth blind test on new data. v0.9, v0.9.1 and v0.11 have only been run on data they were built on.
+
+## 2026-11-08: fourth blind test, plan, written before any data is chosen
+
+### Why
+
+v0.9, v0.9.1 and v0.11 have only run on data they were built on. The `same_name` label of v0.11 in particular has never met files it was not built for, and the second and third tests hold only six R01 pairs between them. An open problem from the third test also stands: its sample had almost no pairs of different compounds, so `distinct` calls were hardly tested.
+
+### Choices made with the user
+
+- New public data, chosen by the assistant under the rule below. Private file A is left out, so every file is new to the tool.
+- Labels drafted by the assistant and accepted by me, as in the third test. I cannot judge the chemistry myself, so this is the weakest part of the test, and the report says so.
+
+### Data, chosen by a fixed rule
+
+The files come from the Metabolomics Workbench (metabolomicsworkbench.org), which holds many public human studies and keeps each lab's own metabolite names. `scripts/19_blind_test_4/01_select.R` chooses them, with seed 20261108:
+
+1. Candidates are the studies the Workbench lists for MS, human, blood (`rest/metstat/MS;;;Human;Blood;;;`).
+2. An analysis qualifies when its table lists at least 100 metabolites with a name.
+3. An analysis is left out when more than half of its names are already the RefMet name the Workbench gives them, after `normalize_name()`. MetLinkR maps names to RefMet, so such a file would test little.
+4. Three analyses are drawn, each from a different institute and a different study:
+   - one from analyses whose table gives a PubChem CID, an InChIKey or an HMDB ID for at least half of its rows, so the key rules are used;
+   - two from analyses with no such column, so the rows are name-only and R01s can apply.
+5. Only the lab's own name and its identifier columns are kept. The RefMet name is dropped.
+
+The script logs each study's ID, institute, licence, release date, row count and md5. It prints no metabolite name. Licences differ between studies, so the copies stay in `data-raw/blind4/`, which git ignores, and the script can fetch them again.
+
+Nothing of these files has been seen before this plan. Choosing the Workbench involved seeing five names of study ST000001 and three of ST004827, while checking the format. Either study can be drawn only if it passes the rule like any other.
+
+### Frozen code
+
+metMatchAudit at tag `v0.11.0`, with SwissLipids (md5 `b6ddd5bc3003967dce95e905e5748953`) and LMSD (md5 `134c2b5c6d76e9883d46339a6289eefd`). MetLinkR at commit a6aa145 with RaMP DB 3.0.7, as before. The test script stops if the package code differs from the tag.
+
+### Order, each step committed before the next
+
+1. This plan.
+2. `scripts/19_blind_test_4/01_select.R` chooses and copies the three files.
+3. MetLinkR on the three files together. Its output goes to `data-raw/blind4/metlinkr_output/`.
+4. `scripts/19_blind_test_4/03_sample.R`, seed 20261108, using the names only and no tool output:
+   - 30 groups drawn at random from MetLinkR groups that hold rows from at least two files and the same name after `normalize_name()` across files;
+   - 30 groups drawn the same way from groups whose names differ across files. This half is meant to bring in more pairs of different compounds;
+   - if a stratum has fewer than 30 groups, all of them are taken;
+   - up to 40 rows whose name starts with a lipid class or ends in "carnitine", with the pattern of the third test, drawn at random if there are more.
+5. Labels, before the tool is run on these files:
+   - every pair in the sampled groups gets a category (A same compound, B stereo, C different compounds, D broader or narrower, E source error, F unclear) and the record behind it;
+   - every sampled lipid row gets the rows of the other files that are the same compound or a broader or narrower annotation of it, or "none";
+   - the stereo rule of the third test applies unchanged (`notes/blind3_labels.md`);
+   - the md5s of the label sheets go into `notes/blind4_labels.md`, committed before step 6.
+6. `scripts/19_blind_test_4/04_test.R` runs the audit once and compares.
+
+### Criteria
+
+The first three as in the second and third tests:
+
+- **C1:** of the tool's definite claims (exact, distinct) on labeled pairs, at least 90% agree with the label. exact agrees with A; distinct agrees with C or E.
+- **C2:** among groups labeled A to D, at most 5% get a wrong definite answer. A group's label is its most severe pair label, in the order E > C > F > D > B > A. `same_name` counts as unresolved: a safe miss.
+- **C3:** of the tool's lipid match proposals that involve a sampled row, at least 90% are pairs in the labels. Recall is reported, with no threshold.
+
+And one for v0.11:
+
+- **C4:** of the labeled pairs the tool calls `same_name`, at least 95% are labeled A. With fewer than 20 such pairs, the result is reported and the report says the sample is too small to carry the threshold.
+
+All four are reported whatever the outcome, and every result is also given for each stratum of step 4. If fewer than 30 groups hold rows from two files, the test still runs and the report says the sample is too small.
+
+### Known weaknesses
+
+- The labels are drafted by an AI assistant from the same family as the one that wrote the tool, and I accept them without being able to check the chemistry. The labels come before any tool output, and every line cites its record, but they are not an independent expert's.
+- All three files are from human blood. Other matrices are not tested.
+- MetLinkR decides which rows are grouped. Pairs it never grouped are tested only through the lipid proposals.
