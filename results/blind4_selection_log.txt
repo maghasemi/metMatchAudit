@@ -1,0 +1,39 @@
+1. Studies listed for MS, human, blood: 404
+  50 of 404 studies
+  100 of 404 studies
+  150 of 404 studies
+  200 of 404 studies
+  250 of 404 studies
+  300 of 404 studies
+  350 of 404 studies
+  400 of 404 studies
+Analyses with at least one named metabolite: 719
+2. With at least 100 named metabolites: 384
+3. Of those, left out because more than half the names are RefMet names: 87
+
+Reading the metabolite tables of 297 analyses
+  50 of 297
+  100 of 297
+  150 of 297
+  200 of 297
+  250 of 297
+4. Qualifying analyses by stratum:
+
+     identifiers       names only         no table some identifiers 
+             135               69                4               89 
+
+==== chosen
+ label stratum     study    analysis_id institute                                                                            licence     release_date n_named refmet_share id_coverage rows_copied
+ F1    identifiers ST001411 AN002361    University of Michigan                                                               CC BY-NC-ND 2021-06-15   991     0.2906155    0.7517659   991        
+ F2    names only  ST004767 AN008060    Affiliated Hangzhou First People's Hospital, Westlake University, School of Medicine CC BY-NC-ND 2026-05-04   919     0.2176279    0.0000000   919        
+ F3    names only  ST003705 AN006078    Seoul National University College of Medicine and Hospital                           CC BY-NC-ND 2025-06-02   463     0.0000000    0.0000000   463        
+ columns                  md5                             
+ BIOCHEMICAL PUBCHEM HMDB 4f1009d43f2512718999809135555ee6
+ BIOCHEMICAL              fe888f7912fb44e3182f9ec91427784d
+ BIOCHEMICAL              6d7c70b4a7ccd256ece6b28361944131
+Titles:
+  F1: Plasma metabolites of lipid metabolism associate with diabetic polyneuropathy in a cohort with screen-tested type 2 diabetes: ADDITION-Denmark
+  F2: Human multi-omics maps progression from pancreatitis to pancreatic ductal adenocarcinoma and identifies a diagnostic panel
+  F3: Lipid Metabolite Profiling of nontuberculous mycobacterial pulmonary disease
+
+Failed requests: 0

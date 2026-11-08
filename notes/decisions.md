@@ -1176,3 +1176,17 @@ All four are reported whatever the outcome, and every result is also given for e
 - The labels are drafted by an AI assistant from the same family as the one that wrote the tool, and I accept them without being able to check the chemistry. The labels come before any tool output, and every line cites its record, but they are not an independent expert's.
 - All three files are from human blood. Other matrices are not tested.
 - MetLinkR decides which rows are grouped. Pairs it never grouped are tested only through the lipid proposals.
+
+## 2026-11-08: fourth blind test, step 2, the three files
+
+`scripts/19_blind_test_4/01_select.R` ran with 0 failed requests (log in `results/blind4_selection_log.txt`, tables in `results/blind4_selection/`). 404 studies were listed; 384 analyses had at least 100 names; 87 of those were left out as mostly RefMet names. Of the 297 left, 135 have identifiers for at least half their rows, 69 are name-only, 89 have some identifiers and 4 have no metabolite table.
+
+| file | study | analysis | institute | rows | columns | md5 |
+|---|---|---|---|---|---|---|
+| F1 | ST001411 | AN002361 | University of Michigan | 991 | name, PubChem, HMDB | `4f1009d43f2512718999809135555ee6` |
+| F2 | ST004767 | AN008060 | Affiliated Hangzhou First People's Hospital, Westlake University | 919 | name only | `fe888f7912fb44e3182f9ec91427784d` |
+| F3 | ST003705 | AN006078 | Seoul National University College of Medicine and Hospital | 463 | name only | `6d7c70b4a7ccd256ece6b28361944131` |
+
+All three are CC BY-NC-ND, so the copies stay in `data-raw/blind4/` and are not committed. F1 and F3 are lipid studies by their titles, so lipid rows may dominate. That was not chosen; it is what the draw gave, and it is reported as such. No metabolite name has been looked at yet.
+
+Next: MetLinkR on F1, F2 and F3 together, with output in `data-raw/blind4/metlinkr_output/`.

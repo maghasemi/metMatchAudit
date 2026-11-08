@@ -37,3 +37,4 @@ Output of the scripts in `scripts/`. Each folder or file is listed with the scri
 | `v091_check/`, `v091_check_log.txt` | `scripts/17_v0.9.1/01_acceptance.R` |
 | `v11_feasibility/`, `v11_feasibility_log.txt` | `scripts/18_v0.11/01_feasibility.R` |
 | `v11_check/`, `v11_check_log.txt` | `scripts/18_v0.11/02_acceptance.R` |
+| `blind4_selection/`, `blind4_selection_log.txt` | `scripts/19_blind_test_4/01_select.R` |
