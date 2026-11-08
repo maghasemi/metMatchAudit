@@ -12,7 +12,7 @@ summarise_groups(pairs)
 \value{
 A data frame with one line per group: \code{group_id}, \code{n_rows},
 \code{n_pairs}, \code{worst_relationship} (most severe first: distinct,
-unresolved, broader_narrower, stereo_variant, exact), \code{worst_rule}
+unresolved, same_name, broader_narrower, stereo_variant, exact), \code{worst_rule}
 (the rule behind the first pair with that relationship), and one
 count column per relationship.
 }
