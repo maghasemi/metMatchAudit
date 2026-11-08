@@ -58,9 +58,11 @@ ch_com <- changed(old_com, com)
 only_r01 <- function(ch) all(ch$rule_id_old == "R01" & ch$rule_id_new == "R01s" & ch$relationship_new == "same_name")
 message("\n==== 1. changed pairs")
 message("Development: ", nrow(ch_dev), "; COMETS: ", nrow(ch_com))
+# paste() of an empty vector with a constant gives one string, not none,
+# so an empty table of changes needs its own case.
+change_text <- function(ch) if (nrow(ch) == 0) character(0) else paste(ch$rule_id_old, "->", ch$rule_id_new)
 print(table(set = c(rep("development", nrow(ch_dev)), rep("comets", nrow(ch_com))),
-            change = c(paste(ch_dev$rule_id_old, "->", ch_dev$rule_id_new),
-                       paste(ch_com$rule_id_old, "->", ch_com$rule_id_new))))
+            change = c(change_text(ch_dev), change_text(ch_com))))
 ok_changes <- only_r01(ch_dev) && only_r01(ch_com)
 message("Only R01 pairs changed, all to R01s: ", ok_changes)
 
