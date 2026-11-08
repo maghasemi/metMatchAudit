@@ -643,3 +643,20 @@ The one pair the expert separates is "N-acetylcarnosine" against "N-acetylcarnos
 The three conflicts are R12n pairs: xylose against Xylose, fructose against fructose and 4-vinylphenol sulfate against itself. The expert puts the two COMETS pairs in one group. All three look like two records for one compound, such as a sugar's ring and open chain, rather than two compounds under one name. None of the 189 pairs is distinct. On COMETS the expert puts 143 of the 144 in one group.
 
 This check passed with little room: 98.4% against 98%. One more conflict among these 189 pairs would have failed it.
+
+## 2026-11-08: v0.11 acceptance (after adaptation)
+
+Source: `results/v11_check/` and `results/v11_check_log.txt`, from `scripts/18_v0.11/02_acceptance.R` on branch `exp/same-name-label`, version 0.11.0. The unit tests passed first: 380 passed, 0 failed. The first run of the script stopped in its own code, on an empty table of development changes; that was fixed (commit `a3dc89c`) and the second run is the one reported.
+
+| check | result |
+|---|---|
+| failed PubChem requests | 0 |
+| changed pairs | development 0; COMETS 121, all R01 to R01s |
+| development evaluation | 35 agree, 8 safe_miss, 0 wrong, 0 E_exact, 10 E_not_exact, as in 0.9.1 |
+| lipid match proposals | development 129, COMETS 108, the same sets as in 0.9.1 |
+| COMETS definite claims across files | 122, identical to 0.9.1 |
+| COMETS `same_name` pairs in one expert group | 120 of 121 (99.2%) |
+
+The pairs are the 121 the feasibility counted. The one the expert separates is again "N-acetylcarnosine" against "N-acetylcarnosine".
+
+On COMETS, unresolved pairs go from 250 to 129. The 121 that moved are not new claims: they now say that the names agree and that nothing else was compared.

@@ -93,6 +93,12 @@ On the development data, unresolved pairs went from 39 to 30, and lipid proposal
 
 The 19 new claims passed a scripted check of chain sums and formulas. A curator did not review them, and Broad has no m/z on these rows.
 
+## Pairs that only share a name (v0.11)
+
+v0.11 gives a pair the relationship `same_name` when R01 would leave it unresolved, the rows are in different files and their names agree after normalization. No structure is compared, and MetLinkR groups by name, so this sorts unresolved pairs and is not a claim. These results are after adaptation.
+
+On COMETS, 121 of the 234 R01 pairs moved to `same_name`. The expert puts 120 of them in one group. The one it separates is "N-acetylcarnosine" against "N-acetylcarnosine". Definite claims, lipid proposals and the development evaluation did not change. The two blind tests have only six R01 pairs between them, so a test of this label needs new data with name-only files.
+
 ## What did not work
 
 Three ideas were tried and set aside. All are logged in [decisions.md](decisions.md).

@@ -1,0 +1,35 @@
+Failed PubChem requests: development 0, COMETS 0
+
+==== 1. changed pairs
+Development: 0; COMETS: 121
+        change
+set      R01 -> R01s
+  comets         121
+Only R01 pairs changed, all to R01s: TRUE
+
+==== 2. development evaluation (0.9.1: 35 agree, 8 safe_miss, 0 wrong, 0 E_exact, 10 E_not_exact)
+
+      agree   safe_miss       wrong     E_exact E_not_exact 
+         35           8           0           0          10 
+
+==== 3. lipid match proposals
+Development: 129 before, 129 now; same set: TRUE
+COMETS: 108 before, 108 now; same set: TRUE
+
+==== 4. COMETS definite claims across files: 122 before, 122 now; identical: TRUE
+
+==== 5. COMETS same_name pairs: 121; the expert covers 121; in one expert group: 120 (99.2%). Needed: at least 98%.
+same_name pairs the expert separates:
+ name_a            name_b            group_id         
+ N-acetylcarnosine N-acetylcarnosine N-Acetylcarnosine
+
+==== summary
+ check                                      value  pass
+ no failed PubChem request                  0.0000 TRUE
+ only R01 pairs change, all to R01s         1.0000 TRUE
+ development evaluation as in 0.9.1         1.0000 TRUE
+ no lipid proposal lost or gained           1.0000 TRUE
+ COMETS definite claims unchanged           1.0000 TRUE
+ COMETS same_name pairs in one expert group 0.9917 TRUE
+
+Automatic checks: ALL PASS

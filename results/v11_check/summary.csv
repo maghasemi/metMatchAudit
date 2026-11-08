@@ -1,0 +1,7 @@
+"check","value","pass"
+"no failed PubChem request",0,TRUE
+"only R01 pairs change, all to R01s",1,TRUE
+"development evaluation as in 0.9.1",1,TRUE
+"no lipid proposal lost or gained",1,TRUE
+"COMETS definite claims unchanged",1,TRUE
+"COMETS same_name pairs in one expert group",0.9917,TRUE
