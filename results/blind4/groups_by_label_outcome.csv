@@ -1,0 +1,8 @@
+"stratum","label","outcome","Freq"
+"different","A","safe_miss",23
+"same","A","safe_miss",27
+"different","C","safe_miss",3
+"different","D","safe_miss",1
+"different","A","wrong",1
+"different","C","wrong",1
+"different","F","wrong",1

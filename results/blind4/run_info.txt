@@ -1,0 +1,11 @@
+package: 0.11.0
+run: 2026-11-08 17:43:03 CET
+swisslipids md5: b6ddd5bc3003967dce95e905e5748953
+lmsd md5: 134c2b5c6d76e9883d46339a6289eefd
+structure checks: TRUE
+failed PubChem requests: 0
+metlinkr output md5: F1_metLinkR.csv fd0905bdee002465fbd5b0c9ef86e482
+metlinkr output md5: F2_metLinkR.csv b1924621969128019f5f1895044d0fc1
+metlinkr output md5: F3_metLinkR.csv 4157b66b6012d9bf95d051dd8f75f506
+label md5: label_pairs.csv f9f03def8a5b04546c8839673ea6d811
+label md5: label_lipids.csv 70e2213390b427e7d58adf24ec81a051

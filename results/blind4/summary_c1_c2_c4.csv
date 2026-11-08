@@ -1,0 +1,4 @@
+"part","c1_right","c1_of","c1_pct","c2_wrong","c2_of","c2_pct","c4_a","c4_of","c4_pct","c1_met","c2_met","c4_met","c4_note"
+"all",0,2,0,2,56,3.6,27,27,100,FALSE,TRUE,TRUE,""
+"same-name stratum",0,0,NA,0,27,0,27,27,100,NA,TRUE,TRUE,""
+"different-names stratum",0,2,0,2,29,6.9,0,0,NA,FALSE,FALSE,NA,"fewer than 20 pairs: too few to carry the threshold"

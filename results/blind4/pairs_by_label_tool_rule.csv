@@ -1,0 +1,10 @@
+"stratum","label","tool","rule","Freq"
+"different","A","unresolved","R01",22
+"different","C","unresolved","R01",7
+"different","D","unresolved","R01",1
+"same","A","same_name","R01s",27
+"different","C","exact","R03",1
+"different","A","broader_narrower","R05",1
+"different","D","broader_narrower","R05",2
+"different","F","distinct","R06",1
+"different","A","unresolved","R99",5

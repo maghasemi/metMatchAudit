@@ -1,0 +1,61 @@
+- The project is out-of-sync -- use `]8;;x-r-run:renv::status()renv::status()]8;;` for details.
+<metmatch_audit>
+ rows:  2373 in 3 files
+ groups: 141  with two or more rows
+ pairs: 292
+    distinct          5 
+    unresolved        240 
+    same_name         27 
+    broader_narrower  5 
+    stereo_variant    3 
+    exact             12 
+ row flags: 0 
+ lipid matches across files: 23 ( 19 not grouped by MetLinkR )
+
+==== Fourth blind test: C1, C2, C4, all pairs and by stratum
+ part                    c1_right c1_of c1_pct c2_wrong c2_of c2_pct c4_a c4_of c4_pct c1_met c2_met c4_met c4_note                                            
+ all                     0        2      0     2        56    3.6    27   27    100    FALSE   TRUE  TRUE                                                      
+ same-name stratum       0        0     NA     0        27    0.0    27   27    100       NA   TRUE  TRUE                                                      
+ different-names stratum 0        2      0     2        29    6.9     0    0     NA    FALSE  FALSE    NA   fewer than 20 pairs: too few to carry the threshold
+
+==== C3
+ part                                                            count of percent met  
+ C3: lipid proposals that are pairs in the labels (at least 90%) 3      4 75      FALSE
+ C3 recall: labeled lipid pairs the tool proposed (no threshold) 3     12 25         NA
+
+Pairs, label against tool:
+     tool
+label distinct unresolved same_name broader_narrower stereo_variant exact
+    A        0         27        27                1              0     0
+    C        0          7         0                0              0     1
+    D        0          1         0                2              0     0
+    F        1          0         0                0              0     0
+
+Pairs, label and tool by rule:
+                    
+                     R01 R01s R03 R05 R06 R99
+  A broader_narrower   0    0   0   1   0   0
+  A same_name          0   27   0   0   0   0
+  A unresolved        22    0   0   0   0   5
+  C exact              0    0   1   0   0   0
+  C unresolved         7    0   0   0   0   0
+  D broader_narrower   0    0   0   2   0   0
+  D unresolved         1    0   0   0   0   0
+  F distinct           0    0   0   0   1   0
+
+Groups, label against outcome:
+     outcome
+label safe_miss wrong
+    A        50     1
+    C         3     1
+    D         1     0
+    F         0     1
+
+Lipid proposals involving sampled rows, by tool relationship:
+                  in_labels
+tool               FALSE TRUE
+  broader_narrower     1    3
+
+Sampled lipid rows by file: F1 4, F2 36
+
+Counts in results/blind4; details in data-raw/blind4/results (not committed).

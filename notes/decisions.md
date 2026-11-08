@@ -1226,3 +1226,38 @@ Next: run `03_sample.R`, then draft the labels.
 Draft labels were written by the assistant from the names, the identifiers in the sheets and a few PubChem records (CID 5280818, 5280819, 44457542, 442106, 5283572 and others), before any tool output. Pairs: A 55 (27 same-name, 28 other), C 8, D 3, F 1, no B, no E. The F pair is F1:21 against F2:695, the plasmalogen PC whose ether chain sits at sn-1 in F1 and at sn-2 by F2's notation; PubChem has no record under either name. Lipid rows: 6 with an A match, 6 with a D match, 28 with none. Judgment calls the user should look at: the F pair and the lipid row F2:726 (same doubt); "Urobilin" against L-urobilin (labeled C, formulas differ in PubChem); F2:277 (D, position open against sn-1); F2:723 (D, double bond positions open); the stereo rule of the third test applied to plain names.
 
 The sheets have not been accepted yet. Their md5s go into `notes/blind4_labels.md` after the user accepts, and `04_test.R` is written only after that.
+
+## 2026-11-08: fourth blind test, result
+
+`scripts/19_blind_test_4/04_test.R` ran once on v0.11.0 (run 2026-11-08 17:43 CET, 0 failed PubChem requests, all md5s as committed). Counts are in `results/blind4/`, the log in `results/blind4_log.txt`, the named rows in `data-raw/blind4/results/` (not committed). The audit found 2373 rows, 141 groups with two or more rows and 292 pairs: 12 exact, 3 stereo_variant, 5 broader_narrower, 5 distinct, 27 same_name, 240 unresolved. This is the first test on new data since v0.9, so it is a blind result for v0.11.
+
+| criterion | result | threshold | met |
+|---|---|---|---|
+| C1: definite claims that agree | 0 of 2 | 90% | no |
+| C2: groups labeled A to D with a wrong definite answer | 2 of 56 (3.6%) | at most 5% | yes |
+| C3: lipid proposals that are pairs in the labels | 3 of 4 (75%) | 90% | no |
+| C3 recall (no threshold) | 3 of 12 (25%) | none | not applicable |
+| C4: same_name pairs labeled A | 27 of 27 | 95% | yes |
+
+By stratum: same-name stratum C2 0 of 27, C4 27 of 27 (all 27 same_name pairs are there; 27 is above the 20 the plan asks for). Different-names stratum C1 0 of 2, C2 2 of 29 (6.9%); the plan sets no threshold per stratum. (The "fewer than 20 pairs" note in the different-names row of the csv has no same_name pairs behind it and means nothing.)
+
+### What the misses are
+
+C1 has only two definite claims, so it rests on very little:
+1. F1:646 against F1:647, the two regioisomers [1] and [2] of linoleoyl-arachidonoyl-glycerol, same file, both HMDB07257. The tool says exact (rule R03, same HMDB ID); my label is C because the source keeps them apart. The tool followed the shared identifier. This is also the cause of the first wrong group in C2: the same group holds F3:388 DG18:2_20:4, which the tool rightly calls broader_narrower, so the group's worst answer is broader_narrower against a label C.
+2. F1:21 against F2:695, the plasmalogen PC with the ether chain at sn-1 against sn-2. My label was F (unclear, said so before the run). The tool says distinct (R06), which is the structural answer if the chain order of F2 is taken at face value. A definite claim on an F pair counts as disagreement under the plan. This group is outside C2.
+
+The second wrong group in C2 is F1:348 "behenoyl sphingomyelin (d18:1/22:0)" against F2:794 "SM(d18:1/22:0)", labeled A, called broader_narrower by R05.
+
+C3: the one proposal outside the labels is F1:65 (1-oleoyl-GPC, 9Z) against F2:792 (LysoPC 18:1(11Z), vaccenoyl), called broader_narrower at the level "structure vs molecular". My label says different compounds, because the double bond position differs. The tool seems to ignore the position when it works at species level. The sample has 4 proposals, so this is a small count.
+
+C3 recall: 12 labeled lipid pairs, 3 proposed. Of the 9 not proposed, 6 were already in one MetLinkR group (and so are covered by the pair audit, which is what C1 and C2 measure). The other 3 are F1:107 against F2:277 ("PC(18:0)" for a lyso PC), and F1:913 and F3:455 against F2:775 (sphingomyelin written as a sum or as a list of candidates).
+
+### What this does and does not show
+
+- C4 holds on a sample of 27 and C2 holds overall, so `same_name` and the wrong-definite rate survived data the tool was not built for.
+- C1 fails, but 2 claims cannot carry a threshold. The tool made very few definite claims here (17 of 292 pairs are exact or distinct, and only 2 fall on labeled pairs), which is again the "few distinct pairs" problem of the third test, now with a sample that was meant to fix it: of the 30 different-names groups, only 2 labeled pairs got a definite answer.
+- Both C1 misses touch my own labels (a C that the source's identifier contradicts, and an F). They are reported as misses, not reclassified after the run.
+- Labels are the assistant's, accepted by the user without chemistry checks (see `notes/blind4_labels.md`).
+
+No change to the tool is made here. Possible follow-ups, for a separate plan: whether R03 should say exact for two rows of one file that carry a shared HMDB ID but names marked [1] and [2]; whether species-level lipid matching should compare double bond position when both names give it; whether "PC(18:0)" should be read as a lyso PC.

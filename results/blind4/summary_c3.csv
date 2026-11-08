@@ -1,0 +1,3 @@
+"part","count","of","percent","met"
+"C3: lipid proposals that are pairs in the labels (at least 90%)",3,4,75,FALSE
+"C3 recall: labeled lipid pairs the tool proposed (no threshold)",3,12,25,NA
