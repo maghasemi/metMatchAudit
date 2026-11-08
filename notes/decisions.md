@@ -1190,3 +1190,26 @@ All four are reported whatever the outcome, and every result is also given for e
 All three are CC BY-NC-ND, so the copies stay in `data-raw/blind4/` and are not committed. F1 and F3 are lipid studies by their titles, so lipid rows may dominate. That was not chosen; it is what the draw gave, and it is reported as such. No metabolite name has been looked at yet.
 
 Next: MetLinkR on F1, F2 and F3 together, with output in `data-raw/blind4/metlinkr_output/`.
+
+## 2026-11-08: fourth blind test, step 3, the MetLinkR run
+
+`scripts/19_blind_test_4/02_run_metlinkr.R` (commit e3ddbf7) ran MetLinkR on F1, F2 and F3 together in 1.9 minutes, on the third attempt. MetLinkR is at commit a6aa145 with RaMP DB 3.0.7, as planned. The log is `data-raw/blind4/metlinkr_output/run_log.txt`.
+
+Mapping rates: F1 91.9%, F2 54.8%, F3 94.8%, 78.1% over all rows. The output files keep every input row (991, 919 and 463).
+
+Three workarounds were needed. None changes MetLinkR's settings or the names it is given:
+
+1. **RaMP DB pinned to 3.0.7.** metLinkR asks GitHub for the newest RaMP version. That request timed out (HTTP 504) and stopped the first attempt. The script now passes 3.0.7, which is already on this machine, so GitHub is not asked and no newer version can slip in.
+2. **One-column files padded.** metLinkR's `queryRefMet()` returns NA for a table with one column, and the run then stops. F2 and F3 have only a name column, so their run copies got one empty column, `UNUSED`, that the manifest does not name. The copies in `data-raw/blind4/` are unchanged.
+3. **Pivot fallback.** metLinkR's `pivot_mapping_library()` stopped inside tidyr with "SET_VECTOR_ELT() can only be applied to a 'list', not a 'promise'". On the saved input table the same call ran without error in a fresh session, and a `names_pattern` pivot gave an identical table. The script uses that pivot only if the original fails. **In this run it failed again, so the fallback was used.** The run log records this.
+
+| file | md5 |
+|---|---|
+| `F1_metLinkR.csv` | `fd0905bdee002465fbd5b0c9ef86e482` |
+| `F2_metLinkR.csv` | `b1924621969128019f5f1895044d0fc1` |
+| `F3_metLinkR.csv` | `4157b66b6012d9bf95d051dd8f75f506` |
+| `manifest.csv` | `6bb3decb4c770842c09da4e2b3cfb09b` |
+
+No metabolite name or group has been looked at. `scripts/19_blind_test_4/03_sample.R` (commit c18c17e) was written and committed before this output existed.
+
+Next: run `03_sample.R`, then draft the labels.
