@@ -61,6 +61,16 @@ stopifnot(ramp_version %in% RaMP:::listRaMPVersions(local = TRUE))
 ramp_orig <- RaMP::RaMP
 assignInNamespace("RaMP", function(version = ramp_version, branch = "main") ramp_orig(version, branch), "RaMP")
 
+# Diagnostic, added after the second attempt stopped in tidyr inside
+# metLinkR's pivot_mapping_library(). The table it is given is saved before
+# the call, so the failure can be studied without another full run. The
+# call itself is unchanged.
+pivot_orig <- get("pivot_mapping_library", asNamespace("metLinkR"))
+assignInNamespace("pivot_mapping_library", function(mappings) {
+  saveRDS(mappings, "debug_pivot_input.rds")
+  pivot_orig(mappings)
+}, "metLinkR")
+
 old <- setwd(run_dir)
 started <- Sys.time()
 result <- harmonizeInputSheets(inputcsv = "manifest.csv", n_cores = 1)
