@@ -1092,3 +1092,7 @@ The acceptance criteria stay as written in the plan.
 All automatic checks passed (`notes/findings.md`): only R01 pairs changed, all to R01s; the development evaluation, the lipid proposals and the COMETS definite claims are as in 0.9.1; 120 of 121 `same_name` pairs on COMETS are in one expert group. No hand check was needed, as the plan said.
 
 These results are after adaptation. The label has not met data it was not built on. The change goes to main as v0.11.0 once I have read the pull request.
+
+## 2026-11-08: v0.11.0 released
+
+I asked for the merge and the tag after reading the results. Pull request #9 is merged and main is at 0.11.0. The label has only been run on data it was built on. The next real test is a fourth blind test with name-only files.
