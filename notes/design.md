@@ -178,6 +178,7 @@ Severity, most severe first: distinct, unresolved, same_name, broader_narrower, 
 - The stereo comparison can report a false conflict for symmetric molecules such as inositol. A conflict never leads to a claim on its own.
 - A structure whose SMILES and key agree but which does not match its name (the Metabolon steroids in the first review) is not detected.
 - The Biocrates table covers the p180 kit as published in 2023; analytes it does not list get no profile.
+- R03 gives `exact` to two rows that share an identifier even when their names mark different isomers ([1] and [2]). Species-level lipid matching can call a pair broader_narrower when the double bond positions differ (9Z against 11Z). "PC(18:0)" is not read as a lyso PC. Found in the fourth blind test and not fixed (decisions.md, 2026-11-08).
 - Pair checks cover only rows the matching step grouped. Lipid matches cover all lipid rows with a profile.
 
 ## Versions

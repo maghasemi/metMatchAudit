@@ -22,6 +22,7 @@ One folder per stage, in the order the work was done. Within a folder, the numbe
 | `16_v0.10/` | v0.10 feasibility (the change was dropped). |
 | `17_v0.9.1/` | v0.9.1 acceptance. |
 | `18_v0.11/` | v0.11 feasibility and acceptance. |
+| `19_blind_test_4/` | Fourth blind test: selection of the files, MetLinkR run, sampling, test. |
 | `19_blind_test_4/` | Fourth blind test, on three Metabolomics Workbench files. |
 
 The three `*_run_metlinkr.R` scripts are not run from this project. MetLinkR, RaMP and Java are kept in a separate R project so that they stay out of this package's `renv.lock`. The scripts are copied here unchanged so that every step of the tests can be read in one place. Their headers give the paths they used.

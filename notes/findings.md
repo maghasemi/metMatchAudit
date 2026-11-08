@@ -660,3 +660,15 @@ Source: `results/v11_check/` and `results/v11_check_log.txt`, from `scripts/18_v
 The pairs are the 121 the feasibility counted. The one the expert separates is again "N-acetylcarnosine" against "N-acetylcarnosine".
 
 On COMETS, unresolved pairs go from 250 to 129. The 121 that moved are not new claims: they now say that the names agree and that nothing else was compared.
+
+## 2026-11-08: fourth blind test (blind)
+
+v0.11.0 on three public blood files from the Metabolomics Workbench. Counts: `same_name` right in 27 of 27 pairs (C4 met), 2 of 56 groups with a wrong definite answer (C2 met), definite claims 0 of 2 (C1 not met), lipid proposals 3 of 4 (C3 not met).
+
+What it showed:
+- `same_name` held on files it was not built for. It is a statement about names only, and the 27 pairs were all the same compound.
+- The tool made very few definite claims on this kind of data: 17 of 292 pairs were exact or distinct. Name-only rows mostly end as `unresolved` or `same_name`, which is safe and also uninformative.
+- Three weak points, none fixed: an identifier shared by two rows is trusted over names that mark different isomers (R03); species-level lipid matching ignores a different double bond position; a name written as "PC(18:0)" is not read as a lyso PC.
+- Of 12 labeled lipid pairs, 6 were already in one MetLinkR group and 3 were proposed; the other 3 were not.
+
+What it does not show: how good `exact` and `distinct` are on new data (too few), or whether the lipid proposals are reliable (4). The labels are the assistant's, accepted without a chemistry check.

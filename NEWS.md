@@ -4,6 +4,7 @@
 * `same_name` ranks after unresolved and before broader_narrower. `summarise_groups()` gets a column `n_same_name`. In evaluations it counts as unresolved does.
 * `classify_pairs()` now needs `name_isomer_label` and `name_tentative`, which `row_evidence()` provides. R01s runs only when the evidence has a `file` column.
 * COMETS, after adaptation (feasibility): 121 of the 234 R01 pairs would get `same_name`, and the expert puts 120 of them in one group.
+* Final version. A fourth blind test on three public blood files (Metabolomics Workbench) found `same_name` right in 27 of 27 pairs and 2 of 56 groups with a wrong definite answer. Three limits stay open and are listed in the README. No code changed after the tag; the test results are in `notes/evaluation.md`.
 * There is no 0.10 release. The name lookup planned for it was dropped at feasibility.
 
 # metMatchAudit 0.9.1

@@ -99,6 +99,20 @@ v0.11 gives a pair the relationship `same_name` when R01 would leave it unresolv
 
 On COMETS, 121 of the 234 R01 pairs moved to `same_name`. The expert puts 120 of them in one group. The one it separates is "N-acetylcarnosine" against "N-acetylcarnosine". Definite claims, lipid proposals and the development evaluation did not change. The two blind tests have only six R01 pairs between them, so a test of this label needs new data with name-only files.
 
+## Fourth blind test (v0.11.0)
+
+v0.11.0 ran on three human blood files that the Metabolomics Workbench lists: F1 (ST001411, 991 rows, names with PubChem and HMDB), F2 (ST004767, 919 rows) and F3 (ST003705, 463 rows), the last two with names only. A fixed rule with a fixed seed chose them (plan in decisions.md, 2026-11-08), and none of their names had been seen. MetLinkR was at commit a6aa145 with RaMP DB 3.0.7, with three workarounds for its own errors that change neither its settings nor its inputs (decisions.md). The sample is 57 groups (27 with one name, 30 with different names), 67 pairs and 40 lipid and carnitine rows. The labels are the assistant's, accepted by me without a chemistry check, and were committed before the run.
+
+| criterion | result | |
+|---|---|---|
+| C1: definite claims agree with the label, at least 90% | 0 of 2 | not met |
+| C2: groups labeled A to D with a wrong definite answer, at most 5% | 2 of 56 (3.6%) | met |
+| C3: lipid proposals in the labels, at least 90% | 3 of 4 | not met |
+| C3 recall | 3 of 12 | |
+| C4: `same_name` pairs labeled A, at least 95% | 27 of 27 | met |
+
+C1 and C3 rest on two and four cases, so they cannot carry a threshold. The sample was meant to bring in pairs of different compounds, but the tool made only 17 definite claims among 292 pairs, and 2 fell on labeled pairs. The two C1 misses are the two regioisomers [1] and [2] of one diacylglycerol that share an HMDB ID (exact, label C), and a plasmalogen PC whose ether chain is at sn-1 in one name and sn-2 in the other (distinct, label F, which I had called unclear before the run). The one proposal outside the labels is oleoyl (9Z) against 11Z lyso PC 18:1. Details are in [decisions.md](decisions.md) (2026-11-08, fourth blind test, result).
+
 ## What did not work
 
 Four ideas were tried or considered and set aside. All are logged in [decisions.md](decisions.md).
@@ -112,7 +126,8 @@ Four ideas were tried or considered and set aside. All are logged in [decisions.
 
 
 - A stereo-only key difference between two names that state no stereo should not give broader_narrower. This was the only cause of wrong answers in the third test and one of the causes in the second.
-- A further blind test with more pairs of different compounds, since the third test had almost none.
+- More pairs of different compounds. The fourth test tried to add them and still had only 2 definite claims on labeled pairs.
+- The three limits from the fourth test (README, known limits). Development stopped at v0.11.0 and none of them is fixed.
 - Reading MS-DIAL lipid names, with a class map for names such as Cer-NS and HexCer-NDS.
 - A name against key check for lipids. In the second test, B names PC 35:3 for a row whose key is PE 38:3.
 - Nightingale biomarker definitions and an aggregate relationship for class totals.

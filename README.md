@@ -8,7 +8,7 @@ Check whether metabolites matched across datasets are really the same compound.
 
 Tools such as [MetLinkR](https://github.com/ncats/MetLinkR) link metabolomics datasets by giving every row a standardized name. Rows that end up with the same name are treated as one metabolite. metMatchAudit runs after that step. For every pair of rows that share a name, it looks at the structural evidence and reports how the two actually relate, with the rule that decided it. It also proposes lipid matches across vendors that the matching step missed.
 
-Status: v0.11.0, tested in one development review and three blind tests (see [Evaluation](#evaluation)).
+Status: v0.11.0, the final version. It was tested in one development review and four blind tests (see [Evaluation](#evaluation)). Development has stopped.
 
 ## Why
 
@@ -108,14 +108,18 @@ Each test fixed its criteria and labels before the tool ran on its data. Full re
 | COMETS, blind (v0.4.1) | 5 datasets with expert mappings | definite claims (exact, distinct) right in 121 of 125 (96.8%); F1 not better than MetLinkR alone |
 | second blind test (v0.6.0) | own Metabolon file and Ding et al. 2021 | definite claims right in 48 of 65 (73.8%); 12 of 58 groups with a wrong answer |
 | third blind test (v0.7.0) | own Metabolon file and Lai et al. 2021 | definite claims right in 78 of 78; 7 of 60 groups with a wrong answer; 13 of 13 lipid proposals right |
+| fourth blind test (v0.11.0) | three public human blood files from the Metabolomics Workbench | `same_name` right in 27 of 27; 2 of 56 groups with a wrong answer; only 2 definite claims on labeled pairs, both missed; 3 of 4 lipid proposals in the labels |
 
-The tool rarely makes a wrong `exact` or `distinct` call on naming styles it knows, and leaves a pair `unresolved` when the evidence is thin. It did not carry over to an unseen naming style (MS-DIAL) in the second test. Its main remaining error is the first limit below.
+The tool rarely makes a wrong `exact` or `distinct` call on naming styles it knows, and leaves a pair `unresolved` when the evidence is thin. It did not carry over to an unseen naming style (MS-DIAL) in the second test. Its main remaining error is the first limit below. The fourth test had too few definite claims (2) and lipid proposals (4) to judge them, and its labels are an AI assistant's, accepted without a chemistry check.
 
 ## Known limits
 
 - `broader_narrower` from rule R09 means one record has stereo and the other does not. Often the names agree and say nothing about stereo ("lactate" and "Lactic acid"), and the difference only reflects which PubChem record each lab chose. If you match by name, treat such a pair as the same compound.
 - Rows with only a name, and no identifier the tool can use, get no evidence.
 - MS-DIAL-style lipid names are not read.
+- Two rows of one file that share an identifier get `exact` even when their names mark different isomers ("[1]" and "[2]" of one diacylglycerol).
+- Lipid matching at species level can call two names `broader_narrower` when they give different double bond positions (oleoyl 9Z against 11Z).
+- A name such as "PC(18:0)" is not read as a lyso PC.
 - The name checks are tuned on Metabolon, Broad, Biocrates and HMDB-style naming.
 
 The full list is in [notes/design.md](notes/design.md).
@@ -140,6 +144,7 @@ The full list is in [notes/design.md](notes/design.md).
 - RDKit: Open-source cheminformatics, <https://www.rdkit.org>.
 - COMETS expert mappings: `ManualMappings.csv` from the supplement of Patt et al. 2025 (above).
 - Ding J. et al. A metabolome atlas of the aging mouse brain. Nat. Commun. 2021, 12. DOI 10.1038/s41467-021-26310-y. Annotation table used in the second blind test.
+- Metabolomics Workbench studies ST001411, ST004767 and ST003705 (CC BY-NC-ND), used in the fourth blind test. They are not included; `scripts/19_blind_test_4/01_select.R` fetches them again.
 - Lai Y. et al. High-coverage metabolomics uncovers microbiota-driven biochemical landscape of interorgan transport and gut-brain communication in mice. Nat. Commun. 2021, 12. DOI 10.1038/s41467-021-26209-8. Supplementary Data 2 and 3, used in the third blind test and included in `data-raw/lai2021/` under CC BY 4.0.
 
 ## AI usage
