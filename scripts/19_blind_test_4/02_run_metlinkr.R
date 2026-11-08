@@ -23,6 +23,21 @@ if (dir.exists(dest)) stop(dest, " exists already. Remove it on purpose to rerun
 dir.create(run_dir, showWarnings = FALSE)
 file.copy(inputs, run_dir, overwrite = TRUE)
 
+# metLinkR's queryRefMet() returns NA for a table with a single column
+# (`length(input_df) == 1`), and the run then stops in makeStereochemFlags().
+# F2 and F3 have only the name column, so their run copies get one extra,
+# empty column that the manifest does not name. The values are unchanged,
+# and the copies in data-raw/blind4/ are not touched.
+padded <- character(0)
+for (f in file.path(run_dir, basename(inputs))) {
+  d <- read.csv(f, colClasses = "character", check.names = FALSE, na.strings = character(0))
+  if (ncol(d) == 1) {
+    d$UNUSED <- ""
+    write.csv(d, f, row.names = FALSE)
+    padded <- c(padded, basename(f))
+  }
+}
+
 # F1 has PubChem and HMDB columns; F2 and F3 have names only.
 manifest <- data.frame(
   FileNames       = basename(inputs),
@@ -61,6 +76,7 @@ writeLines(c(
   "RaMP database versions on this machine:",
   utils::capture.output(RaMP::listAvailableRaMPDbVersions()),
   paste("RaMP database version used (pinned):", ramp_version),
+  paste("Files given an empty extra column for metLinkR:", paste(padded, collapse = ", ")),
   "Settings: MetLinkR defaults, n_cores = 1",
   "",
   utils::capture.output(sessionInfo())
