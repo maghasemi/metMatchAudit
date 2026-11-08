@@ -1096,3 +1096,15 @@ These results are after adaptation. The label has not met data it was not built 
 ## 2026-11-08: v0.11.0 released
 
 I asked for the merge and the tag after reading the results. Pull request #9 is merged and main is at 0.11.0. The label has only been run on data it was built on. The next real test is a fourth blind test with name-only files.
+
+## 2026-11-08: the R11 tie-break from a name's key is set aside before any code
+
+The idea: when two keys differ only in stereo and no name states stereo (R11, unresolved), ask PubChem for the name. If its key matches one row exactly, flag the other row as a possible source error. It was aimed at cases like the Metabolon steroids of the first review. I set it aside before writing a plan with criteria, for three reasons:
+
+- It is small. The development data has 9 R11 pairs and COMETS has 6. No threshold on 15 pairs would mean much, since one pair either way changes the answer.
+- It contradicts a rule already written down. The v0.10 plan says that when a key from a name differs only in stereo, that stereo is PubChem's choice of record and not evidence. This idea would use exactly that stereo as the referee.
+- That referee is known to disagree often. In the v0.10 feasibility, among rows where the name's key had the same connectivity as the row's key, the two keys were identical in 919 of 1123 (82%). So PubChem picks a different record for about one row in five, mostly where nothing is likely wrong, and a flag built on it would be noisy.
+
+Only the size was counted for this entry (15 R11 pairs; the names of 25 of their 30 rows were already in the v0.10 cache). No outcome was looked at. Nothing is built, and no branch or version number is used.
+
+The next step is a fourth blind test on new data. v0.9, v0.9.1 and v0.11 have only been run on data they were built on.
