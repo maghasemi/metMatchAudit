@@ -1261,3 +1261,14 @@ C3 recall: 12 labeled lipid pairs, 3 proposed. Of the 9 not proposed, 6 were alr
 - Labels are the assistant's, accepted by the user without chemistry checks (see `notes/blind4_labels.md`).
 
 No change to the tool is made here. Possible follow-ups, for a separate plan: whether R03 should say exact for two rows of one file that carry a shared HMDB ID but names marked [1] and [2]; whether species-level lipid matching should compare double bond position when both names give it; whether "PC(18:0)" should be read as a lyso PC.
+
+## 2026-11-08: the project is closed at v0.11.0
+
+After the fourth blind test the user decided to stop developing the tool. v0.11.0 stays the final version. No fix is made for the three open points from the fourth test, and no fifth test is run.
+
+The open points are kept as known limits of v0.11.0:
+- R03 says exact for two rows that share an identifier even when their names mark different isomers ([1] and [2] of one diacylglycerol, same file).
+- Species-level lipid matching can call two names broader_narrower when they give different double bond positions (oleoyl 9Z against 11Z).
+- A name such as "PC(18:0)" is not read as a lyso PC, so such a pair is not proposed.
+
+What the last blind test supports, on 57 groups of three public human blood files: no definite claim was wrong on the 27 same-name pairs, `same_name` was right in 27 of 27, and 2 of 56 groups got a wrong definite answer. What it does not support: the definite claims (exact, distinct) were too few to say how good they are (2 on labeled pairs), the lipid proposals were too few (4), and the labels are the assistant's, accepted without chemistry checks. Any statement about the tool must carry these limits.
