@@ -34,13 +34,34 @@ missing  <- inputs[!file.exists(inputs)]
 if (length(missing) > 0) stop("Cannot find: ", paste(missing, collapse = ", "))
 
 dir.create(run_dir)
-file.copy(c(inputs, file.path(extdata, "HarmInputFiles.csv")), run_dir)
+invisible(file.copy(c(inputs, file.path(extdata, "HarmInputFiles.csv")), run_dir))
 
 # Same RaMP pin as in scripts/19_blind_test_4/02_run_metlinkr.R.
 ramp_version <- "3.0.7"
 stopifnot(ramp_version %in% RaMP:::listRaMPVersions(local = TRUE))
 ramp_orig <- RaMP::RaMP
 assignInNamespace("RaMP", function(version = ramp_version, branch = "main") ramp_orig(version, branch), "RaMP")
+
+# Same pivot fallback as in scripts/19_blind_test_4/02_run_metlinkr.R. The
+# first run of this script (2026-11-16) stopped in pivot_mapping_library()
+# with the error seen in the fourth blind test ("SET_VECTOR_ELT() can only
+# be applied to a 'list', not a 'promise'"). If the original fails, the
+# same pivot is done with names_pattern. The input table is then saved as
+# pivot_input.rds, so the two pivots can be compared in a fresh session.
+pivot_orig <- get("pivot_mapping_library", asNamespace("metLinkR"))
+pivot_fallback_used <- FALSE
+assignInNamespace("pivot_mapping_library", function(mappings) {
+  tryCatch(pivot_orig(mappings), error = function(e) {
+    pivot_fallback_used <<- TRUE
+    saveRDS(mappings, "pivot_input.rds")
+    message("pivot_mapping_library() failed (", conditionMessage(e), "); using names_pattern instead")
+    mappings |>
+      tidyr::pivot_longer(cols = -"Harmonized name", names_to = c(".value", "Origin file"),
+                          names_pattern = "^(.*) \\((.*)\\)$", values_drop_na = TRUE) |>
+      dplyr::filter(`Input name` != "-") |>
+      dplyr::mutate(`Origin file` = gsub("\\)", "", `Origin file`))
+  })
+}, "metLinkR")
 
 old <- setwd(run_dir)
 started <- Sys.time()
@@ -55,6 +76,7 @@ writeLines(c(
   paste("metLinkR GitHub commit:", if (is.null(desc$RemoteSha)) "unknown" else desc$RemoteSha),
   paste("RaMP package version:", as.character(utils::packageVersion("RaMP"))),
   paste("RaMP database version used (pinned):", ramp_version),
+  paste("pivot_mapping_library() replaced by the names_pattern pivot after an error:", pivot_fallback_used),
   "Settings: MetLinkR defaults, n_cores = 1",
   "",
   utils::capture.output(sessionInfo())
@@ -66,7 +88,7 @@ out_dir <- file.path(run_dir, "metLinkR_output")
 read_out <- function(f) read.csv(f, colClasses = "character", check.names = FALSE, na.strings = c("", "NA"))
 mapped <- function(x) !is.na(x) & x != "-"
 
-cat("\nMetLinkR finished in", minutes, "minutes.\n\nNew output:\n")
+cat("\nMetLinkR finished in", minutes, "minutes. Pivot fallback used:", pivot_fallback_used, "\n\nNew output:\n")
 new_files <- sub("\\.csv$", "_metLinkR.csv", manifest$FileNames)
 new <- lapply(file.path(out_dir, new_files), read_out)
 names(new) <- new_files
